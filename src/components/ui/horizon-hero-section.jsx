@@ -6,12 +6,12 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 
 const SECTIONS = [
     {
-        title: 'SIGMOID   2K26',
+        title: 'SIGMOID 2K26',
         line1: 'Where vision meets reality,',
         line2: 'we shape the future of tomorrow',
     },
     {
-        title: 'PRESENTED   BY',
+        title: 'PRESENTED BY',
         line1: 'Beyond the boundaries of imagination,',
         line2: 'lies the universe of possibilities',
     },
@@ -475,7 +475,7 @@ export const HorizonHero = () => {
                         }}
                     >
                         {sectionData.title.split('').map((char, i) => (
-                            <span key={i} className="title-char" style={{ display: 'inline-block', width: char === ' ' ? '0.4em' : 'auto' }}>
+                            <span key={i} className="title-char" style={{ display: 'inline-block', width: char === ' ' ? '0.15em' : 'auto' }}>
                                 {char === ' ' ? '\u00A0' : char}
                             </span>
                         ))}

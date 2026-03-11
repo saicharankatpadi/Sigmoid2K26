@@ -88,11 +88,18 @@ export const AboutSection = () => {
                 </div>
             </section>
 
-            {/* FREE MATERIALS */}
-            <p className="about-free-para">
-                Sigmoid consists of all free materials, which can be a good place to start with, but if you're looking for a premium experience with the best study
-                experience, our paid model is available.
-            </p>
+            {/* BRIDGE TO TOMORROW */}
+            <div className="flex flex-col items-center text-center my-16 px-4">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
+                    The "Bridge to Tomorrow"
+                </h2>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#ff4d00] mb-6 tracking-wide">
+                    Empowering the Next Generation
+                </h3>
+                <p className="text-[15px] sm:text-[16px] font-semibold text-[#e2e2e2] leading-[1.8] max-w-[960px]">
+                    Sigmoid is more than a date on the calendar; it is a catalyst for professional transformation. Hosted annually by the Department of ECE, SVUCE, this symposium is designed to pull students out of their textbooks and thrust them into the heart of modern engineering challenges. By fostering a culture of high-stakes competition and intellectual exchange, Sigmoid prepares the engineers of today to become the innovators, entrepreneurs, and leaders of a tech-driven global future.
+                </p>
+            </div>
 
             {/* TECH AND EDITORS TEAM */}
             <section>

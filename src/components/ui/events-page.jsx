@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { MatrixText } from './matrix-text';
 
 const CATEGORIES = ['Technical', 'Non-Technical', 'E-sports'];
@@ -69,12 +69,19 @@ const EVENTS_DATA = [
 ];
 
 export const EventsPage = () => {
-    const [activeCategory, setActiveCategory] = useState('Technical');
+    const { state } = useLocation();
+    const [activeCategory, setActiveCategory] = useState(state?.category || 'Technical');
     const navigate = useNavigate();
 
     const filteredEvents = EVENTS_DATA.filter(event =>
         event.category === activeCategory
     );
+
+    React.useEffect(() => {
+        if (state?.category) {
+            setActiveCategory(state.category);
+        }
+    }, [state?.category]);
 
     return (
         <div className="min-h-screen bg-[#0A0A0A] pt-[120px] pb-24 px-6 md:px-12 font-sans selection:bg-[#F97316]/30">
