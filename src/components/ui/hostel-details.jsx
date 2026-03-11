@@ -10,11 +10,13 @@ const food1Img = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218168/
 const food2Img = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218154/food2_cyzxhy.png'
 const groupIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/group-icon_vmt5xe.png'
 const homeIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/home-icon_kwn11t.png'
-
-const frontendDevImg = ''
+const frontendDevImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218155/frontend-developer_vestnr.jpg'
 const teamLeaderImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/team-leader_zriohu.jpg'
 const profileImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218168/profile_qkq92t.jpg'
-import figmaDevImg from '../../assets/figma-developer.jpeg'
+const figmaDevImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218151/Figma_Developer_cl5rfh.jpg'
+const boysAccommodationPaymentLink = 'https://rzp.io/rzp/0zxTDlrf'
+const girlsAccommodationPaymentLink = 'https://rzp.io/rzp/HK7rRf6l'
+
 
 // Inline SVG components
 const User = ({ className }) => (
@@ -411,7 +413,14 @@ export function HostelDetails({ type }) {
                                         "rounded-full px-12 py-3 hover:scale-105 transition-all text-white text-xl font-bold uppercase tracking-widest",
                                         isBoys ? "bg-blue-600 hover:bg-blue-500 shadow-[0_0_20px_rgba(37,99,235,0.5)]" : "bg-[#e91e63] hover:bg-[#c2185b] shadow-[0_0_20px_rgba(233,30,99,0.5)]"
                                     )}
-                                    onClick={() => navigate(`/accommodation/register?type=${type}`)}
+                                    onClick={() => {
+                                        if (isBoys) {
+                                            window.open(boysAccommodationPaymentLink, '_blank', 'noopener,noreferrer');
+                                            return;
+                                        }
+
+                                        window.open(girlsAccommodationPaymentLink, '_blank', 'noopener,noreferrer');
+                                    }}
                                 >
                                     Book Now
                                 </Button>

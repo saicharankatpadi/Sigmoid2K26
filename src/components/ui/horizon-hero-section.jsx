@@ -3,7 +3,6 @@ import * as THREE from 'three';
 import { gsap } from 'gsap';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 
 const SECTIONS = [
     {
@@ -77,9 +76,6 @@ export const HorizonHero = () => {
         // Post-processing
         refs.composer = new EffectComposer(refs.renderer);
         refs.composer.addPass(new RenderPass(refs.scene, refs.camera));
-        refs.composer.addPass(
-            new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 0.25, 0.4, 0.85)
-        );
 
         createStarField();
         createNebula();
@@ -123,12 +119,22 @@ export const HorizonHero = () => {
                 const sizes = new Float32Array(starCount);
 
                 for (let j = 0; j < starCount; j++) {
-                    const radius = 200 + Math.random() * 800;
-                    const theta = Math.random() * Math.PI * 2;
-                    const phi = Math.acos(Math.random() * 2 - 1);
-                    positions[j * 3] = radius * Math.sin(phi) * Math.cos(theta);
-                    positions[j * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-                    positions[j * 3 + 2] = radius * Math.cos(phi);
+                    let x = 0;
+                    let y = 0;
+                    let z = 0;
+
+                    do {
+                        const radius = 200 + Math.random() * 800;
+                        const theta = Math.random() * Math.PI * 2;
+                        const phi = Math.acos(Math.random() * 2 - 1);
+                        x = radius * Math.sin(phi) * Math.cos(theta);
+                        y = radius * Math.sin(phi) * Math.sin(theta);
+                        z = radius * Math.cos(phi);
+                    } while (Math.abs(x) < 28 && Math.abs(y) < 28);
+
+                    positions[j * 3] = x;
+                    positions[j * 3 + 1] = y;
+                    positions[j * 3 + 2] = z;
 
                     const color = new THREE.Color();
                     const r = Math.random();
@@ -155,7 +161,13 @@ export const HorizonHero = () => {
               mat2 rot = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
               pos.xy = rot * pos.xy;
               vec4 mv = modelViewMatrix * vec4(pos, 1.0);
-              gl_PointSize = size * (300.0 / -mv.z);
+              if (mv.z > -1.0) {
+                gl_Position = vec4(2.0, 2.0, 2.0, 1.0);
+                gl_PointSize = 0.0;
+                return;
+              }
+              float pointSize = size * (300.0 / max(-mv.z, 1.0));
+              gl_PointSize = clamp(pointSize, 0.5, 6.0);
               gl_Position = projectionMatrix * mv;
             }`,
                     fragmentShader: `
