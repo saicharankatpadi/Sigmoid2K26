@@ -5,13 +5,13 @@ const figmaDev = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218151/
 const teamLeader = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/team-leader_zriohu.jpg';
 
 const TEAM_MEMBERS = [
-    { name: 'N.Nikshep', badge: 'Present', img: figmaDev },
-    { name: 'K.Sai Charan', badge: 'Present', img: frontendDev },
-    { name: 'M.Balakrishna', badge: 'Present', img: teamLeader },
-    { name: 'K.Yashwanth', badge: 'Present', img: '/assets/images/team/img1.jpeg' },
-    { name: 'K.Charan Sai', badge: 'Present', img: '/assets/images/team/img8.jpeg' },
-    { name: 'K. Uma Shankar', badge: 'Present', img: '/assets/images/team/img4.jpeg' },
-    { name: 'K . Pavan', badge: 'Present', img: '/assets/images/team/img9.jpeg' },
+    { name: 'N.Nikshep', img: figmaDev },
+    { name: 'K.Sai Charan', img: frontendDev },
+    { name: 'M.Balakrishna', img: teamLeader },
+    { name: 'K.Yashwanth', img: '/assets/images/team/img1.jpeg' },
+    { name: 'K.Charan Sai', img: '/assets/images/team/img8.jpeg' },
+    { name: 'K. Uma Shankar', img: '/assets/images/team/img4.jpeg' },
+    { name: 'K . Pavan', img: '/assets/images/team/img9.jpeg' },
 ];
 
 const ALUMNI = [
@@ -25,11 +25,11 @@ const CORE_TEAM = [
 ];
 
 const MARKETING_TEAM = [
-    { name: 'P. Harsha Varsha Vardhan', badge: 'Marketing Team', img: '/assets/images/team/img12.jpeg' },
+    { name: 'P. Harsha Varsha Vardhan', badge: 'Marketing Head', img: '/assets/images/team/img12.jpeg' },
 ];
 
 const HELP_DESK = [
-    { name: 'K. Sudharshan', badge: 'Help Desk', img: '/assets/images/team/img11.jpeg' },
+    { name: 'K. Sudharshan', badge: 'Help Desk Head', img: '/assets/images/team/img11.jpeg' },
 ];
 
 const STATS = [
@@ -106,9 +106,6 @@ export const AboutSection = () => {
                                 <img src={member.img} alt={member.name} />
                             </div>
                             <div className="about-member-name">{member.name}</div>
-                            <div className="about-member-badges">
-                                <span className="about-badge about-badge-present">{member.badge}</span>
-                            </div>
                         </div>
                     ))}
                 </div>
@@ -146,7 +143,7 @@ export const AboutSection = () => {
 
             {/* MARKETING TEAM */}
             <section className="about-alumni-section">
-                <h2 className="about-section-title">Marketing Team</h2>
+                <h2 className="about-section-title">Marketing Head</h2>
                 <div className="about-team-grid">
                     {MARKETING_TEAM.map((member, i) => (
                         <div key={i} className="about-member">
@@ -161,7 +158,7 @@ export const AboutSection = () => {
 
             {/* HELP DESK & ACCOMMODATION */}
             <section className="about-alumni-section">
-                <h2 className="about-section-title">Help Desk & Accommodation</h2>
+                <h2 className="about-section-title">Help Desk & Accommodation Head</h2>
                 <div className="about-team-grid">
                     {HELP_DESK.map((member, i) => (
                         <div key={i} className="about-member">
