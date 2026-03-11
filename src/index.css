@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: #0A0A0A;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ═══════════════ Horizon Hero Section ═══════════════ */
+
+/* Outer wrapper — tall enough for 3 "pages" of scroll */
+.hero-outer {
+  position: relative;
+  height: 600vh;
+  /* 3 sections × 200vh each — slow, cinematic scroll */
+}
+
+/* Sticky viewport — stays pinned while scrolling through hero-outer */
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ── Side Menu ── */
+.side-menu {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.menu-icon:hover span {
+  background: rgba(255, 255, 255, 1);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+}
+
+/* ── Main Content ── */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-text-slide {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.hero-title {
+  font-size: clamp(48px, 10vw, 140px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: #F97316;
+  text-shadow:
+    0 0 60px rgba(249, 115, 22, 0.35),
+    0 0 120px rgba(249, 115, 22, 0.15);
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 24px;
+}
+
+.title-char {
+  display: inline-block;
+}
+
+.hero-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.subtitle-line {
+  font-size: clamp(14px, 1.8vw, 20px);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  line-height: 1.7;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* ── Dot Navigation ── */
+.hero-dot-nav {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.4s ease;
+}
+
+.hero-dot.active {
+  background: #F97316;
+  border-color: #F97316;
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.5);
+  transform: scale(1.3);
+}
+
+/* ── Scroll Progress ── */
+.scroll-progress {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.scroll-text {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 500;
+}
+
+.progress-track {
+  width: 120px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #F97316;
+  border-radius: 2px;
+  transition: width 0.1s ease-out;
+}
+
+.section-counter {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 400;
+}

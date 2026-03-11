@@ -1,0 +1,24 @@
+Visual Structure & Layout:
+- Two-column dashboard layout (List on left, Details on right).
+- Sidebar: Scrollable list of 20 colleges with logos and 'total wins' badges.
+- Main Section: Displays detailed win data for the selected college, separated into 'Technical' and 'Non-Technical' categories.
+- Winner Cards: Side-by-side representation for team members with specific avatars for boys and girls.
+
+Typography & Styling:
+- Consistent with 'Sigmoid' branding (Blue #3B82F6 and Orange).
+- Glowing effects on active elements and hover states.
+- Rounded corners for logo containers and card-style detail views.
+
+Interactions:
+- Clicking a college in the left list updates the right panel with specific event wins.
+- Filter toggle between Tech/Non-Tech wins.
+
+Data Schema:
+- College: { name, logo, totalWins, techWins, nonTechWins, eventWins: [] }
+- EventWin: { eventName, category, rank (1/2/3), teamMembers: [], teamLogo }
+- Avatars: boy-winner.png, girl-winner.png
+
+Animations (Reference):
+- Smooth transitions between college selections.
+- Fade-in for right-side content.
+- Glowing border transitions on hover.
