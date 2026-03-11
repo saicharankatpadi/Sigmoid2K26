@@ -1,21 +1,35 @@
 import React from 'react';
 import './about-section.css';
+const frontendDev = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218155/frontend-developer_vestnr.jpg';
 const figmaDev = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218151/Figma_Developer_cl5rfh.jpg';
-const frontendDev = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218154/FrontendDeveloper_nqzkiv.jpg';
 const teamLeader = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/team-leader_zriohu.jpg';
 
 const TEAM_MEMBERS = [
-    { name: 'Figma Developer', badge: 'Present', img: figmaDev },
-    { name: 'Frontend Developer', badge: 'Present', img: frontendDev },
-    { name: 'Team Leader', badge: 'Present', img: teamLeader },
+    { name: 'N.Nikshep', badge: 'Present', img: figmaDev },
+    { name: 'K.Sai Charan', badge: 'Present', img: frontendDev },
+    { name: 'M.Balakrishna', badge: 'Present', img: teamLeader },
+    { name: 'K.Yashwanth', badge: 'Present', img: '/assets/images/team/img1.jpeg' },
+    { name: 'K.Charan Sai', badge: 'Present', img: '/assets/images/team/img8.jpeg' },
+    { name: 'K. Uma Shankar', badge: 'Present', img: '/assets/images/team/img4.jpeg' },
+    { name: 'K . Pavan', badge: 'Present', img: '/assets/images/team/img9.jpeg' },
 ];
 
 const ALUMNI = [
-    { name: 'Alumni 1', badge: 'Alumni', img: 'https://via.placeholder.com/150' },
-    { name: 'Alumni 2', badge: 'Alumni', img: 'https://via.placeholder.com/150' },
-    { name: 'Alumni 3', badge: 'Alumni', img: 'https://via.placeholder.com/150' },
-    { name: 'Alumni 4', badge: 'Alumni', img: 'https://via.placeholder.com/150' },
-    { name: 'Alumni 5', badge: 'Alumni', img: 'https://via.placeholder.com/150' },
+    { name: 'S.K Arshad Ahmed', badge: 'Student Coordinator', img: '/assets/images/team/img6.jpeg' },
+    { name: 'E. Tejaswi', badge: 'Student Coordinator', img: '/assets/images/team/img7.jpeg' },
+];
+
+const CORE_TEAM = [
+    { name: 'B.Tharun', badge: 'Core Team', img: '/assets/images/team/img10.jpeg' },
+    { name: 'K. Sudharshan', badge: 'Core Team', img: '/assets/images/team/img11.jpeg' },
+];
+
+const MARKETING_TEAM = [
+    { name: 'P. Harsha Varsha Vardhan', badge: 'Marketing Team', img: '/assets/images/team/img12.jpeg' },
+];
+
+const HELP_DESK = [
+    { name: 'K. Sudharshan', badge: 'Help Desk', img: '/assets/images/team/img11.jpeg' },
 ];
 
 const STATS = [
@@ -82,9 +96,9 @@ export const AboutSection = () => {
                 experience, our paid model is available.
             </p>
 
-            {/* OUR AMAZING TEAM */}
+            {/* TECH AND EDITORS TEAM */}
             <section>
-                <h2 className="about-section-title">Our Amazing Team</h2>
+                <h2 className="about-section-title">Tech and Editors Team</h2>
                 <div className="about-team-grid">
                     {TEAM_MEMBERS.map((member, i) => (
                         <div key={i} className="about-member">
@@ -93,7 +107,7 @@ export const AboutSection = () => {
                             </div>
                             <div className="about-member-name">{member.name}</div>
                             <div className="about-member-badges">
-                                <span className="about-badge about-badge-present">Present</span>
+                                <span className="about-badge about-badge-present">{member.badge}</span>
                             </div>
                         </div>
                     ))}
@@ -102,7 +116,7 @@ export const AboutSection = () => {
 
             {/* ALUMNI */}
             <section className="about-alumni-section">
-                <h2 className="about-section-title">Our Outstanding Alumni</h2>
+                <h2 className="about-section-title">Student Coordinators</h2>
                 <div className="about-team-grid">
                     {ALUMNI.map((member, i) => (
                         <div key={i} className="about-member">
@@ -110,9 +124,51 @@ export const AboutSection = () => {
                                 <img src={member.img} alt={member.name} />
                             </div>
                             <div className="about-member-name">{member.name}</div>
-                            <div className="about-member-badges">
-                                <span className="about-badge about-badge-alumni">Alumni</span>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* CORE TEAM */}
+            <section className="about-alumni-section">
+                <h2 className="about-section-title">Core Team</h2>
+                <div className="about-team-grid">
+                    {CORE_TEAM.map((member, i) => (
+                        <div key={i} className="about-member">
+                            <div className="about-member-photo">
+                                <img src={member.img} alt={member.name} />
                             </div>
+                            <div className="about-member-name">{member.name}</div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* MARKETING TEAM */}
+            <section className="about-alumni-section">
+                <h2 className="about-section-title">Marketing Team</h2>
+                <div className="about-team-grid">
+                    {MARKETING_TEAM.map((member, i) => (
+                        <div key={i} className="about-member">
+                            <div className="about-member-photo">
+                                <img src={member.img} alt={member.name} />
+                            </div>
+                            <div className="about-member-name">{member.name}</div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* HELP DESK & ACCOMMODATION */}
+            <section className="about-alumni-section">
+                <h2 className="about-section-title">Help Desk & Accommodation</h2>
+                <div className="about-team-grid">
+                    {HELP_DESK.map((member, i) => (
+                        <div key={i} className="about-member">
+                            <div className="about-member-photo">
+                                <img src={member.img} alt={member.name} />
+                            </div>
+                            <div className="about-member-name">{member.name}</div>
                         </div>
                     ))}
                 </div>
