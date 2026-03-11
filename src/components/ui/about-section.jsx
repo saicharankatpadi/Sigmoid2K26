@@ -36,7 +36,7 @@ const STATS = [
     { number: '15+', label: 'Events Organized', sub: 'so far' },
     { number: '2000+', label: 'Students Participated', sub: 'across branches' },
     { number: '50+', label: 'Colleges', sub: 'involved' },
-    { number: '500k+', label: 'Prize Pool', sub: 'distributed' },
+    { number: '100k+', label: 'Prize Pool', sub: 'distributed' },
 ];
 
 
@@ -61,14 +61,14 @@ export const AboutSection = () => {
             {/* INTRO */}
             <section className="about-intro">
                 <p>
-                    Sigmoid 2K26, hosted by the Department of Computer Science and Engineering at Sri Venkateswara University College of Engineering (SVUCE), is a premier national-level technical symposium.
+                    Sigmoid, hosted by the Department of Electronics and Communication Engineering at Sri Venkateswara University College of Engineering (SVUCE), is a premier national-level technical symposium.
                     <br />
                     It serves as a dynamic platform for students to showcase their technical prowess, innovative thinking, and problem-solving skills.
                 </p>
                 <p>
                     Our vision is to foster a collaborative environment where future engineers can engage in a variety of events ranging from coding challenges to paper presentations. We aim to bridge the gap between academic learning and industry requirements, ensuring a holistic development for all participants.
                     <br />
-                    Join us in celebrating technology, innovation, and excellence at Sigmoid 2K26!
+                    Join us in celebrating technology, innovation, and excellence at Sigmoid!
                 </p>
             </section>
 
