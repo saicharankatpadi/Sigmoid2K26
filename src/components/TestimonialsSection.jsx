@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
 
-import v1 from '../assets/testimonials/v1.mp4'
-import v2 from '../assets/testimonials/v2.mp4'
-import v3 from '../assets/testimonials/v3.mp4'
-import v4 from '../assets/testimonials/v4.mp4'
-import v5 from '../assets/testimonials/v5.mp4'
-import v6 from '../assets/testimonials/v6.mp4'
+const v1 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773210714/nikshep3_ya4fee.mp4'
+const v2 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773210620/nikshep4_rzj29t.mp4'
+const v3 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773210543/006_dngjue.mp4'
+const v4 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773210476/WhatsApp_Video_2026-03-10_at_23.23.45_wslq8e.mp4'
+const v5 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773209848/WhatsApp_Video_2026-03-10_at_23.10.08_omlmup.mp4'
+const v6 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773208225/007_yz4blo.mp4'
 
 /* ════════════════════════════════════════════════════════════════
    TESTIMONIALS DATA — Edit this JSON to add / remove / modify cards.
