@@ -6,11 +6,7 @@ import TestimonialsSection from './components/TestimonialsSection'
 import Navbar from './components/Navbar'
 import CollegeLogoSection from './components/CollegeLogoCarousel'
 import { GoogleIcon, YouTubeIcon, LinkedInIcon } from './components/CoachSection'
-import coach1 from './assets/new_coach1.jpeg'
 import backgroundImage from './assets/community-bg.gif'
-// import coach1 from './assets/new_coach1.jpeg' // Not used looking at the search, but assuming it was or is
-const coach2 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218150/new_coach2_gumeol.jpg'
-const coach3 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218151/new_coach3_z0djnw.jpg'
 import { HorizonHero } from './components/ui/horizon-hero-section.jsx'
 import { AboutSection } from './components/ui/about-section.jsx'
 import { EventsPage } from './components/ui/events-page.jsx'
@@ -33,6 +29,11 @@ import { PassportPage } from './components/ui/PassportPage.jsx'
 import { InsightsFAB } from './components/ui/InsightsFAB.jsx'
 import { InsightsPage } from './components/ui/InsightsPage.jsx'
 
+
+/* ── Coach Image Assets ── */
+const coach1 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773224144/new_coach1_iwdt2h.jpg'
+const coach2 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218150/new_coach2_gumeol.jpg'
+const coach3 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218151/new_coach3_z0djnw.jpg'
 
 /* ── Badge Component ── */
 function Badge({ children, className = "" }) {

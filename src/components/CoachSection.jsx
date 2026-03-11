@@ -1,4 +1,3 @@
-import coachPhoto from '../assets/coach_final.jpg'
 import { motion } from 'framer-motion'
 
 
@@ -85,7 +84,7 @@ export default function CoachSection({
                         {/* Image */}
                         <img
                             className={`absolute inset-0 w-[calc(100%-16px)] h-[calc(100%-16px)] m-2 block rounded-[1.5rem] z-10 ${imageClassName}`}
-                            src={imageSrc || coachPhoto}
+                            src={imageSrc}
                             alt="Coach"
                         />
                         
