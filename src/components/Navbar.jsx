@@ -107,6 +107,8 @@ export default function Navbar() {
         <>
             {/* ── Keyframes and Custom Styles ── */}
             <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+
                 @keyframes navSlideDown {
                     from { opacity: 0; transform: translateY(-12px); }
                     to   { opacity: 1; transform: translateY(0); }
@@ -166,10 +168,20 @@ export default function Navbar() {
                                 className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_2px_8px_rgba(255,255,255,0.1)]"
                             />
                             <span
-                                className="text-white font-bold text-[14.5px] tracking-[0.03em] transition-colors duration-200"
-                                style={{ fontFamily: 'Inter, sans-serif' }}
+                                className="font-bold tracking-[0.05em] transition-all duration-300"
+                                style={{ 
+                                    fontFamily: "'Pirata One', cursive",
+                                    fontSize: '26px',
+                                    color: '#ffd700',
+                                    backgroundImage: 'linear-gradient(to bottom, #fffde7 0%, #fbc02d 40%, #f57f17 100%)',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    WebkitTextStroke: '1px #3e2723',
+                                    textShadow: '2px 3px 6px rgba(0,0,0,0.8), -1px -1px 0 rgba(255,255,255,0.2)',
+                                    lineHeight: 1
+                                }}
                             >
-                                SIGMOID2K26
+                                SIGMOID 2K26
                             </span>
                         </Link>
 
