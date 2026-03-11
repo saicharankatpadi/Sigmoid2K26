@@ -1,43 +1,48 @@
 import React from 'react';
 
-const passes = [
-    {
-        name: 'Elite Pass',
-        originalPrice: 400,
-        price: 350,
-        description: 'Unlock the world of Sigmoid with the Elite pass, a base pass to experience Sigmoid, your access ticket to all non-tech events.',
-        highlights: ['All Non-Tech Events'],
-        accent: 'from-[#ff8a1f] to-[#ff5a00]',
-        glow: 'rgba(255,138,31,0.22)',
-    },
-    {
-        name: 'Supreme Pass',
-        originalPrice: 450,
-        price: 400,
-        description: 'Step into the spotlight with the Supreme Pass. Access to one event from the paid trio plus the free tech trio bundle and all non-tech events.',
-        highlights: ['One Event', 'Techfusion', 'Posterize', 'Innovista', 'Free Tech Trio Bundle', 'All Non-Tech Events'],
-        accent: 'from-[#ffb347] to-[#ff6b2b]',
-        glow: 'rgba(255,107,43,0.2)',
-    },
-    {
-        name: 'Prime Pass',
-        originalPrice: 500,
-        price: 450,
-        description: 'Experience the essence of innovation with the Prime Pass. Access to your two favourites from the paid trio plus the free tech trio and all non-tech events.',
-        highlights: ['Two favourites', 'Techfusion', 'Posterize', 'Innovista', 'Free Tech Trio Bundle', 'All Non-Tech Events'],
-        accent: 'from-[#ff8a1f] to-[#ff5a00]',
-        glow: 'rgba(255,138,31,0.22)',
-    },
-    {
-        name: 'Ultimate Pass',
-        originalPrice: 550,
-        price: 500,
-        description: 'Embark on an unparalleled adventure with the Ultimate Pass. Your ticket to all the tech and non-tech events.',
-        highlights: ['All the Tech and Non-Tech Events'],
-        accent: 'from-[#ffb347] to-[#ff6b2b]',
-        glow: 'rgba(255,107,43,0.2)',
-    },
-];
+const elitePass = {
+    name: 'Elite Pass',
+    originalPrice: 400,
+    price: 350,
+    description: 'Unlock the world of Sigmoid with the Elite pass, a base pass to experience Sigmoid, your access ticket to all non-tech events.',
+    highlights: ['All Non-Tech Events'],
+    accent: 'from-[#ff8a1f] to-[#ff5a00]',
+    glow: 'rgba(255,138,31,0.22)',
+    paymentLink: 'https://rzp.io/rzp/F3gNhm1',
+};
+
+const supremePass = {
+    name: 'Supreme Pass',
+    originalPrice: 450,
+    price: 400,
+    description: 'Step into the spotlight with the Supreme Pass. Access to one event from the paid trio plus the free tech trio bundle and all non-tech events.',
+    highlights: ['One Event', 'Techfusion', 'Posterize', 'Innovista', 'Free Tech Trio Bundle', 'All Non-Tech Events'],
+    accent: 'from-[#ffb347] to-[#ff6b2b]',
+    glow: 'rgba(255,107,43,0.2)',
+    paymentLink: 'https://rzp.io/rzp/HQc6zlQ',
+};
+
+const primePass = {
+    name: 'Prime Pass',
+    originalPrice: 500,
+    price: 450,
+    description: 'Experience the essence of innovation with the Prime Pass. Access to your two favourites from the paid trio plus the free tech trio and all non-tech events.',
+    highlights: ['Two favourites', 'Techfusion', 'Posterize', 'Innovista', 'Free Tech Trio Bundle', 'All Non-Tech Events'],
+    accent: 'from-[#ff8a1f] to-[#ff5a00]',
+    glow: 'rgba(255,138,31,0.22)',
+    paymentLink: 'https://rzp.io/rzp/nvMRMaaB',
+};
+
+const ultimatePass = {
+    name: 'Ultimate Pass',
+    originalPrice: 550,
+    price: 500,
+    description: 'Embark on an unparalleled adventure with the Ultimate Pass. Your ticket to all the tech and non-tech events.',
+    highlights: ['All the Tech and Non-Tech Events'],
+    accent: 'from-[#ffb347] to-[#ff6b2b]',
+    glow: 'rgba(255,107,43,0.2)',
+    paymentLink: 'https://rzp.io/rzp/d4CmxVw',
+};
 
 const guidelines = [
     {
@@ -103,12 +108,14 @@ function PassCard({ pass }) {
                 </p>
 
                 <div className="mt-10 flex justify-center">
-                    <button
-                        type="button"
+                    <a
+                        href={pass.paymentLink}
+                        target="_blank"
+                        rel="noreferrer"
                         className={`rounded-full border border-white/70 bg-gradient-to-r ${pass.accent} px-8 py-3 text-lg font-medium text-white shadow-[0_8px_30px_rgba(255,106,43,0.28)] transition hover:scale-[1.03]`}
                     >
                         Register Now
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -144,15 +151,16 @@ export function RegisterPage() {
                 <div className="mx-auto mt-28 max-w-6xl text-center text-lg leading-10 text-white">
                     <p>Events in the free tech trio bundle are: Circuitrix, QuizMania, Codex</p>
                     <p className="mt-3 text-white/88">
-                        Workshops will be available for all passes but hands-on workshops (Mobile Assembly, IOT) will be available for Supreme, Prime and Ultimate Passes only.
-                        Workshops will run parallelly. To choose workshops, google form will be provided for registered participants on 21st March.
+                        Workshops will be available for all passes You have to choose wisely because,  
+                        Workshops will run parallelly. To choose workshops, google form will be provided for registered participants on 1st April.
                     </p>
                 </div>
 
                 <div className="mt-16 grid gap-6 lg:grid-cols-2">
-                    {passes.map((pass) => (
-                        <PassCard key={pass.name} pass={pass} />
-                    ))}
+                    <PassCard pass={elitePass} />
+                    <PassCard pass={supremePass} />
+                    <PassCard pass={primePass} />
+                    <PassCard pass={ultimatePass} />
                 </div>
 
                 <section className="mt-24">
