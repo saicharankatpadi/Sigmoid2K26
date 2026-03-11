@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button as MovingBorderButton } from './moving-border'
 import { Button } from './neon-button'
-import girlsHostelImg from '../../assets/girls_hostel.png'
+const girlsHostelImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218160/girls_hostel_zl81gi.png'
 import boysHostelImg from '../../assets/boys_hostel.png'
-import customerSupportImg from '../../assets/customer_support.png'
-import phoneIcon from '../../assets/phone_icon.png'
+const customerSupportImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218149/customer_support_kkemrr.png'
+const phoneIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218152/phone_icon_hwhv1z.png'
 import { BlurIn } from './blur-in'
 
 export function Accommodation() {

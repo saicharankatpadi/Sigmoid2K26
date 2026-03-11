@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import bgGif from '../assets/community-bg.gif';
+const bgGif = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218177/community-bg_fo9mvj.gif';
 import youtubeIcon from '../assets/youtube-icon.svg';
-import linkedinIcon from '../assets/linkedin-icon.svg';
+const linkedinIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218179/linkedin-icon_uck7u8.svg';
 import { SparklesText } from './ui/sparkles-text';
 import { animate } from 'framer-motion';
 

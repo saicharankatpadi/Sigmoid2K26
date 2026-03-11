@@ -1,8 +1,8 @@
 import React from 'react';
 import './about-section.css';
-import figmaDev from '../../assets/Figma Developer.jpeg';
-import frontendDev from '../../assets/FrontendDeveloper.jpeg';
-import teamLeader from '../../assets/TeamLeader1.jpeg';
+const figmaDev = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218151/Figma_Developer_cl5rfh.jpg';
+const frontendDev = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218154/FrontendDeveloper_nqzkiv.jpg';
+const teamLeader = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/team-leader_zriohu.jpg';
 
 const TEAM_MEMBERS = [
     { name: 'Figma Developer', badge: 'Present', img: figmaDev },

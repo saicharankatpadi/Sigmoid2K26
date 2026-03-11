@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShineBorder } from './shine-border';
-import passportImg from '../../assets/passport.png';
-import roadmapImg from '../../assets/roadmap.png';
-import passportIcon from '../../assets/passport-icon.png';
+const passportImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218152/passport_fnjrnz.png';
+const roadmapImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218177/roadmap_ciw7sz.png';
+const passportIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218151/passport-icon_wlvayt.png';
 
 export function PassportPage() {
     const [viewFull, setViewFull] = useState(false);
