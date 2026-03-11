@@ -1,24 +1,29 @@
 // ── DATA ── Replace logoUrl with your actual college logo image paths
 const colleges = [
-    { id: 1, name: "MIT", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg" },
-    { id: 2, name: "Stanford", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Stanford_Cardinal_logo.svg" },
-    { id: 3, name: "Harvard", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/7/70/Harvard_University_logo.svg" },
-    { id: 4, name: "Caltech", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Caltech_Logo.svg" },
-    { id: 5, name: "Princeton", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/7/71/Princeton_University_Shield.svg" },
-    { id: 6, name: "Yale", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/0/07/Yale_University_logo.svg" },
-    { id: 7, name: "Columbia", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Columbia_University_Logo.svg" },
-    { id: 8, name: "U Chicago", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d7/The_University_of_Chicago_Logo.svg" },
-    { id: 9, name: "Penn", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/9/92/UPenn_logo.svg" },
-    { id: 10, name: "Duke", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/0/04/Duke_Blue_Devils_logo.svg" },
-    { id: 11, name: "Cornell", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/4/47/Cornell_University_seal.svg" },
-    { id: 12, name: "NYU", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/1/17/NYU_Logo.svg" },
-    { id: 13, name: "UCLA", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0d/The_UCLA_Bruins_logo.svg" },
-    { id: 14, name: "U Michigan", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/9/93/Seal_of_the_University_of_Michigan.svg" },
-    { id: 15, name: "Georgia Tech", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Georgia_Tech_Yellow_Jackets_logo.svg" },
+    { id: 1, name: "Logo 1", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269934/32drfw5z.gwd-removebg-preview_pvs5db.png" },
+    { id: 2, name: "AITS Rajampet", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269936/Annamacharya-Institute-of-Technology-Sciences-Rajampet-removebg-preview_mr4ii0.png" },
+    { id: 3, name: "Logo 3", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269936/ah3gi0eq.feg-removebg-preview_smfnjn.png" },
+    { id: 4, name: "Aditya College", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269936/aditya_coolege-removebg-preview_wgijux.png" },
+    { id: 5, name: "ANITS", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269937/anits-removebg-preview_wmgmat.png" },
+    { id: 6, name: "Ashoka Women's Eng", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269942/ashoka-women-s-engineering-college-kurnool-logo-removebg-preview_slaptc.png" },
+    { id: 7, name: "Audi Sankar", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269943/audi_sankar-removebg-preview_ycenyb.png" },
+    { id: 8, name: "Bharath College", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269944/bharath_college-removebg-preview_kixrek.png" },
+    { id: 9, name: "CBIT", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269948/cbit3-removebg-preview_lvnhsg.png" },
+    { id: 10, name: "JNN", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269949/JNN_Ins_Red_Seal-removebg-preview_zacyqh.png" },
+    { id: 11, name: "Logo 11", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269949/kb4boiol.p21-removebg-preview_oe2kk8.png" },
+    { id: 12, name: "Logo 12", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269950/logo-removebg-preview_b1x5bc.png" },
+    { id: 13, name: "Mohan Babu", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269951/mohn_babu-removebg-preview_rzn8tu.png" },
+    { id: 14, name: "MVGR", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269957/mvgr-removebg-preview_f31sky.png" },
+    { id: 15, name: "Padmavathi", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269958/padmavathi-removebg-preview_xttmyj.png" },
+    { id: 16, name: "Parvathan", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269959/parvarthan_clg-removebg-preview_peni5d.png" },
+    { id: 17, name: "SITAMS", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269960/SITAMS-removebg-preview_uy6z3f.png" },
+    { id: 18, name: "Srinagaram", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269965/srinagaram-removebg-preview_piuydf.png" },
+    { id: 19, name: "SVCE", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269966/svce-removebg-preview_uh1mhu.png" },
+    { id: 20, name: "VEMU", logoUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773269966/vemu-removebg-preview_evx8zg.png" },
 ];
 
-const row1 = [...colleges.slice(0, 8), ...colleges.slice(0, 8)];
-const row2 = [...colleges.slice(7), ...colleges.slice(7)];
+const row1 = [...colleges.slice(0, 10), ...colleges.slice(0, 10)];
+const row2 = [...colleges.slice(10), ...colleges.slice(10)];
 
 function LogoTile({ college }) {
     return (
@@ -192,6 +197,9 @@ export default function CollegeLogoSection() {
                     textAlign: "left", // Ensure it perfectly matches other section headings
                 }}
             >
+                <div style={{ marginBottom: "16px" }}>
+                    <AnimatedBadge text="PARTICIPANTS ACROSS ALL COLLEGES" />
+                </div>
                 <h2
                     style={{
                         fontSize: "clamp(28px, 3.8vw, 48px)",
@@ -204,7 +212,7 @@ export default function CollegeLogoSection() {
                         fontFamily: "'Segoe UI', sans-serif",
                     }}
                 >
-                    Top Companies By <span style={{ color: "#F97316" }}>Our Students</span>
+                    The Ultimate Gathering <span style={{ color: "#F97316" }}>Of Top Colleges</span>
                 </h2>
 
                 <p
@@ -217,7 +225,7 @@ export default function CollegeLogoSection() {
                         maxWidth: "600px",
                     }}
                 >
-                    Our students have gone on to build careers at some of the world's most renowned organizations. Their success is proof that the skills you gain here open doors to top opportunities across the industry.
+                    The brightest college minds gather here to challenge themselves, exchange ideas, and showcase their potential through engaging events and competitions.
                 </p>
             </div>
 
