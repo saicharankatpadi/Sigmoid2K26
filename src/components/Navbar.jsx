@@ -36,7 +36,7 @@ export default function Navbar() {
         },
         {
             label: 'Register',
-            href: '#register',
+            href: '/register',
             icon: (
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -176,7 +176,7 @@ export default function Navbar() {
                         {/* ── Center: Nav Links (desktop) ── */}
                         <div className="hidden md:flex items-center gap-0.5">
                             {links.map((link) => {
-                                const isRouterLink = ['Home', 'AboutUs', 'Events', 'Accommodation', 'Gallery', 'Passport'].includes(link.label);
+                                const isRouterLink = ['Home', 'AboutUs', 'Events', 'Register', 'Accommodation', 'Gallery', 'Passport'].includes(link.label);
                                 if (isRouterLink) {
                                     return (
                                         <Link
@@ -261,7 +261,7 @@ export default function Navbar() {
                         }}
                     >
                         {links.map((link, i) => {
-                            const isRouterLink = ['Home', 'AboutUs', 'Events', 'Accommodation', 'Gallery', 'Passport'].includes(link.label);
+                            const isRouterLink = ['Home', 'AboutUs', 'Events', 'Register', 'Accommodation', 'Gallery', 'Passport'].includes(link.label);
                             const style = {
                                 fontFamily: 'Inter, sans-serif',
                                 animation: menuOpen ? `navSlideDown 0.4s cubic-bezier(0.22,1,0.36,1) both` : 'none',

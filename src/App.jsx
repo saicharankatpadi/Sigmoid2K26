@@ -6,7 +6,7 @@ import TestimonialsSection from './components/TestimonialsSection'
 import Navbar from './components/Navbar'
 import CollegeLogoSection from './components/CollegeLogoCarousel'
 import { GoogleIcon, YouTubeIcon, LinkedInIcon } from './components/CoachSection'
-import backgroundImage from './assets/community-bg.gif'
+
 import { HorizonHero } from './components/ui/horizon-hero-section.jsx'
 import { AboutSection } from './components/ui/about-section.jsx'
 import { EventsPage } from './components/ui/events-page.jsx'
@@ -28,6 +28,7 @@ import { Preloader } from './components/ui/Preloader.jsx'
 import { PassportPage } from './components/ui/PassportPage.jsx'
 import { InsightsFAB } from './components/ui/InsightsFAB.jsx'
 import { InsightsPage } from './components/ui/InsightsPage.jsx'
+import { RegisterPage } from './components/ui/Registraion.jsx'
 
 
 /* ── Coach Image Assets ── */
@@ -258,6 +259,7 @@ function App() {
                     <Route path="/gallery" element={<GalleryPage />} />
                     <Route path="/passport" element={<PassportPage />} />
                     <Route path="/insights" element={<InsightsPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
                 </Routes>
             </div>
 
