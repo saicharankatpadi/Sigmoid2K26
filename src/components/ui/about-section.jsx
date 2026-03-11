@@ -33,10 +33,10 @@ const HELP_DESK = [
 ];
 
 const STATS = [
-    { number: '165M', label: 'Youtube Views', sub: 'till date' },
-    { number: '13M', label: 'Page Visits', sub: 'monthly' },
-    { number: '2.7M', label: 'Sessions', sub: 'per month' },
-    { number: '1.3M', label: 'Registered Users', sub: 'and growing' },
+    { number: '15+', label: 'Events Organized', sub: 'so far' },
+    { number: '2000+', label: 'Students Participated', sub: 'across branches' },
+    { number: '50+', label: 'Colleges', sub: 'involved' },
+    { number: '100k+', label: 'Prize Pool', sub: 'distributed' },
 ];
 
 
@@ -61,16 +61,14 @@ export const AboutSection = () => {
             {/* INTRO */}
             <section className="about-intro">
                 <p>
-                    We started back in 2020 with our channel. The idea of building a website came into vision when our sheet on Google Docs crashed stating Too many
-                    people are on it.
+                    Sigmoid, hosted by the Department of Electronics and Communication Engineering at Sri Venkateswara University College of Engineering (SVUCE), is a premier national-level technical symposium.
                     <br />
-                    We started on a WordPress website in 2022 and shifted to a custom-made one in 2024.
+                    It serves as a dynamic platform for students to showcase their technical prowess, innovative thinking, and problem-solving skills.
                 </p>
                 <p>
-                    Our vision is to make learning feel seamless and enjoyable, removing the mugging up factor which you find in most places. We cover DSA, Core Subjects,
-                    System Design, and
+                    Our vision is to foster a collaborative environment where future engineers can engage in a variety of events ranging from coding challenges to paper presentations. We aim to bridge the gap between academic learning and industry requirements, ensuring a holistic development for all participants.
                     <br />
-                    OOPS as of today, and we plan to add much more in the future.
+                    Join us in celebrating technology, innovation, and excellence at Sigmoid!
                 </p>
             </section>
 

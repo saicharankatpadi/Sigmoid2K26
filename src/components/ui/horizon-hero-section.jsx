@@ -6,12 +6,12 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 
 const SECTIONS = [
     {
-        title: 'SIGMOID 2K26',
+        title: 'SIGMOID   2K26',
         line1: 'Where vision meets reality,',
         line2: 'we shape the future of tomorrow',
     },
     {
-        title: 'PRESENTED BY',
+        title: 'PRESENTED   BY',
         line1: 'Beyond the boundaries of imagination,',
         line2: 'lies the universe of possibilities',
     },
@@ -443,42 +443,8 @@ export const HorizonHero = () => {
                     style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
                 />
 
-                {/* Side menu */}
-                <div
-                    ref={menuRef}
-                    style={{
-                        visibility: 'hidden',
-                        position: 'absolute',
-                        left: 40,
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        gap: 16,
-                        pointerEvents: 'auto',
-                        zIndex: 10,
-                    }}
-                >
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 5, cursor: 'pointer' }}>
-                        {[0, 1, 2].map(i => (
-                            <span
-                                key={i}
-                                style={{ display: 'block', width: 24, height: 2, background: 'rgba(255,255,255,0.8)' }}
-                            />
-                        ))}
-                    </div>
-                    <span style={{
-                        writingMode: 'vertical-rl',
-                        letterSpacing: '0.3em',
-                        fontSize: 11,
-                        fontFamily: 'monospace',
-                        color: 'rgba(255,255,255,0.5)',
-                        marginTop: 12,
-                    }}>
-                        SPACE
-                    </span>
-                </div>
+                {/* Side menu (removed) */}
+                <div ref={menuRef} style={{ display: 'none' }}></div>
 
                 {/* Main hero content */}
                 <div
@@ -509,8 +475,8 @@ export const HorizonHero = () => {
                         }}
                     >
                         {sectionData.title.split('').map((char, i) => (
-                            <span key={i} className="title-char" style={{ display: 'inline-block' }}>
-                                {char}
+                            <span key={i} className="title-char" style={{ display: 'inline-block', width: char === ' ' ? '0.4em' : 'auto' }}>
+                                {char === ' ' ? '\u00A0' : char}
                             </span>
                         ))}
                     </h1>
