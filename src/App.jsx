@@ -29,6 +29,7 @@ import { PassportPage } from './components/ui/PassportPage.jsx'
 import { InsightsFAB } from './components/ui/InsightsFAB.jsx'
 import { InsightsPage } from './components/ui/InsightsPage.jsx'
 import { RegisterPage } from './components/ui/Registraion.jsx'
+import { ContactPage } from './components/ui/contact-page.jsx'
 
 
 /* ── Coach Image Assets ── */
@@ -260,6 +261,7 @@ function App() {
                     <Route path="/passport" element={<PassportPage />} />
                     <Route path="/insights" element={<InsightsPage />} />
                     <Route path="/register" element={<RegisterPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
                 </Routes>
             </div>
 
