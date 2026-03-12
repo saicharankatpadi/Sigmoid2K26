@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import CoachSection from './components/CoachSection'
 import Footer from './components/Footer'
 import FAQSection from './components/FAQSection'
+import OrganizingCommittee from './components/OrganizingCommittee'
 import TestimonialsSection from './components/TestimonialsSection'
 import Navbar from './components/Navbar'
 import CollegeLogoSection from './components/CollegeLogoCarousel'
@@ -209,6 +210,7 @@ function Home() {
                     </Badge>
                 </>}
             />
+            <OrganizingCommittee />
             <TestimonialsSection />
             <FAQSection />
         </>
