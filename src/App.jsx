@@ -19,7 +19,6 @@ import { Accommodation } from './components/ui/accommodation.jsx'
 import { HostelDetails } from './components/ui/hostel-details.jsx'
 import { PromoSection } from './components/PromoSection'
 import { CommunityRegistration } from './components/CommunityRegistration'
-import { AccommodationRegistration } from './components/ui/AccommodationRegistration.jsx'
 import { GalleryPage } from './components/ui/gallery-page.jsx'
 import { StatsPage } from './components/StatsPage'
 import { Routes, Route, useLocation } from 'react-router-dom'
@@ -255,7 +254,6 @@ function App() {
                     <Route path="/accommodation" element={<Accommodation />} />
                     <Route path="/accommodation/boys" element={<HostelDetails type="boys" />} />
                     <Route path="/accommodation/girls" element={<HostelDetails type="girls" />} />
-                    <Route path="/accommodation/register" element={<AccommodationRegistration />} />
                     <Route path="/stats" element={<StatsPage />} />
                     <Route path="/gallery" element={<GalleryPage />} />
                     <Route path="/passport" element={<PassportPage />} />
