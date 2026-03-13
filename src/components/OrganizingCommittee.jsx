@@ -20,12 +20,12 @@ export default function OrganizingCommittee() {
   return (
     <section className="py-24 bg-[#0a0a0a] relative flex flex-col items-center justify-center overflow-hidden w-full">
       <div className="max-w-[1400px] mx-auto px-12 w-full text-center mb-16">
-        <h2 className="text-[clamp(28px,3.8vw,48px)] font-extrabold text-white leading-[1.1] tracking-[-1.2px] mb-4">
-          Organizing <span className="text-[#F97316]">Committee</span>
+        <h2 className="text-[clamp(28px,3.8vw,48px)] font-extrabold text-[#F97316] leading-[1.1] tracking-[-1.2px] mb-4">
+          Organizing <span className="text-white">Committee</span>
         </h2>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 lg:gap-24 w-full max-w-[1400px] px-8">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 lg:gap-24 w-full max-w-[1400px] px-8 md:pl-16">
         {members.map((member, index) => (
           <div key={index} className="flex flex-col items-center group cursor-pointer">
             {/* Glassmorphism Image Container */}
@@ -34,7 +34,7 @@ export default function OrganizingCommittee() {
                 <img 
                   src={member.image} 
                   alt={member.name}
-                  className="w-full h-full object-cover object-[50%_0%] transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
             </div>

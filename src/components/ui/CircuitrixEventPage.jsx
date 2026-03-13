@@ -1,131 +1,126 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
+import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 
 // ==========================================
 // DYNAMIC EVENT DATA (JSON FORMAT)
-// Replace any field below for a different event
 // ==========================================
 const eventData = {
   event_info: {
-    title: "Innovista",
-    emoji: "rocket",
-    subtitle: "Project Expo and DIY",
-    brochure_url: "#",
+    title: "Circuitrix",
+    emoji: "⚡",
+    subtitle: "Working and Wiring with Circuits",
+    brochure_url: "/CIRCUITRIX.pdf",
     features: [
-      { id: "01", content: "Showcase groundbreaking projects and DIY creations" },
-      { id: "02", content: "Teams of maximum 3 candidates allowed" },
-      { id: "03", content: "Focus on Electronics, Sensors, Software models" },
-      { id: "04", content: "Machine Learning and AI models accepted" },
-      { id: "05", content: "Submit project abstract via Google Form" },
-      { id: "06", content: "Bring physical working model on Event Day" },
-      { id: "07", content: "6-8 minutes of presentation time" },
-      { id: "08", content: "Followed by a rigorous Q&A session" },
-      { id: "09", content: "Best projects sent to university and rewarded" },
-      { id: "10", content: "No separate fee if fest entry is paid" }
+      { id: "01", content: "Compete in two intense levels: Quiz and Hardware Building." },
+      { id: "02", content: "25 Questions in Round 1: 5 Aptitude + 20 Core Subjects." },
+      { id: "03", content: "Analyze subjects: Analog, Digital, Network Theory & Devices." },
+      { id: "04", content: "Teams of 3 members allotted randomly by organizers." },
+      { id: "05", content: "Build physical models using provided hardware and simulation." },
+      { id: "06", content: "Defend your design during the rigorous viva voce." },
+      { id: "07", content: "Time of submission in Google form is taken as priority." },
+      { id: "08", content: "Decision of the judging panel is final and binding." },
+      { id: "09", content: "All circuit equipment provided within the event itself." },
+      { id: "10", content: "Register online or at the spot registration counter." },
+      { id: "11", content: "Winners receive physical certificates of excellence." },
+      { id: "12", content: "All participants receive official soft copy certificates." }
     ]
   },
-  video_preview: {
-    video_src: "/video-innovista.mp4",
-    badges: [
-      { position: "top-left", icon: "cube", text: "Physical Models" },
-      { position: "top-right", icon: "users", text: "Teams up to 3" },
-      { position: "bottom-left", icon: "clock", text: "6-8 Min Presentation" },
-      { position: "bottom-right", icon: "academic", text: "University Rewards" }
-    ]
-  },
+
   mission: [
     {
-      id: "foundation",
+      id: "objective",
       icon: "target",
       title: "THE OBJECTIVE",
       points: [
-        "Imagine a world where resistors, diodes, capacitors, and inductors obey your every command. That world is here – start building and take charge!",
-        "Innovista is a dynamic and innovative event designed to celebrate creativity, technical expertise, and hands-on learning.",
-        "It serves as a platform for students to showcase their groundbreaking projects, experiment with DIY (Do-It-Yourself) creations, and inspire others through their ingenuity."
+        "This event helps you work with the circuits that you encountered during your graduation to improve precision and workflow.",
+        "It focuses on bridge the gap between theoretical circuit analysis and practical hardware implementation.",
+        "Participants are tested on their speed, accuracy, and deep understanding of electronic components."
       ]
     },
     {
-      id: "journey",
+      id: "rounds",
       icon: "rocket",
-      title: "THE PROCESS",
+      title: "THE ROUNDS",
       points: [
-        "Register your team and submit the project abstract using the Google Form before the deadline.",
-        "Participants must bring and carry out their projects directly. Breadboards provided only if informed in advance.",
-        "Exhibit your working model physically on the event day. Best projects are awarded prizes and certifications!"
+        "Round 1 (Day 1): Individual individual digital quiz covering core electronics and aptitude (03/04/2026).",
+        "Round 2 (Day 2): Randomized team building and physical circuit construction followed by a viva (04/04/2026).",
+        "Top performers from the quiz qualify for the final hands-on hardware challenge."
       ]
     }
   ],
   learnings: {
-    title: "Domain Knowledge",
+    title: "Syllabus & Domains",
     items: [
-      "Electronics", "Sensors", "Software Models", "Machine Learning",
-      "Artificial Intelligence", "DIY Hardware", "Circuit Design", "IoT Implementations",
-      "Embedded Systems", "Robotics", "Automation", "Prototyping"
+      "Digital Electronics", "Analog Electronics", "Network Theory", "Electronic Devices",
+      "Flip-flops & Counters", "Op-amp Basics", "KCL & KVL", "BJT & FET Basics",
+      "Clappers & Clippers", "Network Theorems", "Resonance", "Circuit Simulation"
     ],
     button_text: "And much more...",
     description: [
-      "Showcase your practical understanding of complex systems and sensors.",
-      "Get hands-on experience by building and demonstrating a working prototype.",
-      "Learn to defend your design choices during the rigorous Q&A rounds.",
-      "Network with other innovators and observe solutions to various technical problems.",
-      "Compete for the chance to represent your college at the university level."
+      "Master Digital logic conversions, flip-flops, counters, and shift registers.",
+      "Analyze Analog circuits including clampers, clippers, and op-amp configurations.",
+      "Solve Network problems using KCL, KVL, and various network theorems.",
+      "Understand the physical characteristics of Diodes, BJTs, and FETs.",
+      "Experience randomized team collaboration with peers from different colleges."
     ]
   },
   perks: {
     title: "Perks & Benefits",
     items: [
-      { text: "Certificate of Excellence", icon: "academic", color: "#ec4899" },
-      { text: "University Level Entry for Winners", icon: "globe", color: "#f89b29" },
-      { text: "Expert Q&A Feedback", icon: "user", color: "#a855f7" },
-      { text: "Showcase Your Craft", icon: "document", color: "#2dd4bf" },
-      { text: "Networking Opportunities", icon: "users", color: "#10B981" },
-      { text: "Exciting Rewards for Winners", icon: "diamond", color: "#f89b29" },
-      { text: "Practical Engineering Experience", icon: "briefcase", color: "#10B981" },
-      { text: "Explore AI/ML Applications", icon: "terminal", color: "#2dd4bf" }
+      { text: "Physical Certificates for Winners", icon: "academic", color: "#ec4899" },
+      { text: "Soft Certificates for All", icon: "document", color: "#2dd4bf" },
+      { text: "Hands-on Hardware Experience", icon: "cube", color: "#f89b29" },
+      { text: "Organized Team Interaction", icon: "users", color: "#10B981" },
+      { text: "Expert Viva Feedback", icon: "user", color: "#a855f7" },
+      { text: "Equipment Provided On-site", icon: "briefcase", color: "#10B981" },
+      { text: "Network with Peer Innovators", icon: "globe", color: "#f89b29" },
+      { text: "Speed & Accuracy Ranking", icon: "clock", color: "#2dd4bf" }
     ]
   },
   mentors: [
     { 
       id: "m1", 
-      name: "Expert Judge 1", 
-      role: "Project Evaluator", 
-      image: "/mentor1-innovista.jpeg",
-      phone: "",
-      instagram: "",
-      linkedin: ""
-    },
-    { 
-      id: "m2", 
-      name: "Expert Judge 2", 
-      role: "Project Evaluator", 
-      image: "/mentor2-innovista.jpeg",
+      name: "Event Mentor", 
+      role: "Circuit Expert", 
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773309848/WhatsApp_Image_2026-03-12_at_03.03.29_ozetbo.jpg",
       phone: "",
       instagram: "",
       linkedin: ""
     }
   ],
-  testimonials: [
-    { 
-      id: "t1", 
-      name: "Previous Participant", 
-      quote: "Innovista gave me the perfect stage to demonstrate the AI-based sensor network our team built. It was challenging but immensely rewarding.", 
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-      college_logo: ""
-    },
-    { 
-      id: "t2", 
-      name: "Project Lead", 
-      quote: "The Q&A session was tough! The judges dive deep into your electronics logic, but the feedback you get is simply unparalleled.", 
-      image: "https://randomuser.me/api/portraits/women/45.jpg",
-      college_logo: ""
-    }
+
+  video_preview: {
+    video_src: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773346967/WhatsApp_Video_2026-03-12_at_11.38.16_zmovbi.mp4",
+    badges: [
+      { position: "top-left", icon: "clipboard", text: "Quiz Round" },
+      { position: "top-right", icon: "cube", text: "Hardware Build" },
+      { position: "bottom-left", icon: "users", text: "Random Teams" },
+      { position: "bottom-right", icon: "user", text: "Expert Viva" }
+    ]
+  },
+  gallery: [
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347398/567A9118_wdahmn.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347479/IMG_1130_igg80g.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347527/IMG_1128_dpaygf.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347522/IMG_1133_tqfqeq.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347517/IMG_8105_rg1lth.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347517/IMG_0662_xztweh.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347516/IMG_6180_ljtpux.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347514/IMG_8070_ifkamg.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347513/IMG_8101_iyt6og.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347516/IMG_8104_nqd5bd.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347500/IMG_1124_swqfub.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347434/IMG_0654_zfgler.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347393/567A9064_zpqp4r.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773347394/567A9095_qs7hzx.jpg"
   ],
   faqs: [
-    { id: "q1", question: "Do I need to pay extra for this event?", answer: "No, registering and paying the entry fee for the entire tech-fest covers this event." },
-    { id: "q2", question: "Will breadboards be provided?", answer: "Please note that breadboards will only be provided to participants who inform us in advance." },
-    { id: "q3", question: "Can I participate in multiple Innovista projects?", answer: "No, a person in one team cannot participate in other teams of Innovista." },
-    { id: "q4", question: "Is the project abstract mandatory?", answer: "Yes, you must submit your project abstract through the Google form before the specified deadline." }
+    { id: "q1", question: "Can I choose my own team members?", answer: "No, in Round 2, teams of 3 are formed randomly by the organizers to encourage networking and diverse collaboration." },
+    { id: "q2", question: "What should I focus on for the Round 1 quiz?", answer: "The quiz covers core subjects: Analog & Digital Electronics, Network Theory, and Electronic Devices & Circuits, plus some aptitude questions." },
+    { id: "q3", question: "What materials will be provided for the hardware challenge?", answer: "All necessary electronic components, breadboards, power supplies, and testing equipment will be provided on-site." },
+    { id: "q4", question: "Is Round 1 online or offline?", answer: "Round 1 is a digital quiz conducted within the campus premises on Day 1." }
   ]
 };
 
@@ -145,7 +140,7 @@ const IconBadge = ({ iconType }) => {
     case 'users': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>;
     case 'cube': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>;
     case 'briefcase': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
-    case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>; // Using spark/lightning for bonus as fallback
+    case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>;
     case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>;
     case 'document': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>;
     case 'globe': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>;
@@ -182,7 +177,7 @@ const FaqItem = ({ q, a }) => {
 // MAIN PAGE EXPORT
 // ==========================================
 
-export const InnovistaEventPage = () => {
+export const CircuitrixEventPage = () => {
   const data = eventData;
   const videoRef = useRef(null);
   const progressRef = useRef(null);
@@ -193,6 +188,7 @@ export const InnovistaEventPage = () => {
   const [duration, setDuration] = useState('0:00');
   const [showControls, setShowControls] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [isAutoRotating, setIsAutoRotating] = useState(true);
 
   const formatTime = (s) => {
     if (!s || isNaN(s)) return '0:00';
@@ -206,7 +202,6 @@ export const InnovistaEventPage = () => {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        // Unmute on play
         videoRef.current.muted = false;
         setIsMuted(false);
         videoRef.current.play();
@@ -233,13 +228,11 @@ export const InnovistaEventPage = () => {
 
   const handleLoadedMetadata = useCallback(() => {
     if (videoRef.current) {
-      // Show second frame instead of first
       videoRef.current.currentTime = 0.5;
       setDuration(formatTime(videoRef.current.duration));
     }
   }, []);
 
-  // Seek to position from mouse event
   const seekToPosition = useCallback((e) => {
     if (videoRef.current && progressRef.current) {
       const rect = progressRef.current.getBoundingClientRect();
@@ -286,16 +279,12 @@ export const InnovistaEventPage = () => {
         }
       `}</style>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 1 — HERO: Two-column split
-       ═══════════════════════════════════════════ */}
+      {/* Hero Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-28 pb-10">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
 
           {/* ── LEFT COLUMN ── */}
           <div className="flex-1 min-w-0 lg:max-w-[50%]">
-
-            {/* Title Row */}
             <div className="flex items-center gap-3 mb-3">
               <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
               <div className="flex items-center">
@@ -303,35 +292,26 @@ export const InnovistaEventPage = () => {
                   word={data.event_info.title}
                   className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
                 />
-                {data.event_info.emoji === 'rocket' ? (
-                  <img src="/rocket-icon.png" alt="rocket" className="ml-5 w-auto h-12 md:h-14 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.5)]" />
-                ) : (
-                  <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
-                )}
+                <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
               </div>
             </div>
 
-            {/* Subtitle */}
             <p className="text-white/50 text-lg font-medium mb-8 pl-4">
               {data.event_info.subtitle}
             </p>
 
-            {/* ── Feature Cards — 2-column grid ── */}
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {data.event_info.features.map(feature => (
                 <div
                   key={feature.id}
                   className="flex items-center gap-0 bg-[#111111] border-2 border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#3a3a3a] transition-all duration-300 group cursor-default"
                 >
-                  {/* Number */}
                   <div className="shrink-0 w-12 flex items-center justify-center py-3 px-2">
                     <span className="text-[#f89b29] font-black text-[15px] tracking-wider">{feature.id}</span>
                   </div>
-                  {/* Vertical Line Separator — half height, centered */}
                   <div className="flex items-center self-stretch">
                     <div className="w-[2px] h-[50%] bg-[#2a2a2a] group-hover:bg-[#3a3a3a] transition-colors rounded-full"></div>
                   </div>
-                  {/* Text */}
                   <div className="flex-1 py-3 px-3">
                     <span className="text-white/90 text-[13px] leading-snug font-semibold">{feature.content}</span>
                   </div>
@@ -340,17 +320,11 @@ export const InnovistaEventPage = () => {
             </div>
           </div>
 
-          {/* ── RIGHT COLUMN — vertically centered, pushed right ── */}
+          {/* ── RIGHT COLUMN ── */}
           <div className="flex-1 min-w-0 lg:max-w-[50%] flex flex-col items-center justify-center lg:pl-6">
-
-            {/* Laptop Mockup */}
             <div className="relative z-10 w-full max-w-[560px]">
-              {/* Screen Frame */}
               <div className="relative bg-[#181818] rounded-t-2xl border-t-2 border-x-2 border-[#333] p-3 shadow-[0_0_60px_rgba(0,0,0,0.6)]">
-                {/* Camera dot */}
                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#444]"></div>
-
-                {/* Screen Content — Video */}
                 <div
                   className="relative w-full aspect-video bg-black rounded overflow-hidden border border-[#222] cursor-pointer"
                   onMouseEnter={() => isPlaying && setShowControls(true)}
@@ -359,7 +333,7 @@ export const InnovistaEventPage = () => {
                   <video
                     ref={videoRef}
                     src={data.video_preview.video_src}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     muted={isMuted}
                     loop
                     playsInline
@@ -369,15 +343,12 @@ export const InnovistaEventPage = () => {
                     onEnded={() => setIsPlaying(false)}
                   />
 
-                  {/* Play Button Overlay — solid, thick, NOT glassy */}
                   {!isPlaying && (
                     <div className="absolute inset-0 flex items-center justify-center z-10 group/play" onClick={togglePlay}>
-                      {/* Radiation rings — ONLY on hover */}
                       <div className="absolute w-24 h-24 rounded-full border-2 border-white/20 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite' }}></div>
                       <div className="absolute w-24 h-24 rounded-full border-2 border-white/15 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite 0.6s' }}></div>
                       <div className="absolute w-24 h-24 rounded-full border-2 border-white/10 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite 1.2s' }}></div>
 
-                      {/* Solid play button */}
                       <button
                         className="relative w-16 h-16 sm:w-[72px] sm:h-[72px] bg-white/90 rounded-full flex items-center justify-center border-[3px] border-white transition-all duration-300 hover:scale-110 z-20 shadow-[0_0_30px_rgba(255,255,255,0.3)]"
                       >
@@ -386,12 +357,10 @@ export const InnovistaEventPage = () => {
                     </div>
                   )}
 
-                  {/* YouTube-style Controls Bar */}
                   {isPlaying && (
                     <div className={`absolute bottom-0 left-0 right-0 z-30 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
                       onMouseEnter={() => setShowControls(true)}
                     >
-                      {/* Progress Bar — draggable */}
                       <div
                         ref={progressRef}
                         className="w-full h-1.5 bg-white/20 cursor-pointer group/progress hover:h-2.5 transition-all"
@@ -405,9 +374,7 @@ export const InnovistaEventPage = () => {
                         </div>
                       </div>
 
-                      {/* Control Buttons */}
                       <div className="flex items-center gap-3 px-3 py-2 bg-gradient-to-t from-black/80 to-black/40">
-                        {/* Play/Pause */}
                         <button onClick={(e) => { e.stopPropagation(); togglePlay(); }} className="text-white hover:text-white/80 transition-colors">
                           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             {isPlaying
@@ -417,7 +384,6 @@ export const InnovistaEventPage = () => {
                           </svg>
                         </button>
 
-                        {/* Volume */}
                         <button onClick={(e) => { e.stopPropagation(); toggleMute(); }} className="text-white hover:text-white/80 transition-colors">
                           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             {isMuted
@@ -427,7 +393,6 @@ export const InnovistaEventPage = () => {
                           </svg>
                         </button>
 
-                        {/* Time */}
                         <span className="text-white/70 text-[12px] font-mono ml-1">
                           {currentTime} / {duration}
                         </span>
@@ -436,13 +401,12 @@ export const InnovistaEventPage = () => {
                   )}
                 </div>
 
-                {/* Floating Badges — positioned outside video area to avoid control overlap */}
                 {data.video_preview.badges.map((badge, idx) => {
                   const posMap = {
-                    "top-left": "-top-6 -left-4 lg:-left-12",
-                    "top-right": "-top-6 -right-4 lg:-right-12",
-                    "bottom-left": "-bottom-4 -left-4 lg:-left-12",
-                    "bottom-right": "-bottom-4 -right-4 lg:-right-12"
+                    "top-left": "-top-6 -left-4 lg:-left-10",
+                    "top-right": "-top-6 -right-4 lg:-right-10",
+                    "bottom-left": "-bottom-4 -left-4 lg:-left-10",
+                    "bottom-right": "-bottom-4 -right-4 lg:-right-10",
                   };
                   const floatAnims = [
                     'floatBadge1 3s ease-in-out infinite',
@@ -463,13 +427,11 @@ export const InnovistaEventPage = () => {
                 })}
               </div>
 
-              {/* Laptop Base */}
               <div className="relative w-[108%] -ml-[4%] h-6 bg-[#272727] rounded-b-xl border-2 border-[#333] flex justify-center items-start shadow-2xl z-0">
                 <div className="w-28 h-2 bg-[#181818] rounded-b-sm"></div>
               </div>
             </div>
 
-            {/* Download Brochure — Neon Button */}
             <div className="mt-12">
               <a href={data.event_info.brochure_url} download className="inline-block">
                 <Button
@@ -483,20 +445,16 @@ export const InnovistaEventPage = () => {
                 </Button>
               </a>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 2 — Our Mission
-       ═══════════════════════════════════════════════════════════ */}
+      {/* Mission Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
         <div className="mb-7">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Our Mission</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white">The Experience</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
@@ -512,7 +470,6 @@ export const InnovistaEventPage = () => {
 
             return (
               <div key={m.id} className="bg-[#0a0a0a] border-2 border-[#222] rounded-2xl p-6 transition-colors hover:border-[#333]">
-                {/* Card header with icon + title */}
                 <div className="flex items-center gap-3 mb-3">
                   <div
                     className="w-10 h-10 rounded-lg flex items-center justify-center"
@@ -522,11 +479,7 @@ export const InnovistaEventPage = () => {
                   </div>
                   <h3 className="text-[14px] font-bold tracking-[0.15em]" style={{ color: themeColor }}>{m.title}</h3>
                 </div>
-
-                {/* Divider line matching theme color */}
                 <div className="w-full h-[2px] mb-5" style={{ background: `${themeColor}30` }}></div>
-
-                {/* Bullet Points */}
                 <ul className="space-y-3.5">
                   {m.points.map((pt, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -541,11 +494,8 @@ export const InnovistaEventPage = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 3 — Learnings
-       ═══════════════════════════════════════════════════════════ */}
+      {/* Learnings Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
@@ -554,7 +504,6 @@ export const InnovistaEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        {/* 4-column topic grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {data.learnings.items.map((item, i) => (
             <div key={i} className="flex items-center gap-3 bg-[#0a0a0a] rounded-xl px-4 py-3 border border-[#222] hover:border-[#333] transition-colors">
@@ -566,8 +515,6 @@ export const InnovistaEventPage = () => {
           ))}
         </div>
 
-        {/* "And so much more..." pill — same height as grid cards */}
-        {/* "And so much more..." pill — same height as grid cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3 mb-8">
           <div className="flex items-center gap-3 bg-[#170e05] border border-[#f89b29]/20 rounded-xl px-4 py-3 hover:border-[#f89b29]/40 transition-colors cursor-pointer">
             <div className="w-5 h-5 rounded-[6px] bg-[#f89b29]/20 flex items-center justify-center shrink-0">
@@ -577,7 +524,6 @@ export const InnovistaEventPage = () => {
           </div>
         </div>
 
-        {/* Description card with bullet points */}
         {data.learnings.description && (
           <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl p-6 md:p-8">
             <ul className="space-y-4">
@@ -592,11 +538,8 @@ export const InnovistaEventPage = () => {
         )}
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 3.5 — Perks & Benefits
-       ═══════════════════════════════════════════════════════════ */}
+      {/* Perks Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
@@ -605,11 +548,9 @@ export const InnovistaEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        {/* 4-column perk grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {data.perks.items.map((perk, i) => (
             <div key={i} className="flex items-center gap-4 bg-[#0a0a0a] border border-[#222] rounded-xl px-4 py-3.5 hover:border-[#333] transition-colors relative group">
-              {/* Highlight container for icon */}
               <div 
                 className="w-10 h-10 rounded-[10px] flex items-center justify-center shrink-0"
                 style={{ background: `${perk.color}15`, color: perk.color }}
@@ -621,68 +562,9 @@ export const InnovistaEventPage = () => {
           ))}
         </div>
       </section>
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 4 — Judge
-       ═══════════════════════════════════════════════════════════ */}
+
+      {/* Mentors Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Judge</h2>
-          </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
-        </div>
-
-        <div className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-8 items-stretch mt-6">
-          {/* Image & Socials */}
-          <div className="w-full md:w-[30%] flex flex-col items-center">
-            <img src="/judge-innovista.jpeg" alt="Event Judge" className="w-full aspect-[4/5] object-cover rounded-2xl md:mb-0 mb-6 shadow-[0_0_20px_rgba(0,0,0,0.8)]" />
-          </div>
-          
-          {/* Details Content */}
-          <div className="flex-1 flex flex-col justify-between">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold text-[#2dd4bf] mb-1">Esteemed Evaluation Committee</h3>
-              <p className="text-white/40 text-[14px]">{"// Professors & Domain Experts"}</p>
-            </div>
-            
-            <div className="bg-[#111111] border border-[#222] rounded-2xl p-6 md:p-8 mb-6 h-full text-[14.5px] leading-relaxed text-white/60 space-y-4 font-normal shadow-inner">
-              <p>
-                The projects will be rigorously evaluated by a panel of tech professionals and established researchers specializing in domains like AI, ML, Sensors, and DIY Electronics. The judges possess years of practical, real-world experience, ensuring an authentic evaluation of your model's design logic and innovation.
-              </p>
-              <p>
-                Following your 6-8 minute presentation, the panel will ask critical questions and offer constructive feedback. This interaction is designed to strengthen your technical foundation and gear you up for advancing your project to higher university-level scopes and startup potential.
-              </p>
-            </div>
-
-            {/* Stat Cards Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2">
-                <div className="text-[#f89b29] scale-110 mb-1"><IconBadge iconType="users" /></div>
-                <h4 className="text-xl font-black text-[#f89b29]">25+</h4>
-                <span className="text-[12px] text-white/50">Expert Panels</span>
-              </div>
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2">
-                <svg className="w-[1.4rem] h-[1.4rem] text-[#f89b29] mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                <h4 className="text-xl font-black text-[#f89b29]">15+</h4>
-                <span className="text-[12px] text-white/50">Years Experience</span>
-              </div>
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2 text-center">
-                <div className="text-[#f89b29] scale-110 mb-1"><IconBadge iconType="briefcase" /></div>
-                <h4 className="text-xl font-black text-[#f89b29] leading-tight">Top Univ.</h4>
-                <span className="text-[12px] text-white/50">From Reputed Orgs</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 5 — Mentors
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
@@ -694,149 +576,42 @@ export const InnovistaEventPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
           {data.mentors.map((mentor) => (
             <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 flex flex-col items-center hover:border-[#333] transition-colors relative group">
-              {/* Avatar */}
               <img 
                 src={mentor.image} 
                 alt={mentor.name} 
-                className="w-24 h-24 rounded-full object-cover mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
+                className="w-24 h-24 rounded-full object-cover object-top mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
               />
-              
-              {/* Name & Role */}
               <h3 className="text-xl font-bold text-white mb-1">{mentor.name}</h3>
               <p className="text-[13px] text-white/50 mb-6 text-center">{mentor.role}</p>
-              
-              {/* Social Buttons (Square) */}
               <div className="flex items-center gap-4">
                 {mentor.phone && (
                   <a href={`tel:${mentor.phone}`} className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-blue-500 hover:bg-blue-500/10 transition-all" title="Call">
                     <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                   </a>
                 )}
-                {mentor.instagram && (
-                  <a href={mentor.instagram} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-red-500 hover:bg-red-500/10 transition-all" title="Instagram">
-                    <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="6" ry="6" strokeWidth="2" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" strokeWidth="2" /></svg>
-                  </a>
-                )}
-                {mentor.linkedin && (
-                  <a href={mentor.linkedin} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-blue-600 hover:bg-blue-600/10 transition-all" title="LinkedIn">
-                    <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>
-                  </a>
-                )}
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 6 — Certificate
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Event Certificate</h2>
+      {/* Event Gallery */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-2">
+        <div className="mb-1 text-left">
+          <div className="inline-flex items-center gap-3 mb-3 bg-[#f89b29]/5 px-6 py-2 rounded-full border border-[#f89b29]/20">
+            <div className="w-1 h-6 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Event Gallery</h2>
           </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden">
-          {/* Subtle gradient background glow from left */}
-          <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
+        <div className="relative group">
+          <ThreeDPhotoCarousel images={data.gallery} autoRotate={isAutoRotating} />
           
-          {/* Text Content */}
-          <div className="flex-1 w-full relative z-10 lg:pl-4">
-            {/* Ribbon Badge (Replaces Logo) */}
-            <div className="mb-6">
-              <img 
-                src="/certificate-ribbon-new.png" 
-                alt="Ribbon" 
-                className="w-16 md:w-20 h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]" 
-              />
-            </div>
-            
-            <div className="relative mb-8">
-              <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
-                Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate 
-                <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
-              </h3>
-            </div>
-            
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-white/70">
-                <IconBadge iconType="academic" />
-                <span className="text-[14px]">Add this certificate to your Resume!</span>
-              </div>
-              <div className="flex items-center gap-3 text-white/70">
-                <IconBadge iconType="linkedin" />
-                <span className="text-[14px]">Share it with your LinkedIn network 🚀</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Image */}
-          <div className="w-full md:w-[60%] lg:w-[55%] relative z-10 flex justify-end">
-            <div className="relative w-full">
-              <img 
-                src="/namaste_dsa_cert.webp" 
-                alt="Course Certificate" 
-                className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]" 
-              />
-              {/* Ribbon Badge */}
-              <img 
-                src="/certificate-ribbon.png" 
-                alt="Ribbon" 
-                className="absolute -top-6 -left-6 w-32 md:w-36 h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] z-20 pointer-events-none" 
-              />
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 7 — Testimonials
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20">
-        <div className="mb-10">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Our Testimonials</h2>
-          </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.testimonials.map((t, idx) => (
-            <div key={idx} className="bg-[#111] border border-[#222] rounded-[1.25rem] p-6 hover:bg-[#151515] transition-colors relative flex flex-col justify-between">
-              
-              {/* Header: Profile, Name/Role, College Logo */}
-              <div className="flex justify-between items-start mb-5 h-14">
-                <div className="flex items-center gap-4">
-                  <img src={t.image} alt={t.name} className="w-14 h-14 rounded-full object-cover border-2 border-[#333]" />
-                  <div className="flex items-center h-full">
-                    <h4 className="font-bold text-white/95 text-[15px]">{t.name}</h4>
-                  </div>
-                </div>
-                
-                {t.college_logo && (
-                  <div className="h-full flex items-center">
-                    <img src={t.college_logo} alt="College Logo" className="h-[26px] object-contain opacity-70" />
-                  </div>
-                )}
-              </div>
-
-              {/* Quote Text */}
-              <p className="text-[14px] text-white/70 leading-[1.6]">{t.quote}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 8 — FAQs
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 mb-20">
+      {/* FAQs Section */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-10 mb-10">
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
@@ -844,12 +619,10 @@ export const InnovistaEventPage = () => {
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
-
         <div className="w-full">
           {data.faqs.map(faq => <FaqItem key={faq.id} q={faq.question} a={faq.answer} />)}
         </div>
       </section>
-
     </div>
   )
 }

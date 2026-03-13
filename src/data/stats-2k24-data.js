@@ -31,11 +31,11 @@ export const collegeStatsData2k24 = [
                 members: [{ name: "M. Harshini", isBoy: false }, { name: "Skm. Alfana", isBoy: false }]
             },
             {
-                eventName: "Chemo-2", category: "Technical Events", rank: 2,
+                eventName: "Technovate", category: "Technical Events", subCategory: "Chemo-2", rank: 2,
                 members: [{ name: "K. K. Thnamayee", isBoy: false }]
             },
             {
-                eventName: "Chemo-4", category: "Technical Events", rank: 2,
+                eventName: "Technovate", category: "Technical Events", subCategory: "Chemo-4", rank: 2,
                 members: [{ name: "SrivalliPuttur Anupama", isBoy: false }, { name: "Sai Sri Priya Bhavani", isBoy: false }]
             },
             {
@@ -70,11 +70,11 @@ export const collegeStatsData2k24 = [
                 members: [{ name: "V. Vinitha", isBoy: false }, { name: "R. Chandu", isBoy: true }, { name: "A. Tejeswar", isBoy: true }, { name: "V. Hema Sai Reddy", isBoy: true }]
             },
             {
-                eventName: "Chemo-2", category: "Technical Events", rank: 1,
+                eventName: "Technovate", category: "Technical Events", subCategory: "Chemo-2", rank: 1,
                 members: [{ name: "T. Naveen Kumar", isBoy: true }, { name: "R. Venkata VaraPrasad", isBoy: true }]
             },
             {
-                eventName: "Avishkaar", category: "Technical Events", rank: 3,
+                eventName: "Avishkaar", category: "Technical Events", rank: "3A",
                 members: [{ name: "Gorantla Praveen Kumar", isBoy: true }, { name: "Todati Vishnu Vardhan", isBoy: true }, { name: "Pesala Manoj Reddy", isBoy: true }]
             },
             {
@@ -133,7 +133,7 @@ export const collegeStatsData2k24 = [
             },
             {
                 eventName: "Quiz Mania", category: "Technical Events", rank: 1,
-                winnerName: "Chetana Jadaprolu", winnerImageUrl: "/assets/images/girl-winner.png"
+                winnerName: "J. Chetana", winnerImageUrl: "/assets/images/girl-winner.png"
             },
             {
                 eventName: "Codex", category: "Technical Events", rank: 2,
@@ -185,7 +185,7 @@ export const collegeStatsData2k24 = [
         nonTechWins: 0,
         events: [
             {
-                eventName: "Lec. H-2", category: "Technical Events", rank: 1,
+                eventName: "Technovate", category: "Technical Events", subCategory: "Lec. H-2", rank: 1,
                 winnerName: "P. Nandhini", winnerImageUrl: "/assets/images/girl-winner.png"
             }
         ]
@@ -200,7 +200,7 @@ export const collegeStatsData2k24 = [
         nonTechWins: 0,
         events: [
             {
-                eventName: "Chemo-4", category: "Technical Events", rank: 1,
+                eventName: "Technovate", category: "Technical Events", subCategory: "Chemo-4", rank: 1,
                 winnerName: "Pragati Jaiswal", winnerImageUrl: "/assets/images/girl-winner.png"
             },
             {
@@ -245,10 +245,10 @@ export const collegeStatsData2k24 = [
     },
     {
         id: "2k24-11",
-        name: "Aditya College of Engineering",
+        name: "Aditya College Madanapalle",
         participants: 14,
         logoFallback: "ACE",
-        totalWins: 0, techWins: 0, nonTechWins: 0,
+        totalWins: 1, techWins: 0, nonTechWins: 1,
         events: [
             {
                 eventName: "Dumb Charades", category: "Non Technical", rank: 2,
@@ -311,7 +311,7 @@ export const collegeStatsData2k24 = [
         totalWins: 0, techWins: 0, nonTechWins: 0,
         events: [
             {
-                eventName: "Lec. H-2", category: "Technical Events", rank: 2,
+                eventName: "Technovate", category: "Technical Events", subCategory: "Lec. H-2", rank: 2,
                 winnerName: "A. Keerthi Keshwari", winnerImageUrl: "/assets/images/girl-winner.png"
             }
         ]
@@ -321,16 +321,17 @@ export const collegeStatsData2k24 = [
         name: "G. Pulla Reddy Engineering College",
         participants: 80,
         logoFallback: "GPREC",
-        totalWins: 0, techWins: 0, nonTechWins: 0,
+        totalWins: 0,
+        techWins: 0,
+        nonTechWins: 0,
         events: [
             {
-                // Avishkaar had two 3rd places: 3rd-A (SVUCE), 3rd-B (G Pulla Reddy). I will put them both as rank: 3 and logic will render the first one encountered or both? Actually we'll map both by creating a slight variation or let StatsPage array mapping handle it. Let's make it rank 3.
-                eventName: "Avishkaar", category: "Technical Events", rank: 3,
-                members: [{ name: "Pulipati Lokesh Varma", isBoy: true }, { name: "Shaik Sohel", isBoy: true }, { name: "Rachamadugu Vamsi Krishna", isBoy: true }]
+                eventName: "Avishkaar", category: "Technical Events", rank: "3B",
+                members: [{ name: "Pulipati Lokesh Varma", isBoy: true }, { name: "Shaik Sohel", isBoy: true }]
             },
             {
                 eventName: "Quiz Mania", category: "Technical Events", rank: 2,
-                winnerName: "Y Sivasai", winnerImageUrl: "/assets/images/boy-winner.png"
+                winnerName: "Y. Sivasai", winnerImageUrl: "/assets/images/boy-winner.png"
             }
         ]
     }

@@ -22,9 +22,9 @@ function AnimatedNumber() {
     const formatted = count.toLocaleString('en-IN');
 
     return (
-        <SparklesText 
+        <SparklesText
             text={`${formatted}+`}
-            colors={{ first: "#ff9100", second: "#ffcc00" }} 
+            colors={{ first: "#ff9100", second: "#ffcc00" }}
             className="text-[clamp(48px,8vw,80px)] font-black tracking-[-0.03em] leading-tight text-[#ff7a00] mb-4 drop-shadow-[0_0_15px_rgba(255,122,0,0.6)]"
         />
     );
@@ -68,7 +68,7 @@ export function CommunityRegistration() {
 
                 {/* Platform Metric Badges / Cards */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-16 w-full relative">
-                    
+
                     {/* Left Custom Logo Card */}
                     <div className="flex items-center gap-4 text-left group">
                         <div className="w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110">
@@ -79,7 +79,7 @@ export function CommunityRegistration() {
                                 800+ Registrations
                             </span>
                             <span className="text-white/70 font-bold text-sm">
-                                Sigmoid 2024
+                                Sigmoid 2k24
                             </span>
                         </div>
                     </div>
@@ -90,14 +90,14 @@ export function CommunityRegistration() {
                     {/* Right Custom Logo Card */}
                     <div className="flex items-center gap-4 text-left group">
                         <div className="w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110">
-                            <img src={rightLogo} alt="Logo Right" className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
+                            <img src={rightLogo} alt="Logo Right" className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] scale-[1.5]" />
                         </div>
                         <div className="flex flex-col">
                             <span className="text-white font-extrabold text-xl tracking-tight drop-shadow-md">
-                                1800+ Registrations
+                                1000+ Registrations
                             </span>
                             <span className="text-white/70 font-bold text-sm">
-                                Sigmoid 2025
+                                Sigmoid 2k25
                             </span>
                         </div>
                     </div>

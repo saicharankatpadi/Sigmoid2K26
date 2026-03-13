@@ -37,7 +37,7 @@ export function StatsPage() {
     const technicalEvents = ['Codeverse', 'Quiztronics', 'TechFusion', 'Posterize', 'Innovista'];
     const nonTechnicalEvents = ['Click Fest', 'GuessBusters', 'kims game'];
 
-    const technicalEvents2k24 = ['Technovate', 'Lec. H-2', 'Chemo-2', 'Chemo-4', 'Posterize', 'Avishkaar', 'Circuitrix', 'Quiz Mania', 'Codex'];
+    const technicalEvents2k24 = ['Technovate', 'Posterize', 'Avishkaar', 'Circuitrix', 'Quiz Mania', 'Codex'];
     const nonTechnicalEvents2k24 = ['Dumb Charades', 'Buoyancy', 'Brain Teasers', 'Pixel Mania'];
 
     return (
@@ -283,7 +283,7 @@ export function StatsPage() {
                         )}
 
                         {selectedView.startsWith('evt-2k24-') && (
-                            <EventDetailsCards eventName={selectedView.replace('evt-2k24-', '')} data={sortedCollegeStatsData2k24} year="2K24" />
+                            <EventDetailsCards eventName={selectedView.replace('evt-2k24-', '') === 'Technovate' ? 'Technovate' : selectedView.replace('evt-2k24-', '')} data={sortedCollegeStatsData2k24} year="2K24" />
                         )}
                     </div>
 
@@ -448,31 +448,46 @@ function MostWinsTable({ data, title }) {
 
 // Sub-component for rendering Event Winners with the White Team Icon and 3-Card structure
 function EventDetailsCards({ eventName, data, year }) {
-    // 1. Gather the 1st, 2nd, and 3rd place winners for this specific event from the data.
-    const winners = { 1: null, 2: null, 3: null };
+    // 1. Gather the 1st, 2nd, 3rd, 3A, 3B, and 4th place winners for this specific event, grouped by sub-category.
+    const winnersBySubCategory = {};
 
     data.forEach(college => {
         college.events.forEach(evt => {
-            if (evt.eventName === eventName && evt.rank && evt.rank <= 3 && !winners[evt.rank]) {
-                winners[evt.rank] = {
+            if (evt.eventName === eventName && evt.rank) {
+                const subCategory = evt.subCategory || 'default';
+                const rank = evt.rank;
+
+                if (!winnersBySubCategory[subCategory]) {
+                    winnersBySubCategory[subCategory] = { 1: [], 2: [], 3: [], '3A': [], '3B': [], 4: [] };
+                }
+
+                // Add to array of winners for this rank
+                winnersBySubCategory[subCategory][rank].push({
                     collegeName: college.name,
                     logoFallback: college.logoFallback,
                     ...evt
-                };
+                });
             }
         });
     });
 
-    const hasAnyWinners = winners[1] || winners[2] || winners[3];
+    const hasAnyWinners = Object.keys(winnersBySubCategory).length > 0;
 
-    // Helper for rendering a single card exactly per specifications
-    const renderCard = (rank, winner) => {
+    // Helper for rendering a single card
+    const renderCard = (rank, winner, key) => {
         if (!winner) return null;
         
-        const rankTitles = { 1: 'WINNERS (1st PRIZE)', 2: 'RUNNERS (2nd prize)', 3: '3rd prize' };
+        const rankTitles = { 
+            1: 'WINNERS (1st PRIZE)', 
+            2: 'RUNNERS (2nd prize)', 
+            3: '3rd prize', 
+            '3A': '3rd Prize - A', 
+            '3B': '3rd Prize - B', 
+            4: '4th prize' 
+        };
         
         return (
-            <div className="flex flex-col w-full max-w-[500px]">
+            <div key={key} className="flex flex-col w-full max-w-[500px]">
                 {/* Title OUTSIDE and ABOVE the bordered box */}
                 <span className="text-white font-bold mb-3 uppercase tracking-wide text-[16px] pl-2">
                     {rankTitles[rank]}
@@ -486,7 +501,7 @@ function EventDetailsCards({ eventName, data, year }) {
                         {/* Header: 01 | Logo Name */}
                         <div className="flex items-center gap-3 sm:gap-4 mb-4 pb-4 border-b border-white/10">
                             <span className="text-[24px] sm:text-[28px] font-black tabular-nums tracking-tighter text-white">
-                                0{rank}
+                                {String(rank).length === 1 ? `0${rank}` : rank}
                             </span>
                             <div className="w-[2px] h-8 bg-white/20 shrink-0"></div>
                             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-[12px] shrink-0 bg-white text-[#15133C]">
@@ -494,36 +509,32 @@ function EventDetailsCards({ eventName, data, year }) {
                             </div>
                         </div>
                         {/* Content Split depending on Event Type (Individual vs Team) */}
-                        {winner.winnerName ? (
-                            <div className="flex flex-col gap-4 mt-2">
-                                <span className="font-bold text-white text-[14px] sm:text-[16px] leading-tight break-words line-clamp-2">
-                                    {winner.collegeName}
+                        <div className="flex flex-col gap-1">
+                            <span className="font-bold text-white text-[14px] sm:text-[16px] leading-tight break-words">
+                                {winner.collegeName}
+                            </span>
+                            
+                            {winner.winnerName && (
+                                <span className="text-white/50 text-[12px] font-bold tracking-wider uppercase mt-1">
+                                    {winner.winnerName}
                                 </span>
+                            )}
+                        </div>
+                        
+                        {!winner.winnerName && winner.members && (
+                            <div className="flex flex-col gap-2 mt-4">
+                                {winner.members.map((member, i) => (
+                                    <div key={i} className="flex gap-3 items-center text-[14px] sm:text-[15px] font-semibold text-white/90">
+                                        <span className="text-white text-sm tabular-nums">{i + 1}.</span>
+                                        <span>{member.name}</span>
+                                    </div>
+                                ))}
                             </div>
-                        ) : (
-                            <>
-                                <span className="font-bold text-white text-[14px] sm:text-[16px] leading-tight break-words line-clamp-2">
-                                    {winner.collegeName}
-                                </span>
-                                
-                                {/* Members List (Only for teams) */}
-                                <div className="flex flex-col gap-2 mt-4">
-                                    {winner.members?.map((member, i) => (
-                                        <div key={i} className="flex gap-3 items-center text-[14px] sm:text-[15px] font-semibold text-white/90">
-                                            <span className="text-white text-sm tabular-nums">{i + 1}.</span>
-                                            <span>{member.name}</span>
-                                        </div>
-                                    ))}
-                                    {(!winner.members || winner.members.length === 0) && (
-                                        <div className="text-sm italic text-white/40">No members listed.</div>
-                                    )}
-                                </div>
-                            </>
                         )}
                     </div>
 
                     {/* RIGHT SIDE: Team Icon or Individual Winner Portrait */}
-                    <div className="w-[100px] sm:w-[130px] shrink-0 flex flex-col items-center justify-center pl-2 sm:pl-4 pr-4 sm:pr-6 gap-2">
+                    <div className="w-[100px] sm:w-[130px] shrink-0 flex flex-col items-center justify-center pl-2 sm:pl-4 pr-1 gap-2">
                         {winner.winnerName ? (
                             <>
                                 <img 
@@ -573,21 +584,41 @@ function EventDetailsCards({ eventName, data, year }) {
                     <p className="text-white/60">Data is currently being calculated for this event.</p>
                 </div>
             ) : (
-                <div className="flex flex-col gap-8 w-full pb-10">
-                    {/* Top Row: 1st and 2nd Place */}
-                    <div className="flex flex-col xl:flex-row gap-8 justify-center w-full max-w-6xl mx-auto">
-                        {winners[1] && <div className="flex-1 flex justify-center xl:justify-end">{renderCard(1, winners[1])}</div>}
-                        {winners[2] && <div className="flex-1 flex justify-center xl:justify-start">{renderCard(2, winners[2])}</div>}
-                    </div>
-                    
-                    {/* Bottom Row: 3rd Place */}
-                    {winners[3] && (
-                        <div className="flex justify-center w-full mt-2">
-                            {renderCard(3, winners[3])}
-                        </div>
-                    )}
+                <div className="flex flex-col gap-12 w-full pb-10">
+                    {/* Group by sub-category if present */}
+                    {Object.keys(winnersBySubCategory).map((subCat) => {
+                        const winners = winnersBySubCategory[subCat];
+                        return (
+                            <div key={subCat} className="flex flex-col gap-8">
+                                {subCat !== 'default' && (
+                                    <h4 className="text-[20px] font-bold text-[#0052cc] border-b border-white/10 pb-2 mb-2 w-fit">
+                                        SUB-CATEGORY: {subCat}
+                                    </h4>
+                                )}
+                                                   {/* Top Row: 1st and 2nd Place */}
+                                <div className="flex flex-wrap gap-8 justify-center w-full max-w-6xl mx-auto">
+                                    {winners[1].map((w, i) => renderCard(1, w, `1-${i}`))}
+                                    {winners[2].map((w, i) => renderCard(2, w, `2-${i}`))}
+                                </div>
+                                
+                                {/* 3rd Place Row (Handles 3, 3A, 3B) */}
+                                <div className="flex flex-wrap gap-8 justify-center w-full max-w-6xl mx-auto mt-2">
+                                    {winners[3].map((w, i) => renderCard(3, w, `3-${i}`))}
+                                    {winners['3A'].map((w, i) => renderCard('3A', w, `3A-${i}`))}
+                                    {winners['3B'].map((w, i) => renderCard('3B', w, `3B-${i}`))}
+                                </div>
+                                
+                                {/* 4th Place Row */}
+                                {winners[4].length > 0 && (
+                                    <div className="flex flex-wrap justify-center w-full mt-2 gap-8">
+                                        {winners[4].map((w, i) => renderCard(4, w, `4-${i}`))}
+                                    </div>
+                                )}
+                            </div>
+                        )
+                    })}
                 </div>
             )}
         </div>
     );
-}
+}

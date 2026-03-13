@@ -1,115 +1,104 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
 
 // ==========================================
 // DYNAMIC EVENT DATA (JSON FORMAT)
-// Replace any field below for a different event
 // ==========================================
 const eventData = {
   event_info: {
-    title: "TechFusion",
-    emoji: "rocket",
-    subtitle: "Learn Data Structures & Algorithms · From Zero to Hero",
-    brochure_url: "/downloads/techfusion-brochure.pdf",
+    title: "Quizmania",
+    emoji: "🧠",
+    subtitle: "A High-Energy Battle of Intellect",
+    brochure_url: "/QUIZMANIA.pdf",
     features: [
-      { id: "01", content: "Structured, high-quality video lessons" },
-      { id: "02", content: "Start from scratch, no DSA experience needed" },
-      { id: "03", content: "Company wise interview practice questions" },
-      { id: "04", content: "Verified certificate to boost your Resume" },
-      { id: "05", content: "7-Day no-questions-asked refund policy" },
-      { id: "06", content: "Get Lifetime Access And All Future Updates" },
-      { id: "07", content: "Solution code in - JS, C, C++, Java & Python" },
-      { id: "08", content: "High-Quality Notes, interview preparation" },
-      { id: "09", content: "Strong Problem-Solving Foundation" },
-      { id: "10", content: "Time & Space Complexity Mastery" }
+      { id: "01", content: "Compete in a fast-paced technical and general quiz." },
+      { id: "02", content: "Tests speed, accuracy, and depth of technical knowledge." },
+      { id: "03", content: "Individual and team-based rounds for maximum engagement." },
+      { id: "04", content: "Multiple stages including buzzer rounds and rapid fire." },
+      { id: "05", content: "Questions from engineering, tech trends, and aptitude." },
+      { id: "06", content: "Real-time leaderboard and stage-based eliminations." },
+      { id: "07", content: "No external help or mobile devices during active rounds." },
+      { id: "08", content: "Judgment is based on speed and precise correctness." }
     ]
   },
+
   mission: [
     {
-      id: "foundation",
+      id: "objective",
       icon: "target",
-      title: "THE FOUNDATION",
+      title: "THE OBJECTIVE",
       points: [
-        "The mission of this series is to take you from Zero to Hero in Data Structures & Algorithms, with a focus on deep understanding of all the DSA fundamental concepts.",
-        "Our goal isn't just to help you solve problems, but to make you fall in love with algorithms. Every concept is broken down line by line, with clear explanations on how it works, why it works, how to optimize it, finding the time and space complexity and finally converting your approach to code.",
-        "We follow a learn-by-doing philosophy. You'll master DSA while practicing a lots of coding problems, starting right from the basics and slowly moving to highly advanced concepts."
+        "Quizmania aims to celebrate the intellectual prowess and quick thinking of students.",
+        "It provides a platform to test domain knowledge across various technical disciplines.",
+        "The goal is to foster a culture of curiosity, learning, and competitive excellence."
       ]
     },
     {
-      id: "journey",
+      id: "format",
       icon: "rocket",
-      title: "THE JOURNEY",
+      title: "THE FORMAT",
       points: [
-        "By the end of this course, you'll have the skills and confidence to crack DSA rounds at top companies and approach new DSA problems with ease. This course is intense. It demands your time, consistency, and dedication. But if you commit, it can be a game-changer for your tech career.",
-        "Are you ready?",
-        "Come join us and become a DSA hero. 🚀"
+        "Round 1: Preliminary written/digital test to shortlist the top performers.",
+        "Round 2: Stage-based buzzer rounds with audio-visual components.",
+        "Final Round: High-intensity rapid-fire questions to determine the ultimate champion."
       ]
     }
   ],
   learnings: {
-    title: "Learnings",
+    title: "Syllabus & Domains",
     items: [
-      "Arrays", "Strings", "Linked Lists", "Doubly Linked List",
-      "Circular Linked List", "Stacks", "Queues", "Priority Queue",
-      "Deque", "Hash Maps", "Hash Sets", "Recursion",
-      "Backtracking", "Binary Trees", "Tree Traversals", "Binary Search Trees"
+      "Core Engineering", "Current Tech News", "Logical Reasoning", "General Aptitude",
+      "Famous Scientists", "Tech History", "Programming Logic", "Electronic Basics",
+      "Innovation Trends", "Space & Robotics", "Software Giants", "Math Puzzles"
     ],
-    button_text: "And so much more...",
+    button_text: "And much more...",
     description: [
-      "Basically, I'll teach you everything I've learned over the years from solving numerous problems to preparing for top tech interviews. Everything I know about Data Structures and Algorithms, distilled into one powerful course. ❤️",
-      "We'll dive deep into each Data Structure and Algorithm by solving hundreds of problems no slides, no shortcuts just real coding, real logic, and hands-on learning. 🚀",
-      "We'll start from absolute ZERO and build up to confidently solving even the most complex DSA questions. This is your journey from Zero to Hero in Data Structures and Algorithms. 🤩",
-      "This is one of the few structured DSA courses in the industry that teaches you the why, how, and where behind every concept in a way that's practical, intuitive, and interview-ready.",
-      "And yes, you'll have lifetime access to all future content updates and bonus sessions as the series evolves!",
+      "Deep dive into the history and future of groundbreaking technologies.",
+      "Analyze logical patterns and solve complex aptitude challenges.",
+      "Stay updated with current events in the global technology landscape.",
+      "Challenge your memory and recall under high-pressure buzzer rounds.",
+      "Engage in healthy intellectual competition with peers from all over."
     ]
   },
   perks: {
     title: "Perks & Benefits",
     items: [
-      { text: "High-quality DSA video lessons", icon: "video", color: "#f89b29" },
-      { text: "Different Approaches to solve a same problem", icon: "code", color: "#f89b29" },
-      { text: "Notes & cheat sheets", icon: "clipboard", color: "#10B981" },
-      { text: "Pattern-based problem solving", icon: "refresh", color: "#2dd4bf" },
-      { text: "Taught by Akshay Saini", icon: "user", color: "#a855f7" },
-      { text: "Course completion certificate", icon: "academic", color: "#ec4899" },
-      { text: "Lifetime access & updates", icon: "clock", color: "#10B981" },
-      { text: "Premium learner community", icon: "users", color: "#f89b29" },
-      { text: "DSA from scratch", icon: "cube", color: "#eab308" },
-      { text: "Debug & visualize algorithms", icon: "briefcase", color: "#10B981" },
-      { text: "Bonus Session on Personal Branding", icon: "diamond", color: "#2dd4bf" },
-      { text: "Bonus Session on LinkedIn Tips and Tricks", icon: "linkedin", color: "#8b5cf6" },
-      { text: "Bonus Session on Resume Building", icon: "document", color: "#f89b29" },
-      { text: "Learn anytime, anywhere", icon: "globe", color: "#eab308" },
-      { text: "7-day refund guarantee", icon: "shield", color: "#10B981" },
-      { text: "Interview-style problems", icon: "terminal", color: "#2dd4bf" }
+      { text: "Trophies for Winners", icon: "diamond", color: "#ec4899" },
+      { text: "Certificates of Excellence", icon: "academic", color: "#2dd4bf" },
+      { text: "Enhanced General Knowledge", icon: "globe", color: "#f89b29" },
+      { text: "Networking with Tech Minds", icon: "users", color: "#10B981" },
+      { text: "Logic & Speed Training", icon: "refresh", color: "#a855f7" },
+      { text: "Digital Scoring Profile", icon: "clipboard", color: "#10B981" },
+      { text: "Exciting Spot Prizes", icon: "cube", color: "#f89b29" },
+      { text: "Official Fest Recognition", icon: "shield", color: "#2dd4bf" }
     ]
   },
   mentors: [
     { 
       id: "m1", 
-      name: "Alex Rivera", 
-      role: "Senior Staff Engineer", 
-      image: "/mentor_profile.jpg",
-      phone: "+1234567890",
-      instagram: "https://instagram.com/placeholder1",
-      linkedin: "https://linkedin.com/in/placeholder1"
-    },
-    { 
-      id: "m2", 
-      name: "Samantha Lee", 
-      role: "Lead Product Designer", 
-      image: "/mentor_leader1.jpeg",
-      phone: "+0987654321",
-      instagram: "https://instagram.com/placeholder2",
-      linkedin: "https://linkedin.com/in/placeholder2"
+      name: "Event Mentor", 
+      role: "Quiz Enthusiast", 
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773311017/WhatsApp_Image_2026-03-11_at_23.52.26_thjwxl.jpg",
+      phone: "",
+      instagram: "",
+      linkedin: ""
     }
   ],
+  video_preview: {
+    video_src: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773353525/WhatsApp_Video_2026-03-12_at_11.43.29_nkhzde.mp4",
+    badges: [
+      { position: "top-left", icon: "clock", text: "Speed & Accuracy" },
+      { position: "top-right", icon: "diamond", text: "Big Prizes" },
+      { position: "bottom-left", icon: "users", text: "Team Battle" },
+      { position: "bottom-right", icon: "terminal", text: "Technical Quiz" }
+    ]
+  },
   faqs: [
-    { id: "q1", question: "What is Namaste DSA?", answer: "Namaste DSA is our most comprehensive Data Structures & Algorithms course designed to take you from fundamentals to advanced algorithmic mastery." },
-    { id: "q2", question: "Is Namaste DSA suitable for complete beginners?", answer: "Yes! We assume zero prior knowledge of Data Structures and Algorithms. We build everything ground-up." },
-    { id: "q3", question: "What programming languages are used?", answer: "The course explanations focus on logic, but solution code is provided in JavaScript, C, C++, Java, and Python!" },
-    { id: "q4", question: "What data structures are covered?", answer: "We cover everything from native Arrays and Strings, to Stacks, Queues, Linked Lists, HashMaps, Trees, Graphs, and Heaps." }
+    { id: "q1", question: "Is it a team event?", answer: "Quizmania features both individual and team rounds. Check the brochure for specific team size limits." },
+    { id: "q2", question: "What is the entry fee?", answer: "Follow the standard registration process on the website for fee details." },
+    { id: "q3", question: "Are there negative marks?", answer: "Yes, buzzer rounds typically involve negative marks for incorrect answers to test precision." },
+    { id: "q4", question: "What should I bring?", answer: "Just your intellectual wit! Any required writing materials or digital pads will be provided." }
   ]
 };
 
@@ -166,88 +155,241 @@ const FaqItem = ({ q, a }) => {
 // MAIN PAGE EXPORT
 // ==========================================
 
-export const DynamicEventPage = () => {
+export const QuizmaniaEventPage = () => {
   const data = eventData;
+  const videoRef = useRef(null);
+  const progressRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState('0:00');
+  const [duration, setDuration] = useState('0:00');
+  const [showControls, setShowControls] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const formatTime = (s) => {
+    if (!s || isNaN(s)) return '0:00';
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return `${m}:${sec.toString().padStart(2, '0')}`;
+  };
+
+  const togglePlay = useCallback(() => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.muted = false;
+        setIsMuted(false);
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  }, [isPlaying]);
+
+  const toggleMute = useCallback(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  }, [isMuted]);
+
+  const handleTimeUpdate = useCallback(() => {
+    if (videoRef.current && !isDragging) {
+      const v = videoRef.current;
+      const pct = (v.currentTime / v.duration) * 100;
+      setProgress(pct || 0);
+      setCurrentTime(formatTime(v.currentTime));
+    }
+  }, [isDragging]);
+
+  const handleLoadedMetadata = useCallback(() => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0.5;
+      setDuration(formatTime(videoRef.current.duration));
+    }
+  }, []);
+
+  const seekToPosition = useCallback((e) => {
+    if (videoRef.current && progressRef.current) {
+      const rect = progressRef.current.getBoundingClientRect();
+      const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+      const pct = x / rect.width;
+      videoRef.current.currentTime = pct * videoRef.current.duration;
+      setProgress(pct * 100);
+      setCurrentTime(formatTime(pct * videoRef.current.duration));
+    }
+  }, []);
+
+  const handleProgressMouseDown = useCallback((e) => {
+    e.preventDefault();
+    setIsDragging(true);
+    seekToPosition(e);
+
+    const onMouseMove = (ev) => seekToPosition(ev);
+    const onMouseUp = () => {
+      setIsDragging(false);
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  }, [seekToPosition]);
 
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
-      {/* ═══════════════════════════════════════════
-          SECTION 1 — HERO: Centered Layout
-       ═══════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-28 pb-10">
-        <div className="flex flex-col items-center justify-center text-center">
+      {/* Keyframes */}
+      <style>{`
+        @keyframes floatBadge1 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+        @keyframes floatBadge2 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
+        @keyframes floatBadge3 { 0%,100% { transform: translateY(-4px); } 50% { transform: translateY(6px); } }
+        @keyframes floatBadge4 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @keyframes playPulse {
+          0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.35); }
+          70% { box-shadow: 0 0 0 25px rgba(255,255,255,0); }
+          100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+        }
+        @keyframes playRadiate {
+          0% { opacity: 0.5; transform: scale(1); }
+          100% { opacity: 0; transform: scale(2.5); }
+        }
+      `}</style>
 
-          {/* Title Row */}
-          <div className="flex items-center justify-center gap-3 mb-3">
+      {/* Hero Section */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-28 pb-10">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
+          {/* Left Column */}
+          <div className="flex-1 min-w-0 lg:max-w-[50%]">
+            <div className="flex items-center gap-3 mb-3">
               <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
               <div className="flex items-center">
                 <BlurIn 
                   word={data.event_info.title}
-                  className="text-4xl md:text-5xl font-black text-white tracking-tight"
+                  className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
                 />
-                {data.event_info.emoji === 'rocket' ? (
-                  <img src="/rocket-icon.png" alt="rocket" className="ml-5 w-auto h-12 md:h-14 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.5)]" />
-                ) : (
-                  <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
-                )}
+                <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
               </div>
             </div>
 
-            {/* Subtitle */}
-            <p className="text-white/50 text-lg font-medium mb-12">
+            <p className="text-white/50 text-lg font-medium mb-8 pl-4">
               {data.event_info.subtitle}
             </p>
 
-            {/* ── Feature Cards — Grid ── */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-[1200px]">
+            <div className="grid grid-cols-2 gap-2.5">
               {data.event_info.features.map(feature => (
                 <div
                   key={feature.id}
                   className="flex items-center gap-0 bg-[#111111] border-2 border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#3a3a3a] transition-all duration-300 group cursor-default"
                 >
-                  {/* Number */}
                   <div className="shrink-0 w-12 flex items-center justify-center py-3 px-2">
                     <span className="text-[#f89b29] font-black text-[15px] tracking-wider">{feature.id}</span>
                   </div>
-                  {/* Vertical Line Separator — half height, centered */}
                   <div className="flex items-center self-stretch">
                     <div className="w-[2px] h-[50%] bg-[#2a2a2a] group-hover:bg-[#3a3a3a] transition-colors rounded-full"></div>
                   </div>
-                  {/* Text */}
                   <div className="flex-1 py-3 px-3">
                     <span className="text-white/90 text-[13px] leading-snug font-semibold">{feature.content}</span>
                   </div>
                 </div>
               ))}
             </div>
+          </div>
 
-            {/* Download Brochure — Neon Button */}
-            <div className="mt-16 mb-4">
-              <a href={data.event_info.brochure_url} download className="inline-block">
-                <Button
-                  variant="default"
-                  size="lg"
-                  neon={true}
-                  className="bg-black text-white border-white/20 hover:bg-white/5 hover:border-white/40 px-10 py-3 text-[16px] font-bold flex items-center gap-3 cursor-pointer"
+          {/* Right Column */}
+          <div className="flex-1 min-w-0 lg:max-w-[50%] flex flex-col items-center justify-center lg:pl-6">
+            <div className="relative z-10 w-full max-w-[560px]">
+              <div className="relative bg-[#181818] rounded-t-2xl border-t-2 border-x-2 border-[#333] p-3 shadow-[0_0_60px_rgba(0,0,0,0.6)]">
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#444]"></div>
+                <div
+                  className="relative w-full aspect-video bg-black rounded overflow-hidden border border-[#222] cursor-pointer"
+                  onMouseEnter={() => isPlaying && setShowControls(true)}
+                  onMouseLeave={() => setShowControls(false)}
                 >
+                  <video
+                    ref={videoRef}
+                    src={data.video_preview.video_src}
+                    className="w-full h-full object-cover"
+                    muted={isMuted}
+                    loop
+                    playsInline
+                    preload="metadata"
+                    onTimeUpdate={handleTimeUpdate}
+                    onLoadedMetadata={handleLoadedMetadata}
+                  />
+
+                  {!isPlaying && (
+                    <div className="absolute inset-0 flex items-center justify-center z-10 group/play" onClick={togglePlay}>
+                      <div className="absolute w-24 h-24 rounded-full border-2 border-white/20 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite' }}></div>
+                      <button className="relative w-16 h-16 sm:w-[72px] sm:h-[72px] bg-white/90 rounded-full flex items-center justify-center border-[3px] border-white transition-all duration-300 hover:scale-110 z-20 shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+                        <svg className="w-7 h-7 sm:w-8 sm:h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                      </button>
+                    </div>
+                  )}
+
+                  {isPlaying && (
+                    <div className={`absolute bottom-0 left-0 right-0 z-30 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`} onMouseEnter={() => setShowControls(true)}>
+                      <div ref={progressRef} className="w-full h-1.5 bg-white/20 cursor-pointer group/progress hover:h-2.5 transition-all" onMouseDown={handleProgressMouseDown}>
+                        <div className="h-full bg-[#f89b29] relative" style={{ width: `${progress}%` }}>
+                          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#f89b29] opacity-0 group-hover/progress:opacity-100 transition-opacity shadow-md border border-white/30"></div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3 px-3 py-2 bg-gradient-to-t from-black/80 to-black/40">
+                        <button onClick={(e) => { e.stopPropagation(); togglePlay(); }} className="text-white hover:text-white/80 transition-colors">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            {isPlaying ? <><rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" /></> : <path d="M8 5v14l11-7z" />}
+                          </svg>
+                        </button>
+                        <button onClick={(e) => { e.stopPropagation(); toggleMute(); }} className="text-white hover:text-white/80 transition-colors">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            {isMuted ? <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" /> : <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />}
+                          </svg>
+                        </button>
+                        <span className="text-white/70 text-[12px] font-mono ml-1">{currentTime} / {duration}</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {data.video_preview.badges.map((badge, idx) => {
+                  const posMap = {
+                    "top-left": "-top-6 -left-4 lg:-left-10",
+                    "top-right": "-top-6 -right-4 lg:-right-10",
+                    "bottom-left": "-bottom-4 -left-4 lg:-left-10",
+                    "bottom-right": "-bottom-4 -right-4 lg:-right-10"
+                  };
+                  const floatAnims = ['floatBadge1 3s ease-in-out infinite', 'floatBadge2 3.5s ease-in-out infinite 0.3s', 'floatBadge3 4s ease-in-out infinite 0.6s', 'floatBadge4 3.2s ease-in-out infinite 0.9s'];
+                  return (
+                    <div key={idx} className={`hidden md:flex absolute z-20 ${posMap[badge.position]} bg-[#0c0c0c] border-2 border-[#2a2a2a] rounded-full px-5 py-2.5 items-center gap-2.5 text-white text-[14px] font-bold shadow-[0_8px_32px_rgba(0,0,0,0.6)] whitespace-nowrap cursor-default`} style={{ animation: floatAnims[idx % 4] }}>
+                      <IconBadge iconType={badge.icon} />
+                      {badge.text}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="relative w-[108%] -ml-[4%] h-6 bg-[#272727] rounded-b-xl border-2 border-[#333] flex justify-center items-start shadow-2xl z-0">
+                <div className="w-28 h-2 bg-[#181818] rounded-b-sm"></div>
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <a href={data.event_info.brochure_url} download className="inline-block">
+                <Button variant="default" size="lg" neon={true} className="bg-black text-white border-white/20 hover:bg-white/5 hover:border-white/40 px-10 py-3 text-[16px] font-bold flex items-center gap-3 cursor-pointer">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                   Download Brochure
                 </Button>
               </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 2 — Our Mission
-       ═══════════════════════════════════════════════════════════ */}
+      {/* Experience Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
         <div className="mb-7">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Our Mission</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white">The Experience</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
@@ -256,28 +398,19 @@ export const DynamicEventPage = () => {
           {data.mission.map(m => {
             const isFoundation = m.icon === 'target';
             const themeColor = isFoundation ? '#f89b29' : '#2dd4bf';
-
             const iconSvg = isFoundation
               ? <svg className="w-5 h-5" fill="none" stroke="#f89b29" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" strokeWidth="2" /><circle cx="12" cy="12" r="6" strokeWidth="2" /><circle cx="12" cy="12" r="2" strokeWidth="2" /></svg>
               : <svg className="w-5 h-5" fill="none" stroke="#2dd4bf" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>;
 
             return (
               <div key={m.id} className="bg-[#0a0a0a] border-2 border-[#222] rounded-2xl p-6 transition-colors hover:border-[#333]">
-                {/* Card header with icon + title */}
                 <div className="flex items-center gap-3 mb-3">
-                  <div
-                    className="w-10 h-10 rounded-lg flex items-center justify-center"
-                    style={{ background: `${themeColor}10`, border: `2px solid ${themeColor}40` }}
-                  >
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: `${themeColor}10`, border: `2px solid ${themeColor}40` }}>
                     {iconSvg}
                   </div>
                   <h3 className="text-[14px] font-bold tracking-[0.15em]" style={{ color: themeColor }}>{m.title}</h3>
                 </div>
-
-                {/* Divider line matching theme color */}
                 <div className="w-full h-[2px] mb-5" style={{ background: `${themeColor}30` }}></div>
-
-                {/* Bullet Points */}
                 <ul className="space-y-3.5">
                   {m.points.map((pt, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -292,11 +425,8 @@ export const DynamicEventPage = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 3 — Learnings
-       ═══════════════════════════════════════════════════════════ */}
+      {/* Syllabus Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
@@ -305,7 +435,6 @@ export const DynamicEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        {/* 4-column topic grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {data.learnings.items.map((item, i) => (
             <div key={i} className="flex items-center gap-3 bg-[#0a0a0a] rounded-xl px-4 py-3 border border-[#222] hover:border-[#333] transition-colors">
@@ -326,7 +455,6 @@ export const DynamicEventPage = () => {
           </div>
         </div>
 
-        {/* Description card with bullet points */}
         {data.learnings.description && (
           <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl p-6 md:p-8">
             <ul className="space-y-4">
@@ -341,11 +469,8 @@ export const DynamicEventPage = () => {
         )}
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 4 — Perks & Benefits
-       ═══════════════════════════════════════════════════════════ */}
+      {/* Perks Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
@@ -354,14 +479,10 @@ export const DynamicEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        {/* 4-column perk grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {data.perks.items.map((perk, i) => (
             <div key={i} className="flex items-center gap-4 bg-[#0a0a0a] border border-[#222] rounded-xl px-4 py-3.5 hover:border-[#333] transition-colors relative group">
-              <div 
-                className="w-10 h-10 rounded-[10px] flex items-center justify-center shrink-0"
-                style={{ background: `${perk.color}15`, color: perk.color }}
-              >
+              <div className="w-10 h-10 rounded-[10px] flex items-center justify-center shrink-0" style={{ background: `${perk.color}15`, color: perk.color }}>
                 <IconBadge iconType={perk.icon} />
               </div>
               <span className="text-[14px] font-medium text-white/80 leading-snug">{perk.text}</span>
@@ -370,11 +491,8 @@ export const DynamicEventPage = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 5 — Mentors
-       ═══════════════════════════════════════════════════════════ */}
+      {/* Mentors Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
@@ -386,43 +504,15 @@ export const DynamicEventPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
           {data.mentors.map((mentor) => (
             <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 flex flex-col items-center hover:border-[#333] transition-colors relative group">
-              {/* Avatar */}
-              <img 
-                src={mentor.image} 
-                alt={mentor.name} 
-                className="w-24 h-24 rounded-full object-cover mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
-              />
-              
-              {/* Name & Role */}
+              <img src={mentor.image} alt={mentor.name} className="w-24 h-24 rounded-full object-cover object-top mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" />
               <h3 className="text-xl font-bold text-white mb-1">{mentor.name}</h3>
               <p className="text-[13px] text-white/50 mb-6 text-center">{mentor.role}</p>
-              
-              {/* Social Buttons (Square) */}
-              <div className="flex items-center gap-4">
-                {mentor.phone && (
-                  <a href={`tel:${mentor.phone}`} className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-blue-500 hover:bg-blue-500/10 transition-all" title="Call">
-                    <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                  </a>
-                )}
-                {mentor.instagram && (
-                  <a href={mentor.instagram} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-red-500 hover:bg-red-500/10 transition-all" title="Instagram">
-                    <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="6" ry="6" strokeWidth="2" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" strokeWidth="2" /></svg>
-                  </a>
-                )}
-                {mentor.linkedin && (
-                  <a href={mentor.linkedin} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-blue-600 hover:bg-blue-600/10 transition-all" title="LinkedIn">
-                    <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>
-                  </a>
-                )}
-              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 6 — FAQs
-       ═══════════════════════════════════════════════════════════ */}
+      {/* FAQs Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 mb-20">
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-3">
@@ -431,12 +521,10 @@ export const DynamicEventPage = () => {
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
-
         <div className="w-full">
           {data.faqs.map(faq => <FaqItem key={faq.id} q={faq.question} a={faq.answer} />)}
         </div>
       </section>
-
     </div>
   )
 }

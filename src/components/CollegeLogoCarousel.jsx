@@ -32,8 +32,8 @@ function LogoTile({ college }) {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "0 36px",
-                height: "60px",
+                width: "180px",
+                height: "80px",
                 flexShrink: 0,
             }}
         >
@@ -41,12 +41,11 @@ function LogoTile({ college }) {
                 src={college.logoUrl}
                 alt={college.name}
                 style={{
-                    height: "36px",
+                    height: "58px",
                     width: "auto",
-                    maxWidth: "110px",
+                    maxWidth: "150px",
                     objectFit: "contain",
-                    filter: "brightness(0) invert(1)",
-                    opacity: 0.7,
+                    opacity: 1,
                     userSelect: "none",
                     pointerEvents: "none",
                     background: "none",
@@ -64,7 +63,7 @@ function MarqueeRow({ items, direction = "left", speed = 30 }) {
     // Same outer wrapper pattern as TestimonialsSection ScrollTrack:
     // max-w-[1400px] mx-auto, paddingLeft/Right: 48px, fade mask on both sides
     const repeated = [...items, ...items, ...items, ...items];
-    const totalWidth = items.length * 182;
+    const totalWidth = items.length * 180;
     const duration = totalWidth / speed;
     const animName = `marquee_${direction}_${items[0].id}`;
 

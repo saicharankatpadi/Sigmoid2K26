@@ -163,22 +163,23 @@ export default function Navbar() {
                         <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 no-underline group shrink-0">
                             {/* New Sigmoid 2k26 Logo */}
                             <img 
-                                src="/assets/images/sigmoid-logo-transparent.png" 
+                                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" 
                                 alt="Sigmoid Logo" 
-                                className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_2px_8px_rgba(255,255,255,0.1)]"
+                                className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_2px_8px_rgba(255,255,255,0.1)]"
                             />
                             <span
                                 className="font-bold tracking-[0.05em] transition-all duration-300"
                                 style={{ 
                                     fontFamily: "'Pirata One', cursive",
-                                    fontSize: '26px',
+                                    fontSize: '32px',
                                     color: '#ffd700',
                                     backgroundImage: 'linear-gradient(to bottom, #fffde7 0%, #fbc02d 40%, #f57f17 100%)',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',
                                     WebkitTextStroke: '1px #3e2723',
                                     textShadow: '2px 3px 6px rgba(0,0,0,0.8), -1px -1px 0 rgba(255,255,255,0.2)',
-                                    lineHeight: 1
+                                    lineHeight: '1.2',
+                                    paddingTop: '6px'
                                 }}
                             >
                                 SIGMOID 2K26

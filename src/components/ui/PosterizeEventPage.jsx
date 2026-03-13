@@ -1,139 +1,213 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
+import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 
 // ==========================================
 // DYNAMIC EVENT DATA (JSON FORMAT)
 // Replace any field below for a different event
 // ==========================================
 const eventData = {
-  event_info: {
-    title: "Posterize",
-    emoji: "🖼️",
-    subtitle: "Poster Presentation",
-    brochure_url: "#",
-    features: [
-      { id: "01", content: "Design a captivating poster to communicate your research" },
-      { id: "02", content: "Submit through Google Form before the deadline" },
-      { id: "03", content: "Max 2 candidates per poster allowed" },
-      { id: "04", content: "Shortlisting via mail or WhatsApp" },
-      { id: "05", content: "Present physical A2 size poster on event day" },
-      { id: "06", content: "5 mins presentation & 2 mins Q&A per poster" },
-      { id: "07", content: "Use tools like Canva, Photoshop, Picsart" },
-      { id: "08", content: "Artificially generated posters are strictly prohibited" },
-      { id: "09", content: "Best performers awarded prizes and certifications" },
-      { id: "10", content: "Theme it well: TechnoVidya or YantraYuddha" }
+  "event_info": {
+    "title": "POSTERIZE",
+    "emoji": "📄",
+    "subtitle": "Poster Presentation",
+    "brochure_url": "/Posterize_Brochure.pdf",
+    "features": [
+      {
+        "id": "01",
+        "content": "Design a captivating and informative poster to communicate research"
+      },
+      {
+        "id": "02",
+        "content": "Submit poster on Google form provided on the website before deadline"
+      },
+      {
+        "id": "03",
+        "content": "A maximum of 2 candidates are allowed per poster"
+      },
+      {
+        "id": "04",
+        "content": "Accepted candidates present A2 paper poster physically on event day"
+      },
+      {
+        "id": "05",
+        "content": "Presentation time: 5 mins | Queries: 2 mins"
+      },
+      {
+        "id": "06",
+        "content": "Must use tools like Canva, Photoshop, Picsart"
+      },
+      {
+        "id": "07",
+        "content": "Artificially generated posters are strictly prohibited"
+      },
+      {
+        "id": "08",
+        "content": "Themes: TechnoVidya or YantraYuddha"
+      }
     ]
   },
-  video_preview: {
-    video_src: "/video-posterize.mp4",
-    badges: [
-      { position: "top-left", icon: "users", text: "Max 2 Candidates" },
-      { position: "top-right", icon: "document", text: "A2 Size Print" },
-      { position: "bottom-left", icon: "clock", text: "5 Min Present + 2 Min Q&A" },
-      { position: "bottom-right", icon: "academic", text: "Prizes & Certifications" }
-    ]
-  },
-  mission: [
+  "mission": [
     {
-      id: "foundation",
-      icon: "target",
-      title: "THE OBJECTIVE",
-      points: [
+      "id": "foundation",
+      "icon": "target",
+      "title": "THE OBJECTIVE",
+      "points": [
         "Design a captivating and informative poster that effectively communicates your research to a broad audience of researchers at a conference or seminar.",
         "A Poster combines text and graphics to make a presentation that communicates your research. It advertises your research in a catchy and informative manner.",
-        "As the viewers walk by, your poster should quickly and efficiently communicate your research."
+        "Typically, a professional poster involves showing your work to numerous researchers at a conference or seminar. As the viewers walk by, your poster should quickly and efficiently communicate your research."
       ]
     },
     {
-      id: "journey",
-      icon: "rocket",
-      title: "THE PROCESS",
-      points: [
-        "Round 1: Participants submit their paper presentation through Google form. Shortlisted candidates will be intimated through emails or whatsapp.",
-        "Round 2: Shortlisted candidates must bring a hardcopy of the Poster on the day of presentation and explain their topic to the judges.",
-        "Are you ready to showcase your research and win exciting prizes? Register now!"
+      "id": "journey",
+      "icon": "rocket",
+      "title": "THE PROCESS",
+      "points": [
+        "Round 1: Participants should submit their paper presentation through Google form. Shortlisted candidates will be intimated through mails or whatsapp.",
+        "Round 2: The shortlisted candidates must bring a hardcopy of Poster on the day of presentation. And they has to explain about their poster and topic to the judges."
       ]
     }
   ],
-  learnings: {
-    title: "Topics Covered",
-    items: [
-      "5G Technology", "Internet of Things", "VLSI & Embedded", "Nano Electronics",
-      "Image Processing", "Wireless Comm.", "Blockchain Tech", "Robotics Automation",
-      "Space Technology", "AI & ML", "Data Analytics", "Antenna Design"
+  "learnings": {
+    "title": "List of Topics",
+    "items": [
+      "5G Tech & Apps",
+      "Internet of Things",
+      "VLSI & Embedded",
+      "Nano Tech",
+      "Signal Processing",
+      "Wireless Comm.",
+      "Digital Comm.",
+      "Blockchain Tech",
+      "Robotics Automation",
+      "Space Tech",
+      "AI & ML",
+      "Data Analytics",
+      "Antenna Design",
+      "Optical Comm.",
+      "E-Waste",
+      "Indian Knowledge Systems"
     ],
-    button_text: "And other innovative topics...",
-    description: [
-      "Showcase your latest research and findings in cutting-edge technological domains.",
-      "Engage with a broad audience of researchers and domain experts through visual storytelling.",
-      "Build your confidence by presenting and defending your ideas during the interactive Q&A session.",
-      "Get evaluated by esteemed professors and gain valuable feedback on your work.",
-      "Experience a professional seminar environment and network with like-minded innovators."
+    "button_text": "And other innovative topics...",
+    "description": [
+      "Participants should register themselves from our website and submit posters via Google Form.",
+      "Posters must be themed well like TechnoVidya or YantraYuddha.",
+      "The name of the poster must be in the format: ParticipantName_CollegeName.jpeg.",
+      "Accepted posters will be intimated via email and WhatsApp prior to 3 days before the event.",
+      "All such candidates must present posters printed at A2 size physically during the event."
     ]
   },
-  perks: {
-    title: "Perks & Benefits",
-    items: [
-      { text: "Certificate of Participation", icon: "academic", color: "#ec4899" },
-      { text: "Prizes for Best Posters", icon: "diamond", color: "#f89b29" },
-      { text: "Networking with Professors", icon: "users", color: "#10B981" },
-      { text: "Improve Presentation Skills", icon: "user", color: "#a855f7" },
-      { text: "Showcase Research Work", icon: "document", color: "#2dd4bf" },
-      { text: "Professional Evaluation", icon: "clipboard", color: "#f89b29" },
-      { text: "Theme-based Innovation", icon: "cube", color: "#eab308" },
-      { text: "Boost your Resume", icon: "briefcase", color: "#10B981" }
+  "perks": {
+    "title": "Perks & Benefits",
+    "items": [
+      {
+        "text": "Certificate of Participation",
+        "icon": "academic",
+        "color": "#ec4899"
+      },
+      {
+        "text": "Prizes for Best Posters",
+        "icon": "diamond",
+        "color": "#f89b29"
+      },
+      {
+        "text": "Networking with Professors",
+        "icon": "users",
+        "color": "#10B981"
+      },
+      {
+        "text": "Improve Presentation Skills",
+        "icon": "user",
+        "color": "#a855f7"
+      },
+      {
+        "text": "Showcase Research Work",
+        "icon": "document",
+        "color": "#2dd4bf"
+      },
+      {
+        "text": "Professional Evaluation",
+        "icon": "clipboard",
+        "color": "#f89b29"
+      },
+      {
+        "text": "Theme-based Innovation",
+        "icon": "cube",
+        "color": "#eab308"
+      },
+      {
+        "text": "Boost your Resume",
+        "icon": "briefcase",
+        "color": "#10B981"
+      }
     ]
   },
-  mentors: [
-    { 
-      id: "m1", 
-      name: "Evaluation Expert 1", 
-      role: "Review Committee", 
-      image: "/mentor1-posterize.jpeg",
-      phone: "",
-      instagram: "",
-      linkedin: ""
+  "mentors": [
+    {
+      "id": "m1",
+      "name": "Mentor 1",
+      "role": "Evaluation Committee",
+      "image": "https://res.cloudinary.com/djiivo0r7/image/upload/v1773303805/WhatsApp_Image_2026-03-11_at_11.58.06_ctfutj.jpg",
+      "phone": "",
+      "instagram": "",
+      "linkedin": ""
     },
-    { 
-      id: "m2", 
-      name: "Evaluation Expert 2", 
-      role: "Review Committee", 
-      image: "/mentor2-posterize.jpeg",
-      phone: "",
-      instagram: "",
-      linkedin: ""
+    {
+      "id": "m2",
+      "name": "Mentor 2",
+      "role": "Evaluation Committee",
+      "image": "https://res.cloudinary.com/djiivo0r7/image/upload/v1773303686/WhatsApp_Image_2026-03-11_at_23.53.41_cy7bfa.jpg",
+      "phone": "",
+      "instagram": "",
+      "linkedin": ""
     }
   ],
-  testimonials: [
-    { 
-      id: "t1", 
-      name: "Participant A", 
-      quote: "The Posterize event was an amazing platform to showcase my research on IoT. The feedback from the judges was invaluable.", 
-      image: "https://randomuser.me/api/portraits/women/45.jpg",
-      college_logo: ""
+  "faqs": [
+    {
+      "id": "q1",
+      "question": "Can I participate individually?",
+      "answer": "Yes, a maximum of 2 candidates are allowed per poster, but even a single candidate can submit."
     },
-    { 
-      id: "t2", 
-      name: "Participant B", 
-      quote: "I loved the way this event was structured. Presenting my poster on Artificial Intelligence helped me improve my communication skills significantly.", 
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-      college_logo: ""
+    {
+      "id": "q2",
+      "question": "What tools can I use to design the poster?",
+      "answer": "Participants must submit their poster using any Photoshop tools like Canva, Picsart, Adobe Photoshop…etc."
     },
-    { 
-      id: "t3", 
-      name: "Participant C", 
-      quote: "Winning the best poster award for our Blockchain project was a proud moment. The whole experience was highly professional.", 
-      image: "https://randomuser.me/api/portraits/women/22.jpg",
-      college_logo: ""
+    {
+      "id": "q3",
+      "question": "Are AI generated posters allowed?",
+      "answer": "No, artificially generated posters are rejected and ultimately prohibited."
+    },
+    {
+      "id": "q4",
+      "question": "What is the presentation format?",
+      "answer": "The presentation time is 5 mins and queries for 2 mins for each poster. Posters must be printed at A2 size."
+    },
+    {
+      "id": "q5",
+      "question": "How should I name my file?",
+      "answer": "The name of the poster must be in the format of ParticipantName_CollegeName.jpeg (prefer .jpeg format)."
     }
   ],
-  faqs: [
-    { id: "q1", question: "Can I participate individually?", answer: "Yes, a maximum of 2 candidates are allowed per poster, but even a single candidate can submit and present." },
-    { id: "q2", question: "What tools can I use to design the poster?", answer: "Participants must submit their poster using tools like Canva, Picsart, Adobe Photoshop, etc. Artificially generated posters are strictly prohibited." },
-    { id: "q3", question: "What sizes are required for the printed poster?", answer: "Accepted posters must be printed and presented on A2 size paper on the day of the event." },
-    { id: "q4", question: "How will I know if my poster is shortlisted?", answer: "Accepted posters will be intimated through their respective mail IDs and WhatsApp prior to 3 days before the event." },
-    { id: "q5", question: "How should I name my submission file?", answer: "The name of the poster must be in the format of ParticipantName_CollegeName.jpeg (prefer .jpeg format)." }
+  "video_preview": {
+    "video_src": "https://res.cloudinary.com/djiivo0r7/video/upload/v1773343520/WhatsApp_Video_2026-03-12_at_11.33.52_1_g7baop.mp4",
+    "badges": [
+      { "position": "top-left", "icon": "document", "text": "Canva / Photoshop" },
+      { "position": "top-right", "icon": "diamond", "text": "Best Innovation" },
+      { "position": "bottom-left", "icon": "users", "text": "Team Participation" },
+      { "position": "bottom-right", "icon": "academic", "text": "Hardcopy A2 Size" }
+    ]
+  },
+  "gallery": [
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773345149/567A0429_ftnnvs.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773345150/567A0430_x8gb7a.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773345151/567A0431_ntlya3.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773345158/IMG_7708_snq0m8.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773345151/567A0432_jnrntf.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773345161/IMG_4535_qi0afy.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773345157/IMG_7730_imdnlo.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773345160/IMG_7725_sli4wf.jpg"
   ]
 };
 
@@ -192,6 +266,8 @@ const FaqItem = ({ q, a }) => {
 
 export const PosterizeEventPage = () => {
   const data = eventData;
+  const [isAutoRotating, setIsAutoRotating] = useState(true);
+  const [activeFaq, setActiveFaq] = useState(null);
   const videoRef = useRef(null);
   const progressRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -214,7 +290,6 @@ export const PosterizeEventPage = () => {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        // Unmute on play
         videoRef.current.muted = false;
         setIsMuted(false);
         videoRef.current.play();
@@ -241,13 +316,11 @@ export const PosterizeEventPage = () => {
 
   const handleLoadedMetadata = useCallback(() => {
     if (videoRef.current) {
-      // Show second frame instead of first
       videoRef.current.currentTime = 0.5;
       setDuration(formatTime(videoRef.current.duration));
     }
   }, []);
 
-  // Seek to position from mouse event
   const seekToPosition = useCallback((e) => {
     if (videoRef.current && progressRef.current) {
       const rect = progressRef.current.getBoundingClientRect();
@@ -447,10 +520,11 @@ export const PosterizeEventPage = () => {
                 {/* Floating Badges — positioned outside video area to avoid control overlap */}
                 {data.video_preview.badges.map((badge, idx) => {
                   const posMap = {
-                    "top-left": "-top-6 -left-4 lg:-left-12",
-                    "top-right": "-top-6 -right-4 lg:-right-12",
-                    "bottom-left": "-bottom-4 -left-4 lg:-left-12",
-                    "bottom-right": "-bottom-4 -right-4 lg:-right-12"
+                    "top-left": "-top-6 -left-4 lg:-left-10",
+                    "top-right": "-top-6 -right-4 lg:-right-10",
+                    "bottom-left": "-bottom-4 -left-4 lg:-left-10",
+                    "bottom-right": "-bottom-4 -right-4 lg:-right-10",
+                    "top-center": "-top-12 left-1/2 -translate-x-1/2"
                   };
                   const floatAnims = [
                     'floatBadge1 3s ease-in-out infinite',
@@ -629,62 +703,7 @@ export const PosterizeEventPage = () => {
           ))}
         </div>
       </section>
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 4 — Judge
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Judge</h2>
-          </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
-        </div>
 
-        <div className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-8 items-stretch mt-6">
-          {/* Image & Socials */}
-          <div className="w-full md:w-[30%] flex flex-col items-center">
-            <img src="/judge-posterize.jpeg" alt="Event Judge" className="w-full aspect-[4/5] object-cover rounded-2xl md:mb-0 mb-6 shadow-[0_0_20px_rgba(0,0,0,0.8)]" />
-          </div>
-          
-          {/* Details Content */}
-          <div className="flex-1 flex flex-col justify-between">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold text-[#2dd4bf] mb-1">Esteemed Evaluation Committee</h3>
-              <p className="text-white/40 text-[14px]">{"// Professors & Domain Experts"}</p>
-            </div>
-            
-            <div className="bg-[#111111] border border-[#222] rounded-2xl p-6 md:p-8 mb-6 h-full text-[14.5px] leading-relaxed text-white/60 space-y-4 font-normal shadow-inner">
-              <p>
-                The posters will be thoroughly evaluated by a panel of experienced professors and industry professionals specializing in various technical domains. The judges have years of academic and practical experience and are perfectly equipped to assess the innovation, clarity, and depth of your research.
-              </p>
-              <p>
-                During the 5-minute presentation and the subsequent 2-minute Q&A, you will receive constructive feedback, insightful questions, and invaluable guidance that will not only improve your technical standing but also gear you up for future research seminars and real-world conferences.
-              </p>
-            </div>
-
-            {/* Stat Cards Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2">
-                <div className="text-[#f89b29] scale-110 mb-1"><IconBadge iconType="users" /></div>
-                <h4 className="text-xl font-black text-[#f89b29]">25+</h4>
-                <span className="text-[12px] text-white/50">Expert Panels</span>
-              </div>
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2">
-                <svg className="w-[1.4rem] h-[1.4rem] text-[#f89b29] mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                <h4 className="text-xl font-black text-[#f89b29]">15+</h4>
-                <span className="text-[12px] text-white/50">Years Experience</span>
-              </div>
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2 text-center">
-                <div className="text-[#f89b29] scale-110 mb-1"><IconBadge iconType="briefcase" /></div>
-                <h4 className="text-xl font-black text-[#f89b29] leading-tight">Top Univ.</h4>
-                <span className="text-[12px] text-white/50">From Reputed Orgs</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 5 — Mentors
@@ -787,9 +806,15 @@ export const PosterizeEventPage = () => {
           <div className="w-full md:w-[60%] lg:w-[55%] relative z-10 flex justify-end">
             <div className="relative w-full">
               <img 
-                src="/namaste_dsa_cert.webp" 
+                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773297935/Blue_Modern_Achievement_Certificate_A4_Landscape.jpg_1_ud186o.jpg" 
                 alt="Course Certificate" 
                 className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]" 
+              />
+              {/* Ribbon Badge */}
+              <img 
+                src="/certificate-ribbon.png" 
+                alt="Ribbon" 
+                className="absolute -top-6 -left-6 w-32 md:w-36 h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] z-20 pointer-events-none" 
               />
             </div>
           </div>
@@ -797,48 +822,31 @@ export const PosterizeEventPage = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 7 — Testimonials
+          SECTION 7 — Event Gallery
        ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20">
-        <div className="mb-10">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Our Testimonials</h2>
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-2">
+        {/* Section Title with accent bar */}
+        <div className="mb-1 text-left">
+          <div className="inline-flex items-center gap-3 mb-3 bg-[#f89b29]/5 px-6 py-2 rounded-full border border-[#f89b29]/20">
+            <div className="w-1 h-6 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Event Gallery</h2>
           </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
+          <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
+            Capturing moments of innovation and design excellence from Posterize.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.testimonials.map((t, idx) => (
-            <div key={idx} className="bg-[#111] border border-[#222] rounded-[1.25rem] p-6 hover:bg-[#151515] transition-colors relative flex flex-col justify-between">
-              
-              {/* Header: Profile, Name/Role, College Logo */}
-              <div className="flex justify-between items-start mb-5 h-14">
-                <div className="flex items-center gap-4">
-                  <img src={t.image} alt={t.name} className="w-14 h-14 rounded-full object-cover border-2 border-[#333]" />
-                  <div className="flex items-center h-full">
-                    <h4 className="font-bold text-white/95 text-[15px]">{t.name}</h4>
-                  </div>
-                </div>
-                
-                {t.college_logo && (
-                  <div className="h-full flex items-center">
-                    <img src={t.college_logo} alt="College Logo" className="h-[26px] object-contain opacity-70" />
-                  </div>
-                )}
-              </div>
-
-              {/* Quote Text */}
-              <p className="text-[14px] text-white/70 leading-[1.6]">{t.quote}</p>
-            </div>
-          ))}
+        <div className="w-full">
+          <div className="relative group">
+            <ThreeDPhotoCarousel images={data.gallery} autoRotate={isAutoRotating} />
+          </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 8 — FAQs
        ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 mb-20">
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-10 mb-10">
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>

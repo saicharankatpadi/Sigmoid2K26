@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import CoachSection from './components/CoachSection'
 import Footer from './components/Footer'
+import TestimonialsSection from './components/TestimonialsSection'
 import FAQSection from './components/FAQSection'
 import OrganizingCommittee from './components/OrganizingCommittee'
-import TestimonialsSection from './components/TestimonialsSection'
+
 import Navbar from './components/Navbar'
 import CollegeLogoSection from './components/CollegeLogoCarousel'
 import { GoogleIcon, YouTubeIcon, LinkedInIcon } from './components/CoachSection'
@@ -13,10 +14,17 @@ import { HorizonHero } from './components/ui/horizon-hero-section.jsx'
 import { AboutSection } from './components/ui/about-section.jsx'
 import { EventsPage } from './components/ui/events-page.jsx'
 import { DynamicEventPage } from './components/ui/DynamicEventPage.jsx'
+import { TechnovateEventPage as TechovateEventPage } from './components/ui/TechnovateEventPage.jsx'
 import { PosterizeEventPage } from './components/ui/PosterizeEventPage.jsx'
-import { InnovistaEventPage } from './components/ui/InnovistaEventPage.jsx'
+import { AvishkarEventPage } from './components/ui/AvishkarEventPage.jsx'
+import { CircuitrixEventPage } from './components/ui/CircuitrixEventPage.jsx'
+import { CodexEventPage } from './components/ui/CodexEventPage.jsx'
+import { QuizmaniaEventPage } from './components/ui/QuizmaniaEventPage.jsx'
 import { GuessBustersEventPage } from './components/ui/GuessBustersEventPage.jsx'
 import { ClickFestEventPage } from './components/ui/ClickFestEventPage.jsx'
+import { DumbcharadesEventPage } from './components/ui/DumbcharadesEventPage.jsx'
+import { KimsGameEventPage } from './components/ui/KimsGame.jsx'
+import { IconemaEventPage } from './components/ui/IconemaEventPage.jsx'
 import { Accommodation } from './components/ui/accommodation.jsx'
 import { HostelDetails } from './components/ui/hostel-details.jsx'
 import { PromoSection } from './components/PromoSection'
@@ -129,7 +137,7 @@ function Home() {
                         <span className="block text-[clamp(28px,3.2vw,46px)] font-light text-white/55 font-sans tracking-[-0.03em] leading-[1.1]">
                             Think deep.
                         </span>
-                        <span className="block text-[clamp(28px,3.2vw,46px)] font-extrabold text-[#F97316] font-sans tracking-[-0.03em] leading-[1.1]">
+                        <span className="block text-[clamp(28px,3.2vw,46px)] font-extrabold text-white font-sans tracking-[-0.03em] leading-[1.1]">
                             Teach bold.
                         </span>
                     </h1>
@@ -151,15 +159,15 @@ function Home() {
                 }
                 imageClassName="object-cover object-[50%_0%] w-full h-full"
                 badges={<>
-                    <Badge className="top-[8%] left-[8%]" delay={0}>
+                    <Badge className="-top-[4%] left-1/2 -translate-x-1/2" delay={0}>
                         <GraduationCap className="w-4 h-4 text-white" />
                         <span className="text-white/95 text-[13px] font-semibold font-sans tracking-[-0.01em]">Ph.D. – Digital Image Processing</span>
                     </Badge>
-                    <Badge className="bottom-[15%] -left-[2%]" delay={0.8}>
+                    <Badge className="top-1/2 -translate-y-1/2 -left-[6%]" delay={0.8}>
                         <FileText className="w-4 h-4 text-white" />
                         <span className="text-white/95 text-[13px] font-semibold font-sans tracking-[-0.01em]">40+ International Publications</span>
                     </Badge>
-                    <Badge className="top-[45%] -right-[4%]" delay={1.6}>
+                    <Badge className="top-[60%] -right-[2%]" delay={1.6}>
                         <Users className="w-4 h-4 text-white" />
                         <span className="text-white/95 text-[13px] font-semibold font-sans tracking-[-0.01em]">HOD, ECE – SVUCE</span>
                     </Badge>
@@ -253,10 +261,17 @@ function App() {
                     <Route path="/about" element={<AboutSection />} />
                     <Route path="/events" element={<EventsPage />} />
                     <Route path="/event-wireframe" element={<DynamicEventPage />} />
+                    <Route path="/techovate" element={<TechovateEventPage />} />
                     <Route path="/posterize" element={<PosterizeEventPage />} />
-                    <Route path="/innovista" element={<InnovistaEventPage />} />
+                    <Route path="/avishkar" element={<AvishkarEventPage />} />
+                    <Route path="/circuitrix" element={<CircuitrixEventPage />} />
+                    <Route path="/codex" element={<CodexEventPage />} />
+                    <Route path="/quizmania" element={<QuizmaniaEventPage />} />
                     <Route path="/guess-busters" element={<GuessBustersEventPage />} />
                     <Route path="/click-fest" element={<ClickFestEventPage />} />
+                    <Route path="/dumbcharades" element={<DumbcharadesEventPage />} />
+                    <Route path="/kims-game" element={<KimsGameEventPage />} />
+                    <Route path="/iconema" element={<IconemaEventPage />} />
                     <Route path="/accommodation" element={<Accommodation />} />
                     <Route path="/accommodation/boys" element={<HostelDetails type="boys" />} />
                     <Route path="/accommodation/girls" element={<HostelDetails type="girls" />} />

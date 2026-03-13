@@ -2,15 +2,17 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
     return (
-        <footer className="bg-[#0A0A0A] border-t border-white/[0.06] pt-10 pb-6 px-8 md:px-16">
+        <footer className="bg-[#0A0A0A] border-t border-white/[0.06] pt-6 pb-4 px-8 md:px-16">
             <div className="max-w-[1400px] mx-auto">
                 {/* Top Row */}
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
                     {/* Logo + Name */}
                     <div className="flex items-center gap-2.5 shrink-0">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#F97316] to-[#ea580c] flex items-center justify-center">
-                            <span className="text-white font-extrabold text-[14px] font-sans">S</span>
-                        </div>
+                        <img 
+                            src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" 
+                            alt="Sigmoid Logo" 
+                            className="w-8 h-8 object-contain"
+                        />
                         <span className="text-white/90 font-semibold text-[15px] font-sans tracking-[-0.01em]">
                             SIGMOID2K26
                         </span>
@@ -23,10 +25,6 @@ export default function Footer() {
                         <a href="#" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">Contact us</a>
                         <span className="text-white/15">|</span>
                         <a href="#" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">Pricing</a>
-                        <span className="text-white/15">|</span>
-                        <a href="#" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">Terms and Conditions</a>
-                        <span className="text-white/15">|</span>
-                        <a href="#" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">Cancellation and Refund Policy</a>
                     </nav>
 
                     {/* Social Icons */}

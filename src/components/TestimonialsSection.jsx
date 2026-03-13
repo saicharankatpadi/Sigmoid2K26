@@ -6,13 +6,41 @@ const v3 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773210543/006_dn
 const v4 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773210476/WhatsApp_Video_2026-03-10_at_23.23.45_wslq8e.mp4'
 const v5 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773209848/WhatsApp_Video_2026-03-10_at_23.10.08_omlmup.mp4'
 const v6 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773208225/007_yz4blo.mp4'
+const v7 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773370341/WhatsApp_Video_2026-03-12_at_19.26.18_vptd1e.mp4'
+const v8 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773370479/WhatsApp_Video_2026-03-12_at_19.53.38_gvqcuv.mp4'
+const v9 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773370611/WhatsApp_Video_2026-03-12_at_00.35.14_hmxh9r.mp4'
 
 /* ════════════════════════════════════════════════════════════════
    TESTIMONIALS DATA — Edit this JSON to add / remove / modify cards.
    Each item is either a "text" card or a "video" card.
    ════════════════════════════════════════════════════════════════ */
 
-// Avatar colour palette — cycles automatically
+// Avatar/Image logic
+const boyImage = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773267186/WhatsApp_Image_2026-03-11_at_14.47.44_sdgm1x.jpg'
+const girlImage = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773267324/WhatsApp_Image_2026-03-11_at_15.15.00_gxucuo.jpg'
+
+// Provided User Icons
+const u1 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373852/WhatsApp_Image_2026-03-12_at_19.29.21__1_-removebg-preview_l2ce7d.png'
+const u2 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373818/WhatsApp_Image_2026-03-12_at_19.29.22-removebg-preview_lplmzj.png'
+const u3 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373772/WhatsApp_Image_2026-03-12_at_19.29.21-removebg-preview_npkkqi.png'
+const u4 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373634/WhatsApp_Image_2026-03-12_at_19.29.20__2_-removebg-preview_no93kf.png'
+const u5 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373463/WhatsApp_Image_2026-03-12_at_19.29.19-removebg-preview_k4snap.png'
+const u6 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773370133/WhatsApp_Image_2026-03-12_at_19.29.16-removebg-preview_taq8oh.png'
+const u7 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773370286/WhatsApp_Image_2026-03-12_at_19.29.17-removebg-preview_cyef1g.png'
+const u8 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773370492/WhatsApp_Image_2026-03-12_at_19.29.18__2_-removebg-preview_foxqeq.png'
+const u9 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373451/WhatsApp_Image_2026-03-12_at_19.29.18__3_-removebg-preview_exgiea.png'
+
+// College Logos
+const l_sitams = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269960/SITAMS-removebg-preview_uy6z3f.png'
+const l_svce = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269966/svce-removebg-preview_uh1mhu.png'
+const l_aits = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269936/Annamacharya-Institute-of-Technology-Sciences-Rajampet-removebg-preview_mr4ii0.png'
+const l_vemu = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269966/vemu-removebg-preview_evx8zg.png'
+const l_mvgr = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269957/mvgr-removebg-preview_f31sky.png'
+const l_cbit = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269948/cbit3-removebg-preview_lvnhsg.png'
+const l_anits = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269937/anits-removebg-preview_wmgmat.png'
+const l_aditya = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269936/aditya_coolege-removebg-preview_wgijux.png'
+const l_svuce = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773375271/250px-Sri_Venkateswara_University_logo_fdm8re.png'
+
 const AVATAR_PALETTE = [
     '#2563EB', '#7C3AED', '#DB2777', '#D97706', '#059669',
     '#DC2626', '#0891B2', '#65A30D', '#9333EA', '#EA580C',
@@ -31,17 +59,36 @@ const VIDEO_GRADIENTS = [
 const TOP_ROW = [
     {
         type: 'text',
-        name: 'Shubham Tandon',
-        text: "Hey Striver, I just wanted to send a huge thank you for your amazing A2Z DSA sheet. It was the most important resource in my preparation. Because of your sheet, I was able to crack my on campus interviews and I have just accepted an internship offer...",
-        role: 'Full Stack Engineer Intern',
-        college: { name: 'Coforge', logo: '🎓' },
+        name: 'Rahul',
+        avatar: u1,
+        text: "Codex was the most challenging event! The algorithmic rounds really tested my logical limits and coding speed. It was a perfect platform to showcase my programming prowess.",
+        college: { name: 'SITAMS', logo: l_sitams },
+    },
+    {
+        type: 'video',
+        name: 'Kavya, B.Tech 2nd Year SVCE',
+        videoGradient: VIDEO_GRADIENTS[0],
+        videoUrl: v7
     },
     {
         type: 'text',
-        name: 'Rohit Sharma',
-        text: "Getting selected as an SDE Intern at Amazon has been one of the biggest milestones of my journey so far and I owe a huge part of it to TUF+ and Striver.\nWhen I started my preparation, struggled with consistency and direction. That was when I...",
-        role: 'SDE 1 Intern',
-        college: { name: 'Amazon', logo: '📦' },
+        name: 'Ananya',
+        avatar: girlImage,
+        text: "Presenting my paper at Technovate was an incredible experience. The feedback from the mentors was professional and invaluable for my research journey.",
+        college: { name: 'SVCE', logo: l_svce },
+    },
+    {
+        type: 'video',
+        name: 'Navya B.Tech 2nd Year ECE',
+        videoGradient: VIDEO_GRADIENTS[1],
+        videoUrl: v8
+    },
+    {
+        type: 'text',
+        name: 'Karthik',
+        avatar: u3,
+        text: "Designing and debugging circuits at Circuitrix was intense. Winning the top prize was a dream come true for an ECE student! Highly recommended for all tech enthusiasts.",
+        college: { name: 'AITS Rajampet', logo: l_aits },
     },
     {
         type: 'video',
@@ -49,91 +96,29 @@ const TOP_ROW = [
         videoGradient: VIDEO_GRADIENTS[0],
         videoUrl: v1
     },
-    {
-        type: 'text',
-        name: 'Anusha Jha',
-        text: "My journey truly began in the third year of my college. As the General Secretary, I was deeply involved in extracurricular activities, but that also meant I lacked consistency in DSA practice even though my computer science fundamentals were strong...",
-        role: 'ADMM(Application and Data Modernization) and Migration/Analyst',
-        college: { name: 'Deloitte', logo: '💡' },
-    },
-    {
-        type: 'text',
-        name: 'Vishnupriya',
-        text: "When I started college, I was initially more drawn to the management domain, as I believed the software field might not be the right fit for me. I explored consulting for a while, but I soon realized it did not excite me, as it lacked the constant...",
-        role: 'Software Developer Intern',
-        college: { name: 'Morgan Stanley', logo: '🏦' },
-    },
-    {
-        type: 'text',
-        name: 'Arjun Verma',
-        text: "The mock interviews and curated problem sets are what set this apart from everything else I tried. I went from struggling with basic data structures to confidently solving hard problems in under 6 months...",
-        role: 'Backend Engineer',
-        college: { name: 'Google', logo: '🔍' },
-    },
-    {
-        type: 'text',
-        name: 'Sneha Iyer',
-        text: "I had always struggled with system design concepts until I found this platform. The way concepts are broken down made all the difference. Within 3 months I cracked my dream company interview completely...",
-        role: 'Systems Engineer',
-        college: { name: 'Microsoft', logo: '🖥️' },
-    },
-    {
-        type: 'video',
-        name: 'Karthik Nair',
-        videoGradient: VIDEO_GRADIENTS[1],
-        videoUrl: v2
-    },
-    {
-        type: 'text',
-        name: 'Divya Reddy',
-        text: "Coming from a non-CS background, I was terrified of DSA. But the beginner-friendly approach here made it accessible. The community support was incredible and I landed my first tech role within a year...",
-        role: 'Product Engineer',
-        college: { name: 'Swiggy', logo: '🍊' },
-    },
-    {
-        type: 'text',
-        name: 'Tanvi Singh',
-        text: "A big thank you for the DSA sheet. It helped me get into the program and land an internship. The A2Z DSA sheet helped me stay consistent and structured. The preparation approach here is truly unmatched in quality...",
-        role: 'Data Analyst',
-        college: { name: 'Flipkart', logo: '🛍️' },
-    },
-    {
-        type: 'text',
-        name: 'Rahul Gupta',
-        text: "The contest feature keeps me motivated every single day. My problem-solving speed has improved drastically and I recently cracked 3 interviews back to back at top product companies...",
-        role: 'Software Engineer',
-        college: { name: 'Adobe', logo: '🎨' },
-    },
-    {
-        type: 'video',
-        name: 'Priya Menon',
-        videoGradient: VIDEO_GRADIENTS[2],
-        videoUrl: v3
-    },
-    {
-        type: 'text',
-        name: 'Vikram Joshi',
-        text: "It helped me practice DSA in a fully structured way without wasting time. The clear path, quality problems, and focused approach strengthened my role as a Software Engineer. I cannot thank this platform enough...",
-        role: 'SDE Intern',
-        college: { name: 'Infosys', logo: '⚙️' },
-    },
 ]
 
 /* ── BOTTOM ROW cards (scrolls right) ── */
 const BOTTOM_ROW = [
     {
         type: 'text',
-        name: 'Ganesh Patil',
-        text: "I received offers from LTIMindtree, and I am more grateful for the path that brought me here. My journey was not easy. Staying on track with DSA, system design, and DBMS preparation was tough, but...",
-        role: 'SDE 2 Backend',
-        college: { name: 'LTIMindtree', logo: '💻' },
+        name: 'Sneha',
+        avatar: u4,
+        text: "Posterize allowed me to combine technical depth with creative design. It was a perfect platform for me to showcase my research and gain insights.",
+        college: { name: 'VEMU', logo: l_vemu },
+    },
+    {
+        type: 'video',
+        name: 'Testimonial',
+        videoGradient: VIDEO_GRADIENTS[2],
+        videoUrl: v9
     },
     {
         type: 'text',
-        name: 'Jeet Undaviya',
-        text: "TUF+ helped me practice DSA in a fully structured way without wasting time. The clear path, quality problems, and focused approach strengthened my preparation. It played a major role in helping me secure my role as a Software Engineer at Oracle.",
-        role: 'Software Engineer',
-        college: { name: 'Oracle', logo: '🔴' },
+        name: 'Vikram',
+        avatar: u5,
+        text: "Avishkar was all about high-end innovation. Seeing other working models and prototypes was very inspiring for my own engineering project development.",
+        college: { name: 'MVGR', logo: l_mvgr },
     },
     {
         type: 'video',
@@ -143,73 +128,32 @@ const BOTTOM_ROW = [
     },
     {
         type: 'text',
-        name: 'Abilaash S. S',
-        text: "My journey with takeUforward has been nothing short of transformational. When I started preparing for interviews, I was struggling with DSA concepts and felt overwhelmed by the sheer volume of problems to solve.\nStriver's explanations were a game...",
-        role: 'Software Development Engineer',
-        college: { name: 'JPMorgan', logo: '🏛️' },
+        name: 'Pooja',
+        avatar: u8,
+        text: "ICONEMA was a perfect blend of fun and observation. Our team had a blast identifying the icons and solving puzzles!",
+        college: { name: 'Aditya College', logo: l_aditya },
     },
     {
         type: 'video',
-        name: 'Rohit Sharma',
-        videoGradient: VIDEO_GRADIENTS[3],
-        videoUrl: v5
-    },
-    {
-        type: 'text',
-        name: 'Meera Pillai',
-        text: "The structured learning path completely changed how I approach problem solving. Every concept builds on the previous one, which makes even complex topics feel manageable. Truly a game changer for my career...",
-        role: 'Full Stack Developer',
-        college: { name: 'Paypal', logo: '💳' },
-    },
-    {
-        type: 'text',
-        name: 'Saurabh Mishra',
-        text: "I went from zero knowledge of DSA to cracking top product company interviews within 8 months. The roadmap made sure I never wasted time on unnecessary topics. Highly recommend to anyone starting their journey...",
-        role: 'Assistant Software Development Engineer',
-        college: { name: 'Walmart', logo: '🏪' },
-    },
-    {
-        type: 'text',
-        name: 'Ananya Das',
-        text: "The A2Z DSA course was a lifesaver during my placement prep. The video explanations with code walkthroughs helped me understand not just the 'how' but also the 'why' behind every approach...",
-        role: 'Software Engineer',
-        college: { name: 'Razorpay', logo: '💰' },
-    },
-    {
-        type: 'text',
-        name: 'Nikhil Choudhary',
-        text: "My journey truly began in the third year of my college. I lacked consistency in DSA practice even though my computer science fundamentals were strong. This platform completely turned things around for me...",
-        role: 'Backend Engineer',
-        college: { name: 'Zomato', logo: '🍴' },
-    },
-    {
-        type: 'text',
-        name: 'Ritu Agarwal',
-        text: "From brute force to optimal — every approach explained step by step. This is what made TUF different from any other platform I tried. The way each problem is broken down is simply brilliant...",
-        role: 'SDE Intern',
-        college: { name: 'Samsung', logo: '📱' },
-    },
-    {
-        type: 'video',
-        name: 'Aditya Kumar',
-        videoGradient: VIDEO_GRADIENTS[4],
+        name: 'Testimonial',
+        videoGradient: VIDEO_GRADIENTS[1],
         videoUrl: v6
     },
     {
         type: 'text',
-        name: 'Pooja Sharma',
-        text: "What sets this platform apart is the community. Whenever I was stuck on a problem, I could find discussions and alternative approaches. The quality of content here is unmatched for placement preparation...",
-        role: 'Product Engineer',
-        college: { name: 'Atlassian', logo: '🔵' },
+        name: 'Siri Chandhan',
+        gender: 'girl',
+        text: "The technical sessions at Sigmoid were top-notch. As a B.Tech CSE student from Vemu, I found the workshops extremely insightful and relevant for my future career development in technology.",
+        college: { name: 'Vemu', logo: l_vemu },
     },
 ]
 
 /* ── Section header config ── */
 const SECTION_CONFIG = {
-    badgeText: '14,56,768+ Learners!',  // Change this to your count
-    titleDimmed: 'Coders that',
-    titleBold: 'turned around',
-    titleBold2: 'their careers',
+    badgeText: 'Top Ranked Events!',
+    titleDimmed: 'Participants that',
+    titleBold: 'shined at',
+    titleBold2: 'Sigmoid Events',
 }
 
 /* ════════════════════════════════════════════════════════════════
@@ -229,15 +173,14 @@ function getAvatarColor(index) {
    ════════════════════════════════════════════════════════════════ */
 
 function TextCard({ card, index }) {
-    const [isExpanded, setIsExpanded] = useState(false);
     
     return (
         <div
-            className={`w-72 rounded-2xl flex-shrink-0 flex flex-col gap-[13px] group ${isExpanded ? 'h-auto min-h-[380px]' : 'h-[380px]'}`}
+            className={`w-72 h-[380px] rounded-2xl flex-shrink-0 flex flex-col gap-[13px] group`}
             style={{
                 background: '#191919',
                 border: '1.5px solid rgba(255,255,255,0.055)',
-                padding: '20px 18px 18px',
+                padding: '24px 20px 20px',
                 transition: 'border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease',
             }}
             onMouseEnter={e => {
@@ -251,20 +194,22 @@ function TextCard({ card, index }) {
                 e.currentTarget.style.background = '#191919'
             }}
         >
-            {/* Header: avatar + name + linkedin badge */}
+            {/* Header: avatar | name */}
             <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center gap-3">
                     <div
-                        className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
+                        className="w-[42px] h-[42px] rounded-full overflow-hidden flex items-center justify-center border border-white/5"
                         style={{
                             background: getAvatarColor(index),
-                            fontSize: '12.5px',
-                            fontWeight: 700,
-                            color: 'white',
-                            letterSpacing: '0.4px',
                         }}
                     >
-                        {getInitials(card.name)}
+                        {card.avatar ? (
+                            <img src={card.avatar} alt={card.name} className="w-full h-full object-cover rounded-full" />
+                        ) : (
+                            <span style={{ fontSize: '12.5px', fontWeight: 700, color: 'white' }}>
+                                {getInitials(card.name)}
+                            </span>
+                        )}
                     </div>
                     <span
                         className="font-semibold"
@@ -281,107 +226,75 @@ function TextCard({ card, index }) {
 
             {/* Body text */}
             <div
-                className={`flex-1 relative ${!isExpanded ? 'overflow-hidden' : ''}`}
+                className={`flex-1 relative overflow-hidden`}
                 style={{
                     color: 'rgba(255,255,255,0.66)',
                     fontSize: '13.5px',
-                    lineHeight: 1.74,
+                    lineHeight: 1.6,
                     fontWeight: 400,
                     letterSpacing: '-0.004em',
                 }}
             >
-                {/* 
-                  If expanded, show all text. 
-                  If collapsed, show masked text to simulate a fade out.
-                */}
                 <div 
-                    className={!isExpanded ? 'line-clamp-6' : ''}
+                    className="line-clamp-6"
                     style={{
                         display: '-webkit-box',
                         WebkitBoxOrient: 'vertical',
-                        WebkitLineClamp: isExpanded ? 'unset' : 6,
+                        WebkitLineClamp: 6,
                         overflow: 'hidden'
                     }}
                 >
-                    {card.text.split('\n').map((line, i) => (
-                        <span key={i}>
-                            {line}
-                            {i < card.text.split('\n').length - 1 && <br />}
-                        </span>
-                    ))}
-                </div>
-                
-                {/* Button container ensures alignment */}
-                <div className={isExpanded ? 'mt-2' : ''}>
-                    <button
-                        onClick={() => setIsExpanded(!isExpanded)}
-                        className="cursor-pointer hover:text-white mt-1 border-none bg-transparent p-0 text-left"
-                        style={{
-                            color: 'rgba(255,107,43,0.9)',
-                            fontSize: '13.5px',
-                            transition: 'color 0.15s',
-                            fontWeight: 'bold',
-                            fontFamily: 'inherit'
-                        }}
-                    >
-                        {isExpanded ? 'Show less' : 'Read more'}
-                    </button>
+                    {card.text}
                 </div>
             </div>
 
-            {/* Footer: logo | divider | role & college */}
+            {/* Footer: logo | college name */}
             <div
-                className="flex items-center mt-auto"
+                className="flex items-center mt-auto gap-3"
                 style={{
                     paddingTop: '13px',
                     borderTop: '1px solid rgba(255,255,255,0.055)',
                 }}
             >
                 <div
-                    className="flex items-center justify-center shrink-0"
+                    className="flex items-center justify-center shrink-0 overflow-hidden"
                     style={{
-                        width: 34,
-                        height: 34,
-                        borderRadius: '7px',
+                        width: 48,
+                        height: 48,
+                        borderRadius: '10px',
                         background: '#242424',
                         border: '1px solid rgba(255,255,255,0.08)',
-                        fontSize: '16px',
                     }}
                 >
-                    {card.college.logo}
+                    {card.college.logo.startsWith('http') ? (
+                        <img src={card.college.logo} alt={card.college.name} className="w-full h-full object-contain p-1.5" />
+                    ) : (
+                        <span className="text-xl">{card.college.logo}</span>
+                    )}
                 </div>
-                <div
-                    className="shrink-0"
-                    style={{
-                        width: 1,
-                        height: 30,
-                        background: 'rgba(255,255,255,0.1)',
-                        margin: '0 12px',
-                    }}
-                />
-                <div className="flex-1 min-w-0">
-                    <div
-                        className="truncate"
-                        style={{
-                            color: 'rgba(255,255,255,0.88)',
-                            fontSize: '12.5px',
+                <div className="flex flex-col">
+                    <span 
+                        style={{ 
+                            color: 'rgba(255,255,255,0.85)', 
+                            fontSize: '13.5px', 
                             fontWeight: 600,
-                            lineHeight: 1.3,
                             letterSpacing: '-0.012em',
                         }}
                     >
-                        {card.role}
-                    </div>
-                    <div
-                        style={{
+                        {card.college.name}
+                    </span>
+                    <span 
+                        style={{ 
                             color: 'rgba(255,255,255,0.32)',
                             fontSize: '11.5px',
                             fontWeight: 400,
                             marginTop: '2px',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.05em'
                         }}
                     >
-                        {card.college.name}
-                    </div>
+                        Verified Participant
+                    </span>
                 </div>
             </div>
         </div>

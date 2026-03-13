@@ -1,6 +1,14 @@
 // src/components/ui/gallery-page.jsx
 import React, { useState, useEffect, useRef } from 'react';
-import { galleryStories, galleryHeroCards, gallery2025Images, gallery2025Masonry, gallery2024Images, gallery2024Masonry } from '../../data/gallery-data';
+import ReactDOM from 'react-dom';
+import { galleryStories,    galleryHeroCards, 
+    gallery2026Images,
+    gallery2026Masonry, // Added gallery2026Masonry
+    gallery2025Images, 
+    gallery2025Masonry, 
+    gallery2024Images, 
+    gallery2024Masonry 
+} from '../../data/gallery-data';
 import { TypingAnimation } from './typing-animation';
 import { AnimatedText } from './animated-shiny-text';
 
@@ -26,7 +34,7 @@ export function GalleryPage() {
             {/* ── Heading Above Hero ── */}
             <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mb-6">
                 <h2 className="text-xl md:text-2xl font-bold tracking-tight text-white/90">
-                    SIGMOID 2K26 (Promotional Content)
+                    SIGMOID 2K26 (Promotional Content) - TECHOVATE
                 </h2>
             </div>
 
@@ -34,6 +42,7 @@ export function GalleryPage() {
             <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
                 <GalleryHero cards={galleryHeroCards} />
             </div>
+
 
             {/* ── SIGMOID 2K25 Story Carousel Section ── */}
             <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mt-24 mb-16 relative">
@@ -108,13 +117,13 @@ function StoryCarousel({ stories, onStoryClick }) {
                     className="flex flex-col items-center gap-2 shrink-0 cursor-pointer group w-[90px] sm:w-[124px] snap-start"
                     onClick={() => onStoryClick(index)}
                 >
-                    {/* Circular Avatar */}
-                    <div className="relative p-[3px] rounded-full bg-gradient-to-tr from-[#FF6B2B] via-[#FF8F1F] to-[#2563EB] transition-transform duration-300 group-hover:scale-105">
-                        <div className="p-[3px] bg-[#0A0A0A] rounded-full relative">
+                    {/* Rounded Rectangle Avatar */}
+                    <div className="relative p-[3px] rounded-2xl bg-gradient-to-tr from-[#FF6B2B] via-[#FF8F1F] to-[#2563EB] transition-transform duration-300 group-hover:scale-105">
+                        <div className="p-[3px] bg-[#0A0A0A] rounded-2xl relative">
                             {story.thumbnailUrl?.includes('.mp4') ? (
                                 <video 
-                                    src={`${story.thumbnailUrl}#t=0.1`}
-                                    className="w-[76px] h-[76px] sm:w-[94px] sm:h-[94px] rounded-full object-cover border border-white/10 group-hover:border-white/20 transition-colors"
+                                    src={story.thumbnailUrl + "#t=0.1"}
+                                    className="w-[76px] h-[76px] sm:w-[94px] sm:h-[94px] rounded-xl object-cover border border-white/10 group-hover:border-white/20 transition-colors"
                                     preload="metadata"
                                     muted
                                     playsInline
@@ -123,7 +132,7 @@ function StoryCarousel({ stories, onStoryClick }) {
                                 <img 
                                     src={story.thumbnailUrl} 
                                     alt={story.title} 
-                                    className="w-[76px] h-[76px] sm:w-[94px] sm:h-[94px] rounded-full object-cover border border-white/10 group-hover:border-white/20 transition-colors"
+                                    className="w-[76px] h-[76px] sm:w-[94px] sm:h-[94px] rounded-xl object-cover border border-white/10 group-hover:border-white/20 transition-colors"
                                 />
                             )}
                             
@@ -177,23 +186,25 @@ function GalleryHero({ cards }) {
             {/* Main Content Area */}
             <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 pt-8 lg:pt-10 flex flex-col items-center">
 
-                {/* Titles - Centered entirely (SIGMOID 2K26 above RETRO FUTURISM) */}
+                {/* Titles - Centered entirely (SIGMOID 2K26 above NEON NOSTALGIA) */}
                 <div className="max-w-4xl flex flex-col items-center text-center gap-4 sm:gap-6 relative z-30 mb-8 sm:mb-12 mt-2">
                     <TypingAnimation 
                         text="SIGMOID 2K26"
                         className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-[0.2em] drop-shadow-lg"
                     />
                     <AnimatedText 
-                        text="RETRO FUTURISM"
+                        text="NEON NOSTALGIA"
                         textClassName="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase drop-shadow-md"
                         gradientColors="linear-gradient(90deg, #FF8F1F, #FFD700, #FF8F1F)"
                     />
                 </div>
 
                 {/* Video Cards Row */}
-                <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-4 z-30 relative translate-y-20 sm:translate-y-28">
+                <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-4 z-30 relative translate-y-20 sm:translate-y-28">
                     {cards.map((card, index) => (
-                        <CardItem key={card.id} card={card} isLeftmost={index === 0} />
+                        <div key={card.id} className={index >= 2 ? "hidden lg:block" : ""}>
+                            <CardItem card={card} isLeftmost={index === 0} />
+                        </div>
                     ))}
                 </div>
 
@@ -203,71 +214,178 @@ function GalleryHero({ cards }) {
 }
 
 function CardItem({ card, isLeftmost }) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isHovering, setIsHovering] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
+    const [isMuted, setIsMuted] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const [currentTime, setCurrentTime] = useState('0:00');
+    const [duration, setDuration] = useState('0:00');
+    const hoverVideoRef = useRef(null);
+    const modalVideoRef = useRef(null);
+    const progressRef = useRef(null);
+
+    const formatTime = (s) => {
+        if (isNaN(s)) return '0:00';
+        const m = Math.floor(s / 60);
+        const sec = Math.floor(s % 60);
+        return `${m}:${sec.toString().padStart(2, '0')}`;
+    };
+
+    useEffect(() => {
+        const v = hoverVideoRef.current;
+        if (!v || !card.videoUrl) return;
+        if (isHovering) { v.play().catch(() => {}); }
+        else { v.pause(); v.currentTime = 0; }
+    }, [isHovering, card.videoUrl]);
+
+    useEffect(() => {
+        const v = modalVideoRef.current;
+        if (!v || !isModalOpen) return;
+        v.play().catch(() => {});
+        const onTime = () => {
+            setProgress((v.currentTime / v.duration) * 100 || 0);
+            setCurrentTime(formatTime(v.currentTime));
+        };
+        const onMeta = () => setDuration(formatTime(v.duration));
+        v.addEventListener('timeupdate', onTime);
+        v.addEventListener('loadedmetadata', onMeta);
+        return () => { v.removeEventListener('timeupdate', onTime); v.removeEventListener('loadedmetadata', onMeta); };
+    }, [isModalOpen]);
+
+    useEffect(() => {
+        if (!isModalOpen) return;
+        const handler = (e) => { if (e.key === 'Escape') setIsModalOpen(false); };
+        window.addEventListener('keydown', handler);
+        return () => window.removeEventListener('keydown', handler);
+    }, [isModalOpen]);
+
+    const togglePlay = () => {
+        const v = modalVideoRef.current;
+        if (!v) return;
+        if (isPlaying) v.pause(); else v.play();
+        setIsPlaying(!isPlaying);
+    };
+
+    const toggleMute = () => {
+        const v = modalVideoRef.current;
+        if (!v) return;
+        v.muted = !isMuted;
+        setIsMuted(!isMuted);
+    };
+
+    const handleSeek = (e) => {
+        const v = modalVideoRef.current;
+        if (!v || !progressRef.current) return;
+        const rect = progressRef.current.getBoundingClientRect();
+        const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        v.currentTime = pct * v.duration;
+    };
+
     return (
-        <div className="group cursor-pointer flex flex-col gap-3">
-            {/* Thumbnail Box */}
-            <div className="relative aspect-[16/9] md:aspect-[4/3] w-full rounded-2xl overflow-hidden bg-transparent group-hover:border-white/20 transition-all duration-300">
-                <img 
-                    src={card.thumbnailUrl} 
-                    alt={card.title} 
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 md:opacity-80"
-                />
-                
-                {/* Dark Blue Left Gradient Overlay (mimicking reference #3) */}
-                <div 
-                    className="absolute inset-0 z-10"
-                    style={{
-                        background: 'linear-gradient(105deg, #0A0A2A 0%, #0A0A2A 45%, transparent 60%)'
-                    }}
-                />
-
-                {/* Right Bottom Zig-Zag Graphic */}
-                <div className="absolute -bottom-2 -right-2 w-16 h-16 z-20 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity">
-                    <div 
-                        className="absolute inset-0"
-                        style={{
-                            background: '#FF1493',
-                            clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 70% 30%, 40% 10%, 20% 50%)',
-                            transform: 'scale(1.1)'
-                        }}
+        <>
+            <div
+                className="group cursor-pointer flex flex-col gap-3"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+                onClick={() => { setIsModalOpen(true); setIsPlaying(true); }}
+            >
+                <div className="relative aspect-[16/9] md:aspect-[4/3] w-full rounded-2xl overflow-hidden bg-black transition-all duration-300">
+                    <img
+                        src={card.thumbnailUrl}
+                        alt={card.title}
+                        className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${isHovering ? 'opacity-0' : 'opacity-100'}`}
                     />
-                    <div 
-                        className="absolute inset-0"
-                        style={{
-                            background: '#00D8FF',
-                            clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 70% 30%, 40% 10%, 20% 50%)',
-                        }}
-                    />
+                    {card.videoUrl && (
+                        <video
+                            ref={hoverVideoRef}
+                            src={card.videoUrl}
+                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isHovering ? 'opacity-100' : 'opacity-0'}`}
+                            muted
+                            playsInline
+                            loop
+                            preload="metadata"
+                        />
+                    )}
+                    <div className="absolute -bottom-2 -right-2 w-16 h-16 z-20 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute inset-0" style={{ background: '#FF1493', clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 70% 30%, 40% 10%, 20% 50%)', transform: 'scale(1.1)' }} />
+                        <div className="absolute inset-0" style={{ background: '#00D8FF', clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 70% 30%, 40% 10%, 20% 50%)' }} />
+                    </div>
+                    <div className="absolute inset-0 z-30 p-4 sm:p-6 flex flex-col justify-between pointer-events-none">
+                        <div className={`w-16 h-16 rounded-full border-2 border-white flex items-center justify-center shrink-0 transition-all duration-300 ${isHovering ? 'bg-white/20 scale-110' : 'bg-transparent'}`}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" className="ml-1"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <h3 className="text-white font-extrabold text-xl sm:text-2xl uppercase leading-none w-3/4 drop-shadow-md">
+                                {card.tags[0] || "PROMO VIDEO"}
+                            </h3>
+                        </div>
+                    </div>
                 </div>
-
-                {/* Play Button Setup */}
-                <div className="absolute inset-0 z-30 p-4 sm:p-6 flex flex-col justify-between">
-                    {/* Top Circle Play Button */}
-                    <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-colors">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" className="ml-1">
-                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                        </svg>
-                    </div>
-
-                    {/* Left overlay text (e.g. SANTNER SPEAKS) */}
-                    <div className="flex flex-col gap-2">
-                        <h3 className="text-white font-extrabold text-xl sm:text-2xl uppercase leading-none w-3/4 drop-shadow-md">
-                            {card.tags[0] || "PROMO VIDEO"}
-                        </h3>
-                    </div>
+                <div className="flex flex-col gap-1 px-1">
+                    <p className="text-white/60 text-[12px] md:text-[13px] font-semibold tracking-wide italic uppercase">SIGMOID 2K26</p>
+                    <h4 className="text-white text-[14px] md:text-[15px] font-bold leading-snug group-hover:text-[#3B82F6] transition-colors">{card.title}</h4>
                 </div>
             </div>
 
-            {/* Info Section Below Card */}
-            <div className="flex flex-col gap-1 px-1">
-                <p className="text-white/60 text-[12px] md:text-[13px] font-semibold tracking-wide italic uppercase">
-                    SIGMOID 2K26
-                </p>
-                <h4 className="text-white text-[14px] md:text-[15px] font-bold leading-snug group-hover:text-[#3B82F6] transition-colors">
-                    {card.title}
-                </h4>
-            </div>
-        </div>
+            {isModalOpen && ReactDOM.createPortal(
+                <div
+                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md"
+                    onClick={() => setIsModalOpen(false)}
+                >
+                    <div
+                        className="relative w-full max-w-4xl mx-4 bg-[#111] rounded-2xl overflow-hidden shadow-2xl"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            onClick={() => setIsModalOpen(false)}
+                            className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors"
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                        </button>
+                        <video
+                            ref={modalVideoRef}
+                            src={card.videoUrl}
+                            className="w-full aspect-video object-contain bg-black cursor-pointer"
+                            playsInline
+                            muted={isMuted}
+                            onClick={togglePlay}
+                        />
+                        <div className="px-5 py-4 flex flex-col gap-3 bg-[#111]">
+                            <div
+                                ref={progressRef}
+                                className="w-full h-1.5 bg-white/20 rounded-full cursor-pointer relative group/bar"
+                                onClick={handleSeek}
+                            >
+                                <div className="h-full bg-[#E10098] rounded-full" style={{ width: `${progress}%` }} />
+                                <div className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white shadow opacity-0 group-hover/bar:opacity-100 transition-opacity" style={{ left: `${progress}%`, transform: 'translate(-50%, -50%)' }} />
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <button onClick={togglePlay} className="text-white hover:text-[#E10098] transition-colors">
+                                    {isPlaying
+                                        ? <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                                        : <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                    }
+                                </button>
+                                <button onClick={toggleMute} className="text-white hover:text-[#E10098] transition-colors">
+                                    {isMuted
+                                        ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                                        : <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                                    }
+                                </button>
+                                <span className="text-white/50 text-[13px] font-mono ml-auto">{currentTime} / {duration}</span>
+                            </div>
+                        </div>
+                        <div className="px-5 pb-4">
+                            <p className="text-white/40 text-xs uppercase tracking-widest">SIGMOID 2K26</p>
+                            <h3 className="text-white font-bold text-base mt-0.5">{card.title}</h3>
+                        </div>
+                    </div>
+                </div>
+            , document.body)}
+        </>
     );
 }
 
@@ -541,49 +659,61 @@ function MasonryImageScroll({ images }) {
                 `}
             </style>
 
-            <div className="flex gap-4 sm:gap-6 w-max animate-scroll-left pl-4">
+            <div className="flex gap-4 w-max animate-scroll-left">
                 {duplicatedChunks.map((chunk, chunkIndex) => (
-                    <div key={chunkIndex} className="flex gap-4 sm:gap-6 shrink-0 h-[200px] sm:h-[300px]">
+                    <div key={chunkIndex} className="flex gap-4 shrink-0 h-[200px] sm:h-[300px]">
                         
                         {/* Column 1: Tall Vertical Image */}
-                        {chunk[0] && (
-                            <div className="w-[120px] sm:w-[180px] h-full rounded-2xl overflow-hidden shrink-0 group/card relative transition-colors">
+                        {chunk[0] ? (
+                            <div className="w-[120px] sm:w-[180px] h-full overflow-hidden shrink-0 group/card relative transition-colors rounded-2xl">
                                 <MasonryMedia item={chunk[0]} />
                             </div>
+                        ) : (
+                            <div className="w-[120px] sm:w-[180px] h-full shrink-0" />
                         )}
 
                         {/* Column 2: Stacked Small Images */}
-                        <div className="flex flex-col gap-4 sm:gap-6 shrink-0 w-[140px] sm:w-[220px]">
-                            {chunk[1] && (
-                                <div className="flex-1 rounded-2xl overflow-hidden group/card relative transition-colors">
+                        <div className="flex flex-col gap-4 shrink-0 w-[140px] sm:w-[220px]">
+                            {chunk[1] ? (
+                                <div className="flex-1 overflow-hidden group/card relative transition-colors rounded-2xl">
                                     <MasonryMedia item={chunk[1]} />
                                 </div>
+                            ) : (
+                                <div className="flex-1" />
                             )}
-                            {chunk[2] && (
-                                <div className="flex-1 rounded-2xl overflow-hidden group/card relative transition-colors">
+                            {chunk[2] ? (
+                                <div className="flex-1 overflow-hidden group/card relative transition-colors rounded-2xl">
                                     <MasonryMedia item={chunk[2]} />
                                 </div>
+                            ) : (
+                                <div className="flex-1" />
                             )}
                         </div>
 
                         {/* Column 3: Large Center Image */}
-                        {chunk[3] && (
-                            <div className="w-[200px] sm:w-[320px] h-full rounded-2xl overflow-hidden shrink-0 group/card relative transition-colors">
+                        {chunk[3] ? (
+                            <div className="w-[200px] sm:w-[320px] h-full overflow-hidden shrink-0 group/card relative transition-colors rounded-2xl">
                                 <MasonryMedia item={chunk[3]} />
                             </div>
+                        ) : (
+                            <div className="w-[200px] sm:w-[320px] h-full shrink-0" />
                         )}
 
                         {/* Column 4: Stacked Small Images */}
-                        <div className="flex flex-col gap-4 sm:gap-6 shrink-0 w-[140px] sm:w-[220px]">
-                            {chunk[4] && (
-                                <div className="flex-1 rounded-2xl overflow-hidden group/card relative transition-colors">
+                        <div className="flex flex-col gap-4 shrink-0 w-[140px] sm:w-[220px]">
+                            {chunk[4] ? (
+                                <div className="flex-1 overflow-hidden group/card relative transition-colors rounded-2xl">
                                     <MasonryMedia item={chunk[4]} />
                                 </div>
+                            ) : (
+                                <div className="flex-1" />
                             )}
-                            {chunk[5] && (
-                                <div className="flex-1 rounded-2xl overflow-hidden group/card relative transition-colors">
+                            {chunk[5] ? (
+                                <div className="flex-1 overflow-hidden group/card relative transition-colors rounded-2xl">
                                     <MasonryMedia item={chunk[5]} />
                                 </div>
+                            ) : (
+                                <div className="flex-1" />
                             )}
                         </div>
 

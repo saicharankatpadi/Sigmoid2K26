@@ -28,11 +28,11 @@ export function Preloader({ onComplete }) {
         window.addEventListener('resize', updateFontSize);
 
         // Timer orchestrator
-        // End the preloader right as the text fully vaporizes (around 5s)
+        // End the preloader right as the text fully vaporizes (around 10s)
         const t1 = setTimeout(() => {
             onComplete();
             document.body.style.overflow = 'auto'; // Re-enable scrolling
-        }, 5000);
+        }, 10000);
 
         return () => {
             clearTimeout(t1);
@@ -60,7 +60,7 @@ export function Preloader({ onComplete }) {
                     spread={8}
                     density={6}
                     animation={{
-                        vaporizeDuration: 4.6,
+                        vaporizeDuration: 9.6,
                         fadeInDuration: 0.1,
                         waitDuration: 0.3
                     }}

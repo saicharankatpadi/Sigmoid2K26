@@ -9,37 +9,35 @@ import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 // ==========================================
 const eventData = {
   event_info: {
-    title: "Click Fest",
-    emoji: "📸",
-    subtitle: "Photography Context",
-    brochure_url: "#",
+    title: "Avishkar",
+    emoji: "rocket",
+    subtitle: "Project Expo and DIY",
+    brochure_url: "/AVISHKAR.pdf",
     features: [
-      { id: "01", content: "Individual participation only" },
-      { id: "02", content: "Capture stunning, creative images" },
-      { id: "03", content: "Photography with smartphone only" },
-      { id: "04", content: "Secret Themes disclosed on-site" },
-      { id: "05", content: "AI manipulation strictly prohibited" },
-      { id: "06", content: "Judge’s decisions are final" }
+      { id: "01", content: "Register online or at the spot registration counter." },
+      { id: "02", content: "A team of a maximum of 4 candidates is allowed per each project." },
+      { id: "03", content: "The person in one team should not be allowed to participate in other teams of Avishkar." },
+      { id: "04", content: "Breadboards and jumper wires provided only if informed in advance." },
+      { id: "05", content: "Showcase domain knowledge of Electronics and sensors or software model." },
+      { id: "06", content: "Machine Learning, Artificial Intelligence are also accepted." },
+      { id: "07", content: "Submit project abstract via Google Form by 02-04-2026." },
+      { id: "08", content: "Bring physical prepared model and abstract on Event Day." },
+      { id: "09", content: "Participants must carry out their projects themselves." },
+      { id: "10", content: "7-8 mins of presentation time followed by queries." },
+      { id: "11", content: "No separate fee if fest entry is paid." },
+      { id: "12", content: "Best projects sent to university and rewarded." }
     ]
   },
-  video_preview: {
-    video_src: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773379445/WhatsApp_Video_2026-03-12_at_22.14.00_rw3vjk.mp4",
-    badges: [
-      { position: "top-left", icon: "user", text: "Phone Photography" },
-      { position: "top-right", icon: "diamond", text: "Creative Angles" },
-      { position: "bottom-left", icon: "users", text: "Individual Showcase" },
-      { position: "bottom-right", icon: "academic", text: "Final Gallery" }
-    ]
-  },
+
   mission: [
     {
       id: "foundation",
       icon: "target",
       title: "THE OBJECTIVE",
       points: [
-        "Photography context refers to capturing stunning, creative images showcasing technical skills and unique perspectives on daily life.",
-        "Use your smartphone to present your best visual story and interpretation of the given themes.",
-        "Let your lens do the talking and capture moments that speak louder than words."
+        "Imagine a world where resistors, diodes, capacitors, and inductors obey your every command. That world is here – start building and take charge!",
+        "Avishkar is a dynamic and innovative event designed to celebrate creativity, technical expertise, and hands-on learning.",
+        "It serves as a platform for students to showcase their groundbreaking projects, experiment with DIY (Do-It-Yourself) creations, and inspire others through their ingenuity."
       ]
     },
     {
@@ -47,83 +45,88 @@ const eventData = {
       icon: "rocket",
       title: "THE PROCESS",
       points: [
-        "Register online via our website or directly at the spot registration counter on the event day.",
-        "The specific photography themes will be disclosed entirely on-site to test your spontaneous creativity.",
-        "Final 3 entries are chosen based on creativity and adherence to themes. Finalists will be featured in an online gallery, competing for the title and prizes."
+        "Register your team and submit the project abstract using the Google Form before the deadline.",
+        "Participants must bring and carry out their projects directly. Breadboards provided only if informed in advance.",
+        "Exhibit your working model physically on the event day. Best projects are awarded prizes and certifications!"
       ]
     }
   ],
   learnings: {
-    title: "Skills Evaluated",
+    title: "Domain Knowledge",
     items: [
-      "Composition", "Lighting", "Framing", "Visual Storytelling",
-      "Creativity", "Spontaneity", "Perspective", "Color Theory",
-      "Subject Focus", "Contrast", "Originality", "Smartphone Mastery"
+      "Electronics", "Sensors", "Software Models", "Machine Learning",
+      "Artificial Intelligence", "DIY Hardware", "Circuit Design", "IoT Implementations",
+      "Embedded Systems", "Robotics", "Automation", "Prototyping"
     ],
     button_text: "And much more...",
     description: [
-      "Demonstrate your ability to find beauty and compelling narratives in ordinary scenes.",
-      "Adapt quickly to unexpected themes and environmental conditions on-site.",
-      "Showcase technical proficiency with lighting and composition using just a smartphone camera.",
-      "Bring out unique perspectives that stand out from the conventional shots.",
-      "Rely purely on your raw talent—AI enhancements and manipulations are completely prohibited."
+      "Showcase your practical understanding of complex systems and sensors.",
+      "Get hands-on experience by building and demonstrating a working prototype.",
+      "Learn to defend your design choices during the rigorous Q&A rounds.",
+      "Network with other innovators and observe solutions to various technical problems.",
+      "Compete for the chance to represent your college at the university level."
     ]
   },
   perks: {
     title: "Perks & Benefits",
     items: [
-      { text: "Certificate of Participation", icon: "academic", color: "#ec4899" },
-      { text: "Featured in Online Gallery", icon: "globe", color: "#f89b29" },
-      { text: "Prizes for Top 3 Winners", icon: "diamond", color: "#a855f7" },
-      { text: "Showcase Creative Skills", icon: "document", color: "#2dd4bf" },
-      { text: "Networking with Photographers", icon: "users", color: "#10B981" },
-      { text: "Title of Campus Best Photographer", icon: "academic", color: "#f89b29" },
-      { text: "Professional Recognition", icon: "briefcase", color: "#10B981" },
-      { text: "Gain Real-time Feedback", icon: "terminal", color: "#2dd4bf" }
+      { text: "Certificate of Excellence", icon: "academic", color: "#ec4899" },
+      { text: "University Level Entry for Winners", icon: "globe", color: "#f89b29" },
+      { text: "Expert Q&A Feedback", icon: "user", color: "#a855f7" },
+      { text: "Showcase Your Craft", icon: "document", color: "#2dd4bf" },
+      { text: "Networking Opportunities", icon: "users", color: "#10B981" },
+      { text: "Exciting Rewards for Winners", icon: "diamond", color: "#f89b29" },
+      { text: "Practical Engineering Experience", icon: "briefcase", color: "#10B981" },
+      { text: "Explore AI/ML Applications", icon: "terminal", color: "#2dd4bf" }
     ]
   },
   mentors: [
     { 
       id: "m1", 
-      name: "Event Coordinator 1", 
-      role: "Logistics", 
-      image: "https://randomuser.me/api/portraits/men/44.jpg",
+      name: "Event Mentor", 
+      role: "Project Evaluator", 
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773298518/WhatsApp_Image_2026-03-11_at_23.54.52_rkog46.jpg",
       phone: "",
       instagram: "",
       linkedin: ""
     },
     { 
       id: "m2", 
-      name: "Event Coordinator 2", 
-      role: "Logistics", 
-      image: "https://randomuser.me/api/portraits/women/33.jpg",
+      name: "Event Mentor", 
+      role: "Project Evaluator", 
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773308057/WhatsApp_Image_2026-03-12_at_02.32.00_ybxhln.jpg",
       phone: "",
       instagram: "",
       linkedin: ""
     }
   ],
-  testimonials: [
-    { 
-      id: "t1", 
-      name: "Previous Finalist", 
-      quote: "Click Fest was amazing! The on-site theme release forced me to think on my feet and captured the best photo I've ever taken on my phone.", 
-      image: "https://randomuser.me/api/portraits/women/32.jpg",
-      college_logo: ""
-    },
-    { 
-      id: "t2", 
-      name: "Photography Enthusiast", 
-      quote: "Being featured in the online gallery for the top 3 was a huge confidence boost. It’s a pure test of raw skill without AI, which makes it authentic.", 
-      image: "https://randomuser.me/api/portraits/men/45.jpg",
-      college_logo: ""
-    }
-  ],
+
   faqs: [
-    { id: "q1", question: "Can I use a DSLR or Mirrorless camera?", answer: "No, participants are only allowed to use smartphones for this contest." },
-    { id: "q2", question: "Is team participation allowed?", answer: "No, this is strictly an individual participation event." },
-    { id: "q3", question: "Can I edit my photos using AI?", answer: "No, AI tools and extreme manipulation are strictly prohibited. Minor color corrections may be allowed based on judge discretion, but RAW authentic shots are preferred." },
-    { id: "q4", question: "When will the themes be announced?", answer: "The secret photography themes will be disclosed solely on-site during the event." }
-  ]
+    { id: "q1", question: "Do I need to pay extra for this event?", answer: "No, registering and paying the entry fee for the entire tech-fest covers this event." },
+    { id: "q2", question: "Will breadboards be provided?", answer: "Please note that breadboards will only be provided to participants who inform us in advance." },
+    { id: "q3", question: "Can I participate in multiple Avishkar projects?", answer: "No, a person in one team cannot participate in other teams of Avishkar." },
+    { id: "q4", question: "Is the project abstract mandatory?", answer: "Yes, you must submit your project abstract through the Google form before the specified deadline of 02-04-2026." }
+  ],
+  gallery: [
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350157/567A8795_zz67aa.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350177/IMG_1188_dbihrp.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350157/567A8798_ho0gki.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350189/IMG_1183_vxgyhf.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350200/IMG-20240328-WA0045_jzygqf.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350202/IMG-20240328-WA0050_ekcwmn.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350217/IMG_0568_k7mfoc.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350217/IMG_1194_nkfifp.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350215/IMG_0574_ldo9dk.jpg"
+  ],
+  video_preview: {
+    video_src: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773348542/AVISHKAR_2026_Promo_720p_caption_c99gn2.mp4",
+    badges: [
+      { position: "top-left", icon: "globe", text: "Global Entry" },
+      { position: "top-right", icon: "cube", text: "Technical Expo" },
+      { position: "bottom-left", icon: "diamond", text: "Innovation Award" },
+      { position: "bottom-right", icon: "users", text: "Team Collaboration" }
+    ]
+  }
 };
 
 // ==========================================
@@ -179,8 +182,9 @@ const FaqItem = ({ q, a }) => {
 // MAIN PAGE EXPORT
 // ==========================================
 
-export const ClickFestEventPage = () => {
+export const AvishkarEventPage = () => {
   const data = eventData;
+  const [isAutoRotating, setIsAutoRotating] = useState(true);
   const videoRef = useRef(null);
   const progressRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -203,7 +207,6 @@ export const ClickFestEventPage = () => {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        // Unmute on play
         videoRef.current.muted = false;
         setIsMuted(false);
         videoRef.current.play();
@@ -230,13 +233,11 @@ export const ClickFestEventPage = () => {
 
   const handleLoadedMetadata = useCallback(() => {
     if (videoRef.current) {
-      // Show second frame instead of first
       videoRef.current.currentTime = 0.5;
       setDuration(formatTime(videoRef.current.duration));
     }
   }, []);
 
-  // Seek to position from mouse event
   const seekToPosition = useCallback((e) => {
     if (videoRef.current && progressRef.current) {
       const rect = progressRef.current.getBoundingClientRect();
@@ -283,9 +284,7 @@ export const ClickFestEventPage = () => {
         }
       `}</style>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 1 — HERO: Two-column split
-       ═══════════════════════════════════════════ */}
+      {/* ── SECTION 1 — HERO: Two-column split ── */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-28 pb-10">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
 
@@ -313,22 +312,19 @@ export const ClickFestEventPage = () => {
               {data.event_info.subtitle}
             </p>
 
-            {/* ── Feature Cards — 2-column grid ── */}
+            {/* ── Feature Cards — Grid ── */}
             <div className="grid grid-cols-2 gap-2.5">
-              {data.event_info.features.map(feature => (
+              {data.event_info.features.slice(0, 8).map(feature => (
                 <div
                   key={feature.id}
                   className="flex items-center gap-0 bg-[#111111] border-2 border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#3a3a3a] transition-all duration-300 group cursor-default"
                 >
-                  {/* Number */}
                   <div className="shrink-0 w-12 flex items-center justify-center py-3 px-2">
                     <span className="text-[#f89b29] font-black text-[15px] tracking-wider">{feature.id}</span>
                   </div>
-                  {/* Vertical Line Separator — half height, centered */}
                   <div className="flex items-center self-stretch">
                     <div className="w-[2px] h-[50%] bg-[#2a2a2a] group-hover:bg-[#3a3a3a] transition-colors rounded-full"></div>
                   </div>
-                  {/* Text */}
                   <div className="flex-1 py-3 px-3">
                     <span className="text-white/90 text-[13px] leading-snug font-semibold">{feature.content}</span>
                   </div>
@@ -337,17 +333,10 @@ export const ClickFestEventPage = () => {
             </div>
           </div>
 
-          {/* ── RIGHT COLUMN — vertically centered, pushed right ── */}
+          {/* ── RIGHT COLUMN — Video Mockup ── */}
           <div className="flex-1 min-w-0 lg:max-w-[50%] flex flex-col items-center justify-center lg:pl-6">
-
-            {/* Laptop Mockup */}
             <div className="relative z-10 w-full max-w-[560px]">
-              {/* Screen Frame */}
               <div className="relative bg-[#181818] rounded-t-2xl border-t-2 border-x-2 border-[#333] p-3 shadow-[0_0_60px_rgba(0,0,0,0.6)]">
-                {/* Camera dot */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#444]"></div>
-
-                {/* Screen Content — Video */}
                 <div
                   className="relative w-full aspect-video bg-black rounded overflow-hidden border border-[#222] cursor-pointer"
                   onMouseEnter={() => isPlaying && setShowControls(true)}
@@ -363,125 +352,55 @@ export const ClickFestEventPage = () => {
                     preload="metadata"
                     onTimeUpdate={handleTimeUpdate}
                     onLoadedMetadata={handleLoadedMetadata}
-                    onEnded={() => setIsPlaying(false)}
                   />
-
-                  {/* Play Button Overlay — solid, thick, NOT glassy */}
                   {!isPlaying && (
                     <div className="absolute inset-0 flex items-center justify-center z-10 group/play" onClick={togglePlay}>
-                      {/* Radiation rings — ONLY on hover */}
                       <div className="absolute w-24 h-24 rounded-full border-2 border-white/20 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite' }}></div>
-                      <div className="absolute w-24 h-24 rounded-full border-2 border-white/15 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite 0.6s' }}></div>
-                      <div className="absolute w-24 h-24 rounded-full border-2 border-white/10 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite 1.2s' }}></div>
-
-                      {/* Solid play button */}
-                      <button
-                        className="relative w-16 h-16 sm:w-[72px] sm:h-[72px] bg-white/90 rounded-full flex items-center justify-center border-[3px] border-white transition-all duration-300 hover:scale-110 z-20 shadow-[0_0_30px_rgba(255,255,255,0.3)]"
-                      >
-                        <svg className="w-7 h-7 sm:w-8 sm:h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                      <button className="relative w-16 h-16 sm:w-[72px] sm:h-[72px] bg-white text-black rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-20">
+                        <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                       </button>
                     </div>
                   )}
-
-                  {/* YouTube-style Controls Bar */}
                   {isPlaying && (
-                    <div className={`absolute bottom-0 left-0 right-0 z-30 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
-                      onMouseEnter={() => setShowControls(true)}
-                    >
-                      {/* Progress Bar — draggable */}
-                      <div
-                        ref={progressRef}
-                        className="w-full h-1.5 bg-white/20 cursor-pointer group/progress hover:h-2.5 transition-all"
-                        onMouseDown={handleProgressMouseDown}
-                      >
-                        <div
-                          className="h-full bg-[#f89b29] relative"
-                          style={{ width: `${progress}%` }}
-                        >
-                          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#f89b29] opacity-0 group-hover/progress:opacity-100 transition-opacity shadow-md border border-white/30"></div>
-                        </div>
+                    <div className={`absolute bottom-0 left-0 right-0 z-30 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}>
+                      <div ref={progressRef} className="w-full h-1.5 bg-white/20 cursor-pointer hover:h-2 transition-all" onMouseDown={handleProgressMouseDown}>
+                        <div className="h-full bg-[#f89b29]" style={{ width: `${progress}%` }}></div>
                       </div>
-
-                      {/* Control Buttons */}
-                      <div className="flex items-center gap-3 px-3 py-2 bg-gradient-to-t from-black/80 to-black/40">
-                        {/* Play/Pause */}
-                        <button onClick={(e) => { e.stopPropagation(); togglePlay(); }} className="text-white hover:text-white/80 transition-colors">
-                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            {isPlaying
-                              ? <><rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" /></>
-                              : <path d="M8 5v14l11-7z" />
-                            }
-                          </svg>
-                        </button>
-
-                        {/* Volume */}
-                        <button onClick={(e) => { e.stopPropagation(); toggleMute(); }} className="text-white hover:text-white/80 transition-colors">
-                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            {isMuted
-                              ? <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
-                              : <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                            }
-                          </svg>
-                        </button>
-
-                        {/* Time */}
-                        <span className="text-white/70 text-[12px] font-mono ml-1">
-                          {currentTime} / {duration}
-                        </span>
+                      <div className="flex items-center gap-4 px-3 py-2 bg-black/60">
+                         <button onClick={togglePlay} className="text-white hover:text-[#f89b29] transition-colors">
+                            {isPlaying ? <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg> : <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>}
+                         </button>
+                         <button onClick={toggleMute} className="text-white hover:text-[#f89b29] transition-colors">
+                            {isMuted ? <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg> : <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>}
+                         </button>
+                         <span className="text-[12px] font-mono text-white/70">{currentTime} / {duration}</span>
                       </div>
                     </div>
                   )}
                 </div>
-
-                {/* Floating Badges — positioned outside video area to avoid control overlap */}
                 {data.video_preview.badges.map((badge, idx) => {
-                  const posMap = {
-                    "top-left": "-top-6 -left-4 lg:-left-10",
-                    "top-right": "-top-6 -right-4 lg:-right-10",
-                    "bottom-left": "-bottom-4 -left-4 lg:-left-10",
-                    "bottom-right": "-bottom-4 -right-4 lg:-right-10",
-                    "top-center": "-top-12 left-1/2 -translate-x-1/2"
-                  };
-                  const floatAnims = [
-                    'floatBadge1 3s ease-in-out infinite',
-                    'floatBadge2 3.5s ease-in-out infinite 0.3s',
-                    'floatBadge3 4s ease-in-out infinite 0.6s',
-                    'floatBadge4 3.2s ease-in-out infinite 0.9s'
-                  ];
+                  const posMap = { "top-left": "-top-6 -left-4 lg:-left-10", "top-right": "-top-6 -right-4 lg:-right-10", "bottom-left": "-bottom-4 -left-4 lg:-left-10", "bottom-right": "-bottom-4 -right-4 lg:-right-10" };
+                  const floatAnims = ['floatBadge1 3s infinite', 'floatBadge2 3.5s infinite 0.3s', 'floatBadge3 4s infinite 0.6s', 'floatBadge4 3.2s infinite 0.9s'];
                   return (
-                    <div
-                      key={idx}
-                      className={`hidden md:flex absolute z-20 ${posMap[badge.position]} bg-[#0c0c0c] border-2 border-[#2a2a2a] rounded-full px-5 py-2.5 items-center gap-2.5 text-white text-[14px] font-bold shadow-[0_8px_32px_rgba(0,0,0,0.6)] whitespace-nowrap cursor-default`}
-                      style={{ animation: floatAnims[idx % 4] }}
-                    >
+                    <div key={idx} className={`hidden md:flex absolute z-20 ${posMap[badge.position]} bg-black border border-white/20 rounded-full px-4 py-2 items-center gap-2 text-white text-[12px] font-bold shadow-xl whitespace-nowrap`} style={{ animation: floatAnims[idx % 4] }}>
                       <IconBadge iconType={badge.icon} />
                       {badge.text}
                     </div>
-                  )
+                  );
                 })}
               </div>
-
-              {/* Laptop Base */}
-              <div className="relative w-[108%] -ml-[4%] h-6 bg-[#272727] rounded-b-xl border-2 border-[#333] flex justify-center items-start shadow-2xl z-0">
-                <div className="w-28 h-2 bg-[#181818] rounded-b-sm"></div>
+              <div className="relative w-[108%] -ml-[4%] h-5 bg-[#222] rounded-b-xl border-x-2 border-b-2 border-[#333] flex justify-center items-start">
+                <div className="w-24 h-1.5 bg-[#111] rounded-b-sm"></div>
               </div>
             </div>
-
-            {/* Download Brochure — Neon Button */}
             <div className="mt-12">
-              <a href={data.event_info.brochure_url} download className="inline-block">
-                <Button
-                  variant="default"
-                  size="lg"
-                  neon={true}
-                  className="bg-black text-white border-white/20 hover:bg-white/5 hover:border-white/40 px-10 py-3 text-[16px] font-bold flex items-center gap-3 cursor-pointer"
-                >
+              <a href={data.event_info.brochure_url} download>
+                <Button neon={true} className="px-10 py-3 text-[16px] font-bold flex items-center gap-3">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                   Download Brochure
                 </Button>
               </a>
             </div>
-
           </div>
         </div>
       </section>
@@ -489,9 +408,9 @@ export const ClickFestEventPage = () => {
       {/* ═══════════════════════════════════════════════════════════
           SECTION 2 — Our Mission
        ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-2">
         {/* Section Title with accent bar */}
-        <div className="mb-7">
+        <div className="mb-1 text-left">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
             <h2 className="text-2xl md:text-3xl font-black text-white">Our Mission</h2>
@@ -499,7 +418,7 @@ export const ClickFestEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 text-left">
+        <div className="grid md:grid-cols-2 gap-6">
           {data.mission.map(m => {
             const isFoundation = m.icon === 'target';
             const themeColor = isFoundation ? '#f89b29' : '#2dd4bf';
@@ -553,7 +472,7 @@ export const ClickFestEventPage = () => {
         </div>
 
         {/* 4-column topic grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {data.learnings.items.map((item, i) => (
             <div key={i} className="flex items-center gap-3 bg-[#0a0a0a] rounded-xl px-4 py-3 border border-[#222] hover:border-[#333] transition-colors">
               <div className="w-5 h-5 rounded-[6px] bg-[#f89b29] flex items-center justify-center shrink-0">
@@ -565,7 +484,8 @@ export const ClickFestEventPage = () => {
         </div>
 
         {/* "And so much more..." pill — same height as grid cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3 mb-8 text-left">
+        {/* "And so much more..." pill — same height as grid cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3 mb-8">
           <div className="flex items-center gap-3 bg-[#170e05] border border-[#f89b29]/20 rounded-xl px-4 py-3 hover:border-[#f89b29]/40 transition-colors cursor-pointer">
             <div className="w-5 h-5 rounded-[6px] bg-[#f89b29]/20 flex items-center justify-center shrink-0">
               <svg className="w-3.5 h-3.5 text-[#f89b29]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 4v16m8-8H4" /></svg>
@@ -576,7 +496,7 @@ export const ClickFestEventPage = () => {
 
         {/* Description card with bullet points */}
         {data.learnings.description && (
-          <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl p-6 md:p-8 text-left">
+          <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl p-6 md:p-8">
             <ul className="space-y-4">
               {data.learnings.description.map((desc, i) => (
                 <li key={i} className="flex items-start gap-3">
@@ -603,7 +523,7 @@ export const ClickFestEventPage = () => {
         </div>
 
         {/* 4-column perk grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {data.perks.items.map((perk, i) => (
             <div key={i} className="flex items-center gap-4 bg-[#0a0a0a] border border-[#222] rounded-xl px-4 py-3.5 hover:border-[#333] transition-colors relative group">
               {/* Highlight container for icon */}
@@ -619,63 +539,6 @@ export const ClickFestEventPage = () => {
         </div>
       </section>
 
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 4 — Judge
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Judge</h2>
-          </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
-        </div>
-
-        <div className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-8 items-stretch mt-6">
-          {/* Image & Socials */}
-          <div className="w-full md:w-[30%] flex flex-col items-center">
-            <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2670&auto=format&fit=crop" alt="Event Judge" className="w-full aspect-[4/5] object-cover rounded-2xl md:mb-0 mb-6 shadow-[0_0_20px_rgba(0,0,0,0.8)]" />
-          </div>
-          
-          {/* Details Content */}
-          <div className="flex-1 flex flex-col justify-between text-left">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold text-[#2dd4bf] mb-1">Esteemed Evaluation Committee</h3>
-              <p className="text-white/40 text-[14px]">{"// Professors & Domain Experts"}</p>
-            </div>
-            
-            <div className="bg-[#111111] border border-[#222] rounded-2xl p-6 md:p-8 mb-6 h-full text-[14.5px] leading-relaxed text-white/60 space-y-4 font-normal shadow-inner">
-              <p>
-                The projects will be rigorously evaluated by a panel of tech professionals and established researchers specializing in domains like AI, ML, Sensors, and DIY Electronics. The judges possess years of practical, real-world experience, ensuring an authentic evaluation of your model's design logic and innovation.
-              </p>
-              <p>
-                Following your 6-8 minute presentation, the panel will ask critical questions and offer constructive feedback. This interaction is designed to strengthen your technical foundation and gear you up for advancing your project to higher university-level scopes and startup potential.
-              </p>
-            </div>
-
-            {/* Stat Cards Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2">
-                <div className="text-[#f89b29] scale-110 mb-1"><IconBadge iconType="users" /></div>
-                <h4 className="text-xl font-black text-[#f89b29]">25+</h4>
-                <span className="text-[12px] text-white/50">Expert Panels</span>
-              </div>
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2">
-                <svg className="w-[1.4rem] h-[1.4rem] text-[#f89b29] mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                <h4 className="text-xl font-black text-[#f89b29]">15+</h4>
-                <span className="text-[12px] text-white/50">Years Experience</span>
-              </div>
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2 text-center">
-                <div className="text-[#f89b29] scale-110 mb-1"><IconBadge iconType="briefcase" /></div>
-                <h4 className="text-xl font-black text-[#f89b29] leading-tight">Top Univ.</h4>
-                <span className="text-[12px] text-white/50">From Reputed Orgs</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 5 — Mentors
@@ -740,7 +603,7 @@ export const ClickFestEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden text-left">
+        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden">
           {/* Subtle gradient background glow from left */}
           <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
           
@@ -793,76 +656,28 @@ export const ClickFestEventPage = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 6.5 — Past Clicks
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
+
+
+
+      {/* Event Gallery */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-2">
         <div className="mb-10 text-left">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Past Clicks From Participants</h2>
+          <div className="inline-flex items-center gap-3 mb-3 bg-[#f89b29]/5 px-6 py-2 rounded-full border border-[#f89b29]/20">
+            <div className="w-1 h-6 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Event Gallery</h2>
           </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        {/* Masonry Layout Grid */}
-        <div className="w-full">
-          <ThreeDPhotoCarousel images={data.gallery || [
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.42_nlxwwe.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264943/WhatsApp_Image_2026-03-11_at_14.32.42_1_axayos.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.43_mvmfpb.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.44_1_y8rydq.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.44_2_siwn9f.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264941/WhatsApp_Image_2026-03-11_at_14.32.43_2_xlx7id.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264941/WhatsApp_Image_2026-03-11_at_14.32.44_luet69.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.43_1_jctabz.jpg"
-          ]} />
-        </div>
-      </section>
-
-
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 7 — Testimonials
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
-        <div className="mb-10 text-left">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Words From Participants</h2>
-          </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.testimonials.map((t, i) => (
-            <div key={i} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 hover:border-[#333] transition-all group relative overflow-hidden text-left">
-              {/* Quote Mark Decoration */}
-              <div className="absolute -top-4 -right-4 text-[#f89b29]/10 text-8xl font-serif pointer-events-none group-hover:text-[#f89b29]/20 transition-colors">“</div>
-              
-              <div className="relative z-10">
-                <p className="text-white/70 text-[15px] leading-relaxed mb-8 italic">"{t.quote}"</p>
-                
-                <div className="flex items-center gap-4">
-                  <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full border-2 border-[#f89b29]/30" />
-                  <div>
-                    <h4 className="text-white font-bold text-[15px]">{t.name}</h4>
-                    <p className="text-white/40 text-[12px] uppercase tracking-widest font-semibold">Attendee</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="relative group">
+          <ThreeDPhotoCarousel images={data.gallery} autoRotate={isAutoRotating} />
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 8 — FAQs
        ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 mb-20">
-        <div className="mb-10 text-left">
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-10 mb-10">
+        <div className="mb-10">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
             <h2 className="text-2xl md:text-3xl font-black text-white">Frequently Asked Questions</h2>
@@ -870,13 +685,11 @@ export const ClickFestEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="w-full text-left">
+        <div className="w-full">
           {data.faqs.map(faq => <FaqItem key={faq.id} q={faq.question} a={faq.answer} />)}
         </div>
       </section>
 
     </div>
-  );
+  )
 }
-
-export default ClickFestEventPage;

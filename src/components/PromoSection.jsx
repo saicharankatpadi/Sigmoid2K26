@@ -8,7 +8,7 @@ export function PromoSection() {
     return (
         <section className="relative w-full bg-[#0A0A0A] text-white py-24 overflow-hidden border-t-0">
             <div className="max-w-[1300px] mx-auto px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24">
-                
+
                 {/* Left Side Content */}
                 <div className="flex-1 space-y-8 flex flex-col items-start text-left max-w-xl">
                     {/* Headlines */}
@@ -25,7 +25,7 @@ export function PromoSection() {
 
                     {/* Single Call to Action */}
                     <div className="pt-2">
-                        <button 
+                        <button
                             onClick={() => navigate('/register')}
                             className="flex items-center gap-2 rounded-full bg-[#ff5a00] px-8 py-3.5 text-base font-bold text-white transition-all hover:bg-[#ff5a00]/90 shadow-[0_4px_20px_rgba(255,90,0,0.3)] hover:scale-105"
                         >
@@ -58,7 +58,7 @@ export function PromoSection() {
                 <div className="flex-1 flex justify-center lg:justify-end w-full pt-12 lg:pt-0">
                     <AnimatedCardStack />
                 </div>
-                
+
             </div>
         </section>
     );

@@ -2,149 +2,56 @@ import { useState, useRef, useEffect } from 'react'
 
 const faqData = [
     {
-        category: "Subscription & Future Updates",
+        category: "General",
         questions: [
-            {
-                q: "Will I get access to new features or content released in the future?",
-                a: <>Absolutely!<br /><strong>Pinnacle users</strong> receive all upcoming features and content at <strong>no additional cost</strong> throughout their subscription period.<br /><br /><strong>Sprint users</strong> can also enjoy upcoming content by upgrading their plan anytime, ensuring they get access to new features as soon as they are released.</>
-            },
-            {
-                q: "Will the videos be downloadable after the subscription ends?",
-                a: "We're really sorry, but video downloads are not permitted. This helps us protect the content and maintain fairness for all learners. You will have full access to all videos as long as your subscription is active."
-            },
-            {
-                q: "Can I upgrade from Sprint later?",
-                a: "Yes, sprint users can upgrade anytime. You simply need to pay the difference amount, and your access automatically extends!"
-            },
-            {
-                q: "Can we extend the validity after expiry?",
-                a: "Yes. Once your plan expires, you can purchase any plan of your choice to continue learning. Upgrading the plan post expiry is not allowed."
-            },
-            {
-                q: "Where can I find the course validity information?",
-                a: "The course validity period is clearly mentioned on each pricing card. You can find the validity duration displayed on the plan cards before making a purchase."
-            },
-            {
-                q: "Can two learners buy together or share an account?",
-                a: "No, each account is for individual use only. Sharing accounts is not permitted as it violates our terms of service and may result in account suspension."
-            },
-            {
-                q: "Is there any free trial session available?",
-                a: "Currently we do not offer a free trial. However, we have plenty of free content available on our YouTube channel and website that you can explore before making a purchase."
-            }
+            { q: "What is Sigmoid?", a: "This is a placeholder answer for 'What is Sigmoid?'." },
+            { q: "Who can participate in Sigmoid?", a: "This is a placeholder answer for 'Who can participate in Sigmoid?'." },
+            { q: "Is Sigmoid open to students from other colleges?", a: "This is a placeholder answer for 'Is Sigmoid open to students from other colleges?'." },
+            { q: "What are the dates and venue of the event?", a: "This is a placeholder answer for 'What are the dates and venue of the event?'." }
         ]
     },
     {
-        category: "Features & Functionality",
+        category: "Registration",
         questions: [
-            {
-                q: "What exactly is Code Review and how does it work?",
-                a: "Code Review is a premium feature designed to help you write interview-ready, clean, and optimized code. It provides line-by-line analysis of your solution, suggestions to improve code quality and structure, comparison with industry-standard solutions, and automatic evaluation of time and space complexity."
-            },
-            {
-                q: "For aptitude, do we have any videos?",
-                a: "Aptitude videos are not there, but they are planned for future updates. However, we currently provide aptitude practice tests."
-            },
-            {
-                q: "Can I track my progress across courses?",
-                a: "Yes! Our platform provides a comprehensive progress tracker that shows your completion percentage, streaks, and performance analytics across all courses."
-            }
+            { q: "How do I register for Sigmoid?", a: "This is a placeholder answer for 'How do I register for Sigmoid?'." },
+            { q: "Can I register as a team or only individually?", a: "This is a placeholder answer for 'Can I register as a team or only individually?'." },
+            { q: "Is there a registration deadline?", a: "This is a placeholder answer for 'Is there a registration deadline?'." },
+            { q: "Can I register for multiple events?", a: "This is a placeholder answer for 'Can I register for multiple events?'." },
+            { q: "What happens after I register — will I get a confirmation?", a: "This is a placeholder answer for 'What happens after I register — will I get a confirmation?'." }
         ]
     },
     {
-        category: "Course Content & Curriculum",
+        category: "Pass & Payment",
         questions: [
-            {
-                q: "What topics are covered in the DSA course?",
-                a: "Everything from basics to advanced topics, including: problem-solving, editorial videos, contests, multiple difficulty-level questions, and interview follow-ups."
-            },
-            {
-                q: "Is the content updated regularly?",
-                a: "Yes, we update content based on the latest interview patterns and company requirements to ensure you're always learning the most relevant material."
-            },
-            {
-                q: "Are the problems sorted by difficulty?",
-                a: "Yes, problems are carefully curated and sorted by difficulty level — from easy to hard — so you can progressively build your skills."
-            }
+            { q: "What is included in the event pass?", a: "This is a placeholder answer for 'What is included in the event pass?'." },
+            { q: "How do I purchase a pass?", a: "This is a placeholder answer for 'How do I purchase a pass?'." },
+            { q: "What payment methods are accepted?", a: "This is a placeholder answer for 'What payment methods are accepted?'." },
+            { q: "Is the pass refundable if I cancel?", a: "This is a placeholder answer for 'Is the pass refundable if I cancel?'." },
+            { q: "Can I transfer my pass to someone else?", a: "This is a placeholder answer for 'Can I transfer my pass to someone else?'." },
+            { q: "Do I need a separate pass for each event or is it an all-access pass?", a: "This is a placeholder answer for 'Do I need a separate pass for each event or is it an all-access pass?'." }
         ]
     },
     {
-        category: "Account Management",
+        category: "Events",
         questions: [
-            {
-                q: "How do I reset my password?",
-                a: "You can reset your password from the login page by clicking 'Forgot Password'. A reset link will be sent to your registered email address."
-            },
-            {
-                q: "Can I change my registered email?",
-                a: "Please contact our support team to request an email change. We'll verify your identity and update your account accordingly."
-            }
+            { q: "What events are being conducted at Sigmoid?", a: "This is a placeholder answer for 'What events are being conducted at Sigmoid?'." },
+            { q: "Are there both technical and non-technical events?", a: "This is a placeholder answer for 'Are there both technical and non-technical events?'." },
+            { q: "How do I know which events I'm registered for?", a: "This is a placeholder answer for 'How do I know which events I'm registered for?'." }
         ]
     },
     {
-        category: "Course Access & Technical Support",
+        category: "On the Day",
         questions: [
-            {
-                q: "I'm unable to access my course. What should I do?",
-                a: "Please try clearing your browser cache and logging in again. If the issue persists, contact our support team with your registered email and order details."
-            },
-            {
-                q: "Which devices are supported?",
-                a: "Our platform works on all modern browsers across desktop, laptop, tablet, and mobile devices."
-            }
+            { q: "What documents should I bring on the event day?", a: "This is a placeholder answer for 'What documents should I bring on the event day?'." },
+            { q: "Will there be accommodation or food provided?", a: "This is a placeholder answer for 'Will there be accommodation or food provided?'." },
+            { q: "Will participants receive certificates?", a: "This is a placeholder answer for 'Will participants receive certificates?'." }
         ]
     },
     {
-        category: "Mentorship & Community Support",
+        category: "Contact & Support",
         questions: [
-            {
-                q: "Is there any mentorship program available?",
-                a: "Yes, we offer mentorship through our community channels where experienced learners and mentors guide you through your preparation journey."
-            },
-            {
-                q: "How can I join the community?",
-                a: "You can join our Discord and Telegram communities for free. Links are available on our website."
-            }
-        ]
-    },
-    {
-        category: "Certification",
-        questions: [
-            {
-                q: "Do I get a certificate after completing the course?",
-                a: "Yes, upon completing the course you'll receive a certificate of completion that you can share on your LinkedIn profile and resume."
-            }
-        ]
-    },
-    {
-        category: "Career Guidance",
-        questions: [
-            {
-                q: "Do you provide career guidance or mock interviews?",
-                a: "We provide career guidance through our content and community. Mock interviews and resume reviews are available for premium members."
-            }
-        ]
-    },
-    {
-        category: "Internships & Job Assistance",
-        questions: [
-            {
-                q: "Do you help with internship or job placements?",
-                a: "While we don't directly place students, our courses are designed to make you placement-ready. Many of our students have successfully landed roles at top companies."
-            }
-        ]
-    },
-    {
-        category: "Payment & Refunds",
-        questions: [
-            {
-                q: "What payment modes are available?",
-                a: "Multiple payment options are available at checkout including UPI, Credit/Debit cards, Cardless EMI, and various EMI options."
-            },
-            {
-                q: "Is there a refund policy?",
-                a: "Please refer to our Cancellation and Refund Policy page for detailed information about our refund process and eligibility criteria."
-            }
+            { q: "Who do I contact if I face issues with registration or payment?", a: "This is a placeholder answer for 'Who do I contact if I face issues with registration or payment?'." },
+            { q: "Is there a helpline number or email for support?", a: "This is a placeholder answer for 'Is there a helpline number or email for support?'." }
         ]
     }
 ]

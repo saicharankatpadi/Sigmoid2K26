@@ -1,8 +1,9 @@
 import React from 'react';
 import './about-section.css';
 const frontendDev = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218155/frontend-developer_vestnr.jpg';
-const figmaDev = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218151/Figma_Developer_cl5rfh.jpg';
+const figmaDev = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773279097/WhatsApp_Image_2026-03-11_at_11.15.10_2_smq6gb.jpg';
 const teamLeader = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/team-leader_zriohu.jpg';
+const newTeamMemberImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773291270/WhatsApp_Image_2026-03-11_at_10.55.17_1_tzggkr.jpg';
 
 const TEAM_MEMBERS = [
     { name: 'N.Nikshep', img: figmaDev },
@@ -10,6 +11,7 @@ const TEAM_MEMBERS = [
     { name: 'M.Balakrishna', img: teamLeader },
     { name: 'K.Yashwanth', img: '/assets/images/team/img1.jpeg' },
     { name: 'K.Charan Sai', img: '/assets/images/team/img8.jpeg' },
+    { name: 'P.G. Bhanu Vamsidhar', img: newTeamMemberImg },
     { name: 'K. Uma Shankar', img: '/assets/images/team/img4.jpeg' },
     { name: 'K . Pavan', img: '/assets/images/team/img9.jpeg' },
 ];
@@ -25,11 +27,16 @@ const CORE_TEAM = [
 ];
 
 const MARKETING_TEAM = [
-    { name: 'P. Harsha Varsha Vardhan', badge: 'Marketing Head', img: '/assets/images/team/img12.jpeg' },
+    { name: 'P. Harshavardhan', badge: 'Marketing Head', img: '/assets/images/team/img12.jpeg' },
+    { name: 'Team Member', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298518/WhatsApp_Image_2026-03-11_at_23.54.52_rkog46.jpg' },
+    { name: 'Team Member', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298749/IMG_04657.JPG_mu1v4c.jpg' },
+    { name: 'Team Member', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298748/IMG_00645.JPG_1_zs5gmk.jpg' },
+    { name: 'Team Member', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298747/IMG_07994.JPG_zy2tc1.jpg' }
 ];
 
 const HELP_DESK = [
     { name: 'K. Sudharshan', badge: 'Help Desk Head', img: '/assets/images/team/img11.jpeg' },
+    { name: 'Team Member', badge: 'Help Desk Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298750/IMG_04656.JPG_vkpkwn.jpg' }
 ];
 
 const STATS = [
@@ -47,10 +54,10 @@ export const AboutSection = () => {
             <header className="about-header">
                 <span className="about-header-welcome">Welcome to</span>
                 <div className="about-logo-wrap">
-                    <div className="about-logo-placeholder w-10 h-10" title="Sigmoid logo">
-                        <img 
-                            src="/assets/images/sigmoid-logo-transparent.png" 
-                            alt="Sigmoid Logo" 
+                    <div className="about-logo-placeholder w-16 h-16" title="Sigmoid logo">
+                        <img
+                            src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png"
+                            alt="Sigmoid Logo"
                             className="w-full h-full object-contain drop-shadow-[0_2px_8px_rgba(255,255,255,0.1)]"
                         />
                     </div>
@@ -108,7 +115,11 @@ export const AboutSection = () => {
                     {TEAM_MEMBERS.map((member, i) => (
                         <div key={i} className="about-member">
                             <div className="about-member-photo">
-                                <img src={member.img} alt={member.name} />
+                                <img
+                                    src={member.img}
+                                    alt={member.name}
+                                    className="w-full h-full object-contain bg-[#0a0a0a]"
+                                />
                             </div>
                             <div className="about-member-name">{member.name}</div>
                         </div>
@@ -148,7 +159,7 @@ export const AboutSection = () => {
 
             {/* MARKETING TEAM */}
             <section className="about-alumni-section">
-                <h2 className="about-section-title">Marketing Head</h2>
+                <h2 className="about-section-title">Marketing Team</h2>
                 <div className="about-team-grid">
                     {MARKETING_TEAM.map((member, i) => (
                         <div key={i} className="about-member">
@@ -163,7 +174,7 @@ export const AboutSection = () => {
 
             {/* HELP DESK & ACCOMMODATION */}
             <section className="about-alumni-section">
-                <h2 className="about-section-title">Help Desk & Accommodation Head</h2>
+                <h2 className="about-section-title">Help Desk & Accommodation Team</h2>
                 <div className="about-team-grid">
                     {HELP_DESK.map((member, i) => (
                         <div key={i} className="about-member">

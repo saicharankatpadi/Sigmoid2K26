@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useNavigate } from "react-router-dom"
+import technicalThumb from "../../assets/technical-thumb.png"
 
 const cardData = {
   1: {
     title: "Technical",
     description: "Master real-world technical skills",
-    image: "/assets/images/promo-1.png",
+    image: technicalThumb,
   },
   2: {
     title: "Non Technical",

@@ -8,121 +8,191 @@ import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 // Replace any field below for a different event
 // ==========================================
 const eventData = {
-  event_info: {
-    title: "Click Fest",
-    emoji: "📸",
-    subtitle: "Photography Context",
-    brochure_url: "#",
-    features: [
-      { id: "01", content: "Individual participation only" },
-      { id: "02", content: "Capture stunning, creative images" },
-      { id: "03", content: "Photography with smartphone only" },
-      { id: "04", content: "Secret Themes disclosed on-site" },
-      { id: "05", content: "AI manipulation strictly prohibited" },
-      { id: "06", content: "Judge’s decisions are final" }
+  "event_info": {
+    "title": "TECHOVATE",
+    "emoji": "📄",
+    "subtitle": "Paper Presentation",
+    "brochure_url": "/TECHOVATE.pdf",
+    "features": [
+      {
+        "id": "01",
+        "content": "Submit through Google form online before March 31st 6pm"
+      },
+      {
+        "id": "02",
+        "content": "Judges finalize shortlist after submission"
+      },
+      {
+        "id": "03",
+        "content": "Present MS-PPT physically along with documentation (A4)"
+      },
+      {
+        "id": "04",
+        "content": "Max 2 candidates per paper"
+      },
+      {
+        "id": "05",
+        "content": "Viva voce examination for finalized candidates"
+      },
+      {
+        "id": "06",
+        "content": "Prizes and certificates for best performers and outstanding papers"
+      },
+      {
+        "id": "07",
+        "content": "No help from ChatGPT/Copilot (strictly prohibited)"
+      },
+      {
+        "id": "08",
+        "content": "Theme: The Future of Small Satellite, Robots: Boon or Curse?"
+      }
     ]
   },
-  video_preview: {
-    video_src: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773379445/WhatsApp_Video_2026-03-12_at_22.14.00_rw3vjk.mp4",
-    badges: [
-      { position: "top-left", icon: "user", text: "Phone Photography" },
-      { position: "top-right", icon: "diamond", text: "Creative Angles" },
-      { position: "bottom-left", icon: "users", text: "Individual Showcase" },
-      { position: "bottom-right", icon: "academic", text: "Final Gallery" }
-    ]
-  },
-  mission: [
+
+  "mission": [
     {
-      id: "foundation",
-      icon: "target",
-      title: "THE OBJECTIVE",
-      points: [
-        "Photography context refers to capturing stunning, creative images showcasing technical skills and unique perspectives on daily life.",
-        "Use your smartphone to present your best visual story and interpretation of the given themes.",
-        "Let your lens do the talking and capture moments that speak louder than words."
+      "id": "foundation",
+      "icon": "target",
+      "title": "THE OBJECTIVE",
+      "points": [
+        "Design a captivating and informative paper presentation that effectively communicates your research to a broad audience of researchers at a conference or seminar.",
+        "A paper presentation is an event where participants create a paper about a specific topic or area and then present it in front of a jury or audience.",
+        "It combines written research with effective communication to share knowledge and insights with others."
       ]
     },
     {
-      id: "journey",
-      icon: "rocket",
-      title: "THE PROCESS",
-      points: [
-        "Register online via our website or directly at the spot registration counter on the event day.",
-        "The specific photography themes will be disclosed entirely on-site to test your spontaneous creativity.",
-        "Final 3 entries are chosen based on creativity and adherence to themes. Finalists will be featured in an online gallery, competing for the title and prizes."
+      "id": "journey",
+      "icon": "rocket",
+      "title": "THE PROCESS",
+      "points": [
+        "Round 1: Google form submission through online. After submission judges finalize the shortlist.",
+        "Round 2: The selected candidates present their ppt’s (8 mins presentation, 2 mins queries).",
+        "Round 3: The final shortlisted participants attend the viva voce examination."
       ]
     }
   ],
-  learnings: {
-    title: "Skills Evaluated",
-    items: [
-      "Composition", "Lighting", "Framing", "Visual Storytelling",
-      "Creativity", "Spontaneity", "Perspective", "Color Theory",
-      "Subject Focus", "Contrast", "Originality", "Smartphone Mastery"
+  "learnings": {
+    "title": "Topics Covered",
+    "items": [
+      "5G Technology",
+      "Internet of Things",
+      "VLSI & Embedded",
+      "Nano Electronics",
+      "Image Processing",
+      "Wireless Comm.",
+      "Blockchain Tech",
+      "Robotics Automation",
+      "Space Technology",
+      "AI & ML",
+      "Data Analytics",
+      "Antenna Design"
     ],
-    button_text: "And much more...",
-    description: [
-      "Demonstrate your ability to find beauty and compelling narratives in ordinary scenes.",
-      "Adapt quickly to unexpected themes and environmental conditions on-site.",
-      "Showcase technical proficiency with lighting and composition using just a smartphone camera.",
-      "Bring out unique perspectives that stand out from the conventional shots.",
-      "Rely purely on your raw talent—AI enhancements and manipulations are completely prohibited."
+    "button_text": "And other innovative topics...",
+    "description": [
+      "Showcase your latest research and findings in cutting-edge technological domains.",
+      "Engage with a broad audience of researchers and domain experts through a paper presentation.",
+      "Build your confidence by presenting and defending your ideas during the interactive Q&A session.",
+      "Get evaluated by esteemed professors and gain valuable feedback on your work.",
+      "Experience a professional seminar environment and network with like-minded innovators."
     ]
   },
-  perks: {
-    title: "Perks & Benefits",
-    items: [
-      { text: "Certificate of Participation", icon: "academic", color: "#ec4899" },
-      { text: "Featured in Online Gallery", icon: "globe", color: "#f89b29" },
-      { text: "Prizes for Top 3 Winners", icon: "diamond", color: "#a855f7" },
-      { text: "Showcase Creative Skills", icon: "document", color: "#2dd4bf" },
-      { text: "Networking with Photographers", icon: "users", color: "#10B981" },
-      { text: "Title of Campus Best Photographer", icon: "academic", color: "#f89b29" },
-      { text: "Professional Recognition", icon: "briefcase", color: "#10B981" },
-      { text: "Gain Real-time Feedback", icon: "terminal", color: "#2dd4bf" }
+  "perks": {
+    "title": "Perks & Benefits",
+    "items": [
+      {
+        "text": "Certificate of Participation",
+        "icon": "academic",
+        "color": "#ec4899"
+      },
+      {
+        "text": "Prizes for Outstanding Papers",
+        "icon": "diamond",
+        "color": "#f89b29"
+      },
+      {
+        "text": "Networking with Professors",
+        "icon": "users",
+        "color": "#10B981"
+      },
+      {
+        "text": "Improve Presentation Skills",
+        "icon": "user",
+        "color": "#a855f7"
+      },
+      {
+        "text": "Showcase Research Work",
+        "icon": "document",
+        "color": "#2dd4bf"
+      },
+      {
+        "text": "Professional Evaluation",
+        "icon": "clipboard",
+        "color": "#f89b29"
+      },
+      {
+        "text": "Theme-based Innovation",
+        "icon": "cube",
+        "color": "#eab308"
+      },
+      {
+        "text": "Boost your Resume",
+        "icon": "briefcase",
+        "color": "#10B981"
+      }
     ]
   },
-  mentors: [
-    { 
-      id: "m1", 
-      name: "Event Coordinator 1", 
-      role: "Logistics", 
-      image: "https://randomuser.me/api/portraits/men/44.jpg",
-      phone: "",
-      instagram: "",
-      linkedin: ""
-    },
-    { 
-      id: "m2", 
-      name: "Event Coordinator 2", 
-      role: "Logistics", 
-      image: "https://randomuser.me/api/portraits/women/33.jpg",
-      phone: "",
-      instagram: "",
-      linkedin: ""
+  "mentors": [
+    {
+      "id": "m1",
+      "name": "Evaluation Expert 1",
+      "role": "Review Committee",
+      "image": "https://res.cloudinary.com/djiivo0r7/image/upload/v1773299498/WhatsApp_Image_2026-03-11_at_23.49.15_agi7zm.jpg",
+      "phone": "",
+      "instagram": "",
+      "linkedin": ""
     }
   ],
-  testimonials: [
-    { 
-      id: "t1", 
-      name: "Previous Finalist", 
-      quote: "Click Fest was amazing! The on-site theme release forced me to think on my feet and captured the best photo I've ever taken on my phone.", 
-      image: "https://randomuser.me/api/portraits/women/32.jpg",
-      college_logo: ""
+  "faqs": [
+    {
+      "id": "q1",
+      "question": "Can I participate individually?",
+      "answer": "Yes, a maximum of 2 candidates are allowed per paper, but even a single candidate can submit and present."
     },
-    { 
-      id: "t2", 
-      name: "Photography Enthusiast", 
-      quote: "Being featured in the online gallery for the top 3 was a huge confidence boost. It’s a pure test of raw skill without AI, which makes it authentic.", 
-      image: "https://randomuser.me/api/portraits/men/45.jpg",
-      college_logo: ""
+    {
+      "id": "q2",
+      "question": "Can I use AI tools like ChatGPT?",
+      "answer": "No help from Online tools like ChatGPT, Microsoft Copilot…etc. All such papers are rejected and ultimately prohibited."
+    },
+    {
+      "id": "q3",
+      "question": "What sizes are required for the printed document?",
+      "answer": "All accepted candidates must present MS-PPT physically along with a hard copy of their paper or documentation on A4 paper."
+    },
+    {
+      "id": "q4",
+      "question": "How will I know if my paper is shortlisted?",
+      "answer": "Accepted papers will be intimated through their respective mail IDs and WhatsApp prior to 2 days before the event."
+    },
+    {
+      "id": "q5",
+      "question": "How should I name my submission file?",
+      "answer": "The name of the documentation must be in the format of ParticipantName_CollegeName.pdf (prefer .pdf format)."
     }
   ],
-  faqs: [
-    { id: "q1", question: "Can I use a DSLR or Mirrorless camera?", answer: "No, participants are only allowed to use smartphones for this contest." },
-    { id: "q2", question: "Is team participation allowed?", answer: "No, this is strictly an individual participation event." },
-    { id: "q3", question: "Can I edit my photos using AI?", answer: "No, AI tools and extreme manipulation are strictly prohibited. Minor color corrections may be allowed based on judge discretion, but RAW authentic shots are preferred." },
-    { id: "q4", question: "When will the themes be announced?", answer: "The secret photography themes will be disclosed solely on-site during the event." }
+  "video_preview": {
+    "video_src": "https://res.cloudinary.com/djiivo0r7/video/upload/v1773340545/WhatsApp_Video_2026-03-12_at_09.12.40_ltlmh6.mp4",
+    "badges": [
+      { "text": "Expert Evaluation", "icon": "academic", "position": "bottom-left" },
+      { "text": "Awards & Honors", "icon": "diamond", "position": "bottom-right" }
+    ]
+  },
+  "gallery": [
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773338006/IMG_7778_chhxhg.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773338019/IMG_9371_xssejp.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773338003/IMG_6170_swafj8.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773338000/567A0506_noju1a.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773338000/567A0521_kh2hcl.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773337999/567A0498_julsc0.jpg"
   ]
 };
 
@@ -178,9 +248,9 @@ const FaqItem = ({ q, a }) => {
 // ==========================================
 // MAIN PAGE EXPORT
 // ==========================================
-
-export const ClickFestEventPage = () => {
+export const TechnovateEventPage = () => {
   const data = eventData;
+  const [isAutoRotating, setIsAutoRotating] = useState(true);
   const videoRef = useRef(null);
   const progressRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -203,7 +273,6 @@ export const ClickFestEventPage = () => {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        // Unmute on play
         videoRef.current.muted = false;
         setIsMuted(false);
         videoRef.current.play();
@@ -230,13 +299,11 @@ export const ClickFestEventPage = () => {
 
   const handleLoadedMetadata = useCallback(() => {
     if (videoRef.current) {
-      // Show second frame instead of first
       videoRef.current.currentTime = 0.5;
       setDuration(formatTime(videoRef.current.duration));
     }
   }, []);
 
-  // Seek to position from mouse event
   const seekToPosition = useCallback((e) => {
     if (videoRef.current && progressRef.current) {
       const rect = progressRef.current.getBoundingClientRect();
@@ -565,6 +632,7 @@ export const ClickFestEventPage = () => {
         </div>
 
         {/* "And so much more..." pill — same height as grid cards */}
+        {/* "And so much more..." pill — same height as grid cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3 mb-8 text-left">
           <div className="flex items-center gap-3 bg-[#170e05] border border-[#f89b29]/20 rounded-xl px-4 py-3 hover:border-[#f89b29]/40 transition-colors cursor-pointer">
             <div className="w-5 h-5 rounded-[6px] bg-[#f89b29]/20 flex items-center justify-center shrink-0">
@@ -603,7 +671,7 @@ export const ClickFestEventPage = () => {
         </div>
 
         {/* 4-column perk grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {data.perks.items.map((perk, i) => (
             <div key={i} className="flex items-center gap-4 bg-[#0a0a0a] border border-[#222] rounded-xl px-4 py-3.5 hover:border-[#333] transition-colors relative group">
               {/* Highlight container for icon */}
@@ -618,65 +686,6 @@ export const ClickFestEventPage = () => {
           ))}
         </div>
       </section>
-
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 4 — Judge
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Judge</h2>
-          </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
-        </div>
-
-        <div className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-8 items-stretch mt-6">
-          {/* Image & Socials */}
-          <div className="w-full md:w-[30%] flex flex-col items-center">
-            <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2670&auto=format&fit=crop" alt="Event Judge" className="w-full aspect-[4/5] object-cover rounded-2xl md:mb-0 mb-6 shadow-[0_0_20px_rgba(0,0,0,0.8)]" />
-          </div>
-          
-          {/* Details Content */}
-          <div className="flex-1 flex flex-col justify-between text-left">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold text-[#2dd4bf] mb-1">Esteemed Evaluation Committee</h3>
-              <p className="text-white/40 text-[14px]">{"// Professors & Domain Experts"}</p>
-            </div>
-            
-            <div className="bg-[#111111] border border-[#222] rounded-2xl p-6 md:p-8 mb-6 h-full text-[14.5px] leading-relaxed text-white/60 space-y-4 font-normal shadow-inner">
-              <p>
-                The projects will be rigorously evaluated by a panel of tech professionals and established researchers specializing in domains like AI, ML, Sensors, and DIY Electronics. The judges possess years of practical, real-world experience, ensuring an authentic evaluation of your model's design logic and innovation.
-              </p>
-              <p>
-                Following your 6-8 minute presentation, the panel will ask critical questions and offer constructive feedback. This interaction is designed to strengthen your technical foundation and gear you up for advancing your project to higher university-level scopes and startup potential.
-              </p>
-            </div>
-
-            {/* Stat Cards Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2">
-                <div className="text-[#f89b29] scale-110 mb-1"><IconBadge iconType="users" /></div>
-                <h4 className="text-xl font-black text-[#f89b29]">25+</h4>
-                <span className="text-[12px] text-white/50">Expert Panels</span>
-              </div>
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2">
-                <svg className="w-[1.4rem] h-[1.4rem] text-[#f89b29] mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                <h4 className="text-xl font-black text-[#f89b29]">15+</h4>
-                <span className="text-[12px] text-white/50">Years Experience</span>
-              </div>
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2 text-center">
-                <div className="text-[#f89b29] scale-110 mb-1"><IconBadge iconType="briefcase" /></div>
-                <h4 className="text-xl font-black text-[#f89b29] leading-tight">Top Univ.</h4>
-                <span className="text-[12px] text-white/50">From Reputed Orgs</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ═══════════════════════════════════════════════════════════
           SECTION 5 — Mentors
        ═══════════════════════════════════════════════════════════ */}
@@ -740,7 +749,7 @@ export const ClickFestEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden text-left">
+        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden">
           {/* Subtle gradient background glow from left */}
           <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
           
@@ -782,87 +791,38 @@ export const ClickFestEventPage = () => {
                 alt="Course Certificate" 
                 className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]" 
               />
-              {/* Ribbon Badge */}
-              <img 
-                src="/certificate-ribbon.png" 
-                alt="Ribbon" 
-                className="absolute -top-6 -left-6 w-32 md:w-36 h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] z-20 pointer-events-none" 
-              />
             </div>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 6.5 — Past Clicks
+          SECTION 7 — Event Gallery
        ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-2">
         {/* Section Title with accent bar */}
-        <div className="mb-10 text-left">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Past Clicks From Participants</h2>
+        <div className="mb-1 text-left">
+          <div className="inline-flex items-center gap-3 mb-3 bg-[#f89b29]/5 px-6 py-2 rounded-full border border-[#f89b29]/20">
+            <div className="w-1 h-6 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Event Gallery</h2>
           </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
+          <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
+            Capturing moments of innovation, research, and technical excellence from Techovate.
+          </p>
         </div>
 
-        {/* Masonry Layout Grid */}
         <div className="w-full">
-          <ThreeDPhotoCarousel images={data.gallery || [
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.42_nlxwwe.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264943/WhatsApp_Image_2026-03-11_at_14.32.42_1_axayos.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.43_mvmfpb.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.44_1_y8rydq.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.44_2_siwn9f.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264941/WhatsApp_Image_2026-03-11_at_14.32.43_2_xlx7id.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264941/WhatsApp_Image_2026-03-11_at_14.32.44_luet69.jpg",
-            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.43_1_jctabz.jpg"
-          ]} />
-        </div>
-      </section>
-
-
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 7 — Testimonials
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
-        <div className="mb-10 text-left">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Words From Participants</h2>
+          <div className="relative group">
+            <ThreeDPhotoCarousel images={data.gallery} autoRotate={isAutoRotating} />
           </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.testimonials.map((t, i) => (
-            <div key={i} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 hover:border-[#333] transition-all group relative overflow-hidden text-left">
-              {/* Quote Mark Decoration */}
-              <div className="absolute -top-4 -right-4 text-[#f89b29]/10 text-8xl font-serif pointer-events-none group-hover:text-[#f89b29]/20 transition-colors">“</div>
-              
-              <div className="relative z-10">
-                <p className="text-white/70 text-[15px] leading-relaxed mb-8 italic">"{t.quote}"</p>
-                
-                <div className="flex items-center gap-4">
-                  <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full border-2 border-[#f89b29]/30" />
-                  <div>
-                    <h4 className="text-white font-bold text-[15px]">{t.name}</h4>
-                    <p className="text-white/40 text-[12px] uppercase tracking-widest font-semibold">Attendee</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 8 — FAQs
        ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 mb-20">
-        <div className="mb-10 text-left">
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-10 mb-10">
+        <div className="mb-10">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
             <h2 className="text-2xl md:text-3xl font-black text-white">Frequently Asked Questions</h2>
@@ -870,13 +830,11 @@ export const ClickFestEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="w-full text-left">
+        <div className="w-full">
           {data.faqs.map(faq => <FaqItem key={faq.id} q={faq.question} a={faq.answer} />)}
         </div>
       </section>
 
     </div>
-  );
+  )
 }
-
-export default ClickFestEventPage;

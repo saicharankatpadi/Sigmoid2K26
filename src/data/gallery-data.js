@@ -1,102 +1,56 @@
 // src/data/gallery-data.js
 
-export const galleryStories = [
-    {
-        id: "story-1",
-        title: "India's road to Final",
-        thumbnailUrl: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=200&auto=format&fit=crop", // placeholder
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", // placeholder
-    },
-    {
-        id: "story-2",
-        title: "New Zealand's road to Final",
-        thumbnailUrl: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=200&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-        id: "story-3",
-        title: "Match officials for T20WC Final",
-        thumbnailUrl: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=200&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-        id: "story-4",
-        title: "Samson relishes big-match...",
-        thumbnailUrl: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?q=80&w=200&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-        id: "story-5",
-        title: "Brook hails England fight",
-        thumbnailUrl: "https://images.unsplash.com/photo-1518063319789-7217e6706b04?q=80&w=200&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-        id: "story-6",
-        title: "T20WC Player of Tournament...",
-        thumbnailUrl: "https://images.unsplash.com/photo-1512719994953-eabf50895df7?q=80&w=200&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-        id: "story-7",
-        title: "Shastri highlights Samson success",
-        thumbnailUrl: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=200&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-        id: "story-8",
-        title: "India edge a run-fest to enter...",
-        thumbnailUrl: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=200&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-];
-
 export const galleryHeroCards = [
     {
         id: "hero-card-1",
         title: "After winning hearts, New Zealand...",
         subtitle: "SIGMOID 2K26",
-        thumbnailUrl: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=600&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        tags: ["PROMO VIDEO"],
+        thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773282535/Screenshot_2026-03-11_192801_cfpcmp.png",
+        videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773281659/WhatsApp_Video_2026-03-11_at_19.11.27_atxa9z.mp4",
+        tags: ["Announcement Video"],
         style: "default"
     },
     {
         id: "hero-card-2",
         title: "India captain banks on big-match...",
         subtitle: "SIGMOID 2K26",
-        thumbnailUrl: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=600&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        tags: ["PROMO VIDEO"],
+        thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773283220/Screenshot_2026-03-11_193902_rmnzal.png",
+        videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773283192/WhatsApp_Video_2026-03-11_at_11.25.14_s6btsj.mp4",
+        tags: ["It's Happenning ..."],
         style: "default"
     },
     {
         id: "hero-card-3",
         title: "Skipper Mitchell Santner reflects on New Zealand's run...",
         subtitle: "SIGMOID 2K26",
-        thumbnailUrl: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=600&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        tags: ["PROMO VIDEO"],
+        thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773284152/Screenshot_2026-03-11_195525_xjdoob.png",
+        videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773283952/WhatsApp_Video_2026-03-11_at_19.50.46_onxzqn.mp4",
+        tags: ["Wait for the Blast 🔥"],
         style: "featured"
     },
     {
         id: "hero-card-4",
         title: "Suryakumar Yadav speaks on...",
         subtitle: "SIGMOID 2K26",
-        thumbnailUrl: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?q=80&w=600&auto=format&fit=crop",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        tags: ["PROMO VIDEO"],
+        thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773285248/Screenshot_2026-03-11_201329_wyjk9m.png",
+        videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773285003/lv_0_20260311140957_1_bhpwtn.mp4",
+        tags: ["Make Way For the Tech Bonanza 🚀"],
         style: "featured"
     }
 ];
 
 const localVideos = [
-    { title: "Logo Reveal", path: "/sigmoid2k25/nikshep3.mp4", desc: "SIGMOID 2K25: The official unveiling of this year's stunning logo design." },
-    { title: "Day 1 Highlights", path: "/sigmoid2k25/006.mp4", desc: "SIGMOID 2K25: A spectacular start with grand events and competitions on day one." },
-    { title: "Behind the Scenes", path: "/sigmoid2k25/VID20250808091219.mp4", desc: "SIGMOID 2K25: See what goes into making the magic happen behind the curtains." },
-    { title: "Main Event Reel", path: "/sigmoid2k25/VID20250104214003.mp4", desc: "SIGMOID 2K25: Incredible moments captured during the main stage performances." },
-    { title: "Opening Ceremony", path: "/sigmoid2k25/nikshep1.mp4", desc: "SIGMOID 2K25: Lighting the lamp to kickstart a weekend of innovation." },
-    { title: "Tech Symposium", path: "/sigmoid2k25/VID_20260105203627.mp4", desc: "SIGMOID 2K25: Brilliant minds clashing on the discussion panel." },
+    { title: "Highlights Reel", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773293313/WhatsApp_Video_2026-03-11_at_22.20.15_ooxmls.mp4", desc: "SIGMOID 2K25: A glimpse into the energy and excitement of this year's symposium." },
+    { title: "Moments of Joy", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773293949/WhatsApp_Video_2026-03-11_at_22.38.41_zvyv2n.mp4", desc: "SIGMOID 2K25: Capturing the essence of innovation and teamwork." },
+    { title: "Technical Excellence", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295320/WhatsApp_Video_2026-03-11_at_22.54.10_eychwy.mp4", desc: "SIGMOID 2K25: Where brilliant minds converge to solve the challenges of tomorrow." },
+    { title: "Symposium Highlights", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295444/WhatsApp_Video_2026-03-11_at_23.02.39_kfrikp.mp4", desc: "SIGMOID 2K25: A spectacular showcase of engineering prowess." },
+    { title: "Event Glimpse", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295499/WhatsApp_Video_2026-03-11_at_23.01.19_qly1j3.mp4", desc: "SIGMOID 2K25: Diverse events bringing out the best in every participant." },
+    { title: "Innovation Hub", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295551/WhatsApp_Video_2026-03-11_at_23.01.15_f9u2rn.mp4", desc: "SIGMOID 2K25: Witnessing the future of technology unfold." },
+    { title: "Creative Minds", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295597/WhatsApp_Video_2026-03-11_at_23.01.08_khm2vh.mp4", desc: "SIGMOID 2K25: Fostering creativity and outside-the-box thinking." },
+    { title: "Collaborative Spirit", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295761/WhatsApp_Video_2026-03-11_at_23.01.12_aseh0w.mp4", desc: "SIGMOID 2K25: Strengthening the bonds of the engineering community." },
+    { title: "Success Stories", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295884/WhatsApp_Video_2026-03-11_at_23.08.23_hxssol.mp4", desc: "SIGMOID 2K25: Celebrating the achievements and hard work of our participants." },
+    { title: "Future Leaders", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295966/WhatsApp_Video_2026-03-11_at_23.08.46_dfz9gq.mp4", desc: "SIGMOID 2K25: Empowering the next generation of industry pioneers." },
+    { title: "Grand Finale", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773296071/WhatsApp_Video_2026-03-11_at_23.05.55_oaordn.mp4", desc: "SIGMOID 2K25: A memorable conclusion to an extraordinary symposium." },
     { title: "Hackathon Finals", path: "/sigmoid2k25/VID_20260105203607.mp4", desc: "SIGMOID 2K25: The thrilling final hours of the overnight coding sprint." },
     { title: "Campus Tour", path: "/sigmoid2k25/VID20250105183456.mp4", desc: "SIGMOID 2K25: Exploring the beautifully decorated campus grounds." },
     { title: "Cultural Night", path: "/sigmoid2k25/VID_20260105203003.mp4", desc: "SIGMOID 2K25: Stunning dance and musical performances." },
@@ -108,7 +62,50 @@ const localVideos = [
     { title: "Team Afterparty", path: "/sigmoid2k25/WhatsApp Video 2026-01-06 at 13.10.03.mp4", desc: "SIGMOID 2K25: The organizers celebrating another massive success." }
 ];
 
-export const gallery2025Images = Array.from({ length: 15 }).map((_, i) => {
+export const gallery2026Images = [
+    {
+        id: "vid-2026-1",
+        subtitle: "SIGMOID 2K26",
+        title: "Announcement",
+        description: "SIGMOID 2K26: The journey begins.",
+        videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773281659/WhatsApp_Video_2026-03-11_at_19.11.27_atxa9z.mp4",
+        thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773281659/WhatsApp_Video_2026-03-11_at_19.11.27_atxa9z.mp4",
+    },
+    {
+        id: "vid-2026-2",
+        subtitle: "SIGMOID 2K26",
+        title: "It's Happening",
+        description: "SIGMOID 2K26: Preparation in full swing.",
+        videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773283192/WhatsApp_Video_2026-03-11_at_11.25.14_s6btsj.mp4",
+        thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773283192/WhatsApp_Video_2026-03-11_at_11.25.14_s6btsj.mp4",
+    },
+    {
+        id: "vid-2026-3",
+        subtitle: "SIGMOID 2K26",
+        title: "The Blast 🔥",
+        description: "SIGMOID 2K26: Get ready for the explosion of talent.",
+        videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773283952/WhatsApp_Video_2026-03-11_at_19.50.46_onxzqn.mp4",
+        thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773283952/WhatsApp_Video_2026-03-11_at_19.50.46_onxzqn.mp4",
+    },
+    {
+        id: "vid-2026-4",
+        subtitle: "SIGMOID 2K26",
+        title: "Tech Bonanza",
+        description: "SIGMOID 2K26: Innovation at its peak.",
+        videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773285003/lv_0_20260311140957_1_bhpwtn.mp4",
+        thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773285003/lv_0_20260311140957_1_bhpwtn.mp4",
+    },
+    {
+        id: "vid-2026-11",
+        subtitle: "SIGMOID 2K26",
+        title: "In Memory / Tribute",
+        description: "SIGMOID 2K26: Remembering the legends.",
+        videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773209848/WhatsApp_Video_2026-03-10_at_23.10.08_omlmup.mp4",
+        thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773209848/WhatsApp_Video_2026-03-10_at_23.10.08_omlmup.mp4",
+    }
+];
+
+export const gallery2025Images = Array.from({ length: 11 }).map((_, i) => {
     const customData = localVideos[i];
     const vUrl = customData?.path || "https://www.w3schools.com/html/mov_bbb.mp4";
     return {
@@ -116,7 +113,7 @@ export const gallery2025Images = Array.from({ length: 15 }).map((_, i) => {
         subtitle: "SIGMOID 2K25",
         title: customData?.title || `Event Highlight ${i + 1}`,
         description: customData?.desc || `SIGMOID 2K25: Day ${Math.floor(i / 5) + 1} Action and memories.`,
-        videoUrl: vUrl, 
+        videoUrl: vUrl,
         thumbnailUrl: vUrl, // Using the video link itself to render the first frame
     };
 });
@@ -130,18 +127,46 @@ const masonryPattern = [
 ];
 
 const masonryFiles = [
-    "JOB HUNTER.png", "face swap.jpg", "IMG20250901202241.jpg", "WhatsApp Image 2025-11-02 at 08.50.58_5f321a25.jpg", "zentry.jpg", 
-    "namaste-dsa-banner.webp", "satelite.jpg", "IMG20250901202730.jpg", "sigmoid.mp4", "WhatsApp Image 2025-12-19 at 21.58.32_f9dbd3c7.jpg", 
-    "RESEARCH 1.jpg", "RESEARCH 2.jpg", "IMG-20250812-WA0006.jpg", "IMG-20250912-WA0020.jpg", "IMG-20250912-WA0030.jpg", 
-    "IMG-20250912-WA0046.jpg", "IMG-20250912-WA0052.jpg", "IMG-20250912-WA0037.jpg", "IMG-20250912-WA0026.jpg", "IMG-20250912-WA0021.jpg", 
-    "IMG-20250912-WA0013.jpg", "IMG-20250912-WA0032.jpg", "IMG-20250912-WA0017.jpg", "IMG-20250912-WA0047.jpg", "IMG-20250912-WA0045.jpg", 
-    "IMG-20250912-WA0033.jpg", "IMG-20250912-WA0039.jpg", "IMG-20250912-WA0027.jpg", "JOB HUNTER.png", "face swap.jpg"
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289415/WhatsApp_Image_2026-03-11_at_21.19.38_2_msp4vr.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289417/WhatsApp_Image_2026-03-11_at_21.19.36_3_czrwnm.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289417/WhatsApp_Image_2026-03-11_at_21.19.36_2_qnkfdv.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289418/WhatsApp_Image_2026-03-11_at_21.19.35_2_ah8zb6.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289418/WhatsApp_Image_2026-03-11_at_21.19.36_kiwum5.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289418/WhatsApp_Image_2026-03-11_at_21.19.30_vllmvr.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289419/WhatsApp_Image_2026-03-11_at_21.19.29_2_zdciek.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289419/WhatsApp_Image_2026-03-11_at_21.19.34_2_uht82r.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289415/WhatsApp_Image_2026-03-11_at_21.19.37_2_uocd0a.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289419/WhatsApp_Image_2026-03-11_at_21.19.29_1_jmajaw.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289419/WhatsApp_Image_2026-03-11_at_21.19.34_jlu95t.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289418/WhatsApp_Image_2026-03-11_at_21.19.35_1_wca37n.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289418/WhatsApp_Image_2026-03-11_at_21.19.30_1_rae7l9.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289419/WhatsApp_Image_2026-03-11_at_21.19.35_yhyxnv.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289416/WhatsApp_Image_2026-03-11_at_21.19.32_ivbb6u.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289414/WhatsApp_Image_2026-03-11_at_21.19.33_fipqpw.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289416/WhatsApp_Image_2026-03-11_at_21.19.37_j95x9l.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289415/WhatsApp_Image_2026-03-11_at_21.19.32_3_bhu5ua.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289415/WhatsApp_Image_2026-03-11_at_21.19.32_1_l5d2zd.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289416/WhatsApp_Image_2026-03-11_at_21.19.31_2_sd8hfi.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289416/WhatsApp_Image_2026-03-11_at_21.19.37_1_mo5hrg.jpg",
+    // --- New Images Below ---
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289420/WhatsApp_Image_2026-03-11_at_21.19.28_obdj4s.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289418/WhatsApp_Image_2026-03-11_at_21.19.29_3_zyqywl.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289417/WhatsApp_Image_2026-03-11_at_21.19.36_1_y29l4j.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289414/WhatsApp_Image_2026-03-11_at_21.19.39_psvxxi.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289414/WhatsApp_Image_2026-03-11_at_21.19.39_1_ec3ndy.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289414/WhatsApp_Image_2026-03-11_at_21.19.39_2_vk2lqn.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289415/WhatsApp_Image_2026-03-11_at_21.19.38_1_xbcw8b.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289414/WhatsApp_Image_2026-03-11_at_21.19.33_1_d057na.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773289416/WhatsApp_Image_2026-03-11_at_21.19.31_1_ric7ms.jpg"
 ];
 
-export const gallery2025Masonry = masonryFiles.map((filename, i) => {
+// ═══════════════ SIGMOID 2K26 MASONRY (REMOVED) ═══════════════
+export const gallery2026Masonry = [];
+
+export const gallery2025Masonry = masonryFiles.map((url, i) => {
     return {
         id: `masonry-${i + 1}`,
-        url: `/sigmoid2k25/masonry/${filename}`,
+        url: url,
         alt: `Masonry Media ${i + 1}`
     };
 });
@@ -149,50 +174,85 @@ export const gallery2025Masonry = masonryFiles.map((filename, i) => {
 // ═══════════════ SIGMOID 2K24 DATA ═══════════════
 
 const localVideos2024 = [
-    { title: "2k24 Teaser", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: The initial grand teaser." },
-    { title: "Opening Day", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: Registration and welcoming." },
-    { title: "Keynote Speakers", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: Industry leads taking the stage." },
-    { title: "Coding Challenge", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: Focused participants coding away." },
-    { title: "Robotics Expo", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: Student-built machines in action." },
-    { title: "Gaming Tournament", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: The intense e-sports finals." },
-    { title: "Idea Pitching", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: Next-gen startups born here." },
-    { title: "VR Experience", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: Students trying out headsets." },
-    { title: "Music Fest", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: Evening concert wild moments." },
-    { title: "Award Ceremony", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: The victors claim their trophies." },
-    { title: "Flash Mob", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: Surprise dance performance." },
-    { title: "Alumni Meet", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: Catching up with past legends." },
-    { title: "Food Stalls", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: Delicious bites and crowd favorites." },
-    { title: "Closing Video", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: A tribute to the entire fest." },
-    { title: "Credits Roll", path: "https://www.w3schools.com/html/mov_bbb.mp4", desc: "SIGMOID 2K24: Thanking everyone involved." }
+    { title: "2k24 Teaser", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773338838/WhatsApp_Video_2026-03-11_at_23.43.50_nejdkb.mp4", desc: "SIGMOID 2K24: The initial grand teaser." },
+    { title: "Opening Day", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773338855/WhatsApp_Video_2026-03-11_at_23.43.44_vuniob.mp4", desc: "SIGMOID 2K24: Registration and welcoming." },
+    { title: "Keynote Speakers", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773338874/WhatsApp_Video_2026-03-11_at_23.43.43_sxmcdj.mp4", desc: "SIGMOID 2K24: Industry leads taking the stage." },
+    { title: "Coding Challenge", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773338881/WhatsApp_Video_2026-03-11_at_23.43.42_eupbvo.mp4", desc: "SIGMOID 2K24: Focused participants coding away." },
+    { title: "Robotics Expo", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773338897/WhatsApp_Video_2026-03-11_at_23.43.49_rilxdh.mp4", desc: "SIGMOID 2K24: Student-built machines in action." },
+    { title: "Gaming Tournament", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773338898/WhatsApp_Video_2026-03-11_at_23.43.41_fmpe5c.mp4", desc: "SIGMOID 2K24: The intense e-sports finals." },
+    { title: "Idea Pitching", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773338915/WhatsApp_Video_2026-03-11_at_23.43.48_ian7ij.mp4", desc: "SIGMOID 2K24: Next-gen startups born here." },
+    { title: "VR Experience", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773338916/WhatsApp_Video_2026-03-11_at_23.43.35_itvfc3.mp4", desc: "SIGMOID 2K24: Students trying out headsets." },
+    { title: "Music Fest", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773338918/WhatsApp_Video_2026-03-11_at_23.43.48_1_mhxw37.mp4", desc: "SIGMOID 2K24: Evening concert wild moments." },
+    { title: "Award Ceremony", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773338922/WhatsApp_Video_2026-03-11_at_23.43.37_ek9ysg.mp4", desc: "SIGMOID 2K24: The victors claim their trophies." },
+    { title: "Flash Mob", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773338958/WhatsApp_Video_2026-03-11_at_23.43.40_yoakgj.mp4", desc: "SIGMOID 2K24: Surprise dance performance." }
 ];
 
-export const gallery2024Images = Array.from({ length: 15 }).map((_, i) => {
-    const customData = localVideos2024[i];
-    return {
-        id: `img-2024-${i + 1}`,
-        subtitle: "SIGMOID 2K24",
-        title: customData?.title || `Event 2K24 Highlight ${i + 1}`,
-        description: customData?.desc || `SIGMOID 2K24: Memorable moments.`,
-        videoUrl: customData.path, 
-        thumbnailUrl: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=200&auto=format&fit=crop", 
-    };
-});
-
-// Using random Unsplash IDs to create 30 unique dummy masonry images for 2k24.
-// You can replace these with actual local filename loops exactly like 2025 above later!
-const dummyUnsplashIds = [
-    "1531415074968-036ba1b575da", "1579952363873-27f3bade9f55", "1551269901-5c5e14c25df7", "1518063319789-7217e6706b04", "1512719994953-eabf50895df7",
-    "1501281668745-f7f57925c3b4", "1492684223066-81342ee5ff30", "1468359601540-c0483ff7a1f6", "1511512578047-dfb367046420", "1523580494863-6f3031224c94",
-    "1459749411175-04bf5292ceea", "1475721025592-720dea406eee", "1508246473551-249ee4efefec", "1515162816999-a0c47dc192f7", "1496337589254-2c2b3f2cc183",
-    "1517457373958-b7bdd4587205", "1524311568271-84269d06b3a0", "1464349153587-f823f669e224", "1510443900762-b9cf985ae375", "1515286576850-2f3b9be2b08a",
-    "1503387762-592deb58ef4e", "1493612270087-2a6283b9cfbc", "1504384308090-c894fdcc538d", "1472591651607-70e2d88ae3c4", "1505373877841-8d25f7d46678",
-    "1516450360452-9312f5e86fc7", "1514330664969-9ad3d98da5e1", "1513364776144-60967b0f800f", "1504198453319-5ce911bafcde", "1492684223066-81342ee5ff30"
+const files2024 = [
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350667/WhatsApp_Image_2026-03-12_at_13.51.46_njjioj.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350581/WhatsApp_Image_2026-03-12_at_13.51.47_sudmou.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350559/WhatsApp_Image_2026-03-12_at_13.51.47_1_nwa4jd.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350540/WhatsApp_Image_2026-03-12_at_13.51.48_y926vn.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350503/WhatsApp_Image_2026-03-12_at_13.51.49_qdkkjt.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350503/WhatsApp_Image_2026-03-12_at_13.51.49_1_mnft6h.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350503/WhatsApp_Image_2026-03-12_at_13.51.49_qdkkjt.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350502/WhatsApp_Image_2026-03-12_at_13.51.50_igiizy.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350502/WhatsApp_Image_2026-03-12_at_13.51.51_qknqar.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350502/WhatsApp_Image_2026-03-12_at_13.51.52_vkhdpo.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350502/WhatsApp_Image_2026-03-12_at_13.51.53_1_fmfypa.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350502/WhatsApp_Image_2026-03-12_at_13.51.53_iengmz.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350501/WhatsApp_Image_2026-03-12_at_13.51.54_1_b7yncp.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350502/WhatsApp_Image_2026-03-12_at_13.51.54_gc0fy6.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350501/WhatsApp_Image_2026-03-12_at_13.51.56_wjilxu.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350501/WhatsApp_Image_2026-03-12_at_13.51.55_pq37ge.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350499/WhatsApp_Image_2026-03-12_at_13.52.04_1_on6vde.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350499/WhatsApp_Image_2026-03-12_at_13.52.02_i6jhxi.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350499/WhatsApp_Image_2026-03-12_at_13.52.00_tbqw6k.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350499/WhatsApp_Image_2026-03-12_at_13.52.03_gwywky.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350500/WhatsApp_Image_2026-03-12_at_13.51.59_wvyk8u.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350500/WhatsApp_Image_2026-03-12_at_13.51.57_bby68b.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350500/WhatsApp_Image_2026-03-12_at_13.51.57_1_b6ndp4.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773353204/WhatsApp_Image_2026-03-12_at_14.43.30_j8m4zl.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773353205/WhatsApp_Image_2026-03-12_at_14.57.36_1_dv0bbc.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773353205/WhatsApp_Image_2026-03-12_at_14.57.37_2_h5p8uc.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773353205/WhatsApp_Image_2026-03-12_at_14.57.36_ejzarj.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773353204/WhatsApp_Image_2026-03-12_at_14.57.37_3_hhvrrq.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773353204/WhatsApp_Image_2026-03-12_at_14.43.30_j8m4zl.jpg",
 ];
 
-export const gallery2024Masonry = Array.from({ length: 30 }).map((_, i) => {
+export const gallery2024Masonry = files2024.map((url, i) => {
     return {
         id: `masonry-2024-${i + 1}`,
-        url: `https://images.unsplash.com/photo-${dummyUnsplashIds[i]}?q=80&w=400&auto=format&fit=crop`,
-        alt: `SIGMOID 2K24 Media ${i + 1}`
+        url: url,
+        alt: `SIGMOID 2K24 Media ${i + 1} of ${files2024.length}`
     };
 });
+
+export const gallery2024Images = [
+    ...localVideos2024.map((v, i) => ({
+        id: `vid-2024-${i + 1}`,
+        subtitle: "SIGMOID 2K24",
+        title: v.title,
+        description: v.desc,
+        videoUrl: v.path,
+        thumbnailUrl: v.path,
+    })),
+    ...files2024.map((url, i) => ({
+        id: `img-2024-${i + 1}`,
+        subtitle: "SIGMOID 2K24",
+        title: `2K24 Memory ${i + 1}`,
+        description: "SIGMOID 2K24: Capturing the essence of innovation.",
+        videoUrl: null, // It's an image
+        thumbnailUrl: url,
+    }))
+];
+export const galleryStories = [
+    // --- 2K26 Promotional ---
+    ...gallery2026Images,
+    // --- 2K25 Highlights ---
+    ...gallery2025Images.slice(0, 8),
+    // --- 2K24 Highlights ---
+    ...gallery2024Images.slice(0, 7)
+];
+
+// Ensure thumbnails point to video if image missing
+galleryStories.forEach(s => { if(!s.thumbnailUrl) s.thumbnailUrl = s.videoUrl; });
