@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { sortedCollegeStatsData } from '../data/stats-data';
+import { sortedCollegeStatsData2k24 } from '../data/stats-2k24-data';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
 export function StatsPage() {
-    // Current view could be 'overview', 'most-wins', or an event name string.
+    // Current view could be 'overview', 'most-wins-2k25', 'most-wins-2k24', 'evt-2k25-EventName', 'evt-2k24-EventName'
     const [selectedView, setSelectedView] = useState('overview');
 
     // Accordions
     const [expandedSections, setExpandedSections] = useState({
         sigmoid: true,
         technical: false,
-        nontechnical: false
+        nontechnical: false,
+        sigmoid2k24: false,
+        technical2k24: false,
+        nontechnical2k24: false
     });
 
     const toggleSection = (section) => {
@@ -25,9 +29,16 @@ export function StatsPage() {
     const topTech = [...sortedCollegeStatsData].sort((a, b) => b.techWins - a.techWins || b.participants - a.participants).filter(c => c.techWins > 0).slice(0, 5);
     const topNonTech = [...sortedCollegeStatsData].sort((a, b) => b.nonTechWins - a.nonTechWins || b.participants - a.participants).filter(c => c.nonTechWins > 0).slice(0, 5);
 
+    const topOverall2k24 = [...sortedCollegeStatsData2k24].sort((a, b) => b.totalWins - a.totalWins || b.participants - a.participants).slice(0, 5);
+    const topTech2k24 = [...sortedCollegeStatsData2k24].sort((a, b) => b.techWins - a.techWins || b.participants - a.participants).filter(c => c.techWins > 0).slice(0, 5);
+    const topNonTech2k24 = [...sortedCollegeStatsData2k24].sort((a, b) => b.nonTechWins - a.nonTechWins || b.participants - a.participants).filter(c => c.nonTechWins > 0).slice(0, 5);
+
     // Hardcoded event names from sketch
     const technicalEvents = ['Codeverse', 'Quiztronics', 'TechFusion', 'Posterize', 'Innovista'];
     const nonTechnicalEvents = ['Click Fest', 'GuessBusters', 'kims game'];
+
+    const technicalEvents2k24 = ['Technovate', 'Posterize', 'Avishkaar', 'Circuitrix', 'Quiz Mania', 'Codex'];
+    const nonTechnicalEvents2k24 = ['Dumb Charades', 'Buoyancy', 'Brain Teasers', 'Pixel Mania'];
 
     return (
         <div className="min-h-screen bg-black text-white pt-28 pb-20 font-sans relative overflow-hidden">
@@ -78,9 +89,9 @@ export function StatsPage() {
                                         
                                         {/* MOST WINS Menu Item */}
                                         <button 
-                                            onClick={() => setSelectedView('most-wins')}
+                                            onClick={() => setSelectedView('most-wins-2k25')}
                                             className={`w-full flex items-center text-left px-4 py-3 text-sm font-semibold transition-colors rounded-xl
-                                                ${selectedView === 'most-wins' ? 'text-white bg-[#0a0f29]' : 'text-white/50 hover:text-white hover:bg-white/5'}
+                                                ${selectedView === 'most-wins-2k25' ? 'text-white bg-[#0a0f29]' : 'text-white/50 hover:text-white hover:bg-white/5'}
                                             `}
                                         >
                                             MOST WINS
@@ -100,9 +111,9 @@ export function StatsPage() {
                                                     {technicalEvents.map(evt => (
                                                         <button 
                                                             key={evt}
-                                                            onClick={() => setSelectedView(evt)}
+                                                            onClick={() => setSelectedView('evt-2k25-' + evt)}
                                                             className={`w-full flex items-center text-left px-3 py-2 text-[13px] transition-colors rounded-lg
-                                                                ${selectedView === evt ? 'text-white bg-[#0a0f29]' : 'text-white/40 hover:text-white hover:bg-white/5'}
+                                                                ${selectedView === 'evt-2k25-' + evt ? 'text-white bg-[#0a0f29]' : 'text-white/40 hover:text-white hover:bg-white/5'}
                                                             `}
                                                         >
                                                             {evt}
@@ -126,9 +137,88 @@ export function StatsPage() {
                                                     {nonTechnicalEvents.map(evt => (
                                                         <button 
                                                             key={evt}
-                                                            onClick={() => setSelectedView(evt)}
+                                                            onClick={() => setSelectedView('evt-2k25-' + evt)}
                                                             className={`w-full flex items-center text-left px-3 py-2 text-[13px] transition-colors rounded-lg
-                                                                ${selectedView === evt ? 'text-white bg-[#0a0f29]' : 'text-white/40 hover:text-white hover:bg-white/5'}
+                                                                ${selectedView === 'evt-2k25-' + evt ? 'text-white bg-[#0a0f29]' : 'text-white/40 hover:text-white hover:bg-white/5'}
+                                                            `}
+                                                        >
+                                                            {evt}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* SIGMOID 2K24 (13) Accordion */}
+                            <div className="w-full border-b border-white/10 pb-2 mb-2">
+                                <button 
+                                    onClick={() => toggleSection('sigmoid2k24')}
+                                    className="w-full px-4 py-4 flex justify-between items-center transition-colors rounded-xl text-white hover:bg-white/5"
+                                >
+                                    SIGMOID 2K24 (13)
+                                    <ChevronDown className={`w-5 h-5 transition-transform ${expandedSections.sigmoid2k24 ? 'rotate-180' : ''}`} />
+                                </button>
+                                
+                                {expandedSections.sigmoid2k24 && (
+                                    <div className="w-full pb-2 flex flex-col gap-1 px-3 mt-1">
+                                        
+                                        {/* MOST WINS Menu Item */}
+                                        <button 
+                                            onClick={() => setSelectedView('most-wins-2k24')}
+                                            className={`w-full flex items-center text-left px-4 py-3 text-sm font-semibold transition-colors rounded-xl
+                                                ${selectedView === 'most-wins-2k24' ? 'text-white bg-[#0a0f29]' : 'text-white/50 hover:text-white hover:bg-white/5'}
+                                            `}
+                                        >
+                                            MOST WINS
+                                        </button>
+
+                                        {/* Technical Events 2k24 Accordion */}
+                                        <div className="w-full mt-1">
+                                            <button 
+                                                onClick={() => toggleSection('technical2k24')}
+                                                className="w-full px-4 py-3 flex justify-between items-center transition-colors rounded-xl text-white/80 hover:bg-white/5 hover:text-white"
+                                            >
+                                                TECHNICAL EVENTS (9)
+                                                <ChevronDown className={`w-4 h-4 transition-transform ${expandedSections.technical2k24 ? 'rotate-180' : ''}`} />
+                                            </button>
+                                            {expandedSections.technical2k24 && (
+                                                <div className="w-full pb-2 flex flex-col gap-1 pl-6 pr-2 mt-1">
+                                                    {technicalEvents2k24.map(evt => (
+                                                        <button 
+                                                            key={evt}
+                                                            onClick={() => setSelectedView('evt-2k24-' + evt)}
+                                                            className={`w-full flex items-center text-left px-3 py-2 text-[13px] transition-colors rounded-lg
+                                                                ${selectedView === 'evt-2k24-' + evt ? 'text-white bg-[#0a0f29]' : 'text-white/40 hover:text-white hover:bg-white/5'}
+                                                            `}
+                                                        >
+                                                            {evt}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        {/* Non Technical Events 2k24 Accordion */}
+                                        <div className="w-full mt-1">
+                                            <button 
+                                                onClick={() => toggleSection('nontechnical2k24')}
+                                                className="w-full px-4 py-3 flex justify-between items-center transition-colors rounded-xl text-white/80 hover:bg-white/5 hover:text-white"
+                                            >
+                                                NON TECHNICAL (4)
+                                                <ChevronDown className={`w-4 h-4 transition-transform ${expandedSections.nontechnical2k24 ? 'rotate-180' : ''}`} />
+                                            </button>
+                                            {expandedSections.nontechnical2k24 && (
+                                                <div className="w-full pb-2 flex flex-col gap-1 pl-6 pr-2 mt-1">
+                                                    {nonTechnicalEvents2k24.map(evt => (
+                                                        <button 
+                                                            key={evt}
+                                                            onClick={() => setSelectedView('evt-2k24-' + evt)}
+                                                            className={`w-full flex items-center text-left px-3 py-2 text-[13px] transition-colors rounded-lg
+                                                                ${selectedView === 'evt-2k24-' + evt ? 'text-white bg-[#0a0f29]' : 'text-white/40 hover:text-white hover:bg-white/5'}
                                                             `}
                                                         >
                                                             {evt}
@@ -147,33 +237,53 @@ export function StatsPage() {
 
                     {/* ── Right Content Area ── */}
                     <div className="flex-1 w-full min-w-0 lg:pl-10 lg:pt-2">
-                        {/* Title over everything */}
                         {selectedView === 'overview' && (
-                            <div className="mb-6 flex items-center justify-between">
-                                <h2 className="text-[28px] sm:text-3xl font-bold uppercase tracking-tight text-white drop-shadow-lg">
-                                    SIGMOID 2K25 STATS
-                                </h2>
+                            <div className="flex flex-col gap-12 w-full">
+                                {/* 2K25 OVERVIEW */}
+                                <div>
+                                    <div className="mb-6 flex items-center justify-between">
+                                        <h2 className="text-[28px] sm:text-3xl font-bold uppercase tracking-tight text-white drop-shadow-lg">
+                                            SIGMOID 2K25 STATS
+                                        </h2>
+                                    </div>
+                                    <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+                                        <PodiumTable title="MOST OVERALL WINS" data={topOverall} valueType="totalWins" onViewFullTable={() => setSelectedView('most-wins-2k25')} />
+                                        <PodiumTable title="MOST WINS IN TECHNICAL" data={topTech} valueType="techWins" onViewFullTable={() => setSelectedView('most-wins-2k25')} />
+                                        <PodiumTable title="MOST WINS IN NON-TECHNICAL" data={topNonTech} valueType="nonTechWins" onViewFullTable={() => setSelectedView('most-wins-2k25')} />
+                                    </div>
+                                </div>
+
+                                {/* 2K24 OVERVIEW */}
+                                <div>
+                                    <div className="mb-6 flex items-center justify-between">
+                                        <h2 className="text-[28px] sm:text-3xl font-bold uppercase tracking-tight text-white drop-shadow-lg flex items-center gap-3">
+                                            SIGMOID 2K24 STATS
+                                            <span className="text-[12px] font-bold bg-white/10 px-2 py-1 rounded text-white/50 tracking-widest">ARCHIVE</span>
+                                        </h2>
+                                    </div>
+                                    <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+                                        <PodiumTable title="MOST OVERALL WINS" data={topOverall2k24} valueType="totalWins" onViewFullTable={() => setSelectedView('most-wins-2k24')} />
+                                        <PodiumTable title="MOST WINS IN TECHNICAL" data={topTech2k24} valueType="techWins" onViewFullTable={() => setSelectedView('most-wins-2k24')} />
+                                        <PodiumTable title="MOST WINS IN NON-TECHNICAL" data={topNonTech2k24} valueType="nonTechWins" onViewFullTable={() => setSelectedView('most-wins-2k24')} />
+                                    </div>
+                                </div>
                             </div>
                         )}
 
-                        {selectedView === 'overview' && (
-                            /* OVERVIEW TAB -> 3 Columns */
-                            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
-                                
-                                <PodiumTable title="MOST OVERALL WINS" data={topOverall} valueType="totalWins" onViewFullTable={() => setSelectedView('most-wins')} />
-                                <PodiumTable title="MOST WINS IN TECHNICAL" data={topTech} valueType="techWins" onViewFullTable={() => setSelectedView('most-wins')} />
-                                <PodiumTable title="MOST WINS IN NON-TECHNICAL" data={topNonTech} valueType="nonTechWins" onViewFullTable={() => setSelectedView('most-wins')} />
-
-                            </div>
+                        {selectedView === 'most-wins-2k25' && (
+                            <MostWinsTable data={sortedCollegeStatsData} title="MOST WINS BY A COLLEGE (2K25)" />
                         )}
 
-                        {selectedView === 'most-wins' && (
-                            <MostWinsTable data={sortedCollegeStatsData} />
+                        {selectedView === 'most-wins-2k24' && (
+                            <MostWinsTable data={sortedCollegeStatsData2k24} title="MOST WINS BY A COLLEGE (2K24)" />
                         )}
 
-                        {selectedView !== 'overview' && selectedView !== 'most-wins' && (
-                            /* EVENT TAB (Dynamic Podium for Top 3) */
-                            <EventDetailsCards eventName={selectedView} data={sortedCollegeStatsData} />
+                        {selectedView.startsWith('evt-2k25-') && (
+                            <EventDetailsCards eventName={selectedView.replace('evt-2k25-', '')} data={sortedCollegeStatsData} year="2K25" />
+                        )}
+
+                        {selectedView.startsWith('evt-2k24-') && (
+                            <EventDetailsCards eventName={selectedView.replace('evt-2k24-', '') === 'Technovate' ? 'Technovate' : selectedView.replace('evt-2k24-', '')} data={sortedCollegeStatsData2k24} year="2K24" />
                         )}
                     </div>
 
@@ -254,18 +364,18 @@ function PodiumTable({ title, data, valueType, onViewFullTable }) {
 }
 
 // Sub-component for rendering the full detailed Most Wins list matching the Cricket UI
-function MostWinsTable({ data }) {
+function MostWinsTable({ data, title }) {
     // Filter to only include colleges with at least 2 wins anywhere, sorted by total wins descending
     const filteredData = [...data]
-        .filter(c => c.totalWins >= 2 || c.techWins >= 2 || c.nonTechWins >= 2)
+        .filter(c => c.totalWins >= 1 || c.techWins >= 1 || c.nonTechWins >= 1) // Lowered to 1 win threshold for archiving older data
         .sort((a, b) => b.totalWins - a.totalWins || b.participants - a.participants);
 
     if (filteredData.length === 0) return null;
 
     return (
         <div className="w-full flex-1">
-            <h3 className="text-3xl font-black uppercase tracking-tight text-[#0052cc] drop-shadow-sm mb-6">
-                MOST WINS BY A COLLEGE
+            <h3 className="text-[26px] sm:text-3xl font-black uppercase tracking-tight text-[#0052cc] drop-shadow-sm mb-6">
+                {title || "MOST WINS BY A COLLEGE"}
             </h3>
 
             <div className="w-full bg-white/[0.03] backdrop-blur-xl border-2 border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden">
@@ -337,32 +447,47 @@ function MostWinsTable({ data }) {
 }
 
 // Sub-component for rendering Event Winners with the White Team Icon and 3-Card structure
-function EventDetailsCards({ eventName, data }) {
-    // 1. Gather the 1st, 2nd, and 3rd place winners for this specific event from the data.
-    const winners = { 1: null, 2: null, 3: null };
+function EventDetailsCards({ eventName, data, year }) {
+    // 1. Gather the 1st, 2nd, 3rd, 3A, 3B, and 4th place winners for this specific event, grouped by sub-category.
+    const winnersBySubCategory = {};
 
     data.forEach(college => {
         college.events.forEach(evt => {
-            if (evt.eventName === eventName && evt.rank && evt.rank <= 3 && !winners[evt.rank]) {
-                winners[evt.rank] = {
+            if (evt.eventName === eventName && evt.rank) {
+                const subCategory = evt.subCategory || 'default';
+                const rank = evt.rank;
+
+                if (!winnersBySubCategory[subCategory]) {
+                    winnersBySubCategory[subCategory] = { 1: [], 2: [], 3: [], '3A': [], '3B': [], 4: [] };
+                }
+
+                // Add to array of winners for this rank
+                winnersBySubCategory[subCategory][rank].push({
                     collegeName: college.name,
                     logoFallback: college.logoFallback,
                     ...evt
-                };
+                });
             }
         });
     });
 
-    const hasAnyWinners = winners[1] || winners[2] || winners[3];
+    const hasAnyWinners = Object.keys(winnersBySubCategory).length > 0;
 
-    // Helper for rendering a single card exactly per specifications
-    const renderCard = (rank, winner) => {
+    // Helper for rendering a single card
+    const renderCard = (rank, winner, key) => {
         if (!winner) return null;
         
-        const rankTitles = { 1: 'WINNERS (1st PRIZE)', 2: 'RUNNERS (2nd prize)', 3: '3rd prize' };
+        const rankTitles = { 
+            1: 'WINNERS (1st PRIZE)', 
+            2: 'RUNNERS (2nd prize)', 
+            3: '3rd prize', 
+            '3A': '3rd Prize - A', 
+            '3B': '3rd Prize - B', 
+            4: '4th prize' 
+        };
         
         return (
-            <div className="flex flex-col w-full max-w-[500px]">
+            <div key={key} className="flex flex-col w-full max-w-[500px]">
                 {/* Title OUTSIDE and ABOVE the bordered box */}
                 <span className="text-white font-bold mb-3 uppercase tracking-wide text-[16px] pl-2">
                     {rankTitles[rank]}
@@ -376,7 +501,7 @@ function EventDetailsCards({ eventName, data }) {
                         {/* Header: 01 | Logo Name */}
                         <div className="flex items-center gap-3 sm:gap-4 mb-4 pb-4 border-b border-white/10">
                             <span className="text-[24px] sm:text-[28px] font-black tabular-nums tracking-tighter text-white">
-                                0{rank}
+                                {String(rank).length === 1 ? `0${rank}` : rank}
                             </span>
                             <div className="w-[2px] h-8 bg-white/20 shrink-0"></div>
                             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-[12px] shrink-0 bg-white text-[#15133C]">
@@ -384,36 +509,32 @@ function EventDetailsCards({ eventName, data }) {
                             </div>
                         </div>
                         {/* Content Split depending on Event Type (Individual vs Team) */}
-                        {winner.winnerName ? (
-                            <div className="flex flex-col gap-4 mt-2">
-                                <span className="font-bold text-white text-[14px] sm:text-[16px] leading-tight break-words line-clamp-2">
-                                    {winner.collegeName}
+                        <div className="flex flex-col gap-1">
+                            <span className="font-bold text-white text-[14px] sm:text-[16px] leading-tight break-words">
+                                {winner.collegeName}
+                            </span>
+                            
+                            {winner.winnerName && (
+                                <span className="text-white/50 text-[12px] font-bold tracking-wider uppercase mt-1">
+                                    {winner.winnerName}
                                 </span>
+                            )}
+                        </div>
+                        
+                        {!winner.winnerName && winner.members && (
+                            <div className="flex flex-col gap-2 mt-4">
+                                {winner.members.map((member, i) => (
+                                    <div key={i} className="flex gap-3 items-center text-[14px] sm:text-[15px] font-semibold text-white/90">
+                                        <span className="text-white text-sm tabular-nums">{i + 1}.</span>
+                                        <span>{member.name}</span>
+                                    </div>
+                                ))}
                             </div>
-                        ) : (
-                            <>
-                                <span className="font-bold text-white text-[14px] sm:text-[16px] leading-tight break-words line-clamp-2">
-                                    {winner.collegeName}
-                                </span>
-                                
-                                {/* Members List (Only for teams) */}
-                                <div className="flex flex-col gap-2 mt-4">
-                                    {winner.members?.map((member, i) => (
-                                        <div key={i} className="flex gap-3 items-center text-[14px] sm:text-[15px] font-semibold text-white/90">
-                                            <span className="text-white text-sm tabular-nums">{i + 1}.</span>
-                                            <span>{member.name}</span>
-                                        </div>
-                                    ))}
-                                    {(!winner.members || winner.members.length === 0) && (
-                                        <div className="text-sm italic text-white/40">No members listed.</div>
-                                    )}
-                                </div>
-                            </>
                         )}
                     </div>
 
                     {/* RIGHT SIDE: Team Icon or Individual Winner Portrait */}
-                    <div className="w-[100px] sm:w-[130px] shrink-0 flex flex-col items-center justify-center pl-2 sm:pl-4 pr-4 sm:pr-6 gap-2">
+                    <div className="w-[100px] sm:w-[130px] shrink-0 flex flex-col items-center justify-center pl-2 sm:pl-4 pr-1 gap-2">
                         {winner.winnerName ? (
                             <>
                                 <img 
@@ -449,7 +570,8 @@ function EventDetailsCards({ eventName, data }) {
                 <div className="flex items-center gap-4 mb-4">
                     <h3 className="text-[28px] sm:text-3xl font-black uppercase tracking-tight text-white drop-shadow-sm border-l-4 border-[#0052cc] pl-4 flex items-center gap-3">
                         {eventName}
-                        <img src="/assets/images/rocket.png" alt="Rocket" className="w-12 h-12 object-contain" />
+                        <span className="text-[14px] font-bold text-white/50 bg-white/10 px-2 py-1 rounded tracking-widest ml-2">{year}</span>
+                        <img src="/assets/images/rocket.png" alt="Rocket" className="hidden sm:inline-block w-12 h-12 object-contain ml-2" />
                     </h3>
                 </div>
                 <p className="text-white/70 max-w-3xl leading-relaxed text-[15px]">
@@ -462,21 +584,41 @@ function EventDetailsCards({ eventName, data }) {
                     <p className="text-white/60">Data is currently being calculated for this event.</p>
                 </div>
             ) : (
-                <div className="flex flex-col gap-8 w-full pb-10">
-                    {/* Top Row: 1st and 2nd Place */}
-                    <div className="flex flex-col xl:flex-row gap-8 justify-center w-full max-w-6xl mx-auto">
-                        {winners[1] && <div className="flex-1 flex justify-center xl:justify-end">{renderCard(1, winners[1])}</div>}
-                        {winners[2] && <div className="flex-1 flex justify-center xl:justify-start">{renderCard(2, winners[2])}</div>}
-                    </div>
-                    
-                    {/* Bottom Row: 3rd Place */}
-                    {winners[3] && (
-                        <div className="flex justify-center w-full mt-2">
-                            {renderCard(3, winners[3])}
-                        </div>
-                    )}
+                <div className="flex flex-col gap-12 w-full pb-10">
+                    {/* Group by sub-category if present */}
+                    {Object.keys(winnersBySubCategory).map((subCat) => {
+                        const winners = winnersBySubCategory[subCat];
+                        return (
+                            <div key={subCat} className="flex flex-col gap-8">
+                                {subCat !== 'default' && (
+                                    <h4 className="text-[20px] font-bold text-[#0052cc] border-b border-white/10 pb-2 mb-2 w-fit">
+                                        SUB-CATEGORY: {subCat}
+                                    </h4>
+                                )}
+                                                   {/* Top Row: 1st and 2nd Place */}
+                                <div className="flex flex-wrap gap-8 justify-center w-full max-w-6xl mx-auto">
+                                    {winners[1].map((w, i) => renderCard(1, w, `1-${i}`))}
+                                    {winners[2].map((w, i) => renderCard(2, w, `2-${i}`))}
+                                </div>
+                                
+                                {/* 3rd Place Row (Handles 3, 3A, 3B) */}
+                                <div className="flex flex-wrap gap-8 justify-center w-full max-w-6xl mx-auto mt-2">
+                                    {winners[3].map((w, i) => renderCard(3, w, `3-${i}`))}
+                                    {winners['3A'].map((w, i) => renderCard('3A', w, `3A-${i}`))}
+                                    {winners['3B'].map((w, i) => renderCard('3B', w, `3B-${i}`))}
+                                </div>
+                                
+                                {/* 4th Place Row */}
+                                {winners[4].length > 0 && (
+                                    <div className="flex flex-wrap justify-center w-full mt-2 gap-8">
+                                        {winners[4].map((w, i) => renderCard(4, w, `4-${i}`))}
+                                    </div>
+                                )}
+                            </div>
+                        )
+                    })}
                 </div>
             )}
         </div>
     );
-}
+}

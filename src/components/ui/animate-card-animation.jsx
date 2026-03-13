@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useNavigate } from "react-router-dom"
+import technicalThumb from "../../assets/technical-thumb.png"
 
 const cardData = {
   1: {
     title: "Technical",
     description: "Master real-world technical skills",
-    image: "/assets/images/promo-1.png",
+    image: technicalThumb,
   },
   2: {
     title: "Non Technical",
@@ -44,6 +46,7 @@ const enterAnimation = {
 
 function CardContent({ contentType }) {
   const data = cardData[contentType]
+  const navigate = useNavigate()
 
   return (
     <div className="flex h-full w-full flex-col gap-4">
@@ -59,7 +62,17 @@ function CardContent({ contentType }) {
           <span className="truncate font-semibold text-white text-lg">{data.title}</span>
           <span className="text-white/60 text-sm">{data.description}</span>
         </div>
-        <button className="flex h-10 shrink-0 cursor-pointer select-none items-center gap-0.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors pl-4 pr-3 text-sm font-medium text-white">
+        <button 
+          onClick={() => {
+            const categoryMap = {
+              'Technical': 'Technical',
+              'Non Technical': 'Non-Technical',
+              'Esports': 'E-sports'
+            };
+            navigate('/events', { state: { category: categoryMap[data.title] } });
+          }}
+          className="flex h-10 shrink-0 cursor-pointer select-none items-center gap-0.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors pl-4 pr-3 text-sm font-medium text-white"
+        >
           View
           <svg
             width="16"

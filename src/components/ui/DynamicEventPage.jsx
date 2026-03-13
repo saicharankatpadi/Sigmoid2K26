@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
 
@@ -23,15 +23,6 @@ const eventData = {
       { id: "08", content: "High-Quality Notes, interview preparation" },
       { id: "09", content: "Strong Problem-Solving Foundation" },
       { id: "10", content: "Time & Space Complexity Mastery" }
-    ]
-  },
-  video_preview: {
-    video_src: "/event-video.mp4",
-    badges: [
-      { position: "top-left", icon: "users", text: "Private Discord Community" },
-      { position: "top-right", icon: "refresh", text: "Get Lifetime Access" },
-      { position: "bottom-left", icon: "document", text: "300+ questions solved" },
-      { position: "bottom-right", icon: "hat", text: "DSA interview tips" }
     ]
   },
   mission: [
@@ -114,50 +105,6 @@ const eventData = {
       linkedin: "https://linkedin.com/in/placeholder2"
     }
   ],
-  testimonials: [
-    { 
-      id: "t1", 
-      name: "Shreya Prasad", 
-      quote: "Namaste JavaScript helped me master the core concepts, and the System Design course gave me the structure I needed to tackle tough interview questions. These resources played a big role in helping me land a Frontend Engineer role at Uber. Thank you, Akshay!", 
-      image: "https://randomuser.me/api/portraits/women/45.jpg",
-      college_logo: "https://via.placeholder.com/80x30/222222/FFFFFF?text=LOGO"
-    },
-    { 
-      id: "t2", 
-      name: "Abhay Goel", 
-      quote: "I joined Goldman Sachs as a Frontend Developer Analyst with a 160% salary hike. Akshay's 'Namaste JavaScript' and 'Namaste React' courses made a huge impact on my learning. They helped me understand the core concepts clearly and crack all four interview rounds.", 
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-      college_logo: "https://via.placeholder.com/80x30/222222/FFFFFF?text=LOGO"
-    },
-    { 
-      id: "t3", 
-      name: "Saurabh Singh", 
-      quote: "A big thanks to Akshay Saini and the Namaste Dev team! The Namaste React course was a game-changer. It gave me the confidence to switch to a React Developer role and helped me land a 95% salary hike. Truly grateful!", 
-      image: "https://randomuser.me/api/portraits/men/22.jpg",
-      college_logo: "https://via.placeholder.com/80x30/222222/FFFFFF?text=LOGO"
-    },
-    { 
-      id: "t4", 
-      name: "Anand Gadagin", 
-      quote: "Special thanks to Akshay Saini for the 'Namaste React' course, his teaching style... made the learning journey both enlightening and enjoyable.", 
-      image: "https://randomuser.me/api/portraits/men/46.jpg",
-      college_logo: "https://via.placeholder.com/80x30/222222/FFFFFF?text=LOGO"
-    },
-    { 
-      id: "t5", 
-      name: "Pujarini Jena", 
-      quote: "I have been working with React for 2 years but the way Akshay teaches in the classes is totally from ground up. It helped me know about every line that I write in the react app now.", 
-      image: "https://randomuser.me/api/portraits/women/68.jpg",
-      college_logo: "https://via.placeholder.com/80x30/222222/FFFFFF?text=LOGO"
-    },
-    { 
-      id: "t6", 
-      name: "Nikita Jit", 
-      quote: "After understanding JavaScript concepts from Namaste JavaScript playlist, I was looking for resources to learn React. Before I tried learning from Udemy courses and YouTube videos but then lost motivation mid-way. But this Namaste React is exactly what I was looking for.", 
-      image: "https://randomuser.me/api/portraits/women/24.jpg",
-      college_logo: "https://via.placeholder.com/80x30/222222/FFFFFF?text=LOGO"
-    }
-  ],
   faqs: [
     { id: "q1", question: "What is Namaste DSA?", answer: "Namaste DSA is our most comprehensive Data Structures & Algorithms course designed to take you from fundamentals to advanced algorithmic mastery." },
     { id: "q2", question: "Is Namaste DSA suitable for complete beginners?", answer: "Yes! We assume zero prior knowledge of Data Structures and Algorithms. We build everything ground-up." },
@@ -182,7 +129,7 @@ const IconBadge = ({ iconType }) => {
     case 'users': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>;
     case 'cube': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>;
     case 'briefcase': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
-    case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>; // Using spark/lightning for bonus as fallback
+    case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>;
     case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>;
     case 'document': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>;
     case 'globe': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>;
@@ -221,124 +168,23 @@ const FaqItem = ({ q, a }) => {
 
 export const DynamicEventPage = () => {
   const data = eventData;
-  const videoRef = useRef(null);
-  const progressRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
-  const [progress, setProgress] = useState(0);
-  const [currentTime, setCurrentTime] = useState('0:00');
-  const [duration, setDuration] = useState('0:00');
-  const [showControls, setShowControls] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
-
-  const formatTime = (s) => {
-    if (!s || isNaN(s)) return '0:00';
-    const m = Math.floor(s / 60);
-    const sec = Math.floor(s % 60);
-    return `${m}:${sec.toString().padStart(2, '0')}`;
-  };
-
-  const togglePlay = useCallback(() => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        // Unmute on play
-        videoRef.current.muted = false;
-        setIsMuted(false);
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  }, [isPlaying]);
-
-  const toggleMute = useCallback(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  }, [isMuted]);
-
-  const handleTimeUpdate = useCallback(() => {
-    if (videoRef.current && !isDragging) {
-      const v = videoRef.current;
-      const pct = (v.currentTime / v.duration) * 100;
-      setProgress(pct || 0);
-      setCurrentTime(formatTime(v.currentTime));
-    }
-  }, [isDragging]);
-
-  const handleLoadedMetadata = useCallback(() => {
-    if (videoRef.current) {
-      // Show second frame instead of first
-      videoRef.current.currentTime = 0.5;
-      setDuration(formatTime(videoRef.current.duration));
-    }
-  }, []);
-
-  // Seek to position from mouse event
-  const seekToPosition = useCallback((e) => {
-    if (videoRef.current && progressRef.current) {
-      const rect = progressRef.current.getBoundingClientRect();
-      const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
-      const pct = x / rect.width;
-      videoRef.current.currentTime = pct * videoRef.current.duration;
-      setProgress(pct * 100);
-      setCurrentTime(formatTime(pct * videoRef.current.duration));
-    }
-  }, []);
-
-  const handleProgressMouseDown = useCallback((e) => {
-    e.preventDefault();
-    setIsDragging(true);
-    seekToPosition(e);
-
-    const onMouseMove = (ev) => seekToPosition(ev);
-    const onMouseUp = () => {
-      setIsDragging(false);
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
-    };
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
-  }, [seekToPosition]);
 
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
-      {/* Keyframes */}
-      <style>{`
-        @keyframes floatBadge1 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
-        @keyframes floatBadge2 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
-        @keyframes floatBadge3 { 0%,100% { transform: translateY(-4px); } 50% { transform: translateY(6px); } }
-        @keyframes floatBadge4 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
-        @keyframes playPulse {
-          0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.35); }
-          70% { box-shadow: 0 0 0 25px rgba(255,255,255,0); }
-          100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
-        }
-        @keyframes playRadiate {
-          0% { opacity: 0.5; transform: scale(1); }
-          100% { opacity: 0; transform: scale(2.5); }
-        }
-      `}</style>
-
       {/* ═══════════════════════════════════════════
-          SECTION 1 — HERO: Two-column split
+          SECTION 1 — HERO: Centered Layout
        ═══════════════════════════════════════════ */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-28 pb-10">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
+        <div className="flex flex-col items-center justify-center text-center">
 
-          {/* ── LEFT COLUMN ── */}
-          <div className="flex-1 min-w-0 lg:max-w-[50%]">
-
-            {/* Title Row */}
-            <div className="flex items-center gap-3 mb-3">
+          {/* Title Row */}
+          <div className="flex items-center justify-center gap-3 mb-3">
               <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
               <div className="flex items-center">
                 <BlurIn 
                   word={data.event_info.title}
-                  className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
+                  className="text-4xl md:text-5xl font-black text-white tracking-tight"
                 />
                 {data.event_info.emoji === 'rocket' ? (
                   <img src="/rocket-icon.png" alt="rocket" className="ml-5 w-auto h-12 md:h-14 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.5)]" />
@@ -349,12 +195,12 @@ export const DynamicEventPage = () => {
             </div>
 
             {/* Subtitle */}
-            <p className="text-white/50 text-lg font-medium mb-8 pl-4">
+            <p className="text-white/50 text-lg font-medium mb-12">
               {data.event_info.subtitle}
             </p>
 
-            {/* ── Feature Cards — 2-column grid ── */}
-            <div className="grid grid-cols-2 gap-2.5">
+            {/* ── Feature Cards — Grid ── */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-[1200px]">
               {data.event_info.features.map(feature => (
                 <div
                   key={feature.id}
@@ -375,139 +221,9 @@ export const DynamicEventPage = () => {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* ── RIGHT COLUMN — vertically centered, pushed right ── */}
-          <div className="flex-1 min-w-0 lg:max-w-[50%] flex flex-col items-center justify-center lg:pl-6">
-
-            {/* Laptop Mockup */}
-            <div className="relative z-10 w-full max-w-[560px]">
-              {/* Screen Frame */}
-              <div className="relative bg-[#181818] rounded-t-2xl border-t-2 border-x-2 border-[#333] p-3 shadow-[0_0_60px_rgba(0,0,0,0.6)]">
-                {/* Camera dot */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#444]"></div>
-
-                {/* Screen Content — Video */}
-                <div
-                  className="relative w-full aspect-video bg-black rounded overflow-hidden border border-[#222] cursor-pointer"
-                  onMouseEnter={() => isPlaying && setShowControls(true)}
-                  onMouseLeave={() => setShowControls(false)}
-                >
-                  <video
-                    ref={videoRef}
-                    src={data.video_preview.video_src}
-                    className="w-full h-full object-cover"
-                    muted={isMuted}
-                    loop
-                    playsInline
-                    preload="metadata"
-                    onTimeUpdate={handleTimeUpdate}
-                    onLoadedMetadata={handleLoadedMetadata}
-                    onEnded={() => setIsPlaying(false)}
-                  />
-
-                  {/* Play Button Overlay — solid, thick, NOT glassy */}
-                  {!isPlaying && (
-                    <div className="absolute inset-0 flex items-center justify-center z-10 group/play" onClick={togglePlay}>
-                      {/* Radiation rings — ONLY on hover */}
-                      <div className="absolute w-24 h-24 rounded-full border-2 border-white/20 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite' }}></div>
-                      <div className="absolute w-24 h-24 rounded-full border-2 border-white/15 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite 0.6s' }}></div>
-                      <div className="absolute w-24 h-24 rounded-full border-2 border-white/10 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite 1.2s' }}></div>
-
-                      {/* Solid play button */}
-                      <button
-                        className="relative w-16 h-16 sm:w-[72px] sm:h-[72px] bg-white/90 rounded-full flex items-center justify-center border-[3px] border-white transition-all duration-300 hover:scale-110 z-20 shadow-[0_0_30px_rgba(255,255,255,0.3)]"
-                      >
-                        <svg className="w-7 h-7 sm:w-8 sm:h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                      </button>
-                    </div>
-                  )}
-
-                  {/* YouTube-style Controls Bar */}
-                  {isPlaying && (
-                    <div className={`absolute bottom-0 left-0 right-0 z-30 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
-                      onMouseEnter={() => setShowControls(true)}
-                    >
-                      {/* Progress Bar — draggable */}
-                      <div
-                        ref={progressRef}
-                        className="w-full h-1.5 bg-white/20 cursor-pointer group/progress hover:h-2.5 transition-all"
-                        onMouseDown={handleProgressMouseDown}
-                      >
-                        <div
-                          className="h-full bg-[#f89b29] relative"
-                          style={{ width: `${progress}%` }}
-                        >
-                          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#f89b29] opacity-0 group-hover/progress:opacity-100 transition-opacity shadow-md border border-white/30"></div>
-                        </div>
-                      </div>
-
-                      {/* Control Buttons */}
-                      <div className="flex items-center gap-3 px-3 py-2 bg-gradient-to-t from-black/80 to-black/40">
-                        {/* Play/Pause */}
-                        <button onClick={(e) => { e.stopPropagation(); togglePlay(); }} className="text-white hover:text-white/80 transition-colors">
-                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            {isPlaying
-                              ? <><rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" /></>
-                              : <path d="M8 5v14l11-7z" />
-                            }
-                          </svg>
-                        </button>
-
-                        {/* Volume */}
-                        <button onClick={(e) => { e.stopPropagation(); toggleMute(); }} className="text-white hover:text-white/80 transition-colors">
-                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            {isMuted
-                              ? <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
-                              : <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                            }
-                          </svg>
-                        </button>
-
-                        {/* Time */}
-                        <span className="text-white/70 text-[12px] font-mono ml-1">
-                          {currentTime} / {duration}
-                        </span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Floating Badges — positioned outside video area to avoid control overlap */}
-                {data.video_preview.badges.map((badge, idx) => {
-                  const posMap = {
-                    "top-left": "-top-6 -left-4 lg:-left-12",
-                    "top-right": "-top-6 -right-4 lg:-right-12",
-                    "bottom-left": "-bottom-4 -left-4 lg:-left-12",
-                    "bottom-right": "-bottom-4 -right-4 lg:-right-12"
-                  };
-                  const floatAnims = [
-                    'floatBadge1 3s ease-in-out infinite',
-                    'floatBadge2 3.5s ease-in-out infinite 0.3s',
-                    'floatBadge3 4s ease-in-out infinite 0.6s',
-                    'floatBadge4 3.2s ease-in-out infinite 0.9s'
-                  ];
-                  return (
-                    <div
-                      key={idx}
-                      className={`hidden md:flex absolute z-20 ${posMap[badge.position]} bg-[#0c0c0c] border-2 border-[#2a2a2a] rounded-full px-5 py-2.5 items-center gap-2.5 text-white text-[14px] font-bold shadow-[0_8px_32px_rgba(0,0,0,0.6)] whitespace-nowrap cursor-default`}
-                      style={{ animation: floatAnims[idx % 4] }}
-                    >
-                      <IconBadge iconType={badge.icon} />
-                      {badge.text}
-                    </div>
-                  )
-                })}
-              </div>
-
-              {/* Laptop Base */}
-              <div className="relative w-[108%] -ml-[4%] h-6 bg-[#272727] rounded-b-xl border-2 border-[#333] flex justify-center items-start shadow-2xl z-0">
-                <div className="w-28 h-2 bg-[#181818] rounded-b-sm"></div>
-              </div>
-            </div>
 
             {/* Download Brochure — Neon Button */}
-            <div className="mt-12">
+            <div className="mt-16 mb-4">
               <a href={data.event_info.brochure_url} download className="inline-block">
                 <Button
                   variant="default"
@@ -519,8 +235,6 @@ export const DynamicEventPage = () => {
                   Download Brochure
                 </Button>
               </a>
-            </div>
-
           </div>
         </div>
       </section>
@@ -603,8 +317,6 @@ export const DynamicEventPage = () => {
           ))}
         </div>
 
-        {/* "And so much more..." pill — same height as grid cards */}
-        {/* "And so much more..." pill — same height as grid cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3 mb-8">
           <div className="flex items-center gap-3 bg-[#170e05] border border-[#f89b29]/20 rounded-xl px-4 py-3 hover:border-[#f89b29]/40 transition-colors cursor-pointer">
             <div className="w-5 h-5 rounded-[6px] bg-[#f89b29]/20 flex items-center justify-center shrink-0">
@@ -630,7 +342,7 @@ export const DynamicEventPage = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 3.5 — Perks & Benefits
+          SECTION 4 — Perks & Benefits
        ═══════════════════════════════════════════════════════════ */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
         {/* Section Title with accent bar */}
@@ -646,7 +358,6 @@ export const DynamicEventPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {data.perks.items.map((perk, i) => (
             <div key={i} className="flex items-center gap-4 bg-[#0a0a0a] border border-[#222] rounded-xl px-4 py-3.5 hover:border-[#333] transition-colors relative group">
-              {/* Highlight container for icon */}
               <div 
                 className="w-10 h-10 rounded-[10px] flex items-center justify-center shrink-0"
                 style={{ background: `${perk.color}15`, color: perk.color }}
@@ -656,62 +367,6 @@ export const DynamicEventPage = () => {
               <span className="text-[14px] font-medium text-white/80 leading-snug">{perk.text}</span>
             </div>
           ))}
-        </div>
-      </section>
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 4 — Judge
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Judge</h2>
-          </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
-        </div>
-
-        <div className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-8 items-stretch mt-6">
-          {/* Image & Socials */}
-          <div className="w-full md:w-[30%] flex flex-col items-center">
-            <img src="/instructor.jpeg" alt="Akshay Saini" className="w-full aspect-[4/5] object-cover rounded-2xl md:mb-0 mb-6 shadow-[0_0_20px_rgba(0,0,0,0.8)]" />
-          </div>
-          
-          {/* Details Content */}
-          <div className="flex-1 flex flex-col justify-between">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold text-[#2dd4bf] mb-1">Akshay Saini</h3>
-              <p className="text-white/40 text-[14px]">{"// Founder - NamasteDev.com"}</p>
-            </div>
-            
-            <div className="bg-[#111111] border border-[#222] rounded-2xl p-6 md:p-8 mb-6 h-full text-[14.5px] leading-relaxed text-white/60 space-y-4 font-normal shadow-inner">
-              <p>
-                Akshay Saini, founder of NamasteDev.com, who previously worked as a software engineer at Uber & Paytm. Akshay has over 10+ years of experience in the software industry and has been guiding students to become a better software Engineer. Well known for his famous playlist named Namaste JavaScript, he has taught over 20 lakhs+ students across the globe. All the concepts in this course are taught by Akshay himself.
-              </p>
-              <p>
-                Akshay is extremely mindful of the technical queries and obstacles faced by students aspiring towards a career in development. Drawing from his own experiences, he has crafted courses designed to offer a straightforward yet effective problem-solving methodology. As a mentor to over 20 lakh+ students, he has established a tech community that facilitates interaction among professionals across different levels of expertise.
-              </p>
-            </div>
-
-            {/* Stat Cards Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2">
-                <div className="text-[#f89b29] scale-110 mb-1"><IconBadge iconType="users" /></div>
-                <h4 className="text-xl font-black text-[#f89b29]">20L+</h4>
-                <span className="text-[12px] text-white/50">Students Taught</span>
-              </div>
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2">
-                <svg className="w-[1.4rem] h-[1.4rem] text-[#f89b29] mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                <h4 className="text-xl font-black text-[#f89b29]">10+</h4>
-                <span className="text-[12px] text-white/50">Years Experience</span>
-              </div>
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2 text-center">
-                <div className="text-[#f89b29] scale-110 mb-1"><IconBadge iconType="briefcase" /></div>
-                <h4 className="text-xl font-black text-[#f89b29] leading-tight">Uber & Paytm</h4>
-                <span className="text-[12px] text-white/50">Companies Worked At</span>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -766,112 +421,7 @@ export const DynamicEventPage = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 6 — Certificate
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Course Certificate</h2>
-          </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
-        </div>
-
-        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden">
-          {/* Subtle gradient background glow from left */}
-          <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
-          
-          {/* Text Content */}
-          <div className="flex-1 w-full relative z-10 lg:pl-4">
-            {/* Ribbon Badge (Replaces Logo) */}
-            <div className="mb-6">
-              <img 
-                src="/certificate-ribbon-new.png" 
-                alt="Ribbon" 
-                className="w-16 md:w-20 h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]" 
-              />
-            </div>
-            
-            <div className="relative mb-8">
-              <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
-                Official <span className="text-[#f89b29] font-bold">Course</span> Certificate 
-                <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
-              </h3>
-            </div>
-            
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-white/70">
-                <IconBadge iconType="academic" />
-                <span className="text-[14px]">Add this certificate to your Resume!</span>
-              </div>
-              <div className="flex items-center gap-3 text-white/70">
-                <IconBadge iconType="linkedin" />
-                <span className="text-[14px]">Share it with your LinkedIn network 🚀</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Image */}
-          <div className="w-full md:w-[60%] lg:w-[55%] relative z-10 flex justify-end">
-            <div className="relative w-full">
-              <img 
-                src="/namaste_dsa_cert.webp" 
-                alt="Course Certificate" 
-                className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]" 
-              />
-              {/* Ribbon Badge */}
-              <img 
-                src="/certificate-ribbon.png" 
-                alt="Ribbon" 
-                className="absolute -top-6 -left-6 w-32 md:w-40 h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] z-20 pointer-events-none" 
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 7 — Testimonials
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20">
-        <div className="mb-10">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Our Testimonials</h2>
-          </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.testimonials.map((t, idx) => (
-            <div key={idx} className="bg-[#111] border border-[#222] rounded-[1.25rem] p-6 hover:bg-[#151515] transition-colors relative flex flex-col justify-between">
-              
-              {/* Header: Profile, Name/Role, College Logo */}
-              <div className="flex justify-between items-start mb-5 h-14">
-                <div className="flex items-center gap-4">
-                  <img src={t.image} alt={t.name} className="w-14 h-14 rounded-full object-cover border-2 border-[#333]" />
-                  <div className="flex items-center h-full">
-                    <h4 className="font-bold text-white/95 text-[15px]">{t.name}</h4>
-                  </div>
-                </div>
-                
-                {t.college_logo && (
-                  <div className="h-full flex items-center">
-                    <img src={t.college_logo} alt="College Logo" className="h-[26px] object-contain opacity-70" />
-                  </div>
-                )}
-              </div>
-
-              {/* Quote Text */}
-              <p className="text-[14px] text-white/70 leading-[1.6]">{t.quote}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 8 — FAQs
+          SECTION 6 — FAQs
        ═══════════════════════════════════════════════════════════ */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 mb-20">
         <div className="mb-10">

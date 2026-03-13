@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
+import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 
 // ==========================================
 // DYNAMIC EVENT DATA (JSON FORMAT)
@@ -22,7 +23,7 @@ const eventData = {
     ]
   },
   video_preview: {
-    video_src: "/video-clickfest.mp4",
+    video_src: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773379445/WhatsApp_Video_2026-03-12_at_22.14.00_rw3vjk.mp4",
     badges: [
       { position: "top-left", icon: "user", text: "Phone Photography" },
       { position: "top-right", icon: "diamond", text: "Creative Angles" },
@@ -435,10 +436,11 @@ export const ClickFestEventPage = () => {
                 {/* Floating Badges — positioned outside video area to avoid control overlap */}
                 {data.video_preview.badges.map((badge, idx) => {
                   const posMap = {
-                    "top-left": "-top-6 -left-4 lg:-left-12",
-                    "top-right": "-top-6 -right-4 lg:-right-12",
-                    "bottom-left": "-bottom-4 -left-4 lg:-left-12",
-                    "bottom-right": "-bottom-4 -right-4 lg:-right-12"
+                    "top-left": "-top-6 -left-4 lg:-left-10",
+                    "top-right": "-top-6 -right-4 lg:-right-10",
+                    "bottom-left": "-bottom-4 -left-4 lg:-left-10",
+                    "bottom-right": "-bottom-4 -right-4 lg:-right-10",
+                    "top-center": "-top-12 left-1/2 -translate-x-1/2"
                   };
                   const floatAnims = [
                     'floatBadge1 3s ease-in-out infinite',
@@ -497,7 +499,7 @@ export const ClickFestEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 text-left">
           {data.mission.map(m => {
             const isFoundation = m.icon === 'target';
             const themeColor = isFoundation ? '#f89b29' : '#2dd4bf';
@@ -551,7 +553,7 @@ export const ClickFestEventPage = () => {
         </div>
 
         {/* 4-column topic grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
           {data.learnings.items.map((item, i) => (
             <div key={i} className="flex items-center gap-3 bg-[#0a0a0a] rounded-xl px-4 py-3 border border-[#222] hover:border-[#333] transition-colors">
               <div className="w-5 h-5 rounded-[6px] bg-[#f89b29] flex items-center justify-center shrink-0">
@@ -563,8 +565,7 @@ export const ClickFestEventPage = () => {
         </div>
 
         {/* "And so much more..." pill — same height as grid cards */}
-        {/* "And so much more..." pill — same height as grid cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3 mb-8 text-left">
           <div className="flex items-center gap-3 bg-[#170e05] border border-[#f89b29]/20 rounded-xl px-4 py-3 hover:border-[#f89b29]/40 transition-colors cursor-pointer">
             <div className="w-5 h-5 rounded-[6px] bg-[#f89b29]/20 flex items-center justify-center shrink-0">
               <svg className="w-3.5 h-3.5 text-[#f89b29]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 4v16m8-8H4" /></svg>
@@ -575,7 +576,7 @@ export const ClickFestEventPage = () => {
 
         {/* Description card with bullet points */}
         {data.learnings.description && (
-          <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl p-6 md:p-8">
+          <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl p-6 md:p-8 text-left">
             <ul className="space-y-4">
               {data.learnings.description.map((desc, i) => (
                 <li key={i} className="flex items-start gap-3">
@@ -602,7 +603,7 @@ export const ClickFestEventPage = () => {
         </div>
 
         {/* 4-column perk grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
           {data.perks.items.map((perk, i) => (
             <div key={i} className="flex items-center gap-4 bg-[#0a0a0a] border border-[#222] rounded-xl px-4 py-3.5 hover:border-[#333] transition-colors relative group">
               {/* Highlight container for icon */}
@@ -617,6 +618,8 @@ export const ClickFestEventPage = () => {
           ))}
         </div>
       </section>
+
+
       {/* ═══════════════════════════════════════════════════════════
           SECTION 4 — Judge
        ═══════════════════════════════════════════════════════════ */}
@@ -637,7 +640,7 @@ export const ClickFestEventPage = () => {
           </div>
           
           {/* Details Content */}
-          <div className="flex-1 flex flex-col justify-between">
+          <div className="flex-1 flex flex-col justify-between text-left">
             <div className="mb-6">
               <h3 className="text-3xl font-bold text-[#2dd4bf] mb-1">Esteemed Evaluation Committee</h3>
               <p className="text-white/40 text-[14px]">{"// Professors & Domain Experts"}</p>
@@ -694,7 +697,7 @@ export const ClickFestEventPage = () => {
               <img 
                 src={mentor.image} 
                 alt={mentor.name} 
-                className="w-24 h-24 rounded-full object-cover mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
+                className="w-24 h-24 rounded-full object-cover object-top mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
               />
               
               {/* Name & Role */}
@@ -737,7 +740,7 @@ export const ClickFestEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden">
+        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden text-left">
           {/* Subtle gradient background glow from left */}
           <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
           
@@ -775,7 +778,7 @@ export const ClickFestEventPage = () => {
           <div className="w-full md:w-[60%] lg:w-[55%] relative z-10 flex justify-end">
             <div className="relative w-full">
               <img 
-                src="/namaste_dsa_cert.webp" 
+                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773297935/Blue_Modern_Achievement_Certificate_A4_Landscape.jpg_1_ud186o.jpg" 
                 alt="Course Certificate" 
                 className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]" 
               />
@@ -791,39 +794,65 @@ export const ClickFestEventPage = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 7 — Testimonials
+          SECTION 6.5 — Past Clicks
        ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20">
-        <div className="mb-10">
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+        {/* Section Title with accent bar */}
+        <div className="mb-10 text-left">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Our Testimonials</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Past Clicks From Participants</h2>
+          </div>
+          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
+        </div>
+
+        {/* Masonry Layout Grid */}
+        <div className="w-full">
+          <ThreeDPhotoCarousel images={data.gallery || [
+            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.42_nlxwwe.jpg",
+            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264943/WhatsApp_Image_2026-03-11_at_14.32.42_1_axayos.jpg",
+            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.43_mvmfpb.jpg",
+            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.44_1_y8rydq.jpg",
+            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.44_2_siwn9f.jpg",
+            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264941/WhatsApp_Image_2026-03-11_at_14.32.43_2_xlx7id.jpg",
+            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264941/WhatsApp_Image_2026-03-11_at_14.32.44_luet69.jpg",
+            "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.43_1_jctabz.jpg"
+          ]} />
+        </div>
+      </section>
+
+
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 7 — Testimonials
+       ═══════════════════════════════════════════════════════════ */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+        {/* Section Title with accent bar */}
+        <div className="mb-10 text-left">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Words From Participants</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.testimonials.map((t, idx) => (
-            <div key={idx} className="bg-[#111] border border-[#222] rounded-[1.25rem] p-6 hover:bg-[#151515] transition-colors relative flex flex-col justify-between">
+          {data.testimonials.map((t, i) => (
+            <div key={i} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 hover:border-[#333] transition-all group relative overflow-hidden text-left">
+              {/* Quote Mark Decoration */}
+              <div className="absolute -top-4 -right-4 text-[#f89b29]/10 text-8xl font-serif pointer-events-none group-hover:text-[#f89b29]/20 transition-colors">“</div>
               
-              {/* Header: Profile, Name/Role, College Logo */}
-              <div className="flex justify-between items-start mb-5 h-14">
+              <div className="relative z-10">
+                <p className="text-white/70 text-[15px] leading-relaxed mb-8 italic">"{t.quote}"</p>
+                
                 <div className="flex items-center gap-4">
-                  <img src={t.image} alt={t.name} className="w-14 h-14 rounded-full object-cover border-2 border-[#333]" />
-                  <div className="flex items-center h-full">
-                    <h4 className="font-bold text-white/95 text-[15px]">{t.name}</h4>
+                  <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full border-2 border-[#f89b29]/30" />
+                  <div>
+                    <h4 className="text-white font-bold text-[15px]">{t.name}</h4>
+                    <p className="text-white/40 text-[12px] uppercase tracking-widest font-semibold">Attendee</p>
                   </div>
                 </div>
-                
-                {t.college_logo && (
-                  <div className="h-full flex items-center">
-                    <img src={t.college_logo} alt="College Logo" className="h-[26px] object-contain opacity-70" />
-                  </div>
-                )}
               </div>
-
-              {/* Quote Text */}
-              <p className="text-[14px] text-white/70 leading-[1.6]">{t.quote}</p>
             </div>
           ))}
         </div>
@@ -833,7 +862,7 @@ export const ClickFestEventPage = () => {
           SECTION 8 — FAQs
        ═══════════════════════════════════════════════════════════ */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 mb-20">
-        <div className="mb-10">
+        <div className="mb-10 text-left">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
             <h2 className="text-2xl md:text-3xl font-black text-white">Frequently Asked Questions</h2>
@@ -841,11 +870,13 @@ export const ClickFestEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="w-full">
+        <div className="w-full text-left">
           {data.faqs.map(faq => <FaqItem key={faq.id} q={faq.question} a={faq.answer} />)}
         </div>
       </section>
 
     </div>
-  )
+  );
 }
+
+export default ClickFestEventPage;

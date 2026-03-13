@@ -10,16 +10,20 @@ const food1Img = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218168/
 const food2Img = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218154/food2_cyzxhy.png'
 const groupIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/group-icon_vmt5xe.png'
 const homeIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/home-icon_kwn11t.png'
-const figmaDevImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218151/Figma_Developer_cl5rfh.jpg'
+ 
+const frontendDevImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218155/frontend-developer_vestnr.jpg'
 const teamLeaderImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/team-leader_zriohu.jpg'
 const profileImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218168/profile_qkq92t.jpg'
-const frontendDevImg = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773218155/frontend-developer_vestnr.jpg"
+const figmaDevImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218151/Figma_Developer_cl5rfh.jpg'
+const boysAccommodationPaymentLink = 'https://rzp.io/rzp/0zxTDlrf'
+const girlsAccommodationPaymentLink = 'https://rzp.io/rzp/HK7rRf6l'
+
 
 // Inline SVG components
 const User = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
-        <circle cx="12" cy="7" r="4"/>
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
     </svg>
 )
 
@@ -27,7 +31,7 @@ const User = ({ className }) => (
 export function HostelDetails({ type }) {
     const navigate = useNavigate();
     const isBoys = type === 'boys';
-    
+
     // Collapse states -> arrow down means COLLAPSE (false contextually), arrow up means OPEN (true contextually)
     const [teamOpen, setTeamOpen] = useState(true);
     const [vacanciesOpen, setVacanciesOpen] = useState(true);
@@ -41,7 +45,7 @@ export function HostelDetails({ type }) {
     const primaryFill = isBoys ? 'bg-blue-500' : 'bg-[#e91e63]';
     const accentBorderColor = isBoys ? 'rgba(59, 130, 246, 0.4)' : 'rgba(233, 30, 99, 0.4)';
     const accentFillColor = isBoys ? 'rgba(59, 130, 246, 0.2)' : 'rgba(233, 30, 99, 0.2)';
-    
+
     // Glassmorphism containers
     const glassyContainer = "bg-[#111111]/30 backdrop-blur-xl border border-white/10 rounded-2xl";
     const innerGlassyContainer = "bg-[#1a1a2e]/60 border border-white/5 rounded-2xl";
@@ -100,17 +104,17 @@ export function HostelDetails({ type }) {
 
                 <div className="flex items-end justify-center gap-8 h-40 relative z-10 px-2 mt-2 pt-6 border-b border-white/5 mx-6">
                     {/* Ground floor bar starting exactly at bottom */}
-                    <div 
+                    <div
                         className="flex flex-col items-center w-16 h-full justify-end relative group"
                         onMouseEnter={() => setHoveredBar(groundLabel)}
                         onMouseLeave={() => setHoveredBar(null)}
                     >
                         <span className="text-white font-bold text-sm mb-1">{groundValue}</span>
-                        <motion.div 
+                        <motion.div
                             initial={{ height: 0 }}
                             animate={{ height: `${Math.max(10, groundValue)}%` }}
                             transition={{ duration: 1.5, ease: "easeOut" }}
-                            className={cn("w-full rounded-xl relative z-10", primaryFill)} 
+                            className={cn("w-full rounded-xl relative z-10", primaryFill)}
                         />
                         {/* Tooltip */}
                         <AnimatePresence>
@@ -132,19 +136,19 @@ export function HostelDetails({ type }) {
                             )}
                         </AnimatePresence>
                     </div>
-                    
+
                     {/* Top floor bar starting exactly at bottom */}
-                    <div 
+                    <div
                         className="flex flex-col items-center w-16 h-full justify-end relative group"
                         onMouseEnter={() => setHoveredBar(topLabel)}
                         onMouseLeave={() => setHoveredBar(null)}
                     >
                         <span className="text-white font-bold text-sm mb-1">{topValue}</span>
-                        <motion.div 
+                        <motion.div
                             initial={{ height: 0 }}
                             animate={{ height: `${Math.max(10, topValue)}%` }}
                             transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-                            className={cn("w-full rounded-xl relative z-10", primaryFill)} 
+                            className={cn("w-full rounded-xl relative z-10", primaryFill)}
                         />
                         {/* Tooltip */}
                         <AnimatePresence>
@@ -167,7 +171,7 @@ export function HostelDetails({ type }) {
                         </AnimatePresence>
                     </div>
                 </div>
-                
+
                 {/* Labels under the baseline */}
                 <div className="flex justify-center gap-8 z-10 relative pt-3">
                     <div className="flex justify-center w-16">
@@ -188,9 +192,9 @@ export function HostelDetails({ type }) {
     return (
         <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6 relative bg-[#070514] overflow-hidden">
             <div className="max-w-[1200px] mx-auto space-y-12 relative z-10 flex flex-col items-center">
-                
+
                 {/* Header Sub Nav */}
-                <button 
+                <button
                     onClick={() => navigate('/accommodation')}
                     className="flex items-center text-zinc-400 hover:text-white transition-colors self-start"
                 >
@@ -200,7 +204,7 @@ export function HostelDetails({ type }) {
 
                 {/* Page Title with Typewriter */}
                 <div className="relative text-center w-full">
-                    <Typewriter 
+                    <Typewriter
                         text={`DETAILS ABOUT ${isBoys ? 'BOYS' : 'GIRLS'} HOSTEL`}
                         speed={70}
                         className="text-3xl md:text-5xl font-extrabold text-white uppercase tracking-wider relative z-10 inline-block"
@@ -208,24 +212,24 @@ export function HostelDetails({ type }) {
                 </div>
 
                 <div className="mt-8 w-full">
-                    
+
                     {/* MAIN CONTENT SPLIT */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-                        
+
                         {/* LEFT COLUMN: FOOD + ROADMAP */}
                         <div className="lg:col-span-6 space-y-12">
                             {/* FOOD */}
                             <section>
                                 <Title>FOOD</Title>
-                                
+
                                 <div className="space-y-8 pl-4 sm:pl-8"> {/* Moved to the right */}
                                     {/* Day 1 Container */}
-                                    <BlurIn 
+                                    <BlurIn
                                         word={
                                             <div className="text-left w-full">
                                                 <h4 className="text-white font-bold mb-3 text-lg">Day - 1</h4>
                                                 <div className="bg-white rounded-xl overflow-hidden shadow-xl">
-                                                    <FoodMatchCard 
+                                                    <FoodMatchCard
                                                         day="Day 1"
                                                         time="Morning"
                                                         meal="Breakfast Menu"
@@ -233,7 +237,7 @@ export function HostelDetails({ type }) {
                                                         imgUrl={food1Img}
                                                         addBorderBottom={true}
                                                     />
-                                                    <FoodMatchCard 
+                                                    <FoodMatchCard
                                                         day="Day 1"
                                                         time="Evening"
                                                         meal="Dinner Menu"
@@ -247,14 +251,14 @@ export function HostelDetails({ type }) {
                                         duration={1.2}
                                         className="!text-left w-full block tracking-normal drop-shadow-none md:text-base md:leading-normal font-sans"
                                     />
-                                    
+
                                     {/* Day 2 Container */}
-                                    <BlurIn 
+                                    <BlurIn
                                         word={
                                             <div className="text-left w-full mt-8">
                                                 <h4 className="text-white font-bold mb-3 text-lg">Day - 2</h4>
                                                 <div className="bg-white rounded-xl overflow-hidden shadow-xl">
-                                                    <FoodMatchCard 
+                                                    <FoodMatchCard
                                                         day="Day 2"
                                                         time="Morning"
                                                         meal="Breakfast Menu"
@@ -262,7 +266,7 @@ export function HostelDetails({ type }) {
                                                         imgUrl={food1Img}
                                                         addBorderBottom={true}
                                                     />
-                                                    <FoodMatchCard 
+                                                    <FoodMatchCard
                                                         day="Day 2"
                                                         time="Evening"
                                                         meal="Dinner Menu"
@@ -285,29 +289,25 @@ export function HostelDetails({ type }) {
                                 <div className="grid grid-cols-1 gap-6">
                                     <div className="w-full">
                                         <div className="flex items-center gap-2 mb-2 text-white/50 text-sm">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                                            {isBoys ? 'Viswakarma Boys Hostel, SVU' : 'Premises 2, SVU'}
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                                            Viswakarma Block
                                         </div>
-                                        <LocationMap 
-                                            location={isBoys ? 'Viswakarma Boys Hostel, SVU' : 'Premises 2, SVU'} 
-                                            coordinates="Sri Venkateswara University, Tirupati"
-                                            color={isBoys ? "blue" : "pink"} 
-                                            embedQuery={isBoys ? 'Viswakarma Boys Hostel Sri Venkateswara University Tirupati' : 'Premises 2 Sri Venkateswara University Tirupati'}
-                                            openHref={isBoys ? 'https://maps.app.goo.gl/PeJWAqynshGe6mbQ7' : 'https://maps.app.goo.gl/kJRytMcXkf3ABiDq8'}
+                                        <LocationMap
+                                            location="Lat: 17.545°N, Lng: 78.572°E"
+                                            coordinates=""
+                                            color={isBoys ? "blue" : "pink"}
                                             className="h-full min-h-[160px]"
                                         />
                                     </div>
                                     <div className="w-full mt-4">
                                         <div className="flex items-center gap-2 mb-2 text-white/50 text-sm">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                                            {isBoys ? 'G Block Hostel, SVU' : 'Padmavathi Hostel, SVU'}
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                                            G Block (Based on Allotment)
                                         </div>
-                                        <LocationMap 
-                                            location={isBoys ? 'G Block Hostel, SVU' : 'Padmavathi Hostel, SVU'} 
-                                            coordinates="Sri Venkateswara University, Tirupati"
-                                            color={isBoys ? "blue" : "pink"} 
-                                            embedQuery={isBoys ? 'G Block Hostel Sri Venkateswara University Tirupati' : 'Padmavathi Hostel Sri Venkateswara University Tirupati'}
-                                            openHref={isBoys ? 'https://maps.app.goo.gl/MXBSKRWhyZf43U1K7' : 'https://maps.app.goo.gl/ULfqEWJgCRF2AByJ7'}
+                                        <LocationMap
+                                            location="Lat: 17.546°N, Lng: 78.573°E"
+                                            coordinates=""
+                                            color={isBoys ? "blue" : "pink"}
                                             className="h-full min-h-[160px]"
                                         />
                                     </div>
@@ -317,7 +317,7 @@ export function HostelDetails({ type }) {
 
                         {/* RIGHT COLUMN: ROOMS (VACANCIES) & TEAM & BUTTON */}
                         <div className="lg:col-span-6 space-y-12">
-                            
+
                             {/* ROOOMS / VACANCIES */}
                             <section>
                                 <Title>VACANCIES</Title>
@@ -327,7 +327,7 @@ export function HostelDetails({ type }) {
                                             <img src={homeIcon} className="w-5 h-5 invert" alt="Rooms" />
                                             Rooms
                                         </h4>
-                                        <div 
+                                        <div
                                             className="cursor-pointer w-8 h-8 flex items-center justify-center bg-white/5 hover:bg-white/10 border border-white/5 rounded-md transition-colors"
                                             onClick={() => setVacanciesOpen(!vacanciesOpen)}
                                         >
@@ -339,53 +339,22 @@ export function HostelDetails({ type }) {
                                     </div>
 
                                     <div className={cn("flex flex-row flex-wrap justify-center gap-4 transition-all duration-300", vacanciesOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0 overflow-hidden")}>
-                                        {isBoys ? (
-                                            <>
-                                                <div className="flex-1 min-w-[150px]">
-                                                    <VacancyChart 
-                                                        title="Viswa Block"
-                                                        groundValue={30}
-                                                        topValue={25}
-                                                    />
-                                                    <h5 className="text-center text-white mt-4 font-bold tracking-wide">Viswa Block</h5>
-                                                </div>
-                                                <div className="flex-1 min-w-[150px]">
-                                                    <VacancyChart 
-                                                        title="G Block"
-                                                        groundValue={30}
-                                                        topValue={35}
-                                                    />
-                                                    <h5 className="text-center text-white mt-4 font-bold tracking-wide">G Block</h5>
-                                                </div>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <div className="flex-1 min-w-[150px]">
-                                                    <VacancyChart
-                                                        title="Premises 2"
-                                                        groundValue={20}
-                                                        topValue={25}
-                                                        groundLabel="1ST FLR"
-                                                        topLabel="2ND FLR"
-                                                    />
-                                                    <h5 className="text-center text-white mt-4 font-bold tracking-wide">
-                                                        Premises 2
-                                                    </h5>
-                                                </div>
-                                                <div className="flex-1 min-w-[150px]">
-                                                    <VacancyChart
-                                                        title="Padmavathi Hostel"
-                                                        groundValue={35}
-                                                        topValue={25}
-                                                        groundLabel="1ST FLR"
-                                                        topLabel="2ND FLR"
-                                                    />
-                                                    <h5 className="text-center text-white mt-4 font-bold tracking-wide">
-                                                        Padmavathi Hostel
-                                                    </h5>
-                                                </div>
-                                            </>
-                                        )}
+                                        <div className="flex-1 min-w-[150px]">
+                                            <VacancyChart
+                                                title="Viswa Block"
+                                                groundValue={88}
+                                                topValue={76}
+                                            />
+                                            <h5 className="text-center text-white mt-4 font-bold tracking-wide">Viswa Block</h5>
+                                        </div>
+                                        <div className="flex-1 min-w-[150px]">
+                                            <VacancyChart
+                                                title="G Block"
+                                                groundValue={72}
+                                                topValue={67}
+                                            />
+                                            <h5 className="text-center text-white mt-4 font-bold tracking-wide">G Block</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </section>
@@ -399,7 +368,7 @@ export function HostelDetails({ type }) {
                                             <img src={groupIcon} alt="Team" className="w-6 h-6 invert" />
                                             Accommodation Team
                                         </h4>
-                                        <div 
+                                        <div
                                             className="cursor-pointer w-8 h-8 flex items-center justify-center bg-white/5 hover:bg-white/10 border border-white/5 rounded-md transition-colors"
                                             onClick={() => setTeamOpen(!teamOpen)}
                                         >
@@ -408,7 +377,7 @@ export function HostelDetails({ type }) {
                                             </span>
                                         </div>
                                     </div>
-                                    
+
                                     <div className={cn("space-y-0 text-left transition-all duration-300 overflow-hidden", teamOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0")}>
                                         {(
                                             isBoys
@@ -465,23 +434,24 @@ export function HostelDetails({ type }) {
                                     </div>
                                 </div>
                             </section>
-                            
+
                             {/* BOOK NOW NEON BUTTON */}
                             <section className="flex justify-center pt-8">
-                                <Button 
-                                    neon={true} 
-                                    variant="solid" 
-                                    size="lg" 
+                                <Button
+                                    neon={true}
+                                    variant="solid"
+                                    size="lg"
                                     className={cn(
                                         "rounded-full px-12 py-3 hover:scale-105 transition-all text-white text-xl font-bold uppercase tracking-widest",
                                         isBoys ? "bg-blue-600 hover:bg-blue-500 shadow-[0_0_20px_rgba(37,99,235,0.5)]" : "bg-[#e91e63] hover:bg-[#c2185b] shadow-[0_0_20px_rgba(233,30,99,0.5)]"
                                     )}
                                     onClick={() => {
-                                        window.open(
-                                            isBoys ? 'https://rzp.io/rzp/0zxTDlrf' : 'https://rzp.io/rzp/HK7rRf6l',
-                                            '_blank',
-                                            'noopener,noreferrer'
-                                        )
+                                        if (isBoys) {
+                                            window.open(boysAccommodationPaymentLink, '_blank', 'noopener,noreferrer');
+                                            return;
+                                        }
+
+                                        window.open(girlsAccommodationPaymentLink, '_blank', 'noopener,noreferrer');
                                     }}
                                 >
                                     Book Now

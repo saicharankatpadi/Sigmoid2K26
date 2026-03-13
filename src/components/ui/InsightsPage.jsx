@@ -4,17 +4,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Dummy knowledge base
 const INSIGHTS_DATA = {
-    'innovista': "Innovista is our technical event focused on groundbreaking projects and DIY creations. Present working models emphasizing Electronics, Sensors, and Software implementation. Are you looking for the registration form?",
-    'click fest': "Click Fest is a non-technical photography competition. Only smartphones are allowed! Capture stunning images showcasing technical skills and unique perspectives.",
-    'clickfest': "Click Fest is a non-technical photography competition. Only smartphones are allowed! Capture stunning images showcasing technical skills and unique perspectives.",
+    'avishkar': "Avishkar is our technical event focused on groundbreaking projects and DIY creations. Present working models emphasizing Electronics, Sensors, and Software implementation.",
+    'circuitrix': "Circuitrix is a 2-level electronics challenge (Quiz + Hands-on Build). It covers subjects like Analog, Digital, Network Theory, and Electronic Devices. Teams of 3 are allotted randomly to build circuit models.",
+    'codex': "Codex is the premier coding competition of Sigmoid 2K26. It features 2 rounds: an MCQ-based screening and a hands-on algorithmic coding challenge. Individual participation only!",
+    'quizmania': "Quizmania is a high-energy technical and general quiz event. It features preliminary screenings, buzzer rounds, and a rapid-fire finale to test your technical depth and speed.",
     'passes': "We offer various passes for Sigmoid 2K26 including Day Passes, All-Access Passes, and VIP Passes. You can purchase them on our main registration portal. A basic day pass starts at ₹500.",
-    'registration': "Registration for technical events is separate from non-technical ones. Head to the specific event page (like Innovista or Guess Busters) to find the individual registration links.",
+    'registration': "Registration for technical events is separate from non-technical ones. Head to the specific event page (like Avishkar or Guess Busters) to find the individual registration links.",
     'cost': "Event costs vary. Most technical events require a base registration fee of ₹200-₹500 per team. E-sports like Free Fire and BGMI have a team entry fee of ₹300. Check individual event pages for exact details.",
-    'default': "I'm still learning about Sigmoid 2K26! I can tell you about specific events like Innovista, Click Fest, or general info about passes and registration."
+    'default': "I'm still learning about Sigmoid 2K26! I can tell you about specific events like Avishkar, Click Fest, or general info about passes and registration."
 };
 
 const PREDEFINED_QUESTIONS = [
-    { id: 1, text: "What is Innovista about?", key: "innovista", icon: "💡" },
+    { id: 1, text: "What is Avishkar about?", key: "avishkar", icon: "💡" },
+    { id: 6, text: "Tell me about Circuitrix rounds", key: "circuitrix", icon: "⚡" },
     { id: 2, text: "How much do the passes cost?", key: "cost", icon: "🎫" },
     { id: 3, text: "Tell me about Click Fest rules", key: "click fest", icon: "📸" },
     { id: 4, text: "How do I register for events?", key: "registration", icon: "📝" },
@@ -82,18 +84,18 @@ export const InsightsPage = () => {
                     border-radius: 10px;
                 }
             `}</style>
-        <div className="fixed inset-0 bg-[#0A0A0A] z-[100] flex flex-col font-sans h-[100dvh] w-screen overflow-hidden">
+        <div className="fixed inset-0 bg-[#1A1A1A] z-[100] flex flex-col font-sans h-[100dvh] w-screen overflow-hidden">
             {/* Background Watermark Logo - Reversed */}
-            <div className="absolute inset-0 pointer-events-none flex items-center justify-center -z-10 opacity-[0.03]">
-                 <img src="/sigmoid-logo.png" alt="" className="w-1/2 max-w-[500px] object-contain" />
+            <div className="absolute inset-0 pointer-events-none flex items-center justify-center -z-10">
+                 <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" alt="" className="h-[60vh] max-h-[600px] w-auto object-contain opacity-20" />
             </div>
 
             {/* Chat Header - Only visible when messages exist */}
             {messages.length > 0 && (
-                <div className="flex items-center justify-between p-6 border-b border-white/5 relative z-10 bg-[#0A0A0A]">
+                <div className="flex items-center justify-between p-6 border-b border-white/5 relative z-10 bg-[#1A1A1A]">
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-[#E10098] p-1.5 flex items-center justify-center shrink-0">
-                            <img src="/sigmoid-logo.png" alt="Logo" className="w-full h-full object-contain rotate-12" />
+                        <div className="w-12 h-12 rounded-full bg-[#3A3A3A] p-1.5 flex items-center justify-center shrink-0">
+                            <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" alt="Logo" className="w-full h-full object-contain" />
                         </div>
                         <div className="flex items-center gap-3">
                             <h1 className="text-[22px] font-bold text-white tracking-tight">
@@ -135,8 +137,8 @@ export const InsightsPage = () => {
                     // Initial State
                     <div className="flex flex-col mb-auto">
                         <div className="flex items-center gap-4 mb-4">
-                            <div className="w-16 h-16 rounded-full bg-[#E10098] p-2 flex items-center justify-center shrink-0">
-                                <img src="/sigmoid-logo.png" alt="Logo" className="w-full h-full object-contain rotate-12" />
+                            <div className="w-16 h-16 rounded-full bg-[#3A3A3A] p-2 flex items-center justify-center shrink-0">
+                                <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" alt="Logo" className="w-full h-full object-contain" />
                             </div>
                             <div className="flex flex-col justify-center">
                                 <div className="flex items-end gap-3">
@@ -154,7 +156,8 @@ export const InsightsPage = () => {
                             Your go-to guide for SIGMOID 2K26 Campaign.
                         </h2>
                         
-                        <div className="flex flex-col gap-3">
+                        
+                        <div className="flex flex-col gap-3 mb-16">
                             {PREDEFINED_QUESTIONS.map(q => (
                                 <button
                                     key={q.id}
@@ -188,7 +191,7 @@ export const InsightsPage = () => {
                                 ) : (
                                     <div className="flex items-start gap-3 md:gap-4 w-full max-w-[95%]">
                                         <div className="w-8 h-8 flex items-center justify-center shrink-0 mt-0.5">
-                                           <img src="/sigmoid-logo.png" alt="Logo" className="w-full h-full object-contain rotate-12" />
+                                           <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" alt="Logo" className="w-full h-full object-contain" />
                                         </div>
                                         <div className="text-white/90 text-[15.5px] leading-relaxed flex-1 pt-0.5">
                                             {msg.text.split('\n').map((line, i) => (
@@ -209,7 +212,7 @@ export const InsightsPage = () => {
                                 className="flex items-start gap-3 md:gap-4 self-start w-full"
                             >
                                 <div className="w-8 h-8 flex items-center justify-center shrink-0 mt-0.5 opacity-60">
-                                   <img src="/sigmoid-logo.png" alt="Logo" className="w-full h-full object-contain animate-pulse rotate-12" />
+                                   <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" alt="Logo" className="w-full h-full object-contain animate-pulse" />
                                 </div>
                                 <div className="text-white/50 text-sm font-medium pt-1.5 animate-pulse">
                                     Thinking...
@@ -222,7 +225,7 @@ export const InsightsPage = () => {
             </div>
 
             {/* Input Area */}
-            <div className="w-full max-w-3xl mx-auto px-6 pb-6 relative z-10">
+            <div className="w-full max-w-3xl mx-auto px-6 pb-[50px] relative z-10 bg-transparent pt-4">
                 <div className="relative flex items-center shadow-lg">
                     <input
                         type="text"
