@@ -10,6 +10,7 @@ const food1Img = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218168/
 const food2Img = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218154/food2_cyzxhy.png'
 const groupIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/group-icon_vmt5xe.png'
 const homeIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/home-icon_kwn11t.png'
+ 
 const frontendDevImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218155/frontend-developer_vestnr.jpg'
 const teamLeaderImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/team-leader_zriohu.jpg'
 const profileImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218168/profile_qkq92t.jpg'
@@ -76,7 +77,13 @@ export function HostelDetails({ type }) {
     );
 
     // Exact match for the bar chart image provided, with animations and tooltips
-    const VacancyChart = ({ groundValue, topValue, title }) => {
+    const VacancyChart = ({
+        groundValue,
+        topValue,
+        title,
+        groundLabel = '1ST FLR',
+        topLabel = '2ND FLR',
+    }) => {
         const [hoveredBar, setHoveredBar] = useState(null);
 
         return (
@@ -99,7 +106,7 @@ export function HostelDetails({ type }) {
                     {/* Ground floor bar starting exactly at bottom */}
                     <div
                         className="flex flex-col items-center w-16 h-full justify-end relative group"
-                        onMouseEnter={() => setHoveredBar(`Ground Floor`)}
+                        onMouseEnter={() => setHoveredBar(groundLabel)}
                         onMouseLeave={() => setHoveredBar(null)}
                     >
                         <span className="text-white font-bold text-sm mb-1">{groundValue}</span>
@@ -111,7 +118,7 @@ export function HostelDetails({ type }) {
                         />
                         {/* Tooltip */}
                         <AnimatePresence>
-                            {hoveredBar === 'Ground Floor' && (
+                            {hoveredBar === groundLabel && (
                                 <motion.div
                                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -122,7 +129,7 @@ export function HostelDetails({ type }) {
                                     <div className="text-white font-bold text-sm mb-1">{title}</div>
                                     <div className="flex items-center gap-2">
                                         <div className={cn("w-3 h-3 rounded-sm", primaryFill)}></div>
-                                        <span className="text-white/80 text-xs">Ground Floor: {groundValue}</span>
+                                        <span className="text-white/80 text-xs">{groundLabel}: {groundValue}</span>
                                     </div>
                                     <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#0d112b] rotate-45 border-b border-r" style={{ borderColor: accentBorderColor }}></div>
                                 </motion.div>
@@ -133,7 +140,7 @@ export function HostelDetails({ type }) {
                     {/* Top floor bar starting exactly at bottom */}
                     <div
                         className="flex flex-col items-center w-16 h-full justify-end relative group"
-                        onMouseEnter={() => setHoveredBar(`First Floor`)}
+                        onMouseEnter={() => setHoveredBar(topLabel)}
                         onMouseLeave={() => setHoveredBar(null)}
                     >
                         <span className="text-white font-bold text-sm mb-1">{topValue}</span>
@@ -145,7 +152,7 @@ export function HostelDetails({ type }) {
                         />
                         {/* Tooltip */}
                         <AnimatePresence>
-                            {hoveredBar === 'First Floor' && (
+                            {hoveredBar === topLabel && (
                                 <motion.div
                                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -156,7 +163,7 @@ export function HostelDetails({ type }) {
                                     <div className="text-white font-bold text-sm mb-1">{title}</div>
                                     <div className="flex items-center gap-2">
                                         <div className={cn("w-3 h-3 rounded-sm", primaryFill)}></div>
-                                        <span className="text-white/80 text-xs">First Floor: {topValue}</span>
+                                        <span className="text-white/80 text-xs">{topLabel}: {topValue}</span>
                                     </div>
                                     <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#0d112b] rotate-45 border-b border-r" style={{ borderColor: accentBorderColor }}></div>
                                 </motion.div>
@@ -169,12 +176,12 @@ export function HostelDetails({ type }) {
                 <div className="flex justify-center gap-8 z-10 relative pt-3">
                     <div className="flex justify-center w-16">
                         <div className="flex items-center justify-center h-5 rounded px-2 bg-white text-[10px] text-gray-900 font-bold uppercase shadow">
-                            GROUND
+                            {groundLabel}
                         </div>
                     </div>
                     <div className="flex justify-center w-16">
                         <div className="flex items-center justify-center h-5 rounded px-2 bg-white text-[10px] text-gray-900 font-bold uppercase shadow">
-                            1ST FLR
+                            {topLabel}
                         </div>
                     </div>
                 </div>
@@ -372,16 +379,41 @@ export function HostelDetails({ type }) {
                                     </div>
 
                                     <div className={cn("space-y-0 text-left transition-all duration-300 overflow-hidden", teamOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0")}>
-                                        {[
-                                            { name: 'K. Saicharan', role: 'Head', subtitle: 'B.Tech Final Year (ECE)', img: teamLeaderImg },
-                                            { name: 'M. Balakrishna', role: 'Guide', subtitle: 'B.Tech Final Year (ECE)', img: frontendDevImg },
-                                            { name: 'Aakash Varma', role: 'Lead', subtitle: 'B.Tech 3rd Year (CSE)', img: profileImg },
-                                            { name: 'Rohit Sharma', role: 'Support', subtitle: 'B.Tech 3rd Year (IT)', img: figmaDevImg }
-                                        ].map((member, i) => (
+                                        {(
+                                            isBoys
+                                                ? [
+                                                    {
+                                                        name: 'Praveen',
+                                                        role: 'Support Team',
+                                                        subtitle: 'Accommodation Coordination',
+                                                        img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773343773/WhatsApp_Image_2026-03-12_at_08.42.47_jeuflk.jpg'
+                                                    },
+                                                    {
+                                                        name: 'Bhanu',
+                                                        role: 'Support Team',
+                                                        subtitle: 'Accommodation Coordination',
+                                                        img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773291270/WhatsApp_Image_2026-03-11_at_10.55.17_1_tzggkr.jpg'
+                                                    }
+                                                ]
+                                                : [
+                                                    {
+                                                        name: 'Tejaswini',
+                                                        role: 'Support Team',
+                                                        subtitle: 'Girls Accommodation Coordination',
+                                                        img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773342985/WhatsApp_Image_2026-03-12_at_12.15.25_cvzwzh.jpg'
+                                                    },
+                                                    {
+                                                        name: 'Sadvika',
+                                                        role: 'Support Team',
+                                                        subtitle: 'Girls Accommodation Coordination',
+                                                        img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773299498/WhatsApp_Image_2026-03-11_at_23.49.15_agi7zm.jpg'
+                                                    }
+                                                ]
+                                        ).map((member, i) => (
                                             <div key={i} className="flex items-center gap-5 py-4 border-b border-white/10 last:border-0 relative">
                                                 <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0 overflow-hidden border border-white/20">
                                                     {member.img ? (
-                                                        <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                                                        <img src={member.img} alt="Accommodation Team" className="w-full h-full object-cover" />
                                                     ) : (
                                                         <User className="w-6 h-6 text-[#ccc]" />
                                                     )}
