@@ -247,7 +247,7 @@ export default function Navbar() {
                                     <path d={menuOpen ? "M18 6L6 18" : "M4 7h16"} className="transition-all duration-300" />
                                     <path d={menuOpen ? "M6 6l12 12" : "M4 12h16"} className="transition-all duration-300"
                                         style={{ opacity: menuOpen ? 0 : 1, transition: 'opacity 0.2s' }} />
-                                    <path d={menuOpen ? "" : "M4 17h16"} className="transition-all duration-300" />
+                                    <path d={menuOpen ? "M6 6L18 18" : "M4 17h16"} className="transition-all duration-300" />
                                 </svg>
                             </button>
                         </div>

@@ -22,7 +22,7 @@ export default function Footer() {
                     <nav className="flex flex-wrap items-center justify-center gap-1 text-[13px] font-sans">
                         <Link to="/aboutus" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">About Us</Link>
                         <span className="text-white/15">|</span>
-                        <a href="#" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">Contact us</a>
+                        <Link to="/contact" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">Contact us</Link>
                         <span className="text-white/15">|</span>
                         <Link to="/register" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">Pricing</Link>
                     </nav>

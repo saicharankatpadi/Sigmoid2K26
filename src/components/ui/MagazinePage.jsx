@@ -11,7 +11,7 @@ const Page = React.forwardRef((props, ref) => {
         <img
           src={props.image}
           alt={`Page ${props.number}`}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{ width: '100%', height: '100%', objectFit: 'fill' }}
         />
       </div>
     </div>

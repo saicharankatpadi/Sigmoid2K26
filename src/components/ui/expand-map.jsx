@@ -1,15 +1,18 @@
 "use client"
 
-import React, { useState, useRef } from "react"
-import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion"
+import React, { useRef, useState } from "react"
+import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 
 export function LocationMap({
   location = "San Francisco, CA",
-  coordinates = "37.7749° N, 122.4194° W",
+  coordinates = "",
   className,
   color = "emerald",
   embedUrl,
-  openHref
+  openHref,
+  embedQuery,
+
+
 }) {
   const [isHovered, setIsHovered] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
@@ -39,6 +42,7 @@ export function LocationMap({
     setIsHovered(false)
   }
 
+
   const handleClick = () => {
     if (openHref) {
       window.open(openHref, '_blank', 'noopener,noreferrer');
@@ -46,37 +50,39 @@ export function LocationMap({
     }
     setIsExpanded(!isExpanded)
   }
+  const resolvedQuery = embedQuery || location
+  const embedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(resolvedQuery)}&z=17&output=embed`
+  const mapsHref =
+    openHref || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(resolvedQuery)}`
 
-  // Use dynamic colors based on props for the map details
+
   const colorMap = {
     blue: { base: "#3b82f6", rgb: "59, 130, 246", tailwind: "text-blue-400" },
     pink: { base: "#ec4899", rgb: "236, 72, 153", tailwind: "text-pink-400" },
-    emerald: { base: "#34D399", rgb: "52, 211, 153", tailwind: "text-emerald-400" }
-  };
-  
-  const activeColor = colorMap[color] || colorMap.emerald;
+    emerald: { base: "#34D399", rgb: "52, 211, 153", tailwind: "text-emerald-400" },
+  }
+
+  const activeColor = colorMap[color] || colorMap.emerald
 
   return (
     <motion.div
       ref={containerRef}
       className={`relative cursor-pointer select-none ${className}`}
-      style={{
-        perspective: 1000,
-      }}
+      style={{ perspective: 1000 }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
+      onClick={() => setIsExpanded((value) => !value)}
     >
       <motion.div
-        className="relative overflow-hidden rounded-2xl bg-[#111] border border-white/10"
+        className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#111]"
         style={{
           rotateX: springRotateX,
           rotateY: springRotateY,
           transformStyle: "preserve-3d",
         }}
         animate={{
-          width: isExpanded ? "100%" : "100%",
+          width: "100%",
           height: isExpanded ? 280 : 140,
         }}
         transition={{
@@ -85,18 +91,27 @@ export function LocationMap({
           damping: 35,
         }}
       >
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/10" />
+        <iframe
+          title={`${location} map`}
+          src={embedSrc}
+          className="absolute inset-0 h-full w-full border-0"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/90 via-[#050505]/25 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/30" />
 
         <AnimatePresence>
           {isExpanded && (
             <motion.div
-              className="absolute inset-0 pointer-events-none"
+              className="pointer-events-none absolute inset-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
+              transition={{ duration: 0.25 }}
             >
+
               <div className="absolute inset-0 bg-[#0a0a0a]" />
 
               <svg className="absolute inset-0 w-full h-full opacity-30" preserveAspectRatio="none">
@@ -181,17 +196,17 @@ export function LocationMap({
 
               {/* Buildings / Layout */}
               {embedUrl ? (
-                <motion.div 
+                <motion.div
                   className="absolute inset-x-2 top-2 bottom-12 rounded-xl overflow-hidden bg-black/50 border border-white/10"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <iframe 
+                  <iframe
                     src={embedUrl}
                     className="w-full h-full border-0 grayscale-[0.2] contrast-[1.1] opacity-80 rounded-xl"
-                    allowFullScreen="" 
-                    loading="lazy" 
+                    allowFullScreen=""
+                    loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Location Map"
                   />
@@ -247,79 +262,54 @@ export function LocationMap({
           )}
         </AnimatePresence>
 
-        {/* Grid pattern - only show when collapsed */}
-        <motion.div
-          className="absolute inset-0 opacity-10"
-          animate={{ opacity: isExpanded ? 0 : 0.1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <svg width="100%" height="100%" className="absolute inset-0">
-            <defs>
-              <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                <path d="M 20 0 L 0 0 0 20" fill="none" className="stroke-white" strokeWidth="0.5" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
-        </motion.div>
-
-        {/* Content */}
-        <div className="relative z-10 h-full flex flex-col justify-between p-5 w-full">
-          {/* Top section */}
-          <div className="flex items-start justify-between w-full">
-            <div className="relative">
-              <motion.div
-                className="relative"
+        <div className="relative z-10 flex h-full w-full flex-col justify-between p-5">
+          <div className="flex items-start justify-between">
+            <motion.div
+              animate={{
+                opacity: isExpanded ? 0 : 1,
+              }}
+              transition={{ duration: 0.2 }}
+            >
+              <motion.svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={activeColor.tailwind}
                 animate={{
-                  opacity: isExpanded ? 0 : 1,
+                  filter: isHovered
+                    ? `drop-shadow(0 0 8px rgba(${activeColor.rgb}, 0.6))`
+                    : `drop-shadow(0 0 4px rgba(${activeColor.rgb}, 0.3))`,
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <motion.svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className={activeColor.tailwind}
-                  animate={{
-                    filter: isHovered
-                      ? `drop-shadow(0 0 8px rgba(${activeColor.rgb}, 0.6))`
-                      : `drop-shadow(0 0 4px rgba(${activeColor.rgb}, 0.3))`,
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
-                  <line x1="9" x2="9" y1="3" y2="18" />
-                  <line x1="15" x2="15" y1="6" y2="21" />
-                </motion.svg>
-              </motion.div>
-            </div>
+                <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
+                <line x1="9" x2="9" y1="3" y2="18" />
+                <line x1="15" x2="15" y1="6" y2="21" />
+              </motion.svg>
+            </motion.div>
 
-            {/* Status indicator */}
             <motion.div
-              className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-white/5 backdrop-blur-sm border border-white/10"
+              className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2 py-1 backdrop-blur-sm"
               animate={{
                 scale: isHovered ? 1.05 : 1,
                 backgroundColor: isHovered ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.05)",
               }}
               transition={{ duration: 0.2 }}
             >
-              <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: activeColor.base }} />
-              <span className="text-[10px] font-medium text-white/70 tracking-wide uppercase">Live</span>
+              <div className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: activeColor.base }} />
+              <span className="text-[10px] font-medium uppercase tracking-wide text-white/70">Live</span>
             </motion.div>
           </div>
 
-          {/* Bottom section */}
-          <div className="space-y-1 w-full relative z-20">
+          <div className="relative z-20 space-y-1">
             <motion.h3
-              className="text-white font-semibold text-lg tracking-tight"
-              animate={{
-                x: isHovered ? 4 : 0,
-              }}
+              className="text-lg font-semibold tracking-tight text-white"
+              animate={{ x: isHovered ? 4 : 0 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
               {location}
@@ -327,23 +317,33 @@ export function LocationMap({
 
             <AnimatePresence>
               {isExpanded && (
-                <motion.p
-                  className="text-white/60 text-xs font-mono"
+                <motion.div
                   initial={{ opacity: 0, y: -10, height: 0 }}
                   animate={{ opacity: 1, y: 0, height: "auto" }}
                   exit={{ opacity: 0, y: -10, height: 0 }}
                   transition={{ duration: 0.25 }}
+                  className="space-y-2"
                 >
-                  {coordinates}
-                </motion.p>
+                  {coordinates ? (
+                    <p className="text-xs font-mono text-white/60">{coordinates}</p>
+                  ) : null}
+                  <a
+                    href={mapsHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85 transition hover:border-white/25 hover:bg-black/50"
+                  >
+                    Open in Google Maps
+                  </a>
+                </motion.div>
               )}
             </AnimatePresence>
 
-            {/* Animated underline */}
             <motion.div
-              className="h-px w-full origin-left mt-2"
+              className="mt-2 h-px w-full origin-left"
               style={{
-                background: `linear-gradient(to right, rgba(${activeColor.rgb}, 0.5), rgba(${activeColor.rgb}, 0.1), transparent)`
+                background: `linear-gradient(to right, rgba(${activeColor.rgb}, 0.5), rgba(${activeColor.rgb}, 0.1), transparent)`,
               }}
               initial={{ scaleX: 0 }}
               animate={{
@@ -353,12 +353,10 @@ export function LocationMap({
             />
           </div>
         </div>
-
       </motion.div>
 
-      {/* Click hint */}
       <motion.p
-        className="absolute -bottom-6 left-1/2 text-[10px] text-white/40 whitespace-nowrap pointer-events-none"
+        className="pointer-events-none absolute -bottom-6 left-1/2 whitespace-nowrap text-[10px] text-white/40"
         style={{ x: "-50%" }}
         initial={{ opacity: 0 }}
         animate={{

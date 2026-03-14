@@ -40,8 +40,11 @@ import { PassportPage } from './components/ui/PassportPage.jsx'
 import { InsightsFAB } from './components/ui/InsightsFAB.jsx'
 import { InsightsPage } from './components/ui/InsightsPage.jsx'
 import { RegisterPage } from './components/ui/Registraion.jsx'
+
 import { MagazinePage } from './components/ui/MagazinePage.jsx'
 import ScrollToTop from './components/ScrollToTop'
+import { ContactPage } from './components/ui/contact-page.jsx'
+
 
 
 /* ── Coach Image Assets ── */
@@ -52,7 +55,7 @@ const coach2 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773267884/I-
 /* ── Badge Component ── */
 function Badge({ children, className = "", delay = 0 }) {
     return (
-        <motion.div 
+        <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: delay }}
             className={`absolute z-20
@@ -81,7 +84,7 @@ function Home({ showLoader }) {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0052cc]/10 rounded-full blur-[120px]" />
                     <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-[#ff6b00]/5 rounded-full blur-[100px]" />
                 </div>
-                
+
                 <div className="relative z-10 flex justify-center">
                     <EventCountdown />
                 </div>
@@ -183,7 +186,7 @@ function Home({ showLoader }) {
                         <FileText className="w-4 h-4 text-white" />
                         <span className="text-white/95 text-[13px] font-semibold font-sans tracking-[-0.01em]">40+ International Publications</span>
                     </Badge>
-                    <Badge className="top-[60%] -right-[2%]" delay={1.6}>
+                    <Badge className="top-[75%] -right-[2%]" delay={1.6}>
                         <Users className="w-4 h-4 text-white" />
                         <span className="text-white/95 text-[13px] font-semibold font-sans tracking-[-0.01em]">HOD, ECE – SVUCE</span>
                     </Badge>
@@ -299,6 +302,7 @@ function App() {
                     <Route path="/insights" element={<InsightsPage />} />
                     <Route path="/magazines" element={<MagazinePage />} />
                     <Route path="/register" element={<RegisterPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
                 </Routes>
             </div>
 
