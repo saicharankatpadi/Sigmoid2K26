@@ -2,6 +2,7 @@ import React, { memo, useEffect, useLayoutEffect, useMemo, useState } from "reac
 import {
   AnimatePresence,
   motion,
+  animate,
   useAnimation,
   useMotionValue,
   useTransform,
@@ -65,7 +66,7 @@ const Carousel = memo(
   }) => {
     const isScreenSizeSm = useMediaQuery("(max-width: 640px)")
     const faceCount = cards.length || 1
-    const faceWidth = isScreenSizeSm ? 150 : 280
+    const faceWidth = isScreenSizeSm ? 120 : 280
     const cylinderWidth = faceWidth * faceCount
     const radius = cylinderWidth / (2 * Math.PI)
     const transform = useTransform(
@@ -77,36 +78,18 @@ const Carousel = memo(
       <div
         className="flex h-full items-center justify-center"
         style={{
-          perspective: "1000px",
+          perspective: "1200px",
           transformStyle: "preserve-3d",
           willChange: "transform",
         }}
       >
         <motion.div
-          drag={isCarouselActive ? "x" : false}
-          className="relative flex h-full origin-center cursor-grab justify-center active:cursor-grabbing"
+          className="relative flex h-full origin-center justify-center"
           style={{
-            transform, // Use derived transform for smooth 3D rotation
+            transform, 
             width: cylinderWidth,
             transformStyle: "preserve-3d",
           }}
-          onDrag={(_, info) =>
-            isCarouselActive &&
-            rotation.set(rotation.get() + info.offset.x * 0.05)
-          }
-          onDragEnd={(_, info) =>
-            isCarouselActive &&
-            controls.start({
-              rotateY: rotation.get() + info.velocity.x * 0.05,
-              transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 30,
-                mass: 0.1,
-              },
-            })
-          }
-          animate={controls}
         >
           {cards.map((imgUrl, i) => (
             <motion.div
@@ -125,6 +108,10 @@ const Carousel = memo(
                 alt={`gallery_image_${i}`}
                 layoutId={`img-${imgUrl}`}
                 className="pointer-events-none w-full rounded-xl object-cover aspect-[3/2] shadow-2xl border border-white/10"
+                style={{
+                  backfaceVisibility: "hidden",
+                  WebkitBackfaceVisibility: "hidden",
+                }}
                 initial={{ filter: "blur(4px)" }}
                 layout="position"
                 animate={{ filter: "blur(0px)" }}

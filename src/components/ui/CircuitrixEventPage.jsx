@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
 import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
@@ -82,9 +83,9 @@ const eventData = {
   mentors: [
     { 
       id: "m1", 
-      name: "Event Mentor", 
+      name: "V. Rajeswari", 
       role: "Circuit Expert", 
-      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773309848/WhatsApp_Image_2026-03-12_at_03.03.29_ozetbo.jpg",
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773481680/WhatsApp_Image_2026-03-12_at_03.00.56_l3duhn.jpg",
       phone: "",
       instagram: "",
       linkedin: ""
@@ -262,6 +263,14 @@ export const CircuitrixEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
+      {/* Back Button */}
+      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
+        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
+        </Link>
+      </div>
+  
+
       {/* Keyframes */}
       <style>{`
         @keyframes floatBadge1 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
@@ -292,7 +301,11 @@ export const CircuitrixEventPage = () => {
                   word={data.event_info.title}
                   className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
                 />
-                <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
+                {data.event_info.emoji === 'rocket' ? (
+                  <img src="/rocket-icon.png" alt="rocket" className="ml-5 w-auto h-12 md:h-14 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.5)]" />
+                ) : (
+                  <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
+                )}
               </div>
             </div>
 
@@ -300,7 +313,7 @@ export const CircuitrixEventPage = () => {
               {data.event_info.subtitle}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-2 gap-2.5">
               {data.event_info.features.map(feature => (
                 <div
                   key={feature.id}
@@ -334,6 +347,7 @@ export const CircuitrixEventPage = () => {
                     ref={videoRef}
                     src={data.video_preview.video_src}
                     className="w-full h-full object-contain"
+                    style={{ objectPosition: 'center top' }}
                     muted={isMuted}
                     loop
                     playsInline
@@ -454,7 +468,7 @@ export const CircuitrixEventPage = () => {
         <div className="mb-7">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">The Experience</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Our Mission</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
@@ -563,14 +577,66 @@ export const CircuitrixEventPage = () => {
         </div>
       </section>
 
-      {/* Mentors Section */}
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 6 — Certificate
+       ═══════════════════════════════════════════════════════════ */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+        {/* Section Title with accent bar */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Mentors</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Certificate</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
+        </div>
+
+        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden text-left">
+          {/* Subtle gradient background glow from left */}
+          <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
+
+          {/* Text Content */}
+          <div className="flex-1 w-full relative z-10 lg:pl-4">
+            
+
+            <div className="relative mb-8 text-left">
+              <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
+                Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
+                <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
+              </h3>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-white/70">
+                <IconBadge iconType="academic" />
+                <span className="text-[14px]">Add this certificate to your Resume!</span>
+              </div>
+              <div className="flex items-center gap-3 text-white/70">
+                <IconBadge iconType="linkedin" />
+                <span className="text-[14px]">Share it with your LinkedIn network 🚀</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="w-full md:w-[60%] lg:w-[55%] relative z-10 flex justify-end">
+            <div className="relative w-full">
+              <img
+                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773297935/Blue_Modern_Achievement_Certificate_A4_Landscape.jpg_1_ud186o.jpg"
+                alt="Course Certificate"
+                className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mentors Section */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+        {/* Section Title with accent bar */}
+        <div className="mb-8 border-b border-[#222]">
+          <div className="flex items-center gap-3 mb-3 pl-4">
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Lead</h2>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
@@ -579,17 +645,10 @@ export const CircuitrixEventPage = () => {
               <img 
                 src={mentor.image} 
                 alt={mentor.name} 
-                className="w-24 h-24 rounded-full object-cover object-top mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
+                className="w-24 h-24 rounded-full object-cover mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
+                style={{ objectPosition: 'center 20%' }}
               />
-              <h3 className="text-xl font-bold text-white mb-1">{mentor.name}</h3>
-              <p className="text-[13px] text-white/50 mb-6 text-center">{mentor.role}</p>
-              <div className="flex items-center gap-4">
-                {mentor.phone && (
-                  <a href={`tel:${mentor.phone}`} className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-blue-500 hover:bg-blue-500/10 transition-all" title="Call">
-                    <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                  </a>
-                )}
-              </div>
+              <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider">{mentor.name}</h3>
             </div>
           ))}
         </div>
@@ -602,6 +661,9 @@ export const CircuitrixEventPage = () => {
             <div className="w-1 h-6 bg-[#f89b29] rounded-full"></div>
             <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Event Gallery</h2>
           </div>
+          <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
+            Experience the thrill of circuit building and hardware innovation.
+          </p>
         </div>
 
         <div className="relative group">

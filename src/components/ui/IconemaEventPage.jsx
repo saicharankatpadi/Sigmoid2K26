@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
 
@@ -6,7 +7,7 @@ const eventData = {
   "event_info": {
     "title": "ICONEMA",
     "subtitle": "Observation, Knowledge & Teamwork",
-    "brochure_url": "C:/Users/Acer/Downloads/ICONEMA.pdf",
+    "brochure_url": "/ICONEMA_BROCHURE.pdf",
     "thumbnail": "https://res.cloudinary.com/djiivo0r7/image/upload/v1773337470/Your_paragraph_text_16_imbuxm.png"
   },
   "video_preview": {
@@ -173,9 +174,23 @@ export const IconemaEventPage = () => {
           <div className="relative">
              <div className="relative w-full max-w-[600px] mx-auto z-10">
               <div className="relative aspect-[16/10] bg-[#1a1a1a] rounded-t-xl border-4 border-[#333] shadow-2xl overflow-hidden p-2">
-                <div className="relative w-full h-full bg-black rounded-sm overflow-hidden border border-[#222]">
-                  <video ref={videoRef} src={data.video_preview.video_src} className="w-full h-full object-cover opacity-50" loop muted playsInline />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                <div
+                  className="relative w-full h-full bg-black rounded-sm overflow-hidden border border-[#222] group/video"
+                  onMouseEnter={() => {
+                    if (videoRef.current) {
+                      videoRef.current.play();
+                      setIsPlaying(true);
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    if (videoRef.current) {
+                      videoRef.current.pause();
+                      setIsPlaying(false);
+                    }
+                  }}
+                >
+                  <video ref={videoRef} src={data.video_preview.video_src} className="w-full h-full object-cover" loop muted playsInline />
+                  <div className={`absolute inset-0 flex items-center justify-center bg-black/40 transition-opacity duration-300 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}>
                     <button onClick={togglePlay} className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center hover:scale-110 transition-transform">
                       {isPlaying ? (
                         <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" /></svg>
@@ -210,7 +225,7 @@ export const IconemaEventPage = () => {
           <div className="w-1 h-9 bg-[#ff8a1f] rounded-full"></div>
           <h2 className="text-3xl font-bold text-white">Event Overview</h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {data.mission.map(m => (
             <div key={m.id} className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#ff8a1f]/40 transition-colors">
               <div className="flex items-center gap-3 mb-6">
@@ -245,19 +260,72 @@ export const IconemaEventPage = () => {
         </div>
       </section>
 
-      {/* Mentor Section */}
+      {/* Event Lead Section */}
       <section className="relative max-w-[1400px] mx-auto px-8 lg:px-12 py-20">
         <div className="flex flex-col items-center">
-          <h2 className="text-3xl font-bold text-white mb-12">Event Coordinator</h2>
+          <h2 className="text-3xl font-bold text-white mb-12">Event Lead</h2>
           {data.mentors.map(mentor => (
             <div key={mentor.id} className="flex flex-col md:flex-row items-center gap-8 bg-white/5 border border-white/10 p-8 rounded-[2rem] max-w-lg w-full">
               <img src={mentor.image} className="w-32 h-32 rounded-full object-cover border-2 border-[#ff8a1f]" />
               <div className="text-center md:text-left">
-                <h3 className="text-2xl font-bold text-[#ffb347] mb-1">{mentor.name}</h3>
-                <p className="text-sm text-white/40 uppercase tracking-[0.2em]">{mentor.role}</p>
+                <h3 className="text-2xl font-bold text-[#ffb347] mb-6 uppercase tracking-wider">{mentor.name}</h3>
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 6 — Certificate
+       ═══════════════════════════════════════════════════════════ */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+        {/* Section Title with accent bar */}
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-1 h-9 bg-[#ff8a1f] rounded-full"></div>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Certificate</h2>
+          </div>
+          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
+        </div>
+
+        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden text-left">
+          {/* Subtle gradient background glow from left */}
+          <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
+
+          {/* Text Content */}
+          <div className="flex-1 w-full relative z-10 lg:pl-4">
+            
+
+            <div className="relative mb-8">
+              <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
+                Official <span className="text-[#ff8a1f] font-bold">Participation</span> Certificate
+                <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
+              </h3>
+            </div>
+ Broadway
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-white/70">
+                <IconBadge iconType="academic" />
+                <span className="text-[14px]">Add this certificate to your Resume!</span>
+              </div>
+              <div className="flex items-center gap-3 text-white/70">
+                <IconBadge iconType="linkedin" />
+                <span className="text-[14px]">Share it with your LinkedIn network 🚀</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="w-full md:w-[60%] lg:w-[55%] relative z-10 flex justify-end">
+            <div className="relative w-full">
+              <img
+                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773297935/Blue_Modern_Achievement_Certificate_A4_Landscape.jpg_1_ud186o.jpg"
+                alt="Course Certificate"
+                className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

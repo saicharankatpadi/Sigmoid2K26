@@ -42,7 +42,6 @@ const EVENTS_DATA = [
         title: 'Codex',
         category: 'Technical',
         image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773310435/Your_paragraph_text_11_n3zpi7.png',
-        video: 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773379445/WhatsApp_Video_2026-03-12_at_22.14.00_rw3vjk.mp4',
         description: 'The ultimate coding showdown. Solve complex algorithmic challenges and demonstrate your programming prowess in this intense competitive coding event.',
         route: '/codex'
     },
@@ -91,17 +90,15 @@ const EVENTS_DATA = [
         title: "Kim's Game",
         category: 'Non-Technical',
         image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773329743/Your_paragraph_text_15_ooikpw.png',
-        video: 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773379518/WhatsApp_Video_2026-03-12_at_22.17.43_lnwqdv.mp4',
         description: 'A fun-filled multi-round competition that combines puzzles, movie and app identification, treasure hunts, and team coordination challenges.',
         route: '/kims-game'
     },
     {
         id: 15,
-        title: 'ICONEMA',
+        title: 'Iconema',
         category: 'Non-Technical',
         image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773337470/Your_paragraph_text_16_imbuxm.png',
-        video: 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773379550/WhatsApp_Video_2026-03-12_at_22.13.59_nshvsd.mp4',
-        description: 'A fun multi-round event that tests participants’ observation, knowledge, and teamwork through movie questions, app icon identification, and a treasure hunt.',
+        description: 'A thrilling multi-round competition featuring movie logic, app identification, and a treasure hunt. Test your observation and teamwork skills.',
         route: '/iconema'
     },
     {
@@ -156,7 +153,9 @@ const EVENTS_DATA = [
 
 export const EventsPage = () => {
     const { state } = useLocation();
-    const [activeCategory, setActiveCategory] = useState(state?.category || 'Technical');
+    const [activeCategory, setActiveCategory] = useState(
+        () => state?.category || localStorage.getItem('lastEventCategory') || 'Technical'
+    );
     const [hoveredEventId, setHoveredEventId] = useState(null);
     const navigate = useNavigate();
 
@@ -169,6 +168,10 @@ export const EventsPage = () => {
             setActiveCategory(state.category);
         }
     }, [state?.category]);
+
+    React.useEffect(() => {
+        localStorage.setItem('lastEventCategory', activeCategory);
+    }, [activeCategory]);
 
     return (
         <div className="min-h-screen bg-[#0A0A0A] pt-[120px] pb-24 px-6 md:px-12 font-sans selection:bg-[#F97316]/30">
@@ -209,8 +212,9 @@ export const EventsPage = () => {
                                         src={event.video}
                                         autoPlay
                                         loop
+                                        muted
                                         playsInline
-                                        className="w-full h-full object-contain"
+                                        className="w-full h-full object-cover"
                                     />
                                 ) : (
                                     <img
@@ -239,12 +243,15 @@ export const EventsPage = () => {
                                     </p>
                                 )}
 
-                                <div className="flex justify-end mt-auto">                                    <button
-                                        onClick={() => navigate(event.route || '/event-wireframe')}
-                                        className="bg-[#EAB308] hover:bg-[#D97706] text-white font-bold py-[6px] px-5 rounded-full transition-all duration-200 text-[12px] shadow-[0_3px_10px_rgba(234,179,8,0.2)] hover:shadow-[0_5px_15px_rgba(234,179,8,0.35)] hover:-translate-y-0.5 active:translate-y-0"
-                                    >
-                                        More info
-                                    </button>
+                                <div className="flex justify-end mt-auto">
+                                    {event.category !== 'E-sports' && (
+                                        <button
+                                            onClick={() => navigate(event.route || '/event-wireframe')}
+                                            className="bg-[#EAB308] hover:bg-[#D97706] text-white font-bold py-[6px] px-5 rounded-full transition-all duration-200 text-[12px] shadow-[0_3px_10px_rgba(234,179,8,0.2)] hover:shadow-[0_5px_15px_rgba(234,179,8,0.35)] hover:-translate-y-0.5 active:translate-y-0"
+                                        >
+                                            More info
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                         </div>

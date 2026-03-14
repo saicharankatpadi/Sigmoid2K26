@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
+import { useNavigate } from 'react-router-dom';
 
 const SECTIONS = [
     {
@@ -24,7 +26,7 @@ const SECTIONS = [
 
 const TOTAL_SECTIONS = SECTIONS.length;
 
-export const HorizonHero = () => {
+export const HorizonHero = ({ startTimer }) => {
     const canvasRef = useRef(null);
     const titleRef = useRef(null);
     const subtitleRef = useRef(null);
@@ -152,8 +154,11 @@ export const HorizonHero = () => {
                 const material = new THREE.ShaderMaterial({
                     uniforms: { time: { value: 0 }, depth: { value: i } },
                     vertexShader: `
-            attribute float size; attribute vec3 color;
-            varying vec3 vColor; uniform float time; uniform float depth;
+            attribute float size;
+            attribute vec3 color;
+            varying vec3 vColor;
+            uniform float time;
+            uniform float depth;
             void main() {
               vColor = color;
               vec3 pos = position;
@@ -393,7 +398,7 @@ export const HorizonHero = () => {
 
     // ─── AUTO-ADVANCE TIMER (10s per slide) ──────────────────────────────────────
     useEffect(() => {
-        if (!isReady) return;
+        if (!isReady || !startTimer) return;
 
         const SLIDE_DURATION = 8000; // 8 seconds per slide
         let startTime = Date.now();
@@ -465,7 +470,7 @@ export const HorizonHero = () => {
                         style={{
                             visibility: 'hidden',
                             margin: 0,
-                            fontSize: 'clamp(3rem, 10vw, 9rem)',
+                            fontSize: 'clamp(2rem, 8vw, 9rem)',
                             fontFamily: '"Helvetica Neue", Arial, sans-serif',
                             fontWeight: 900,
                             letterSpacing: '-0.02em',

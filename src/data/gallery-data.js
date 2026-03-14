@@ -95,14 +95,6 @@ export const gallery2026Images = [
         videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773285003/lv_0_20260311140957_1_bhpwtn.mp4",
         thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773285003/lv_0_20260311140957_1_bhpwtn.mp4",
     },
-    {
-        id: "vid-2026-11",
-        subtitle: "SIGMOID 2K26",
-        title: "In Memory / Tribute",
-        description: "SIGMOID 2K26: Remembering the legends.",
-        videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773209848/WhatsApp_Video_2026-03-10_at_23.10.08_omlmup.mp4",
-        thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773209848/WhatsApp_Video_2026-03-10_at_23.10.08_omlmup.mp4",
-    }
 ];
 
 export const gallery2025Images = Array.from({ length: 11 }).map((_, i) => {

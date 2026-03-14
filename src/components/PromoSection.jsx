@@ -6,8 +6,8 @@ import { AnimatedCardStack } from './ui/animate-card-animation';
 export function PromoSection() {
     const navigate = useNavigate();
     return (
-        <section className="relative w-full bg-[#0A0A0A] text-white py-24 overflow-hidden border-t-0">
-            <div className="max-w-[1300px] mx-auto px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24">
+        <section className="relative w-full bg-[#0A0A0A] text-white py-16 lg:py-24 overflow-hidden border-t-0">
+            <div className="max-w-[1300px] mx-auto px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-24">
 
                 {/* Left Side Content */}
                 <div className="flex-1 space-y-8 flex flex-col items-start text-left max-w-xl">
@@ -27,9 +27,9 @@ export function PromoSection() {
                     <div className="pt-2">
                         <button
                             onClick={() => navigate('/register')}
-                            className="flex items-center gap-2 rounded-full bg-[#ff5a00] px-8 py-3.5 text-base font-bold text-white transition-all hover:bg-[#ff5a00]/90 shadow-[0_4px_20px_rgba(255,90,0,0.3)] hover:scale-105"
+                            className="flex items-center gap-3 sm:gap-4 rounded-full bg-[#ff5a00] px-8 py-4 sm:px-10 sm:py-5 text-lg sm:text-xl lg:px-12 lg:py-6 lg:text-2xl font-black text-white transition-all hover:bg-[#ff5a00]/90 shadow-[0_8px_40px_rgba(255,90,0,0.5)] hover:scale-[1.05] w-full max-w-full sm:max-w-[280px] lg:max-w-[320px] justify-center group"
                         >
-                            Register Now <ArrowRight strokeWidth={2.5} size={18} />
+                            Register Now <ArrowRight strokeWidth={4} size={24} className="group-hover:translate-x-1 transition-transform" />
                         </button>
                     </div>
 
@@ -55,7 +55,7 @@ export function PromoSection() {
                 </div>
 
                 {/* Right Side - Animated Cards Component */}
-                <div className="flex-1 flex justify-center lg:justify-end w-full pt-12 lg:pt-0">
+                <div className="flex-1 flex justify-center lg:justify-end w-full pt-6 lg:pt-0">
                     <AnimatedCardStack />
                 </div>
 

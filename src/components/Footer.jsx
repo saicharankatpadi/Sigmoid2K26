@@ -20,11 +20,11 @@ export default function Footer() {
 
                     {/* Nav Links */}
                     <nav className="flex flex-wrap items-center justify-center gap-1 text-[13px] font-sans">
-                        <Link to="/about" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">About Us</Link>
+                        <Link to="/aboutus" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">About Us</Link>
                         <span className="text-white/15">|</span>
                         <a href="#" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">Contact us</a>
                         <span className="text-white/15">|</span>
-                        <a href="#" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">Pricing</a>
+                        <Link to="/register" className="text-white/50 hover:text-white/80 transition-colors px-2.5 py-1">Pricing</Link>
                     </nav>
 
                     {/* Social Icons */}

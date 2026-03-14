@@ -1,0 +1,35 @@
+.glow-card {
+  --glow-color: #f57f17;
+  --glow-blur: 15px;
+  --glow-spread: 2px;
+  border-radius: 12px;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: visible;
+}
+
+.border-element {
+  background: var(--glow-color);
+  box-shadow: 
+    0 0 var(--glow-blur) var(--glow-color),
+    0 0 calc(var(--glow-blur) * 2) var(--glow-color);
+  opacity: 0.8;
+  animation: glow-pulse 3s infinite ease-in-out;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    filter: blur(2px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+.card-backdrop {
+  background: radial-gradient(circle at center, rgba(245, 127, 23, 0.1) 0%, transparent 70%);
+  filter: blur(40px);
+}

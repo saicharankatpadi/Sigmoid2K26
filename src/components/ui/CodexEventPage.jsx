@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
 import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
@@ -84,7 +85,7 @@ const eventData = {
       id: "m1", 
       name: "Event Mentor", 
       role: "Lead Evaluator", 
-      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773298518/WhatsApp_Image_2026-03-11_at_23.54.52_rkog46.jpg",
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773373634/WhatsApp_Image_2026-03-12_at_19.29.20__2_-removebg-preview_no93kf.png",
       phone: "",
       instagram: "",
       linkedin: ""
@@ -93,7 +94,7 @@ const eventData = {
       id: "m2", 
       name: "Event Mentor", 
       role: "Technical Lead", 
-      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773308057/WhatsApp_Image_2026-03-12_at_02.32.00_ybxhln.jpg",
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773373634/WhatsApp_Image_2026-03-12_at_19.29.20__2_-removebg-preview_no93kf.png",
       phone: "",
       instagram: "",
       linkedin: ""
@@ -147,6 +148,7 @@ const IconBadge = ({ iconType }) => {
     case 'document': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>;
     case 'globe': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>;
     case 'shield': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>;
+    case 'girl': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>; // Standard girl icon
     case 'terminal': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>;
     default: return null;
   }
@@ -181,6 +183,7 @@ const FaqItem = ({ q, a }) => {
 
 export const CodexEventPage = () => {
   const data = eventData;
+  const [isAutoRotating, setIsAutoRotating] = useState(true);
   const videoRef = useRef(null);
   const progressRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -190,7 +193,6 @@ export const CodexEventPage = () => {
   const [duration, setDuration] = useState('0:00');
   const [showControls, setShowControls] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
-  const [isAutoRotating, setIsAutoRotating] = useState(true);
 
   const formatTime = (s) => {
     if (!s || isNaN(s)) return '0:00';
@@ -264,6 +266,14 @@ export const CodexEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
+      {/* Back Button */}
+      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
+        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
+        </Link>
+      </div>
+  
+
       {/* Keyframes */}
       <style>{`
         @keyframes floatBadge1 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
@@ -287,16 +297,13 @@ export const CodexEventPage = () => {
 
           {/* LEFT COLUMN */}
           <div className="flex-1 min-w-0 lg:max-w-[50%]">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
-              <div className="flex items-center">
+              <div className="flex flex-wrap items-center gap-3">
                 <BlurIn 
                   word={data.event_info.title}
                   className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
                 />
-                <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
+                <span className="text-3xl lg:text-4xl drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
               </div>
-            </div>
 
             <p className="text-white/50 text-lg font-medium mb-8 pl-4">
               {data.event_info.subtitle}
@@ -322,10 +329,11 @@ export const CodexEventPage = () => {
             </div>
           </div>
 
-          {/* RIGHT COLUMN — Video Mockup */}
+          {/* RIGHT COLUMN */}
           <div className="flex-1 min-w-0 lg:max-w-[50%] flex flex-col items-center justify-center lg:pl-6">
             <div className="relative z-10 w-full max-w-[560px]">
               <div className="relative bg-[#181818] rounded-t-2xl border-t-2 border-x-2 border-[#333] p-3 shadow-[0_0_60px_rgba(0,0,0,0.6)]">
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#444]"></div>
                 <div
                   className="relative w-full aspect-video bg-black rounded overflow-hidden border border-[#222] cursor-pointer"
                   onMouseEnter={() => isPlaying && setShowControls(true)}
@@ -341,55 +349,113 @@ export const CodexEventPage = () => {
                     preload="metadata"
                     onTimeUpdate={handleTimeUpdate}
                     onLoadedMetadata={handleLoadedMetadata}
+                    onEnded={() => setIsPlaying(false)}
                   />
+
                   {!isPlaying && (
                     <div className="absolute inset-0 flex items-center justify-center z-10 group/play" onClick={togglePlay}>
                       <div className="absolute w-24 h-24 rounded-full border-2 border-white/20 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite' }}></div>
-                      <button className="relative w-16 h-16 sm:w-[72px] sm:h-[72px] bg-white text-black rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-20">
-                        <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                      <div className="absolute w-24 h-24 rounded-full border-2 border-white/15 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite 0.6s' }}></div>
+                      <div className="absolute w-24 h-24 rounded-full border-2 border-white/10 opacity-0 group-hover/play:opacity-100" style={{ animation: 'playRadiate 2s ease-out infinite 1.2s' }}></div>
+
+                      <button
+                        className="relative w-16 h-16 sm:w-[72px] sm:h-[72px] bg-white/90 rounded-full flex items-center justify-center border-[3px] border-white transition-all duration-300 hover:scale-110 z-20 shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+                      >
+                        <svg className="w-7 h-7 sm:w-8 sm:h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                       </button>
                     </div>
                   )}
+
                   {isPlaying && (
-                    <div className={`absolute bottom-0 left-0 right-0 z-30 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}>
-                      <div ref={progressRef} className="w-full h-1.5 bg-white/20 cursor-pointer hover:h-2 transition-all" onMouseDown={handleProgressMouseDown}>
-                        <div className="h-full bg-[#f89b29]" style={{ width: `${progress}%` }}></div>
+                    <div className={`absolute bottom-0 left-0 right-0 z-30 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
+                      onMouseEnter={() => setShowControls(true)}
+                    >
+                      <div
+                        ref={progressRef}
+                        className="w-full h-1.5 bg-white/20 cursor-pointer group/progress hover:h-2.5 transition-all"
+                        onMouseDown={handleProgressMouseDown}
+                      >
+                        <div
+                          className="h-full bg-[#f89b29] relative"
+                          style={{ width: `${progress}%` }}
+                        >
+                          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#f89b29] opacity-0 group-hover/progress:opacity-100 transition-opacity shadow-md border border-white/30"></div>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-4 px-3 py-2 bg-black/60">
-                         <button onClick={togglePlay} className="text-white hover:text-[#f89b29] transition-colors">
-                            {isPlaying ? <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg> : <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>}
-                         </button>
-                         <button onClick={toggleMute} className="text-white hover:text-[#f89b29] transition-colors">
-                            {isMuted ? <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg> : <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>}
-                         </button>
-                         <span className="text-[12px] font-mono text-white/70">{currentTime} / {duration}</span>
+
+                      <div className="flex items-center gap-3 px-3 py-2 bg-gradient-to-t from-black/80 to-black/40">
+                        <button onClick={(e) => { e.stopPropagation(); togglePlay(); }} className="text-white hover:text-white/80 transition-colors">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            {isPlaying
+                              ? <><rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" /></>
+                              : <path d="M8 5v14l11-7z" />
+                            }
+                          </svg>
+                        </button>
+
+                        <button onClick={(e) => { e.stopPropagation(); toggleMute(); }} className="text-white hover:text-white/80 transition-colors">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            {isMuted
+                              ? <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+                              : <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                            }
+                          </svg>
+                        </button>
+
+                        <span className="text-white/70 text-[12px] font-mono ml-1">
+                          {currentTime} / {duration}
+                        </span>
                       </div>
                     </div>
                   )}
                 </div>
+
                 {data.video_preview.badges.map((badge, idx) => {
-                  const posMap = { "top-left": "-top-6 -left-4 lg:-left-10", "top-right": "-top-6 -right-4 lg:-right-10", "bottom-left": "-bottom-4 -left-4 lg:-left-10", "bottom-right": "-bottom-4 -right-4 lg:-right-10" };
-                  const floatAnims = ['floatBadge1 3s infinite', 'floatBadge2 3.5s infinite 0.3s', 'floatBadge3 4s infinite 0.6s', 'floatBadge4 3.2s infinite 0.9s'];
+                  const posMap = {
+                    "top-left": "-top-6 -left-4 lg:-left-10",
+                    "top-right": "-top-6 -right-4 lg:-right-10",
+                    "bottom-left": "-bottom-4 -left-4 lg:-left-10",
+                    "bottom-right": "-bottom-4 -right-4 lg:-right-10",
+                  };
+                  const floatAnims = [
+                    'floatBadge1 3s ease-in-out infinite',
+                    'floatBadge2 3.5s ease-in-out infinite 0.3s',
+                    'floatBadge3 4s ease-in-out infinite 0.6s',
+                    'floatBadge4 3.2s ease-in-out infinite 0.9s'
+                  ];
                   return (
-                    <div key={idx} className={`hidden md:flex absolute z-20 ${posMap[badge.position]} bg-black border border-white/20 rounded-full px-4 py-2 items-center gap-2 text-white text-[12px] font-bold shadow-xl whitespace-nowrap`} style={{ animation: floatAnims[idx % 4] }}>
+                    <div
+                      key={idx}
+                      className={`hidden md:flex absolute z-20 ${posMap[badge.position]} bg-[#0c0c0c] border-2 border-[#2a2a2a] rounded-full px-5 py-2.5 items-center gap-2.5 text-white text-[14px] font-bold shadow-[0_8px_32px_rgba(0,0,0,0.6)] whitespace-nowrap cursor-default`}
+                      style={{ animation: floatAnims[idx % 4] }}
+                    >
                       <IconBadge iconType={badge.icon} />
                       {badge.text}
                     </div>
-                  );
+                  )
                 })}
               </div>
-              <div className="relative w-[108%] -ml-[4%] h-5 bg-[#222] rounded-b-xl border-x-2 border-b-2 border-[#333] flex justify-center items-start">
-                <div className="w-24 h-1.5 bg-[#111] rounded-b-sm"></div>
+
+              <div className="relative w-[108%] -ml-[4%] h-6 bg-[#272727] rounded-b-xl border-2 border-[#333] flex justify-center items-start shadow-2xl z-0">
+                <div className="w-28 h-2 bg-[#181818] rounded-b-sm"></div>
               </div>
             </div>
+
+            {/* Download Brochure — Neon Button */}
             <div className="mt-12">
-              <a href={data.event_info.brochure_url} download>
-                <Button neon={true} className="px-10 py-3 text-[16px] font-bold flex items-center gap-3">
+              <a href={data.event_info.brochure_url} download className="inline-block">
+                <Button
+                  variant="default"
+                  size="lg"
+                  neon={true}
+                  className="bg-black text-white border-white/20 hover:bg-white/5 hover:border-white/40 px-10 py-3 text-[16px] font-bold flex items-center gap-3 cursor-pointer"
+                >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                   Download Brochure
                 </Button>
               </a>
             </div>
+
           </div>
         </div>
       </section>
@@ -496,7 +562,7 @@ export const CodexEventPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {data.perks.items.map((perk, i) => (
             <div key={i} className="flex items-center gap-4 bg-[#0a0a0a] border border-[#222] rounded-xl px-4 py-3.5 hover:border-[#333] transition-colors relative group">
-              <div 
+              <div
                 className="w-10 h-10 rounded-[10px] flex items-center justify-center shrink-0"
                 style={{ background: `${perk.color}15`, color: perk.color }}
               >
@@ -510,26 +576,147 @@ export const CodexEventPage = () => {
 
       {/* Mentors Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+        {/* Section Title with accent bar */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Mentors</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Lead</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
-          {data.mentors.map((mentor) => (
-            <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 flex flex-col items-center hover:border-[#333] transition-colors relative group">
-              <img 
-                src={mentor.image} 
-                alt={mentor.name} 
-                className="w-24 h-24 rounded-full object-cover object-top mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
-              />
-              <h3 className="text-xl font-bold text-white mb-1">{mentor.name}</h3>
-              <p className="text-[13px] text-white/50 mb-6 text-center">{mentor.role}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          {[
+            {
+              id: "m1",
+              name: "C. Saira Bhanu",
+              role: "Event Lead",
+              image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773373634/WhatsApp_Image_2026-03-12_at_19.29.20__2_-removebg-preview_no93kf.png",
+              phone: "9182343841",
+              icon: "girl"
+            },
+          ].map((mentor) => (
+            <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 hover:border-[#333] transition-colors relative group w-full">
+              <img src={mentor.image} alt={mentor.name} className="w-24 h-24 rounded-full object-cover object-top shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333] shrink-0" />
+              <div className="text-center sm:text-left flex-1 min-w-0">
+                <h3 className="text-xl font-bold text-white mb-2 truncate">{mentor.name}</h3>
+              </div>
             </div>
           ))}
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION — Certificate
+       ═══════════════════════════════════════════════════════════ */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+        {/* Section Title with accent bar */}
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Certificate</h2>
+          </div>
+          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
+        </div>
+
+        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden">
+          {/* Subtle gradient background glow from left */}
+          <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
+
+          {/* Text Content */}
+          <div className="flex-1 w-full relative z-10 lg:pl-4">
+            <div className="relative mb-8">
+              <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
+                Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
+                <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
+              </h3>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-white/70">
+                <IconBadge iconType="academic" />
+                <span className="text-[14px]">Add this certificate to your Resume!</span>
+              </div>
+              <div className="flex items-center gap-3 text-white/70">
+                <IconBadge iconType="linkedin" />
+                <span className="text-[14px]">Share it with your LinkedIn network 🚀</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="w-full md:w-[60%] lg:w-[55%] relative z-10 flex justify-end">
+            <div className="relative w-full">
+              <img
+                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773297935/Blue_Modern_Achievement_Certificate_A4_Landscape.jpg_1_ud186o.jpg"
+                alt="Course Certificate"
+                className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]"
+              />
+            </div>
+          </div>
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
+ Broadway
         </div>
       </section>
 
@@ -541,7 +728,7 @@ export const CodexEventPage = () => {
             <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Event Gallery</h2>
           </div>
           <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
-            Visual highlights from the intense algorithmic battles of Codex.
+            Visual highlights from the Codex competition.
           </p>
         </div>
 

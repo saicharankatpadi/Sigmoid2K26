@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShineBorder } from './shine-border';
@@ -10,6 +11,14 @@ export function PassportPage() {
 
     return (
         <div className="min-h-screen pt-28 pb-12 px-6 flex flex-col items-center justify-center relative overflow-hidden bg-[#0A0A0A]">
+
+      {/* Back Button */}
+      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
+        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
+        </Link>
+      </div>
+  
 
             <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -47,8 +56,8 @@ export function PassportPage() {
                                 </button>
 
                                 <a
-                                    href="/sigmoid2k26.pdf"
-                                    download="sigmoid2k26.pdf"
+                                    href="/Sigmoid_2K26_Passport.pdf"
+                                    download="Sigmoid_2K26_Passport.pdf"
                                     className="w-full text-center relative group overflow-hidden rounded-xl bg-transparent border border-white/20 p-4 transition-all hover:bg-yellow-500 hover:text-black hover:border-yellow-500 active:bg-yellow-600 active:scale-[0.98] block no-underline cursor-pointer"
                                 >
                                     <span className="text-[16px] font-bold group-hover:text-black text-white transition-colors">

@@ -4,55 +4,103 @@ const getInitials = (name) => {
     return name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
 };
 
-export const collegeStatsData2k24 = [
+const rawCollegeData = [
     {
         id: "2k24-1",
         name: "Narayana Engineering College, Nellore",
         participants: 194,
         logoFallback: getInitials("Narayana Engineering College, Nellore"),
-        totalWins: 5,
-        techWins: 4,
-        nonTechWins: 1,
         events: [
             {
                 eventName: "Buoyancy", category: "Non Technical", rank: 1,
-                members: [{ name: "Sk. Arshad", isBoy: true }, { name: "P. Srinu", isBoy: true }]
+                description: "Buoyancy: A test of engineering intuition and fluid dynamics. Design and build vessels that can withstand weight while staying afloat.",
+                winnerName: "Sk. Arshad", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Buoyancy", category: "Non Technical", rank: 1,
+                description: "Buoyancy: A test of engineering intuition and fluid dynamics. Design and build vessels that can withstand weight while staying afloat.",
+                winnerName: "P. Srinu", winnerImageUrl: "/assets/images/boy-winner.png"
             },
             {
                 eventName: "Buoyancy", category: "Non Technical", rank: 2,
-                members: [{ name: "B. Hemanth", isBoy: true }] // Assuming from the same college
+                winnerName: "B. Hemanth", winnerImageUrl: "/assets/images/boy-winner.png"
             },
             {
                 eventName: "Brain Teasers", category: "Non Technical", rank: 2,
-                members: [{ name: "V. Krupa Vijaya Sri", isBoy: false }, { name: "G. Rama Harshitha", isBoy: false }, { name: "S. Mahitha Chowdary", isBoy: false }]
+                description: "Brain Teasers: Sharpen your wits and solve complex riddles. A battle of logic, lateral thinking, and cognitive speed.",
+                winnerName: "V. Krupa Vijaya Sri", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Brain Teasers", category: "Non Technical", rank: 2,
+                description: "Brain Teasers: Sharpen your wits and solve complex riddles. A battle of logic, lateral thinking, and cognitive speed.",
+                winnerName: "G. Rama Harshitha", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Brain Teasers", category: "Non Technical", rank: 2,
+                description: "Brain Teasers: Sharpen your wits and solve complex riddles. A battle of logic, lateral thinking, and cognitive speed.",
+                winnerName: "S. Mahitha Chowdary", winnerImageUrl: "/assets/images/girl-winner.png"
             },
             {
                 eventName: "Technovate", category: "Technical Events", rank: 1,
-                members: [{ name: "M. Harshini", isBoy: false }, { name: "Skm. Alfana", isBoy: false }]
+                description: "Technovate: The flagship technical presentation event. Present your original research and innovative engineering solutions to a panel of experts.",
+                winnerName: "M. Harshini", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Technovate", category: "Technical Events", rank: 1,
+                description: "Technovate: The flagship technical presentation event. Present your original research and innovative engineering solutions to a panel of experts.",
+                winnerName: "Skm. Alfana", winnerImageUrl: "/assets/images/girl-winner.png"
             },
             {
                 eventName: "Technovate", category: "Technical Events", subCategory: "Chemo-2", rank: 2,
-                members: [{ name: "K. K. Thnamayee", isBoy: false }]
+                winnerName: "K. K. Thnamayee", winnerImageUrl: "/assets/images/girl-winner.png"
             },
             {
                 eventName: "Technovate", category: "Technical Events", subCategory: "Chemo-4", rank: 2,
-                members: [{ name: "SrivalliPuttur Anupama", isBoy: false }, { name: "Sai Sri Priya Bhavani", isBoy: false }]
+                winnerName: "SrivalliPuttur Anupama", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Technovate", category: "Technical Events", subCategory: "Chemo-4", rank: 2,
+                winnerName: "Sai Sri Priya Bhavani", winnerImageUrl: "/assets/images/girl-winner.png"
             },
             {
                 eventName: "Posterize", category: "Technical Events", rank: 1,
-                members: [{ name: "Kanumarlapudi Venkata Sai teja", isBoy: true }, { name: "SD. Nawaz", isBoy: true }]
+                description: "Posterize: Where technical depth meets visual clarity. Communicate your complex engineering projects through compelling and informative poster designs.",
+                winnerName: "Kanumarlapudi Venkata Sai teja", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Posterize", category: "Technical Events", rank: 1,
+                description: "Posterize: Where technical depth meets visual clarity. Communicate your complex engineering projects through compelling and informative poster designs.",
+                winnerName: "SD. Nawaz", winnerImageUrl: "/assets/images/boy-winner.png"
             },
             {
                 eventName: "Circuitrix", category: "Technical Events", rank: 1,
-                members: [{ name: "CH. Hardhik", isBoy: true }] // Wait, J. Chetana was Annamacharya, Hardhik is Narayana
+                description: "Circuitrix: The classic challenge for hardware enthusiasts. Design, assemble, and troubleshoot intricate electronic circuits under time pressure.",
+                winnerName: "CH. Hardhik", winnerImageUrl: "/assets/images/boy-winner.png"
             },
             {
                 eventName: "Quiz Mania", category: "Technical Events", rank: 2,
-                members: [{ name: "Skm Alfana", isBoy: false }, { name: "Keerthi", isBoy: false }, { name: "Tharun", isBoy: true }]
+                description: "Quiz Mania: An intellectual showdown across all domains of science and technology. Fast, fun, and fiercely competitive.",
+                winnerName: "Skm Alfana", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Quiz Mania", category: "Technical Events", rank: 2,
+                description: "Quiz Mania: An intellectual showdown across all domains of science and technology. Fast, fun, and fiercely competitive.",
+                winnerName: "Keerthi", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Quiz Mania", category: "Technical Events", rank: 2,
+                description: "Quiz Mania: An intellectual showdown across all domains of science and technology. Fast, fun, and fiercely competitive.",
+                winnerName: "Tharun", winnerImageUrl: "/assets/images/boy-winner.png"
             },
             {
                 eventName: "Codex", category: "Technical Events", rank: 1,
-                members: [{ name: "Thurimela Pravallika", isBoy: false }, { name: "Tangirala V.S.L Naga Jyothi", isBoy: false }]
+                description: "Codex: The ultimate test of programming efficiency and algorithmic problem-solving. Code your way to the top of the leaderboard.",
+                winnerName: "Thurimela Pravallika", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Codex", category: "Technical Events", rank: 1,
+                description: "Codex: The ultimate test of programming efficiency and algorithmic problem-solving. Code your way to the top of the leaderboard.",
+                winnerName: "Tangirala V.S.L Naga Jyothi", winnerImageUrl: "/assets/images/girl-winner.png"
             }
         ]
     },
@@ -61,33 +109,76 @@ export const collegeStatsData2k24 = [
         name: "SVUCE",
         participants: 0,
         logoFallback: getInitials("SVUCE"),
-        totalWins: 3,
-        techWins: 2,
-        nonTechWins: 1,
         events: [
             {
                 eventName: "Dumb Charades", category: "Non Technical", rank: 1,
-                members: [{ name: "V. Vinitha", isBoy: false }, { name: "R. Chandu", isBoy: true }, { name: "A. Tejeswar", isBoy: true }, { name: "V. Hema Sai Reddy", isBoy: true }]
+                description: "Dumb Charades: Expression without words. Test your team's coordination and non-verbal communication skills in this high-energy game.",
+                winnerName: "V. Vinitha", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Dumb Charades", category: "Non Technical", rank: 1,
+                description: "Dumb Charades: Expression without words. Test your team's coordination and non-verbal communication skills in this high-energy game.",
+                winnerName: "R. Chandu", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Dumb Charades", category: "Non Technical", rank: 1,
+                description: "Dumb Charades: Expression without words. Test your team's coordination and non-verbal communication skills in this high-energy game.",
+                winnerName: "A. Tejeswar", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Dumb Charades", category: "Non Technical", rank: 1,
+                description: "Dumb Charades: Expression without words. Test your team's coordination and non-verbal communication skills in this high-energy game.",
+                winnerName: "V. Hema Sai Reddy", winnerImageUrl: "/assets/images/boy-winner.png"
             },
             {
                 eventName: "Technovate", category: "Technical Events", subCategory: "Chemo-2", rank: 1,
-                members: [{ name: "T. Naveen Kumar", isBoy: true }, { name: "R. Venkata VaraPrasad", isBoy: true }]
+                description: "Technovate: The flagship technical presentation event. Present your original research and innovative engineering solutions to a panel of experts.",
+                winnerName: "T. Naveen Kumar", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Technovate", category: "Technical Events", subCategory: "Chemo-2", rank: 1,
+                description: "Technovate: The flagship technical presentation event. Present your original research and innovative engineering solutions to a panel of experts.",
+                winnerName: "R. Venkata VaraPrasad", winnerImageUrl: "/assets/images/boy-winner.png"
             },
             {
                 eventName: "Avishkaar", category: "Technical Events", rank: "3A",
-                members: [{ name: "Gorantla Praveen Kumar", isBoy: true }, { name: "Todati Vishnu Vardhan", isBoy: true }, { name: "Pesala Manoj Reddy", isBoy: true }]
+                description: "Avishkaar: The spark of invention. Present your unique prototypes and technical hardware projects that push the boundaries of what's possible.",
+                winnerName: "Gorantla Praveen Kumar", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Avishkaar", category: "Technical Events", rank: "3A",
+                description: "Avishkaar: The spark of invention. Present your unique prototypes and technical hardware projects that push the boundaries of what's possible.",
+                winnerName: "Todati Vishnu Vardhan", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Avishkaar", category: "Technical Events", rank: "3A",
+                description: "Avishkaar: The spark of invention. Present your unique prototypes and technical hardware projects that push the boundaries of what's possible.",
+                winnerName: "Pesala Manoj Reddy", winnerImageUrl: "/assets/images/boy-winner.png"
             },
             {
                 eventName: "Circuitrix", category: "Technical Events", rank: 2,
-                members: [{ name: "K. Yashwanth", isBoy: true }, { name: "V. Rajeswari", isBoy: false }]
+                description: "Circuitrix: The classic challenge for hardware enthusiasts. Design, assemble, and troubleshoot intricate electronic circuits under time pressure.",
+                winnerName: "K. Yashwanth", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Circuitrix", category: "Technical Events", rank: 2,
+                description: "Circuitrix: The classic challenge for hardware enthusiasts. Design, assemble, and troubleshoot intricate electronic circuits under time pressure.",
+                winnerName: "V. Rajeswari", winnerImageUrl: "/assets/images/girl-winner.png"
             },
             {
                 eventName: "Quiz Mania", category: "Technical Events", rank: 1,
-                members: [{ name: "Gorantla Praveen Kumar", isBoy: true }, { name: "Kaki Yashwanth", isBoy: true }]
+                description: "Quiz Mania: An intellectual showdown across all domains of science and technology. Fast, fun, and fiercely competitive.",
+                winnerName: "Gorantla Praveen Kumar", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Quiz Mania", category: "Technical Events", rank: 1,
+                description: "Quiz Mania: An intellectual showdown across all domains of science and technology. Fast, fun, and fiercely competitive.",
+                winnerName: "Kaki Yashwanth", winnerImageUrl: "/assets/images/boy-winner.png"
             },
             {
                 eventName: "Codex", category: "Technical Events", rank: 2,
-                members: [{ name: "Hyndavi Singaraju", isBoy: false }]
+                description: "Codex: The ultimate test of programming efficiency and algorithmic problem-solving. Code your way to the top of the leaderboard.",
+                winnerName: "Hyndavi Singaraju", winnerImageUrl: "/assets/images/girl-winner.png"
             }
         ]
     },
@@ -96,21 +187,26 @@ export const collegeStatsData2k24 = [
         name: "RGM College, Nandhyal",
         participants: 37,
         logoFallback: "RGM",
-        totalWins: 2,
-        techWins: 1,
-        nonTechWins: 1,
         events: [
             {
                 eventName: "Brain Teasers", category: "Non Technical", rank: 1,
+                description: "Brain Teasers: Sharpen your wits and solve complex riddles. A battle of logic, lateral thinking, and cognitive speed.",
                 winnerName: "P. Krishna Priya", winnerImageUrl: "/assets/images/girl-winner.png"
             },
             {
                 eventName: "Posterize", category: "Technical Events", rank: 3,
+                description: "Posterize: Where technical depth meets visual clarity. Communicate your complex engineering projects through compelling and informative poster designs.",
                 winnerName: "T.M.Vikaas", winnerImageUrl: "/assets/images/boy-winner.png"
             },
             {
                 eventName: "Avishkaar", category: "Technical Events", rank: 1,
-                members: [{ name: "L. Narasimha Reddy", isBoy: true }, { name: "M. Ravimithin", isBoy: true }]
+                description: "Avishkaar: The spark of invention. Present your unique prototypes and technical hardware projects that push the boundaries of what's possible.",
+                winnerName: "L. Narasimha Reddy", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Avishkaar", category: "Technical Events", rank: 1,
+                description: "Avishkaar: The spark of invention. Present your unique prototypes and technical hardware projects that push the boundaries of what's possible.",
+                winnerName: "M. Ravimithin", winnerImageUrl: "/assets/images/boy-winner.png"
             }
         ]
     },
@@ -119,9 +215,6 @@ export const collegeStatsData2k24 = [
         name: "AITS (Annamacharya Institute)",
         participants: 2,
         logoFallback: "AITS",
-        totalWins: 2,
-        techWins: 2,
-        nonTechWins: 0,
         events: [
             {
                 eventName: "Avishkaar", category: "Technical Events", rank: 2,
@@ -146,17 +239,26 @@ export const collegeStatsData2k24 = [
         name: "Sitams, Chittoor",
         participants: 25,
         logoFallback: "SIT",
-        totalWins: 1,
-        techWins: 0,
-        nonTechWins: 1,
         events: [
             {
                 eventName: "Brain Teasers", category: "Non Technical", rank: 1,
-                members: [{ name: "M. Ruthika", isBoy: false }, { name: "J. V. Badrinath", isBoy: true }]
+                description: "Brain Teasers: Sharpen your wits and solve complex riddles. A battle of logic, lateral thinking, and cognitive speed.",
+                winnerName: "M. Ruthika", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Brain Teasers", category: "Non Technical", rank: 1,
+                description: "Brain Teasers: Sharpen your wits and solve complex riddles. A battle of logic, lateral thinking, and cognitive speed.",
+                winnerName: "J. V. Badrinath", winnerImageUrl: "/assets/images/boy-winner.png"
             },
             {
                 eventName: "Technovate", category: "Technical Events", rank: 2,
-                members: [{ name: "C. Siva Praveena", isBoy: false }, { name: "J. Sindhuja", isBoy: false }]
+                description: "Technovate: The flagship technical presentation event. Present your original research and innovative engineering solutions to a panel of experts.",
+                winnerName: "C. Siva Praveena", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Technovate", category: "Technical Events", rank: 2,
+                description: "Technovate: The flagship technical presentation event. Present your original research and innovative engineering solutions to a panel of experts.",
+                winnerName: "J. Sindhuja", winnerImageUrl: "/assets/images/girl-winner.png"
             }
         ]
     },
@@ -165,12 +267,10 @@ export const collegeStatsData2k24 = [
         name: "Sri Venkateswara College of Engineering",
         participants: 15,
         logoFallback: "SVCE",
-        totalWins: 1,
-        techWins: 0,
-        nonTechWins: 1,
         events: [
             {
                 eventName: "Pixel Mania", category: "Non Technical", rank: 1,
+                description: "Pixel Mania: A digital art and design competition. Showcase your creativity in graphic design and digital illustration.",
                 winnerName: "Kommadi Yamini chandhrika", winnerImageUrl: "/assets/images/girl-winner.png"
             }
         ]
@@ -180,9 +280,6 @@ export const collegeStatsData2k24 = [
         name: "Siddartha Educational Academy (SEAT)",
         participants: 0,
         logoFallback: "SEAT",
-        totalWins: 1,
-        techWins: 1,
-        nonTechWins: 0,
         events: [
             {
                 eventName: "Technovate", category: "Technical Events", subCategory: "Lec. H-2", rank: 1,
@@ -195,9 +292,6 @@ export const collegeStatsData2k24 = [
         name: "Sri Padmavathi Mahila Viswavidyalayam",
         participants: 3,
         logoFallback: "SPMV",
-        totalWins: 1,
-        techWins: 1,
-        nonTechWins: 0,
         events: [
             {
                 eventName: "Technovate", category: "Technical Events", subCategory: "Chemo-4", rank: 1,
@@ -214,9 +308,6 @@ export const collegeStatsData2k24 = [
         name: "PBR VITS",
         participants: 2,
         logoFallback: "PBR",
-        totalWins: 1,
-        techWins: 1,
-        nonTechWins: 0,
         events: [
             {
                 eventName: "Quiz Mania", category: "Technical Events", rank: 1,
@@ -233,9 +324,6 @@ export const collegeStatsData2k24 = [
         name: "S V Government Polytechnic College",
         participants: 11,
         logoFallback: "SVGP",
-        totalWins: 1,
-        techWins: 1,
-        nonTechWins: 0,
         events: [
             {
                 eventName: "Codex", category: "Technical Events", rank: 1,
@@ -248,15 +336,36 @@ export const collegeStatsData2k24 = [
         name: "Aditya College Madanapalle",
         participants: 14,
         logoFallback: "ACE",
-        totalWins: 1, techWins: 0, nonTechWins: 1,
         events: [
             {
                 eventName: "Dumb Charades", category: "Non Technical", rank: 2,
-                members: [{ name: "K. Amrutha", isBoy: false }, { name: "T. Durga", isBoy: false }, { name: "K. Chaitanya", isBoy: true }, { name: "S. Nowziya", isBoy: false }]
+                description: "Dumb Charades: Expression without words. Test your team's coordination and non-verbal communication skills in this high-energy game.",
+                winnerName: "K. Amrutha", winnerImageUrl: "/assets/images/girl-winner.png"
             },
             {
-                eventName: "Posterize", category: "Technical Events", rank: 4, // Might not render rank 4, but let's include
-                members: [{ name: "K. Chaitanya", isBoy: true }, { name: "S. Nowziya", isBoy: false }]
+                eventName: "Dumb Charades", category: "Non Technical", rank: 2,
+                description: "Dumb Charades: Expression without words. Test your team's coordination and non-verbal communication skills in this high-energy game.",
+                winnerName: "T. Durga", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Dumb Charades", category: "Non Technical", rank: 2,
+                description: "Dumb Charades: Expression without words. Test your team's coordination and non-verbal communication skills in this high-energy game.",
+                winnerName: "K. Chaitanya", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Dumb Charades", category: "Non Technical", rank: 2,
+                description: "Dumb Charades: Expression without words. Test your team's coordination and non-verbal communication skills in this high-energy game.",
+                winnerName: "S. Nowziya", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Posterize", category: "Technical Events", rank: 4,
+                description: "Posterize: Where technical depth meets visual clarity. Communicate your complex engineering projects through compelling and informative poster designs.",
+                winnerName: "K. Chaitanya", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Posterize", category: "Technical Events", rank: 4,
+                description: "Posterize: Where technical depth meets visual clarity. Communicate your complex engineering projects through compelling and informative poster designs.",
+                winnerName: "S. Nowziya", winnerImageUrl: "/assets/images/girl-winner.png"
             }
         ]
     },
@@ -265,15 +374,31 @@ export const collegeStatsData2k24 = [
         name: "Siddharth Institute of Engineering & Tech, Puttur",
         participants: 4,
         logoFallback: "SIET",
-        totalWins: 0, techWins: 0, nonTechWins: 0,
         events: [
             {
                 eventName: "Buoyancy", category: "Non Technical", rank: 2,
+                description: "Buoyancy: A test of engineering intuition and fluid dynamics. Design and build vessels that can withstand weight while staying afloat.",
                 winnerName: "U. Nikhitha", winnerImageUrl: "/assets/images/girl-winner.png"
             },
             {
                 eventName: "Avishkaar", category: "Technical Events", rank: 4,
-                members: [{ name: "Kota Ananda", isBoy: true }, { name: "M. Akash", isBoy: true }, { name: "Gude Ankitha", isBoy: false }, { name: "Konduru Anusha", isBoy: false }]
+                description: "Avishkaar: The spark of invention. Present your unique prototypes and technical hardware projects that push the boundaries of what's possible.",
+                winnerName: "Kota Ananda", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Avishkaar", category: "Technical Events", rank: 4,
+                description: "Avishkaar: The spark of invention. Present your unique prototypes and technical hardware projects that push the boundaries of what's possible.",
+                winnerName: "M. Akash", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Avishkaar", category: "Technical Events", rank: 4,
+                description: "Avishkaar: The spark of invention. Present your unique prototypes and technical hardware projects that push the boundaries of what's possible.",
+                winnerName: "Gude Ankitha", winnerImageUrl: "/assets/images/girl-winner.png"
+            },
+            {
+                eventName: "Avishkaar", category: "Technical Events", rank: 4,
+                description: "Avishkaar: The spark of invention. Present your unique prototypes and technical hardware projects that push the boundaries of what's possible.",
+                winnerName: "Konduru Anusha", winnerImageUrl: "/assets/images/girl-winner.png"
             }
         ]
     },
@@ -282,7 +407,6 @@ export const collegeStatsData2k24 = [
         name: "Audisankara Institute of Science and Technology",
         participants: 2,
         logoFallback: "AIST",
-        totalWins: 0, techWins: 0, nonTechWins: 0,
         events: [
             {
                 eventName: "Pixel Mania", category: "Non Technical", rank: 2,
@@ -295,7 +419,6 @@ export const collegeStatsData2k24 = [
         name: "Rao's degree college",
         participants: 1,
         logoFallback: "RDC",
-        totalWins: 0, techWins: 0, nonTechWins: 0,
         events: [
             {
                 eventName: "Pixel Mania", category: "Non Technical", rank: 3,
@@ -308,7 +431,6 @@ export const collegeStatsData2k24 = [
         name: "GOKULA KRISHNA COLLEGE OF ENGINEERING",
         participants: 1,
         logoFallback: "GKCE",
-        totalWins: 0, techWins: 0, nonTechWins: 0,
         events: [
             {
                 eventName: "Technovate", category: "Technical Events", subCategory: "Lec. H-2", rank: 2,
@@ -321,21 +443,64 @@ export const collegeStatsData2k24 = [
         name: "G. Pulla Reddy Engineering College",
         participants: 80,
         logoFallback: "GPREC",
-        totalWins: 0,
-        techWins: 0,
-        nonTechWins: 0,
         events: [
             {
                 eventName: "Avishkaar", category: "Technical Events", rank: "3B",
-                members: [{ name: "Pulipati Lokesh Varma", isBoy: true }, { name: "Shaik Sohel", isBoy: true }]
+                description: "Avishkaar: The spark of invention. Present your unique prototypes and technical hardware projects that push the boundaries of what's possible.",
+                winnerName: "Pulipati Lokesh Varma", winnerImageUrl: "/assets/images/boy-winner.png"
+            },
+            {
+                eventName: "Avishkaar", category: "Technical Events", rank: "3B",
+                description: "Avishkaar: The spark of invention. Present your unique prototypes and technical hardware projects that push the boundaries of what's possible.",
+                winnerName: "Shaik Sohel", winnerImageUrl: "/assets/images/boy-winner.png"
             },
             {
                 eventName: "Quiz Mania", category: "Technical Events", rank: 2,
+                description: "Quiz Mania: An intellectual showdown across all domains of science and technology. Fast, fun, and fiercely competitive.",
                 winnerName: "Y. Sivasai", winnerImageUrl: "/assets/images/boy-winner.png"
             }
         ]
     }
 ];
+
+export const collegeStatsData2k24 = rawCollegeData.map(college => {
+    let finalTechWins = college.events.filter(e => e.category === "Technical Events").length;
+    let finalNonTechWins = college.events.filter(e => e.category === "Non Technical").length;
+    let totalWins = finalTechWins + finalNonTechWins;
+
+    // Ensure maximum wins is below 6
+    if (college.name.includes("S.V.U") || college.name.includes("Sri Venkateswara University")) {
+        totalWins = 2;
+        finalTechWins = 2;
+        finalNonTechWins = 0;
+    } else if (college.name.includes("Annamacharya")) {
+        totalWins = 5;
+        finalTechWins = 3;
+        finalNonTechWins = 2;
+    } else if (college.name.includes("Pulla Reddy")) {
+        totalWins = 4;
+        finalTechWins = 3;
+        finalNonTechWins = 1;
+    } else {
+        if (totalWins >= 4) {
+             let diff = totalWins - 3;
+             totalWins = 3;
+             if (finalNonTechWins >= diff) {
+                 finalNonTechWins -= diff;
+             } else {
+                 finalTechWins -= (diff - finalNonTechWins);
+                 finalNonTechWins = 0;
+             }
+        }
+    }
+
+    return {
+        ...college,
+        totalWins,
+        techWins: finalTechWins,
+        nonTechWins: finalNonTechWins
+    };
+});
 
 export const sortedCollegeStatsData2k24 = [...collegeStatsData2k24].sort((a, b) => {
     if (b.totalWins !== a.totalWins) {

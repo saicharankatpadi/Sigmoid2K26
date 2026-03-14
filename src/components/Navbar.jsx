@@ -101,6 +101,16 @@ export default function Navbar() {
                 </svg>
             )
         },
+        {
+            label: 'Magazines',
+            href: '/magazines',
+            icon: (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+            )
+        },
     ]
 
     return (
@@ -138,7 +148,7 @@ export default function Navbar() {
                 <div
                     className="transition-all duration-500 ease-out"
                     style={{
-                        maxWidth: scrolled ? '1200px' : '100%',
+                        maxWidth: scrolled ? '1400px' : '100%',
                         margin: '0 auto',
                         background: scrolled
                             ? 'rgba(15, 15, 15, 0.65)'
@@ -158,7 +168,7 @@ export default function Navbar() {
                         padding: scrolled ? '10px 28px' : '14px 40px',
                     }}
                 >
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between w-full">
                         {/* ── Left: Logo + Title ── */}
                         <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 no-underline group shrink-0">
                             {/* New Sigmoid 2k26 Logo */}
@@ -168,18 +178,9 @@ export default function Navbar() {
                                 className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_2px_8px_rgba(255,255,255,0.1)]"
                             />
                             <span
-                                className="font-bold tracking-[0.05em] transition-all duration-300"
+                                className="font-bold tracking-tight text-white text-xl md:text-2xl"
                                 style={{ 
-                                    fontFamily: "'Pirata One', cursive",
-                                    fontSize: '32px',
-                                    color: '#ffd700',
-                                    backgroundImage: 'linear-gradient(to bottom, #fffde7 0%, #fbc02d 40%, #f57f17 100%)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    WebkitTextStroke: '1px #3e2723',
-                                    textShadow: '2px 3px 6px rgba(0,0,0,0.8), -1px -1px 0 rgba(255,255,255,0.2)',
-                                    lineHeight: '1.2',
-                                    paddingTop: '6px'
+                                    fontFamily: 'Inter, sans-serif',
                                 }}
                             >
                                 SIGMOID 2K26
@@ -187,9 +188,9 @@ export default function Navbar() {
                         </Link>
 
                         {/* ── Center: Nav Links (desktop) ── */}
-                        <div className="hidden md:flex items-center gap-0.5">
+                        <div className="hidden lg:flex items-center gap-0.5">
                             {links.map((link) => {
-                                const isRouterLink = ['Home', 'AboutUs', 'Events', 'Register', 'Accommodation', 'Gallery', 'Passport'].includes(link.label);
+                                const isRouterLink = ['Home', 'AboutUs', 'Events', 'Register', 'Accommodation', 'Gallery', 'Passport', 'Magazines'].includes(link.label);
                                 if (isRouterLink) {
                                     return (
                                         <Link
@@ -218,42 +219,44 @@ export default function Navbar() {
                         </div>
 
                         {/* ── Right: Menu icon ── */}
-                        <button
-                            onClick={() => setMenuOpen(!menuOpen)}
-                            className="flex items-center justify-center bg-transparent border-none cursor-pointer outline-none transition-all duration-200"
-                            style={{
-                                width: 36, height: 36,
-                                borderRadius: '50%',
-                                background: 'rgba(255,255,255,0.04)',
-                                border: '1px solid rgba(255,255,255,0.08)',
-                            }}
-                            onMouseEnter={e => {
-                                e.currentTarget.style.background = 'rgba(255,107,43,0.1)'
-                                e.currentTarget.style.borderColor = 'rgba(255,107,43,0.3)'
-                            }}
-                            onMouseLeave={e => {
-                                e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
-                                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'
-                            }}
-                        >
-                            {/* Hamburger icon */}
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                stroke={menuOpen ? "#FF6B2B" : "rgba(255,255,255,0.75)"}
-                                strokeWidth="2.5"
-                                strokeLinecap="round" strokeLinejoin="round"
+                        <div className="flex items-center lg:hidden">
+                            <button
+                                onClick={() => setMenuOpen(!menuOpen)}
+                                className="flex items-center justify-center bg-transparent border-none cursor-pointer outline-none transition-all duration-200"
+                                style={{
+                                    width: 40, height: 40,
+                                    borderRadius: '50%',
+                                    background: 'rgba(255,255,255,0.04)',
+                                    border: '1px solid rgba(255,255,255,0.08)',
+                                }}
+                                onMouseEnter={e => {
+                                    e.currentTarget.style.background = 'rgba(255,107,43,0.1)'
+                                    e.currentTarget.style.borderColor = 'rgba(255,107,43,0.3)'
+                                }}
+                                onMouseLeave={e => {
+                                    e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
+                                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'
+                                }}
                             >
-                                <path d={menuOpen ? "M18 6L6 18" : "M4 7h16"} className="transition-all duration-300" />
-                                <path d={menuOpen ? "M6 6l12 12" : "M4 12h16"} className="transition-all duration-300"
-                                    style={{ opacity: menuOpen ? 0 : 1, transition: 'opacity 0.2s' }} />
-                                <path d={menuOpen ? "" : "M4 17h16"} className="transition-all duration-300" />
-                            </svg>
-                        </button>
+                                {/* Hamburger icon */}
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke={menuOpen ? "#FF6B2B" : "rgba(255,255,255,0.75)"}
+                                    strokeWidth="2.5"
+                                    strokeLinecap="round" strokeLinejoin="round"
+                                >
+                                    <path d={menuOpen ? "M18 6L6 18" : "M4 7h16"} className="transition-all duration-300" />
+                                    <path d={menuOpen ? "M6 6l12 12" : "M4 12h16"} className="transition-all duration-300"
+                                        style={{ opacity: menuOpen ? 0 : 1, transition: 'opacity 0.2s' }} />
+                                    <path d={menuOpen ? "" : "M4 17h16"} className="transition-all duration-300" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 {/* ── Mobile Menu Dropdown ── */}
                 <div
-                    className="md:hidden overflow-hidden transition-all duration-400 px-6"
+                    className="lg:hidden overflow-hidden transition-all duration-400 px-6"
                     style={{
                         maxHeight: menuOpen ? '500px' : '0',
                         opacity: menuOpen ? 1 : 0,
@@ -274,7 +277,7 @@ export default function Navbar() {
                         }}
                     >
                         {links.map((link, i) => {
-                            const isRouterLink = ['Home', 'AboutUs', 'Events', 'Register', 'Accommodation', 'Gallery', 'Passport'].includes(link.label);
+                            const isRouterLink = ['Home', 'AboutUs', 'Events', 'Register', 'Accommodation', 'Gallery', 'Passport', 'Magazines'].includes(link.label);
                             const style = {
                                 fontFamily: 'Inter, sans-serif',
                                 animation: menuOpen ? `navSlideDown 0.4s cubic-bezier(0.22,1,0.36,1) both` : 'none',

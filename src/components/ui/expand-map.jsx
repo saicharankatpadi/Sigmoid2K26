@@ -7,7 +7,9 @@ export function LocationMap({
   location = "San Francisco, CA",
   coordinates = "37.7749° N, 122.4194° W",
   className,
-  color = "emerald"
+  color = "emerald",
+  embedUrl,
+  openHref
 }) {
   const [isHovered, setIsHovered] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
@@ -38,6 +40,10 @@ export function LocationMap({
   }
 
   const handleClick = () => {
+    if (openHref) {
+      window.open(openHref, '_blank', 'noopener,noreferrer');
+      return;
+    }
     setIsExpanded(!isExpanded)
   }
 
@@ -173,44 +179,68 @@ export function LocationMap({
                 ))}
               </svg>
 
-              {/* Buildings */}
-              <motion.div
-                className="absolute top-[40%] left-[10%] w-[15%] h-[20%] rounded-sm bg-white/10 border border-white/5"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.5 }}
-              />
-              <motion.div
-                className="absolute top-[15%] left-[35%] w-[12%] h-[15%] rounded-sm bg-white/5 border border-white/5"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.6 }}
-              />
-              <motion.div
-                className="absolute top-[70%] left-[75%] w-[18%] h-[18%] rounded-sm bg-white/10 border border-white/5"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.7 }}
-              />
-
-              <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
-                initial={{ scale: 0, y: -20 }}
-                animate={{ scale: 1, y: 0 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20, delay: 0.3 }}
-              >
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="drop-shadow-lg"
-                  style={{ filter: `drop-shadow(0 0 10px rgba(${activeColor.rgb}, 0.5))` }}
+              {/* Buildings / Layout */}
+              {embedUrl ? (
+                <motion.div 
+                  className="absolute inset-x-2 top-2 bottom-12 rounded-xl overflow-hidden bg-black/50 border border-white/10"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill={activeColor.base} />
-                  <circle cx="12" cy="9" r="2.5" className="fill-[#111]" />
-                </svg>
-              </motion.div>
+                  <iframe 
+                    src={embedUrl}
+                    className="w-full h-full border-0 grayscale-[0.2] contrast-[1.1] opacity-80 rounded-xl"
+                    allowFullScreen="" 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Location Map"
+                  />
+                  {/* Subtle overlay to blend map with UI */}
+                  <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10" />
+                </motion.div>
+              ) : (
+                <>
+                  <motion.div
+                    className="absolute top-[40%] left-[10%] w-[15%] h-[20%] rounded-sm bg-white/10 border border-white/5"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 0.5 }}
+                  />
+                  <motion.div
+                    className="absolute top-[15%] left-[35%] w-[12%] h-[15%] rounded-sm bg-white/5 border border-white/5"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 0.6 }}
+                  />
+                  <motion.div
+                    className="absolute top-[70%] left-[75%] w-[18%] h-[18%] rounded-sm bg-white/10 border border-white/5"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 0.7 }}
+                  />
+                </>
+              )}
+
+              {!embedUrl && (
+                <motion.div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+                  initial={{ scale: 0, y: -20 }}
+                  animate={{ scale: 1, y: 0 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20, delay: 0.3 }}
+                >
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="drop-shadow-lg"
+                    style={{ filter: `drop-shadow(0 0 10px rgba(${activeColor.rgb}, 0.5))` }}
+                  >
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill={activeColor.base} />
+                    <circle cx="12" cy="9" r="2.5" className="fill-[#111]" />
+                  </svg>
+                </motion.div>
+              )}
 
               <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent opacity-80" />
             </motion.div>

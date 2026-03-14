@@ -1,13 +1,13 @@
 // src/components/ui/gallery-page.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import { galleryStories,    galleryHeroCards, 
-    gallery2026Images,
-    gallery2026Masonry, // Added gallery2026Masonry
-    gallery2025Images, 
-    gallery2025Masonry, 
-    gallery2024Images, 
-    gallery2024Masonry 
+import {
+    galleryStories, galleryHeroCards,
+
+    gallery2025Images,
+    gallery2025Masonry,
+    gallery2024Images,
+    gallery2024Masonry
 } from '../../data/gallery-data';
 import { TypingAnimation } from './typing-animation';
 import { AnimatedText } from './animated-shiny-text';
@@ -22,19 +22,19 @@ export function GalleryPage() {
 
     return (
         <div className="bg-[#0A0A0A] w-full min-h-screen text-white pt-24 pb-16 font-sans overflow-x-hidden">
-            
+
             {/* ── Story Carousel Section ── */}
             <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-                <StoryCarousel 
-                    stories={galleryStories} 
-                    onStoryClick={(index) => setActiveStoryData({ stories: galleryStories, index })} 
+                <StoryCarousel
+                    stories={galleryStories}
+                    onStoryClick={(index) => setActiveStoryData({ stories: galleryStories, index })}
                 />
             </div>
 
             {/* ── Heading Above Hero ── */}
             <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mb-6">
                 <h2 className="text-xl md:text-2xl font-bold tracking-tight text-white/90">
-                    SIGMOID 2K26 (Promotional Content) - TECHOVATE
+                    SIGMOID 2K26 (Promotional Content)
                 </h2>
             </div>
 
@@ -50,19 +50,19 @@ export function GalleryPage() {
                     SIGMOID 2K25
                 </h2>
                 <div className="w-full">
-                    <StoryCarousel 
-                        stories={gallery2025Images} 
-                        onStoryClick={(index) => setActiveStoryData({ stories: gallery2025Images, index })} 
+                    <StoryCarousel
+                        stories={gallery2025Images}
+                        onStoryClick={(index) => setActiveStoryData({ stories: gallery2025Images, index })}
                     />
                 </div>
 
                 {/* ── Masonry Image Scroller ── */}
                 <div className="w-full mt-10 overflow-hidden relative border-t border-white/10 pt-8 -ml-4 sm:-ml-6 lg:-ml-8 pr-4 sm:pr-6 lg:pr-8 w-[calc(100%+32px)] sm:w-[calc(100%+48px)] lg:w-[calc(100%+64px)]">
-                     {/* Fade mask for the left side so images smoothly disappear */}
-                     <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
-                     {/* Fade mask for the right side so images smoothly appear */}
-                     <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
-                     <MasonryImageScroll images={gallery2025Masonry} />
+                    {/* Fade mask for the left side so images smoothly disappear */}
+                    <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+                    {/* Fade mask for the right side so images smoothly appear */}
+                    <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+                    <MasonryImageScroll images={gallery2025Masonry} />
                 </div>
             </div>
 
@@ -72,25 +72,25 @@ export function GalleryPage() {
                     SIGMOID 2K24
                 </h2>
                 <div className="w-full">
-                    <StoryCarousel 
-                        stories={gallery2024Images} 
-                        onStoryClick={(index) => setActiveStoryData({ stories: gallery2024Images, index })} 
+                    <StoryCarousel
+                        stories={gallery2024Images}
+                        onStoryClick={(index) => setActiveStoryData({ stories: gallery2024Images, index })}
                     />
                 </div>
 
                 {/* ── Masonry Image Scroller (2K24) ── */}
                 <div className="w-full mt-10 overflow-hidden relative border-t border-white/10 pt-8 -ml-4 sm:-ml-6 lg:-ml-8 pr-4 sm:pr-6 lg:pr-8 w-[calc(100%+32px)] sm:w-[calc(100%+48px)] lg:w-[calc(100%+64px)]">
-                     <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
-                     <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
-                     <MasonryImageScroll images={gallery2024Masonry} />
+                    <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+                    <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+                    <MasonryImageScroll images={gallery2024Masonry} />
                 </div>
             </div>
 
             {/* ── StoryViewer Modal ── */}
             {activeStoryData.index !== null && (
-                <StoryViewer 
-                    stories={activeStoryData.stories} 
-                    currentIndex={activeStoryData.index} 
+                <StoryViewer
+                    stories={activeStoryData.stories}
+                    currentIndex={activeStoryData.index}
                     onClose={() => setActiveStoryData({ stories: [], index: null })}
                     onNavigate={(newIndex) => setActiveStoryData(prev => ({ ...prev, index: newIndex }))}
                 />
@@ -112,30 +112,30 @@ function StoryCarousel({ stories, onStoryClick }) {
     return (
         <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-6 pt-2 scrollbar-hide snap-x" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             {stories.map((story, index) => (
-                <div 
-                    key={story.id} 
-                    className="flex flex-col items-center gap-2 shrink-0 cursor-pointer group w-[90px] sm:w-[124px] snap-start"
+                <div
+                    key={story.id}
+                    className="flex flex-col items-center gap-2 shrink-0 cursor-pointer group w-[105px] sm:w-[124px] snap-start"
                     onClick={() => onStoryClick(index)}
                 >
                     {/* Rounded Rectangle Avatar */}
                     <div className="relative p-[3px] rounded-2xl bg-gradient-to-tr from-[#FF6B2B] via-[#FF8F1F] to-[#2563EB] transition-transform duration-300 group-hover:scale-105">
                         <div className="p-[3px] bg-[#0A0A0A] rounded-2xl relative">
                             {story.thumbnailUrl?.includes('.mp4') ? (
-                                <video 
+                                <video
                                     src={story.thumbnailUrl + "#t=0.1"}
-                                    className="w-[76px] h-[76px] sm:w-[94px] sm:h-[94px] rounded-xl object-cover border border-white/10 group-hover:border-white/20 transition-colors"
+                                    className="w-[88px] h-[88px] sm:w-[94px] sm:h-[94px] rounded-xl object-cover border border-white/10 group-hover:border-white/20 transition-colors"
                                     preload="metadata"
                                     muted
                                     playsInline
                                 />
                             ) : (
-                                <img 
-                                    src={story.thumbnailUrl} 
-                                    alt={story.title} 
-                                    className="w-[76px] h-[76px] sm:w-[94px] sm:h-[94px] rounded-xl object-cover border border-white/10 group-hover:border-white/20 transition-colors"
+                                <img
+                                    src={story.thumbnailUrl}
+                                    alt={story.title}
+                                    className="w-[88px] h-[88px] sm:w-[94px] sm:h-[94px] rounded-xl object-cover border border-white/10 group-hover:border-white/20 transition-colors"
                                 />
                             )}
-                            
+
                             {/* Play Icon Overlay */}
                             <div className="absolute inset-0 z-10 flex items-center justify-center p-[3px]">
                                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/40 backdrop-blur-[2px] border border-white/30 flex items-center justify-center group-hover:bg-[#3B82F6]/50 group-hover:border-[#3B82F6] transition-all duration-300">
@@ -170,13 +170,13 @@ function StoryCarousel({ stories, onStoryClick }) {
 
 function GalleryHero({ cards }) {
     return (
-        <div className="relative w-full overflow-visible flex flex-col justify-end pb-0 mt-8 mb-24 sm:mb-32 rounded-2xl md:rounded-3xl border-2 border-white/20">
-            
+        <div className="relative w-full overflow-visible flex flex-col justify-end pb-0 mt-8 mb-12 sm:mb-20 rounded-2xl md:rounded-3xl border-2 border-white/20">
+
             {/* Background Image / Overlay */}
             <div className="absolute inset-0 z-0 bg-[#0A0A0A]">
-                <img 
-                    src="/hero-bg.jpeg" 
-                    alt="Hero Background" 
+                <img
+                    src="/hero-bg.jpeg"
+                    alt="Hero Background"
                     className="w-full h-full object-cover object-top opacity-50 md:opacity-80 rounded-2xl md:rounded-3xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-[#0A0A0A]/40 rounded-2xl md:rounded-3xl" />
@@ -188,19 +188,19 @@ function GalleryHero({ cards }) {
 
                 {/* Titles - Centered entirely (SIGMOID 2K26 above NEON NOSTALGIA) */}
                 <div className="max-w-4xl flex flex-col items-center text-center gap-4 sm:gap-6 relative z-30 mb-8 sm:mb-12 mt-2">
-                    <TypingAnimation 
+                    <TypingAnimation
                         text="SIGMOID 2K26"
                         className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-[0.2em] drop-shadow-lg"
                     />
-                    <AnimatedText 
-                        text="NEON NOSTALGIA"
-                        textClassName="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase drop-shadow-md"
+                    <AnimatedText
+                        text="NEO NOSTALGIA"
+                        textClassName="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase drop-shadow-md text-center"
                         gradientColors="linear-gradient(90deg, #FF8F1F, #FFD700, #FF8F1F)"
                     />
                 </div>
 
                 {/* Video Cards Row */}
-                <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-4 z-30 relative translate-y-20 sm:translate-y-28">
+                <div className="w-full grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-4 z-30 relative translate-y-8 sm:translate-y-12">
                     {cards.map((card, index) => (
                         <div key={card.id} className={index >= 2 ? "hidden lg:block" : ""}>
                             <CardItem card={card} isLeftmost={index === 0} />
@@ -235,14 +235,14 @@ function CardItem({ card, isLeftmost }) {
     useEffect(() => {
         const v = hoverVideoRef.current;
         if (!v || !card.videoUrl) return;
-        if (isHovering) { v.play().catch(() => {}); }
+        if (isHovering) { v.play().catch(() => { }); }
         else { v.pause(); v.currentTime = 0; }
     }, [isHovering, card.videoUrl]);
 
     useEffect(() => {
         const v = modalVideoRef.current;
         if (!v || !isModalOpen) return;
-        v.play().catch(() => {});
+        v.play().catch(() => { });
         const onTime = () => {
             setProgress((v.currentTime / v.duration) * 100 || 0);
             setCurrentTime(formatTime(v.currentTime));
@@ -290,7 +290,7 @@ function CardItem({ card, isLeftmost }) {
                 onMouseLeave={() => setIsHovering(false)}
                 onClick={() => { setIsModalOpen(true); setIsPlaying(true); }}
             >
-                <div className="relative aspect-[16/9] md:aspect-[4/3] w-full rounded-2xl overflow-hidden bg-black transition-all duration-300">
+                <div className="relative aspect-[3/4] sm:aspect-[4/3] w-full rounded-2xl overflow-hidden bg-black transition-all duration-300">
                     <img
                         src={card.thumbnailUrl}
                         alt={card.title}
@@ -342,7 +342,7 @@ function CardItem({ card, isLeftmost }) {
                             className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors"
                         >
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
                             </svg>
                         </button>
                         <video
@@ -365,14 +365,14 @@ function CardItem({ card, isLeftmost }) {
                             <div className="flex items-center gap-4">
                                 <button onClick={togglePlay} className="text-white hover:text-[#E10098] transition-colors">
                                     {isPlaying
-                                        ? <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-                                        : <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                        ? <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" /></svg>
+                                        : <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
                                     }
                                 </button>
                                 <button onClick={toggleMute} className="text-white hover:text-[#E10098] transition-colors">
                                     {isMuted
-                                        ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-                                        : <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                                        ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+                                        : <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" /></svg>
                                     }
                                 </button>
                                 <span className="text-white/50 text-[13px] font-mono ml-auto">{currentTime} / {duration}</span>
@@ -384,7 +384,7 @@ function CardItem({ card, isLeftmost }) {
                         </div>
                     </div>
                 </div>
-            , document.body)}
+                , document.body)}
         </>
     );
 }
@@ -396,6 +396,31 @@ function StoryViewer({ stories, currentIndex, onClose, onNavigate }) {
     const [progress, setProgress] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
     const [isMuted, setIsMuted] = useState(false);
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
+
+    // Minimum swipe distance (in pixels)
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe && currentIndex < stories.length - 1) {
+            onNavigate(currentIndex + 1);
+        } else if (isRightSwipe && currentIndex > 0) {
+            onNavigate(currentIndex - 1);
+        }
+    };
 
     // Progress bar effect
     useEffect(() => {
@@ -409,7 +434,7 @@ function StoryViewer({ stories, currentIndex, onClose, onNavigate }) {
                 animationFrame = requestAnimationFrame(updateProgress);
             }
         };
-        
+
         if (isPlaying) {
             animationFrame = requestAnimationFrame(updateProgress);
         }
@@ -460,7 +485,7 @@ function StoryViewer({ stories, currentIndex, onClose, onNavigate }) {
     };
 
     const togglePlay = (e) => {
-        if(e) e.stopPropagation();
+        if (e) e.stopPropagation();
         if (videoRef.current) {
             if (isPlaying) videoRef.current.pause();
             else videoRef.current.play();
@@ -478,9 +503,9 @@ function StoryViewer({ stories, currentIndex, onClose, onNavigate }) {
 
     return (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md">
-            
+
             {/* Close Button */}
-            <button 
+            <button
                 onClick={onClose}
                 className="absolute top-6 right-6 z-50 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
             >
@@ -496,17 +521,20 @@ function StoryViewer({ stories, currentIndex, onClose, onNavigate }) {
 
             {/* Main Story Container */}
             <div className="relative w-full max-w-[400px] h-[100dvh] md:h-[85vh] md:rounded-[2rem] overflow-hidden bg-[#1A1A1A] flex flex-col items-center justify-center shadow-2xl z-20"
-                 onClick={togglePlay}
+                onClick={togglePlay}
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
             >
-                
+
                 {/* Progress Bar Container */}
                 <div className="absolute top-0 left-0 right-0 z-30 flex gap-1 p-4 px-3 pt-5 pointer-events-none">
                     {stories.map((_, i) => (
                         <div key={i} className="flex-1 h-1 rounded-full bg-white/30 overflow-hidden">
-                            <div 
+                            <div
                                 className="h-full bg-white transition-all duration-100 ease-linear"
-                                style={{ 
-                                    width: i < currentIndex ? '100%' : i === currentIndex ? `${progress}%` : '0%' 
+                                style={{
+                                    width: i < currentIndex ? '100%' : i === currentIndex ? `${progress}%` : '0%'
                                 }}
                             />
                         </div>
@@ -542,12 +570,12 @@ function StoryViewer({ stories, currentIndex, onClose, onNavigate }) {
                         )}
                     </button>
                     <button className="p-2 text-white drop-shadow-lg opacity-90 hover:opacity-100 transition-opacity">
-                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                     </button>
                 </div>
 
                 {/* Video Element */}
-                <video 
+                <video
                     ref={videoRef}
                     src={story.videoUrl}
                     poster={story.thumbnailUrl}
@@ -560,14 +588,14 @@ function StoryViewer({ stories, currentIndex, onClose, onNavigate }) {
                 {/* Bottom Graphic Overlay (matching ICC style) */}
                 <div className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none">
                     {/* Pink/Blue jagged shape overlay */}
-                    <div 
+                    <div
                         className="absolute bottom-0 left-0 w-full h-[120%]"
                         style={{
                             background: 'linear-gradient(135deg, transparent 40%, #E11D48 40%, #E11D48 100%)',
                             clipPath: 'polygon(0 80%, 20% 100%, 0 100%)',
                         }}
                     />
-                    <div 
+                    <div
                         className="absolute bottom-0 left-0 w-full h-full"
                         style={{
                             background: '#FF1493', // Vibrant pink
@@ -575,7 +603,7 @@ function StoryViewer({ stories, currentIndex, onClose, onNavigate }) {
                             opacity: 0.9
                         }}
                     />
-                    
+
                     {/* Dark Title Card Overlaid */}
                     <div className="absolute bottom-12 left-6 right-6 bg-[#0B0B2A] rounded-lg p-4 border border-[#3B82F6]/30 shadow-2xl">
                         <h3 className="text-white font-extrabold text-sm uppercase leading-tight">
@@ -586,14 +614,14 @@ function StoryViewer({ stories, currentIndex, onClose, onNavigate }) {
             </div>
 
             {/* Desktop Arrow Navigation Buttons */}
-            <button 
+            <button
                 onClick={handlePrevious}
                 className="hidden md:flex absolute left-[calc(50%-280px)] top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full bg-white/20 hover:bg-white/40 text-white backdrop-blur-sm transition-colors z-50 pointer-events-auto"
                 disabled={currentIndex === 0}
             >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
             </button>
-            <button 
+            <button
                 onClick={handleNext}
                 className="hidden md:flex absolute right-[calc(50%-280px)] top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full bg-white/20 hover:bg-white/40 text-white backdrop-blur-sm transition-colors z-50 pointer-events-auto"
             >
@@ -610,18 +638,18 @@ function MasonryMedia({ item }) {
     return (
         <>
             {isVideo ? (
-                <video 
-                    src={`${item.url}#t=0.1`} 
+                <video
+                    src={`${item.url}#t=0.1`}
                     className="w-full h-full object-cover group-hover/card:scale-110 transition-transform duration-700"
                     preload="metadata"
                     muted
                     playsInline
                 />
             ) : (
-                <img 
-                    src={item.url} 
-                    alt={item.alt} 
-                    className="w-full h-full object-cover group-hover/card:scale-110 transition-transform duration-700" 
+                <img
+                    src={item.url}
+                    alt={item.alt}
+                    className="w-full h-full object-cover group-hover/card:scale-110 transition-transform duration-700"
                 />
             )}
             <div className="absolute inset-0 bg-black/10 group-hover/card:bg-transparent transition-colors" />
@@ -642,7 +670,7 @@ function MasonryImageScroll({ images }) {
 
     return (
         <div className="relative w-full overflow-hidden flex pb-4 pt-2 group">
-            
+
             {/* Inline CSS for limitless scrolling animation */}
             <style>
                 {`
@@ -662,7 +690,7 @@ function MasonryImageScroll({ images }) {
             <div className="flex gap-4 w-max animate-scroll-left">
                 {duplicatedChunks.map((chunk, chunkIndex) => (
                     <div key={chunkIndex} className="flex gap-4 shrink-0 h-[200px] sm:h-[300px]">
-                        
+
                         {/* Column 1: Tall Vertical Image */}
                         {chunk[0] ? (
                             <div className="w-[120px] sm:w-[180px] h-full overflow-hidden shrink-0 group/card relative transition-colors rounded-2xl">

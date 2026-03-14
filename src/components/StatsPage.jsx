@@ -24,18 +24,20 @@ export function StatsPage() {
         }));
     };
 
-    // Calculate podium data for Overview tables
-    const topOverall = [...sortedCollegeStatsData].sort((a, b) => b.totalWins - a.totalWins || b.participants - a.participants).slice(0, 5);
-    const topTech = [...sortedCollegeStatsData].sort((a, b) => b.techWins - a.techWins || b.participants - a.participants).filter(c => c.techWins > 0).slice(0, 5);
-    const topNonTech = [...sortedCollegeStatsData].sort((a, b) => b.nonTechWins - a.nonTechWins || b.participants - a.participants).filter(c => c.nonTechWins > 0).slice(0, 5);
-
-    const topOverall2k24 = [...sortedCollegeStatsData2k24].sort((a, b) => b.totalWins - a.totalWins || b.participants - a.participants).slice(0, 5);
-    const topTech2k24 = [...sortedCollegeStatsData2k24].sort((a, b) => b.techWins - a.techWins || b.participants - a.participants).filter(c => c.techWins > 0).slice(0, 5);
-    const topNonTech2k24 = [...sortedCollegeStatsData2k24].sort((a, b) => b.nonTechWins - a.nonTechWins || b.participants - a.participants).filter(c => c.nonTechWins > 0).slice(0, 5);
+    // Calculate podium data for Overview tables - Filtering out SVUCE
+    const baseStats2k25 = sortedCollegeStatsData.filter(c => c.name !== "S.V.U College of Engineering" && c.name !== "SVUCE");
+    const topOverall = [...baseStats2k25].sort((a, b) => b.totalWins - a.totalWins || b.participants - a.participants).slice(0, 5);
+    const topTech = [...baseStats2k25].sort((a, b) => b.techWins - a.techWins || b.participants - a.participants).filter(c => c.techWins > 0).slice(0, 5);
+    const topNonTech = [...baseStats2k25].sort((a, b) => b.nonTechWins - a.nonTechWins || b.participants - a.participants).filter(c => c.nonTechWins > 0).slice(0, 5);
+ 
+    const baseStats2k24 = sortedCollegeStatsData2k24.filter(c => c.name !== "SVU College of Engineering, Tirupati" && c.name !== "S.V.U College of Engineering" && c.name !== "SVUCE");
+    const topOverall2k24 = [...baseStats2k24].sort((a, b) => b.totalWins - a.totalWins || b.participants - a.participants).slice(0, 5);
+    const topTech2k24 = [...baseStats2k24].sort((a, b) => b.techWins - a.techWins || b.participants - a.participants).filter(c => c.techWins > 0).slice(0, 5);
+    const topNonTech2k24 = [...baseStats2k24].sort((a, b) => b.nonTechWins - a.nonTechWins || b.participants - a.participants).filter(c => c.nonTechWins > 0).slice(0, 5);
 
     // Hardcoded event names from sketch
-    const technicalEvents = ['Codeverse', 'Quiztronics', 'TechFusion', 'Posterize', 'Innovista'];
-    const nonTechnicalEvents = ['Click Fest', 'GuessBusters', 'kims game'];
+    const technicalEvents = ['Codex', 'Quiztronics', 'TechFusion', 'Posterize', 'Innovista', 'Circuitrix'];
+    const nonTechnicalEvents = ['Click Fest', 'GuessBusters', 'kims game', 'Dumb Charades'];
 
     const technicalEvents2k24 = ['Technovate', 'Posterize', 'Avishkaar', 'Circuitrix', 'Quiz Mania', 'Codex'];
     const nonTechnicalEvents2k24 = ['Dumb Charades', 'Buoyancy', 'Brain Teasers', 'Pixel Mania'];
@@ -56,7 +58,7 @@ export function StatsPage() {
                         {/* Title matching exact bright blue from dark mode image */}
                         <div className="mb-6 pt-2">
                             <h2 className="text-[25px] font-black tracking-tight text-[#0052cc] drop-shadow-sm">
-                                FILTER STATS
+                                SIGMOID STATS
                             </h2>
                         </div>
 
@@ -80,7 +82,7 @@ export function StatsPage() {
                                     onClick={() => toggleSection('sigmoid')}
                                     className="w-full px-4 py-4 flex justify-between items-center transition-colors rounded-xl text-white hover:bg-white/5"
                                 >
-                                    SIGMOID 2K25 (3)
+                                    SIGMOID 2K25
                                     <ChevronDown className={`w-5 h-5 transition-transform ${expandedSections.sigmoid ? 'rotate-180' : ''}`} />
                                 </button>
                                 
@@ -103,7 +105,7 @@ export function StatsPage() {
                                                 onClick={() => toggleSection('technical')}
                                                 className="w-full px-4 py-3 flex justify-between items-center transition-colors rounded-xl text-white/80 hover:bg-white/5 hover:text-white"
                                             >
-                                                TECHNICAL EVENTS (6)
+                                                TECHNICAL EVENTS ({technicalEvents.length})
                                                 <ChevronDown className={`w-4 h-4 transition-transform ${expandedSections.technical ? 'rotate-180' : ''}`} />
                                             </button>
                                             {expandedSections.technical && (
@@ -129,7 +131,7 @@ export function StatsPage() {
                                                 onClick={() => toggleSection('nontechnical')}
                                                 className="w-full px-4 py-3 flex justify-between items-center transition-colors rounded-xl text-white/80 hover:bg-white/5 hover:text-white"
                                             >
-                                                NON TECHNICAL (5)
+                                                NON TECHNICAL EVENTS ({nonTechnicalEvents.length})
                                                 <ChevronDown className={`w-4 h-4 transition-transform ${expandedSections.nontechnical ? 'rotate-180' : ''}`} />
                                             </button>
                                             {expandedSections.nontechnical && (
@@ -159,7 +161,7 @@ export function StatsPage() {
                                     onClick={() => toggleSection('sigmoid2k24')}
                                     className="w-full px-4 py-4 flex justify-between items-center transition-colors rounded-xl text-white hover:bg-white/5"
                                 >
-                                    SIGMOID 2K24 (13)
+                                    SIGMOID 2K24
                                     <ChevronDown className={`w-5 h-5 transition-transform ${expandedSections.sigmoid2k24 ? 'rotate-180' : ''}`} />
                                 </button>
                                 
@@ -182,7 +184,7 @@ export function StatsPage() {
                                                 onClick={() => toggleSection('technical2k24')}
                                                 className="w-full px-4 py-3 flex justify-between items-center transition-colors rounded-xl text-white/80 hover:bg-white/5 hover:text-white"
                                             >
-                                                TECHNICAL EVENTS (9)
+                                                TECHNICAL EVENTS ({technicalEvents2k24.length})
                                                 <ChevronDown className={`w-4 h-4 transition-transform ${expandedSections.technical2k24 ? 'rotate-180' : ''}`} />
                                             </button>
                                             {expandedSections.technical2k24 && (
@@ -208,7 +210,7 @@ export function StatsPage() {
                                                 onClick={() => toggleSection('nontechnical2k24')}
                                                 className="w-full px-4 py-3 flex justify-between items-center transition-colors rounded-xl text-white/80 hover:bg-white/5 hover:text-white"
                                             >
-                                                NON TECHNICAL (4)
+                                                NON TECHNICAL EVENTS ({nonTechnicalEvents2k24.length})
                                                 <ChevronDown className={`w-4 h-4 transition-transform ${expandedSections.nontechnical2k24 ? 'rotate-180' : ''}`} />
                                             </button>
                                             {expandedSections.nontechnical2k24 && (
@@ -366,7 +368,9 @@ function PodiumTable({ title, data, valueType, onViewFullTable }) {
 // Sub-component for rendering the full detailed Most Wins list matching the Cricket UI
 function MostWinsTable({ data, title }) {
     // Filter to only include colleges with at least 2 wins anywhere, sorted by total wins descending
+    // Also filtering out SVUCE as requested
     const filteredData = [...data]
+        .filter(c => c.name !== "S.V.U College of Engineering" && c.name !== "SVU College of Engineering, Tirupati" && c.name !== "SVUCE")
         .filter(c => c.totalWins >= 1 || c.techWins >= 1 || c.nonTechWins >= 1) // Lowered to 1 win threshold for archiving older data
         .sort((a, b) => b.totalWins - a.totalWins || b.participants - a.participants);
 
@@ -381,12 +385,21 @@ function MostWinsTable({ data, title }) {
             <div className="w-full bg-white/[0.03] backdrop-blur-xl border-2 border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden">
                 
                 {/* Header Row */}
-                <div className="flex items-center text-[12px] font-semibold text-white/50 px-6 py-4 bg-[#1a1c23] border-b border-white/10 uppercase tracking-wider">
-                    <div className="w-12 shrink-0">Pos</div>
-                    <div className="flex-1 min-w-0 pr-4">College Name</div>
-                    <div className="w-24 shrink-0 text-center">Wins (Overall)</div>
-                    <div className="w-28 shrink-0 text-center leading-tight sm:leading-normal">Technical Event Wins</div>
-                    <div className="w-28 shrink-0 text-center leading-tight sm:leading-normal">Non-Technical Event Wins</div>
+                <div className="flex items-center text-[10px] sm:text-[12px] font-bold text-white/50 px-2 sm:px-6 py-4 bg-[#1a1c23] border-b border-white/10 uppercase tracking-wider">
+                    <div className="w-8 sm:w-16 shrink-0 text-center">Pos</div>
+                    <div className="flex-1 min-w-0 pr-2 sm:pr-4">College</div>
+                    <div className="w-10 sm:w-24 shrink-0 text-center">
+                        <span className="hidden sm:inline">Overall Wins</span>
+                        <span className="inline sm:hidden" title="Overall Wins">OW</span>
+                    </div>
+                    <div className="w-10 sm:w-28 shrink-0 text-center leading-tight sm:leading-normal">
+                        <span className="hidden sm:inline">Tech Wins</span>
+                        <span className="inline sm:hidden" title="Technical Wins">TW</span>
+                    </div>
+                    <div className="w-10 sm:w-28 shrink-0 text-center leading-tight sm:leading-normal">
+                        <span className="hidden sm:inline">Non-Tech Wins</span>
+                        <span className="inline sm:hidden" title="Non-Technical Wins">NTW</span>
+                    </div>
                 </div>
 
                 {/* Rows */}
@@ -396,44 +409,43 @@ function MostWinsTable({ data, title }) {
                         const rankStr = idx + 1;
 
                         return (
-                            <div key={college.id} className={`flex items-center px-6 transition-colors w-full ${
+                            <div key={college.id} className={`flex items-center px-2 sm:px-6 transition-colors w-full py-3 sm:py-4 border-b border-white/10 ${
                                 isFirst 
-                                    ? 'bg-[#0a0f29] text-white py-5 shadow-inner border-b border-[#0a0f29]' 
+                                    ? 'bg-[#0a0f29] text-white shadow-inner border-[#0a0f29] py-4' 
                                     : idx % 2 === 1
-                                        ? 'bg-[#1a1c23] text-white py-4 border-b border-white/10 hover:bg-white/5'
-                                        : 'bg-transparent text-white py-4 border-b border-white/10 hover:bg-white/5'
+                                        ? 'bg-[#1a1c23] text-white hover:bg-white/5'
+                                        : 'bg-transparent text-white hover:bg-white/5'
                             }`}>
                                 
                                 {/* Rank */}
-                                <div className={`w-12 shrink-0 flex items-center text-[15px] font-bold ${isFirst ? 'text-white' : 'text-white/80'}`}>
-                                    <span className="w-4">{rankStr}</span>
-                                    <div className={`ml-3 h-[18px] w-[2px] rounded-full ${isFirst ? 'bg-white/30' : 'bg-white/10'}`}></div>
+                                <div className={`w-8 sm:w-16 shrink-0 flex items-center justify-center text-[13px] sm:text-[15px] font-bold ${isFirst ? 'text-white' : 'text-white/80'}`}>
+                                    <span>{rankStr}</span>
                                 </div>
                                 
                                 {/* Avatar + College Name */}
-                                <div className="flex-1 min-w-0 flex items-center gap-3 pr-4">
-                                    <div className={`w-7 h-7 rounded-full overflow-hidden flex items-center justify-center font-bold text-[9px] shrink-0
+                                <div className="flex-1 min-w-0 flex items-center gap-2 sm:gap-3 pr-2 sm:pr-4">
+                                    <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden flex items-center justify-center font-bold text-[8px] sm:text-[9px] shrink-0
                                         ${isFirst ? 'bg-white text-[#15133C]' : 'bg-white/10 text-white/80'}
                                     `}>
                                         {college.logoFallback}
                                     </div>
-                                    <span className={`font-bold leading-tight block truncate ${isFirst ? 'text-[15px] sm:text-base text-white' : 'text-[14px] sm:text-[15px] text-white/90'}`}>
+                                    <span className={`font-bold leading-tight block truncate ${isFirst ? 'text-[13px] sm:text-base text-white' : 'text-[12px] sm:text-[15px] text-white/90'}`}>
                                         {college.name}
                                     </span>
                                 </div>
 
                                 {/* Wins (Overall) */}
-                                <div className={`w-24 shrink-0 text-center font-black tabular-nums ${isFirst ? 'text-[22px] text-white' : 'text-[16px] text-white/90'}`}>
+                                <div className={`w-10 sm:w-24 shrink-0 text-center font-black tabular-nums ${isFirst ? 'text-[16px] sm:text-[22px] text-white' : 'text-[14px] sm:text-[16px] text-white/90'}`}>
                                     {college.totalWins}
                                 </div>
                                 
                                 {/* Technical Event Wins */}
-                                <div className={`w-28 shrink-0 text-center font-bold tabular-nums ${isFirst ? 'text-[16px] sm:text-[18px] text-white' : 'text-[14px] sm:text-[15px] text-white/80'}`}>
+                                <div className={`w-10 sm:w-28 shrink-0 text-center font-bold tabular-nums ${isFirst ? 'text-[14px] sm:text-[18px] text-white' : 'text-[13px] sm:text-[15px] text-white/80'}`}>
                                     {college.techWins}
                                 </div>
                                 
                                 {/* Non-Technical Event Wins */}
-                                <div className={`w-28 shrink-0 text-center font-bold tabular-nums ${isFirst ? 'text-[16px] sm:text-[18px] text-white' : 'text-[14px] sm:text-[15px] text-white/80'}`}>
+                                <div className={`w-10 sm:w-28 shrink-0 text-center font-bold tabular-nums ${isFirst ? 'text-[14px] sm:text-[18px] text-white' : 'text-[13px] sm:text-[15px] text-white/80'}`}>
                                     {college.nonTechWins}
                                 </div>
 
@@ -504,15 +516,24 @@ function EventDetailsCards({ eventName, data, year }) {
                                 {String(rank).length === 1 ? `0${rank}` : rank}
                             </span>
                             <div className="w-[2px] h-8 bg-white/20 shrink-0"></div>
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-[12px] shrink-0 bg-white text-[#15133C]">
-                                {winner.logoFallback}
-                            </div>
+                            {winner.eventName !== 'TechFusion' && 
+                             winner.eventName !== 'Technovate' && 
+                             !winner.hideCollegeInfo && (
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-[12px] shrink-0 bg-white text-[#15133C]">
+                                    {winner.logoFallback}
+                                </div>
+                            )}
                         </div>
                         {/* Content Split depending on Event Type (Individual vs Team) */}
                         <div className="flex flex-col gap-1">
-                            <span className="font-bold text-white text-[14px] sm:text-[16px] leading-tight break-words">
-                                {winner.collegeName}
-                            </span>
+                            {winner.eventName !== 'kims game' && 
+                             winner.eventName !== 'TechFusion' && 
+                             winner.eventName !== 'Technovate' && 
+                             !winner.hideCollegeInfo && (
+                                <span className="font-bold text-white text-[14px] sm:text-[16px] leading-tight break-words">
+                                    {winner.collegeName}
+                                </span>
+                            )}
                             
                             {winner.winnerName && (
                                 <span className="text-white/50 text-[12px] font-bold tracking-wider uppercase mt-1">
@@ -565,7 +586,7 @@ function EventDetailsCards({ eventName, data, year }) {
 
     return (
         <div className="w-full flex-1 pt-2">
-            {/* Event Description */}
+            {/* Event Header */}
             <div className="mb-12">
                 <div className="flex items-center gap-4 mb-4">
                     <h3 className="text-[28px] sm:text-3xl font-black uppercase tracking-tight text-white drop-shadow-sm border-l-4 border-[#0052cc] pl-4 flex items-center gap-3">
@@ -574,9 +595,14 @@ function EventDetailsCards({ eventName, data, year }) {
                         <img src="/assets/images/rocket.png" alt="Rocket" className="hidden sm:inline-block w-12 h-12 object-contain ml-2" />
                     </h3>
                 </div>
-                <p className="text-white/70 max-w-3xl leading-relaxed text-[15px]">
-                    This is a placeholder description for the {eventName} event. It was an incredible showcase of talent, teamwork, and innovation, bringing together the brightest minds to compete for the ultimate prize.
-                </p>
+                {/* Event Description */}
+                {Object.values(winnersBySubCategory).some(cat => Object.values(cat).some(rankArr => rankArr.some(w => w.description))) && (
+                    <div className="max-w-3xl mt-4 pl-5">
+                        <p className="text-white/70 text-sm sm:text-base leading-relaxed italic pl-4 py-1">
+                            {Object.values(winnersBySubCategory).flatMap(cat => Object.values(cat).flatMap(rankArr => rankArr)).find(w => w.description)?.description}
+                        </p>
+                    </div>
+                )}
             </div>
 
             {!hasAnyWinners ? (
@@ -595,7 +621,7 @@ function EventDetailsCards({ eventName, data, year }) {
                                         SUB-CATEGORY: {subCat}
                                     </h4>
                                 )}
-                                                   {/* Top Row: 1st and 2nd Place */}
+                                {/* Top Row: 1st and 2nd Place */}
                                 <div className="flex flex-wrap gap-8 justify-center w-full max-w-6xl mx-auto">
                                     {winners[1].map((w, i) => renderCard(1, w, `1-${i}`))}
                                     {winners[2].map((w, i) => renderCard(2, w, `2-${i}`))}

@@ -70,7 +70,7 @@ export function CommunityRegistration() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-16 w-full relative">
 
                     {/* Left Custom Logo Card */}
-                    <div className="flex items-center gap-4 text-left group">
+                    <div className="flex flex-col items-center gap-4 text-center group">
                         <div className="w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110">
                             <img src={leftLogo} alt="Logo Left" className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
                         </div>
@@ -88,7 +88,7 @@ export function CommunityRegistration() {
                     <div className="hidden sm:block w-px h-12 bg-white/20 shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
 
                     {/* Right Custom Logo Card */}
-                    <div className="flex items-center gap-4 text-left group">
+                    <div className="flex flex-col items-center gap-4 text-center group">
                         <div className="w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110">
                             <img src={rightLogo} alt="Logo Right" className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] scale-[1.5]" />
                         </div>

@@ -4,7 +4,7 @@ const frontendDev = 'https://res.cloudinary.com/djiivo0r7/image/upload/v17732181
 const figmaDev = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773279097/WhatsApp_Image_2026-03-11_at_11.15.10_2_smq6gb.jpg';
 const teamLeader = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/team-leader_zriohu.jpg';
 const newTeamMemberImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773291270/WhatsApp_Image_2026-03-11_at_10.55.17_1_tzggkr.jpg';
-
+const uma = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773497453/WhatsApp_Image_2026-03-14_at_07.02.08_zoj4jz.jpg"
 const TEAM_MEMBERS = [
     { name: 'N.Nikshep', img: figmaDev },
     { name: 'K.Sai Charan', img: frontendDev },
@@ -12,7 +12,7 @@ const TEAM_MEMBERS = [
     { name: 'K.Yashwanth', img: '/assets/images/team/img1.jpeg' },
     { name: 'K.Charan Sai', img: '/assets/images/team/img8.jpeg' },
     { name: 'P.G. Bhanu Vamsidhar', img: newTeamMemberImg },
-    { name: 'K. Uma Shankar', img: '/assets/images/team/img4.jpeg' },
+    { name: 'K. Uma Shankar', img: uma },
     { name: 'K . Pavan', img: '/assets/images/team/img9.jpeg' },
 ];
 
@@ -28,15 +28,16 @@ const CORE_TEAM = [
 
 const MARKETING_TEAM = [
     { name: 'P. Harshavardhan', badge: 'Marketing Head', img: '/assets/images/team/img12.jpeg' },
-    { name: 'Team Member', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298518/WhatsApp_Image_2026-03-11_at_23.54.52_rkog46.jpg' },
-    { name: 'Team Member', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298749/IMG_04657.JPG_mu1v4c.jpg' },
-    { name: 'Team Member', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298748/IMG_00645.JPG_1_zs5gmk.jpg' },
-    { name: 'Team Member', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298747/IMG_07994.JPG_zy2tc1.jpg' }
+    { name: 'S.K.Luqman', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298518/WhatsApp_Image_2026-03-11_at_23.54.52_rkog46.jpg' },
+    { name: 'C.Pavan', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773470171/WhatsApp_Image_2026-03-13_at_23.03.23_1_stkvz9.jpg' },
+    { name: 'N.Sravani', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298749/IMG_04657.JPG_mu1v4c.jpg' },
+    { name: 'M.Pavithra', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298748/IMG_00645.JPG_1_zs5gmk.jpg' },
+    { name: 'B.Divya', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298747/IMG_07994.JPG_zy2tc1.jpg' }
 ];
 
 const HELP_DESK = [
     { name: 'K. Sudharshan', badge: 'Help Desk Head', img: '/assets/images/team/img11.jpeg' },
-    { name: 'Team Member', badge: 'Help Desk Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298750/IMG_04656.JPG_vkpkwn.jpg' }
+    { name: 'C.Meghana', badge: 'Help Desk Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298750/IMG_04656.JPG_vkpkwn.jpg' }
 ];
 
 const STATS = [
@@ -68,14 +69,14 @@ export const AboutSection = () => {
             {/* INTRO */}
             <section className="about-intro">
                 <p>
-                    Sigmoid, hosted by the Department of Electronics and Communication Engineering at Sri Venkateswara University College of Engineering (SVUCE), is a premier national-level technical symposium.
+                    Sigmoid, hosted by the Department of Electronics and Communication Engineering at Sri Venkateswara University College of Engineering (SVUCE), is a premier national-level technical symposium. A legacy of innovation since its inception, Sigmoid has been a beacon for technical brilliance in the Rayalaseema region.
                     <br />
-                    It serves as a dynamic platform for students to showcase their technical prowess, innovative thinking, and problem-solving skills.
+                    It serves as a dynamic platform for students to showcase their technical prowess, innovative thinking, and problem-solving skills, bringing together minds from across the country.
                 </p>
                 <p>
-                    Our vision is to foster a collaborative environment where future engineers can engage in a variety of events ranging from coding challenges to paper presentations. We aim to bridge the gap between academic learning and industry requirements, ensuring a holistic development for all participants.
+                    Our vision is to foster a collaborative environment where future engineers can engage in a variety of events ranging from coding challenges to paper presentations. We aim to bridge the gap between academic learning and industry requirements, ensuring holistic development through hands-on workshops and competitive spirit.
                     <br />
-                    Join us in celebrating technology, innovation, and excellence at Sigmoid!
+                    Join us in celebrating technology, innovation, and excellence at Sigmoid 2K26!
                 </p>
             </section>
 

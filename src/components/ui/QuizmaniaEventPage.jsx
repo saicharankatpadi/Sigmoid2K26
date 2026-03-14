@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
+import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 
 // ==========================================
 // DYNAMIC EVENT DATA (JSON FORMAT)
@@ -77,9 +79,9 @@ const eventData = {
   mentors: [
     { 
       id: "m1", 
-      name: "Event Mentor", 
-      role: "Quiz Enthusiast", 
-      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773311017/WhatsApp_Image_2026-03-11_at_23.52.26_thjwxl.jpg",
+      name: "M. Supriya", 
+      role: "Event Lead", 
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773482161/WhatsApp_Image_2026-03-11_at_23.52.26_1_u0c7j5.jpg",
       phone: "",
       instagram: "",
       linkedin: ""
@@ -99,6 +101,17 @@ const eventData = {
     { id: "q2", question: "What is the entry fee?", answer: "Follow the standard registration process on the website for fee details." },
     { id: "q3", question: "Are there negative marks?", answer: "Yes, buzzer rounds typically involve negative marks for incorrect answers to test precision." },
     { id: "q4", question: "What should I bring?", answer: "Just your intellectual wit! Any required writing materials or digital pads will be provided." }
+  ],
+  gallery: [
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419112/567A9463_h0wawb.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419112/567A9465_wyfldt.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419111/567A0456_joxuc1.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419277/IMG_7998_qsqr6g.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419271/IMG_6681_jltqax.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419269/IMG_7512_bvrbxe.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419268/IMG_7505_shkatr.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419954/IMG_1360_epknqv.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419940/IMG_1357_ffzld1.jpg"
   ]
 };
 
@@ -157,6 +170,7 @@ const FaqItem = ({ q, a }) => {
 
 export const QuizmaniaEventPage = () => {
   const data = eventData;
+  const [isAutoRotating, setIsAutoRotating] = useState(true);
   const videoRef = useRef(null);
   const progressRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -238,6 +252,14 @@ export const QuizmaniaEventPage = () => {
 
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
+
+      {/* Back Button */}
+      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
+        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
+        </Link>
+      </div>
+  
 
       {/* Keyframes */}
       <style>{`
@@ -493,22 +515,98 @@ export const QuizmaniaEventPage = () => {
 
       {/* Mentors Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Mentors</h2>
+        {/* Section Title with accent bar */}
+        <div className="mb-8 border-b border-[#222]">
+          <div className="flex items-center gap-3 mb-3 pl-4">
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Lead</h2>
           </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
           {data.mentors.map((mentor) => (
             <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 flex flex-col items-center hover:border-[#333] transition-colors relative group">
-              <img src={mentor.image} alt={mentor.name} className="w-24 h-24 rounded-full object-cover object-top mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" />
-              <h3 className="text-xl font-bold text-white mb-1">{mentor.name}</h3>
-              <p className="text-[13px] text-white/50 mb-6 text-center">{mentor.role}</p>
+              <img 
+                src={mentor.image} 
+                alt={mentor.name} 
+                className="w-24 h-24 rounded-full object-cover mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
+              />
+              <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider">{mentor.name}</h3>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 6 — Certificate
+       ═══════════════════════════════════════════════════════════ */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+        {/* Section Title with accent bar */}
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Certificate</h2>
+          </div>
+          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
+        </div>
+
+        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden text-left">
+          {/* Subtle gradient background glow from left */}
+          <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
+
+          {/* Text Content */}
+          <div className="flex-1 w-full relative z-10 lg:pl-4">
+            
+
+            <div className="relative mb-8 text-left">
+              <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
+                Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
+                <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
+              </h3>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-white/70">
+                <IconBadge iconType="academic" />
+                <span className="text-[14px]">Add this certificate to your Resume!</span>
+              </div>
+              <div className="flex items-center gap-3 text-white/70">
+                <IconBadge iconType="linkedin" />
+                <span className="text-[14px]">Share it with your LinkedIn network 🚀</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="w-full md:w-[60%] lg:w-[55%] relative z-10 flex justify-end">
+            <div className="relative w-full">
+              <img
+                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773297935/Blue_Modern_Achievement_Certificate_A4_Landscape.jpg_1_ud186o.jpg"
+                alt="Course Certificate"
+                className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 6.5 — Quizmania Gallery
+       ═══════════════════════════════════════════════════════════ */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-2">
+        <div className="mb-1 text-left">
+          <div className="inline-flex items-center gap-3 mb-3 bg-[#f89b29]/5 px-6 py-2 rounded-full border border-[#f89b29]/20">
+            <div className="w-1 h-6 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Quizmania Gallery</h2>
+          </div>
+          <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
+            Capturing the intensity and excitement of Quizmania.
+          </p>
+        </div>
+
+        <div className="w-full">
+          <div className="relative group">
+            <ThreeDPhotoCarousel images={data.gallery} autoRotate={isAutoRotating} />
+          </div>
         </div>
       </section>
 

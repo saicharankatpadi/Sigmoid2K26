@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
 import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
@@ -12,7 +13,7 @@ const eventData = {
     title: "Click Fest",
     emoji: "📸",
     subtitle: "Photography Context",
-    brochure_url: "#",
+    brochure_url: "/CLICK_FEST_BROCHURE.pdf",
     features: [
       { id: "01", content: "Individual participation only" },
       { id: "02", content: "Capture stunning, creative images" },
@@ -23,7 +24,7 @@ const eventData = {
     ]
   },
   video_preview: {
-    video_src: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773379445/WhatsApp_Video_2026-03-12_at_22.14.00_rw3vjk.mp4",
+    video_src: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773420388/Click_Fest_Photography_Event_Overview_720p_gj5jg1.mp4",
     badges: [
       { position: "top-left", icon: "user", text: "Phone Photography" },
       { position: "top-right", icon: "diamond", text: "Creative Angles" },
@@ -83,37 +84,37 @@ const eventData = {
     ]
   },
   mentors: [
-    { 
-      id: "m1", 
-      name: "Event Coordinator 1", 
-      role: "Logistics", 
-      image: "https://randomuser.me/api/portraits/men/44.jpg",
-      phone: "",
+    {
+      id: "m1",
+      name: "N. Vineeth",
+      role: "Coordinator",
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773426723/WhatsApp_Image_2026-03-12_at_03.46.15_1_kk9e8d.jpg",
+      phone: "9491040770",
       instagram: "",
       linkedin: ""
     },
-    { 
-      id: "m2", 
-      name: "Event Coordinator 2", 
-      role: "Logistics", 
-      image: "https://randomuser.me/api/portraits/women/33.jpg",
+    {
+      id: "m2",
+      name: "N. Sravani",
+      role: "Coordinator",
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773298749/IMG_04657.JPG_mu1v4c.jpg",
       phone: "",
       instagram: "",
       linkedin: ""
     }
   ],
   testimonials: [
-    { 
-      id: "t1", 
-      name: "Previous Finalist", 
-      quote: "Click Fest was amazing! The on-site theme release forced me to think on my feet and captured the best photo I've ever taken on my phone.", 
+    {
+      id: "t1",
+      name: "Previous Finalist",
+      quote: "Click Fest was amazing! The on-site theme release forced me to think on my feet and captured the best photo I've ever taken on my phone.",
       image: "https://randomuser.me/api/portraits/women/32.jpg",
       college_logo: ""
     },
-    { 
-      id: "t2", 
-      name: "Photography Enthusiast", 
-      quote: "Being featured in the online gallery for the top 3 was a huge confidence boost. It’s a pure test of raw skill without AI, which makes it authentic.", 
+    {
+      id: "t2",
+      name: "Photography Enthusiast",
+      quote: "Being featured in the online gallery for the top 3 was a huge confidence boost. It’s a pure test of raw skill without AI, which makes it authentic.",
       image: "https://randomuser.me/api/portraits/men/45.jpg",
       college_logo: ""
     }
@@ -143,7 +144,7 @@ const IconBadge = ({ iconType }) => {
     case 'cube': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>;
     case 'briefcase': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
     case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>; // Using spark/lightning for bonus as fallback
-    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>;
+    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor" /></svg>;
     case 'document': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>;
     case 'globe': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>;
     case 'shield': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>;
@@ -181,6 +182,7 @@ const FaqItem = ({ q, a }) => {
 
 export const ClickFestEventPage = () => {
   const data = eventData;
+  const [isAutoRotating, setIsAutoRotating] = useState(true);
   const videoRef = useRef(null);
   const progressRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -266,6 +268,14 @@ export const ClickFestEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
+      {/* Back Button */}
+      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
+        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
+        </Link>
+      </div>
+  
+
       {/* Keyframes */}
       <style>{`
         @keyframes floatBadge1 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
@@ -296,7 +306,7 @@ export const ClickFestEventPage = () => {
             <div className="flex items-center gap-3 mb-3">
               <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
               <div className="flex items-center">
-                <BlurIn 
+                <BlurIn
                   word={data.event_info.title}
                   className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
                 />
@@ -356,7 +366,7 @@ export const ClickFestEventPage = () => {
                   <video
                     ref={videoRef}
                     src={data.video_preview.video_src}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     muted={isMuted}
                     loop
                     playsInline
@@ -607,7 +617,7 @@ export const ClickFestEventPage = () => {
           {data.perks.items.map((perk, i) => (
             <div key={i} className="flex items-center gap-4 bg-[#0a0a0a] border border-[#222] rounded-xl px-4 py-3.5 hover:border-[#333] transition-colors relative group">
               {/* Highlight container for icon */}
-              <div 
+              <div
                 className="w-10 h-10 rounded-[10px] flex items-center justify-center shrink-0"
                 style={{ background: `${perk.color}15`, color: perk.color }}
               >
@@ -621,73 +631,14 @@ export const ClickFestEventPage = () => {
 
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 4 — Judge
+          SECTION 5.5 — Mentors
        ═══════════════════════════════════════════════════════════ */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
         {/* Section Title with accent bar */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Judge</h2>
+        <div className="mb-8 border-b border-[#222]">
+          <div className="flex items-center gap-3 mb-3 pl-4">
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Lead</h2>
           </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
-        </div>
-
-        <div className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-8 items-stretch mt-6">
-          {/* Image & Socials */}
-          <div className="w-full md:w-[30%] flex flex-col items-center">
-            <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2670&auto=format&fit=crop" alt="Event Judge" className="w-full aspect-[4/5] object-cover rounded-2xl md:mb-0 mb-6 shadow-[0_0_20px_rgba(0,0,0,0.8)]" />
-          </div>
-          
-          {/* Details Content */}
-          <div className="flex-1 flex flex-col justify-between text-left">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold text-[#2dd4bf] mb-1">Esteemed Evaluation Committee</h3>
-              <p className="text-white/40 text-[14px]">{"// Professors & Domain Experts"}</p>
-            </div>
-            
-            <div className="bg-[#111111] border border-[#222] rounded-2xl p-6 md:p-8 mb-6 h-full text-[14.5px] leading-relaxed text-white/60 space-y-4 font-normal shadow-inner">
-              <p>
-                The projects will be rigorously evaluated by a panel of tech professionals and established researchers specializing in domains like AI, ML, Sensors, and DIY Electronics. The judges possess years of practical, real-world experience, ensuring an authentic evaluation of your model's design logic and innovation.
-              </p>
-              <p>
-                Following your 6-8 minute presentation, the panel will ask critical questions and offer constructive feedback. This interaction is designed to strengthen your technical foundation and gear you up for advancing your project to higher university-level scopes and startup potential.
-              </p>
-            </div>
-
-            {/* Stat Cards Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2">
-                <div className="text-[#f89b29] scale-110 mb-1"><IconBadge iconType="users" /></div>
-                <h4 className="text-xl font-black text-[#f89b29]">25+</h4>
-                <span className="text-[12px] text-white/50">Expert Panels</span>
-              </div>
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2">
-                <svg className="w-[1.4rem] h-[1.4rem] text-[#f89b29] mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                <h4 className="text-xl font-black text-[#f89b29]">15+</h4>
-                <span className="text-[12px] text-white/50">Years Experience</span>
-              </div>
-              <div className="bg-[#0f0f0f] border border-[#222] rounded-xl p-4 flex flex-col items-center justify-center hover:border-[#333] transition-colors gap-2 text-center">
-                <div className="text-[#f89b29] scale-110 mb-1"><IconBadge iconType="briefcase" /></div>
-                <h4 className="text-xl font-black text-[#f89b29] leading-tight">Top Univ.</h4>
-                <span className="text-[12px] text-white/50">From Reputed Orgs</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 5 — Mentors
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Mentors</h2>
-          </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
@@ -697,35 +648,19 @@ export const ClickFestEventPage = () => {
               <img 
                 src={mentor.image} 
                 alt={mentor.name} 
-                className="w-24 h-24 rounded-full object-cover object-top mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
+                className="w-24 h-24 rounded-full object-cover object-top mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333] transition-all duration-300" 
               />
               
               {/* Name & Role */}
-              <h3 className="text-xl font-bold text-white mb-1">{mentor.name}</h3>
-              <p className="text-[13px] text-white/50 mb-6 text-center">{mentor.role}</p>
+              <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider">{mentor.name}</h3>
               
-              {/* Social Buttons (Square) */}
-              <div className="flex items-center gap-4">
-                {mentor.phone && (
-                  <a href={`tel:${mentor.phone}`} className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-blue-500 hover:bg-blue-500/10 transition-all" title="Call">
-                    <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                  </a>
-                )}
-                {mentor.instagram && (
-                  <a href={mentor.instagram} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-red-500 hover:bg-red-500/10 transition-all" title="Instagram">
-                    <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="6" ry="6" strokeWidth="2" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" strokeWidth="2" /></svg>
-                  </a>
-                )}
-                {mentor.linkedin && (
-                  <a href={mentor.linkedin} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-blue-600 hover:bg-blue-600/10 transition-all" title="LinkedIn">
-                    <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>
-                  </a>
-                )}
-              </div>
+              {/* Social Buttons REMOVED */}
             </div>
           ))}
         </div>
       </section>
+
+
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 6 — Certificate
@@ -743,25 +678,16 @@ export const ClickFestEventPage = () => {
         <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden text-left">
           {/* Subtle gradient background glow from left */}
           <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
-          
+
           {/* Text Content */}
           <div className="flex-1 w-full relative z-10 lg:pl-4">
-            {/* Ribbon Badge (Replaces Logo) */}
-            <div className="mb-6">
-              <img 
-                src="/certificate-ribbon-new.png" 
-                alt="Ribbon" 
-                className="w-16 md:w-20 h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]" 
-              />
-            </div>
-            
             <div className="relative mb-8">
               <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
-                Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate 
+                Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
                 <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
               </h3>
             </div>
-            
+
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-white/70">
                 <IconBadge iconType="academic" />
@@ -777,16 +703,10 @@ export const ClickFestEventPage = () => {
           {/* Image */}
           <div className="w-full md:w-[60%] lg:w-[55%] relative z-10 flex justify-end">
             <div className="relative w-full">
-              <img 
-                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773297935/Blue_Modern_Achievement_Certificate_A4_Landscape.jpg_1_ud186o.jpg" 
-                alt="Course Certificate" 
-                className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]" 
-              />
-              {/* Ribbon Badge */}
-              <img 
-                src="/certificate-ribbon.png" 
-                alt="Ribbon" 
-                className="absolute -top-6 -left-6 w-32 md:w-36 h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] z-20 pointer-events-none" 
+              <img
+                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773297935/Blue_Modern_Achievement_Certificate_A4_Landscape.jpg_1_ud186o.jpg"
+                alt="Course Certificate"
+                className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]"
               />
             </div>
           </div>
@@ -817,46 +737,11 @@ export const ClickFestEventPage = () => {
             "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264941/WhatsApp_Image_2026-03-11_at_14.32.43_2_xlx7id.jpg",
             "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264941/WhatsApp_Image_2026-03-11_at_14.32.44_luet69.jpg",
             "https://res.cloudinary.com/djiivo0r7/image/upload/v1773264942/WhatsApp_Image_2026-03-11_at_14.32.43_1_jctabz.jpg"
-          ]} />
+          ]} autoRotate={isAutoRotating} />
         </div>
       </section>
 
 
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 7 — Testimonials
-       ═══════════════════════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
-        {/* Section Title with accent bar */}
-        <div className="mb-10 text-left">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Words From Participants</h2>
-          </div>
-          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.testimonials.map((t, i) => (
-            <div key={i} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 hover:border-[#333] transition-all group relative overflow-hidden text-left">
-              {/* Quote Mark Decoration */}
-              <div className="absolute -top-4 -right-4 text-[#f89b29]/10 text-8xl font-serif pointer-events-none group-hover:text-[#f89b29]/20 transition-colors">“</div>
-              
-              <div className="relative z-10">
-                <p className="text-white/70 text-[15px] leading-relaxed mb-8 italic">"{t.quote}"</p>
-                
-                <div className="flex items-center gap-4">
-                  <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full border-2 border-[#f89b29]/30" />
-                  <div>
-                    <h4 className="text-white font-bold text-[15px]">{t.name}</h4>
-                    <p className="text-white/40 text-[12px] uppercase tracking-widest font-semibold">Attendee</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 8 — FAQs

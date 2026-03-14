@@ -9,6 +9,7 @@ const v6 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773208225/007_yz
 const v7 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773370341/WhatsApp_Video_2026-03-12_at_19.26.18_vptd1e.mp4'
 const v8 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773370479/WhatsApp_Video_2026-03-12_at_19.53.38_gvqcuv.mp4'
 const v9 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773370611/WhatsApp_Video_2026-03-12_at_00.35.14_hmxh9r.mp4'
+const v10 = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773396341/WhatsApp_Video_2026-03-13_at_03.03.55_fawfs6.mp4'
 
 /* ════════════════════════════════════════════════════════════════
    TESTIMONIALS DATA — Edit this JSON to add / remove / modify cards.
@@ -60,28 +61,9 @@ const TOP_ROW = [
     {
         type: 'text',
         name: 'Rahul',
-        avatar: u1,
+        avatar: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773396178/WhatsApp_Image_2026-03-12_at_19.29.21__2_-removebg-preview_zc1wux.png',
         text: "Codex was the most challenging event! The algorithmic rounds really tested my logical limits and coding speed. It was a perfect platform to showcase my programming prowess.",
         college: { name: 'SITAMS', logo: l_sitams },
-    },
-    {
-        type: 'video',
-        name: 'Kavya, B.Tech 2nd Year SVCE',
-        videoGradient: VIDEO_GRADIENTS[0],
-        videoUrl: v7
-    },
-    {
-        type: 'text',
-        name: 'Ananya',
-        avatar: girlImage,
-        text: "Presenting my paper at Technovate was an incredible experience. The feedback from the mentors was professional and invaluable for my research journey.",
-        college: { name: 'SVCE', logo: l_svce },
-    },
-    {
-        type: 'video',
-        name: 'Navya B.Tech 2nd Year ECE',
-        videoGradient: VIDEO_GRADIENTS[1],
-        videoUrl: v8
     },
     {
         type: 'text',
@@ -92,26 +74,18 @@ const TOP_ROW = [
     },
     {
         type: 'video',
-        name: 'Satyam Vyas',
+        name: 'Kavya, B.Tech 2nd Year (SITAMS ,Chittoor) ',
+        hook: 'A Journey of Innovation',
+        description: 'Exploring the depths of electronics and communication.',
         videoGradient: VIDEO_GRADIENTS[0],
-        videoUrl: v1
+        videoUrl: v7
     },
-]
-
-/* ── BOTTOM ROW cards (scrolls right) ── */
-const BOTTOM_ROW = [
     {
         type: 'text',
         name: 'Sneha',
         avatar: u4,
         text: "Posterize allowed me to combine technical depth with creative design. It was a perfect platform for me to showcase my research and gain insights.",
         college: { name: 'VEMU', logo: l_vemu },
-    },
-    {
-        type: 'video',
-        name: 'Testimonial',
-        videoGradient: VIDEO_GRADIENTS[2],
-        videoUrl: v9
     },
     {
         type: 'text',
@@ -122,10 +96,16 @@ const BOTTOM_ROW = [
     },
     {
         type: 'video',
-        name: 'Subhajit Raha',
-        videoGradient: VIDEO_GRADIENTS[0],
-        videoUrl: v4
+        name: 'Ananya (B.Tech 3rd Year),SVCE,Tirupathi',
+        hook: 'Skills that Spark',
+        description: 'Highlighting the brilliance of modern engineering.',
+        videoGradient: VIDEO_GRADIENTS[2],
+        videoUrl: v10
     },
+]
+
+/* ── BOTTOM ROW cards (scrolls right) ── */
+const BOTTOM_ROW = [
     {
         type: 'text',
         name: 'Pooja',
@@ -134,17 +114,55 @@ const BOTTOM_ROW = [
         college: { name: 'Aditya College', logo: l_aditya },
     },
     {
+        type: 'text',
+        name: 'Siri ',
+        avatar: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773395958/WhatsApp_Image_2026-03-12_at_19.29.18__1_-removebg-preview_d55ant.png',
+        text: "The technical sessions at Sigmoid were top-notch. As a B.Tech CSE student from Vemu, I found the workshops extremely insightful and relevant for my future career development in technology.",
+        college: { name: 'Vemu', logo: l_vemu },
+    },
+    {
         type: 'video',
-        name: 'Testimonial',
+        name: 'Navya B.Tech 2nd Year ECE,SVUCE',
+        hook: 'Defining Excellence',
+        description: 'Redefining the standards of technical symposiums.',
         videoGradient: VIDEO_GRADIENTS[1],
-        videoUrl: v6
+        videoUrl: v8
     },
     {
         type: 'text',
-        name: 'Siri Chandhan',
-        gender: 'girl',
-        text: "The technical sessions at Sigmoid were top-notch. As a B.Tech CSE student from Vemu, I found the workshops extremely insightful and relevant for my future career development in technology.",
-        college: { name: 'Vemu', logo: l_vemu },
+        name: 'Rahul',
+        avatar: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773396178/WhatsApp_Image_2026-03-12_at_19.29.21__2_-removebg-preview_zc1wux.png',
+        text: "Codex was the most challenging event! The algorithmic rounds really tested my logical limits and coding speed.",
+        college: { name: 'SITAMS', logo: l_sitams },
+    },
+    {
+        type: 'text',
+        name: 'Sneha',
+        avatar: u4,
+        text: "Posterize allowed me to combine technical depth with creative design. It was a perfect platform.",
+        college: { name: 'VEMU', logo: l_vemu },
+    },
+    {
+        type: 'video',
+        name: 'K .Mahalakshmi B.Tech 1st Year,(Vemu,Tirupati)',
+        hook: 'Core Engineering Pulse',
+        description: 'Where theoretical concepts meet real-world applications.',
+        videoGradient: VIDEO_GRADIENTS[2],
+        videoUrl: v9
+    },
+    {
+        type: 'text',
+        name: 'Karthik',
+        avatar: u3,
+        text: "Designing and debugging circuits at Circuitrix was intense. Winning the top prize was a dream come true!",
+        college: { name: 'AITS Rajampet', logo: l_aits },
+    },
+    {
+        type: 'text',
+        name: 'Vikram',
+        avatar: u5,
+        text: "Avishkar was all about high-end innovation. Seeing other working models and prototypes was very inspiring.",
+        college: { name: 'MVGR', logo: l_mvgr },
     },
 ]
 
@@ -173,7 +191,7 @@ function getAvatarColor(index) {
    ════════════════════════════════════════════════════════════════ */
 
 function TextCard({ card, index }) {
-    
+
     return (
         <div
             className={`w-72 h-[380px] rounded-2xl flex-shrink-0 flex flex-col gap-[13px] group`}
@@ -235,7 +253,7 @@ function TextCard({ card, index }) {
                     letterSpacing: '-0.004em',
                 }}
             >
-                <div 
+                <div
                     className="line-clamp-6"
                     style={{
                         display: '-webkit-box',
@@ -273,18 +291,18 @@ function TextCard({ card, index }) {
                     )}
                 </div>
                 <div className="flex flex-col">
-                    <span 
-                        style={{ 
-                            color: 'rgba(255,255,255,0.85)', 
-                            fontSize: '13.5px', 
+                    <span
+                        style={{
+                            color: 'rgba(255,255,255,0.85)',
+                            fontSize: '13.5px',
                             fontWeight: 600,
                             letterSpacing: '-0.012em',
                         }}
                     >
                         {card.college.name}
                     </span>
-                    <span 
-                        style={{ 
+                    <span
+                        style={{
                             color: 'rgba(255,255,255,0.32)',
                             fontSize: '11.5px',
                             fontWeight: 400,
@@ -326,11 +344,11 @@ function VideoCard({ card, onClick }) {
                 style={{ minHeight: '100%' }}
             >
                 {card.videoUrl ? (
-                    <video 
-                        src={card.videoUrl} 
-                        autoPlay 
-                        muted 
-                        loop 
+                    <video
+                        src={card.videoUrl}
+                        autoPlay
+                        muted
+                        loop
                         playsInline
                         className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                     />
@@ -396,6 +414,20 @@ function VideoCard({ card, onClick }) {
                     {card.name}
                 </span>
             </div>
+
+            {/* Hook and Description Overlay */}
+            <div
+                className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+            >
+                <div className="mb-12">
+                    <div className="text-[#F97316] text-sm font-bold uppercase tracking-wider mb-1">
+                        {card.hook}
+                    </div>
+                    <div className="text-white/80 text-xs leading-relaxed max-w-[200px]">
+                        {card.description}
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
@@ -452,10 +484,10 @@ function TestimonialModal({ isOpen, card, onClose }) {
                 >
                     {card.type === 'video' ? (
                         card.videoUrl ? (
-                            <video 
-                                src={card.videoUrl} 
-                                controls 
-                                autoPlay 
+                            <video
+                                src={card.videoUrl}
+                                controls
+                                autoPlay
                                 className="w-full h-full"
                             />
                         ) : (

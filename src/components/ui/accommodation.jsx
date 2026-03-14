@@ -102,6 +102,29 @@ export function Accommodation() {
                     </div>
                 </div>
 
+                {/* Read Before Registering Section */}
+                <div className="relative rounded-[32px] overflow-hidden p-[1px] bg-gradient-to-r from-orange-500/30 via-amber-500/30 to-orange-500/30">
+                    <div className="relative bg-[#111111]/90 backdrop-blur-xl rounded-[31px] p-8 md:p-10 border border-white/[0.05]">
+                        <h2 className="text-2xl md:text-3xl font-bold text-orange-500 mb-6 text-center uppercase tracking-wider">
+                            Read Before Registering for Accommodation
+                        </h2>
+                        <div className="space-y-4 text-zinc-300 text-base md:text-lg leading-relaxed">
+                            <p>
+                                Accommodation will be provided in the hostel rooms of Sri Venkateswara University. Separate rooms for boys and girls will be allotted. Basic amenities will be available for bathing purposes. Students must carry their own bedsheets.
+                            </p>
+                            <p>
+                                Accommodation will be available on the night of <span className="text-white font-semibold">Friday, April 3, 2026</span>. It includes dinner on April 3 and breakfast on <span className="text-white font-semibold">Saturday, April 4</span>.
+                            </p>
+                            <p>
+                                You must register for accommodation in advance. On the morning of April 3, you can collect your registration pass and accommodation details at the registration desk. Only participants registered for Sigmoid are eligible for accommodation. Your belongings are your responsibility.
+                            </p>
+                            <p className="pt-4 text-zinc-400 italic">
+                                For any further queries, please contact the accommodation desk before registering.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Helpdesk Section */}
                 <div className="relative rounded-[32px] p-[1px] bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 mt-12 overflow-hidden overflow-visible">
                     <div className="relative bg-[#111]/90 backdrop-blur-xl rounded-[31px] p-8 md:p-12 border border-white/[0.05] flex flex-col md:flex-row items-center justify-between overflow-hidden">

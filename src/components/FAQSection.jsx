@@ -4,54 +4,42 @@ const faqData = [
     {
         category: "General",
         questions: [
-            { q: "What is Sigmoid?", a: "This is a placeholder answer for 'What is Sigmoid?'." },
-            { q: "Who can participate in Sigmoid?", a: "This is a placeholder answer for 'Who can participate in Sigmoid?'." },
-            { q: "Is Sigmoid open to students from other colleges?", a: "This is a placeholder answer for 'Is Sigmoid open to students from other colleges?'." },
-            { q: "What are the dates and venue of the event?", a: "This is a placeholder answer for 'What are the dates and venue of the event?'." }
+            { q: "What is Sigmoid?", a: "Sigmoid 2K26 is a massive technical and non-technical fest organized by the ECE Department of SVUCE. It brings together innovators, creators, and competitors for a two-day celebration of technology." },
+            { q: "Who can participate in Sigmoid?", a: "Students from all engineering colleges and branches are welcome to participate in various technical, non-technical, and e-sports events." },
+            { q: "What are the dates and venue of the event?", a: "Sigmoid 2K26 will be held on April 3rd and 4th, 2026, at the SVU College of Engineering (SVUCE), Tirupati campus." }
         ]
     },
     {
         category: "Registration",
         questions: [
-            { q: "How do I register for Sigmoid?", a: "This is a placeholder answer for 'How do I register for Sigmoid?'." },
-            { q: "Can I register as a team or only individually?", a: "This is a placeholder answer for 'Can I register as a team or only individually?'." },
-            { q: "Is there a registration deadline?", a: "This is a placeholder answer for 'Is there a registration deadline?'." },
-            { q: "Can I register for multiple events?", a: "This is a placeholder answer for 'Can I register for multiple events?'." },
-            { q: "What happens after I register — will I get a confirmation?", a: "This is a placeholder answer for 'What happens after I register — will I get a confirmation?'." }
+            { q: "How do I register for Sigmoid?", a: "You can register directly through our website by choosing a pass tier. Once registered, you'll receive a confirmation and can participate in events included in your pass." },
+            { q: "Can I register as a team or only individually?", a: "Registration for the fest is individual, but many events like Codex, Circuitrix, and Iconema are team-based. Teams are often formed on-site or through randomly allotted groups." },
+            { q: "Can I register for multiple events?", a: "Yes! Your pass determines which events you have access to. The Prime and Ultimate passes allow for the widest access to both technical and non-technical events." }
         ]
     },
     {
         category: "Pass & Payment",
         questions: [
-            { q: "What is included in the event pass?", a: "This is a placeholder answer for 'What is included in the event pass?'." },
-            { q: "How do I purchase a pass?", a: "This is a placeholder answer for 'How do I purchase a pass?'." },
-            { q: "What payment methods are accepted?", a: "This is a placeholder answer for 'What payment methods are accepted?'." },
-            { q: "Is the pass refundable if I cancel?", a: "This is a placeholder answer for 'Is the pass refundable if I cancel?'." },
-            { q: "Can I transfer my pass to someone else?", a: "This is a placeholder answer for 'Can I transfer my pass to someone else?'." },
-            { q: "Do I need a separate pass for each event or is it an all-access pass?", a: "This is a placeholder answer for 'Do I need a separate pass for each event or is it an all-access pass?'." }
+            { q: "What is included in the event pass?", a: "We have 4 tiers: Elite (Non-tech only), Supreme (1 Paid Tech + Free Trio + Non-tech), Prime (2 Paid Tech + Free Trio + Non-tech), and Ultimate (All access). Workshops are included in all passes." },
+            { q: "What is the price for the passes?", a: "Elite: ₹350, Supreme: ₹400, Prime: ₹450, and Ultimate: ₹500." },
+            { q: "Is the pass refundable if I cancel?", a: "Passes are generally non-refundable. However, the Techfusion (Namaste DSA) masterclass has a specific 7-day refund policy." },
+            { q: "Can I transfer my pass to someone else?", a: "No, passes are strictly non-transferable and tied to your registration identity." }
         ]
     },
     {
         category: "Events",
         questions: [
-            { q: "What events are being conducted at Sigmoid?", a: "This is a placeholder answer for 'What events are being conducted at Sigmoid?'." },
-            { q: "Are there both technical and non-technical events?", a: "This is a placeholder answer for 'Are there both technical and non-technical events?'." },
-            { q: "How do I know which events I'm registered for?", a: "This is a placeholder answer for 'How do I know which events I'm registered for?'." }
+            { q: "What are the Paid Trio events?", a: "The Paid Trio includes Techfusion (DSA Masterclass), Posterize (Poster Presentation), and Innovista (Project Expo)." },
+            { q: "What are the Free Tech Trio events?", a: "The Free Tech Trio bundle includes Circuitrix, QuizMania, and Codex. These are included with Supreme, Prime, and Ultimate passes." },
+            { q: "Are there non-technical events?", a: "Yes, we have exciting non-tech events like Click Fest (Photography), Dumbcharades & Pictionary, Iconema, and Kim's Game." }
         ]
     },
     {
         category: "On the Day",
         questions: [
-            { q: "What documents should I bring on the event day?", a: "This is a placeholder answer for 'What documents should I bring on the event day?'." },
-            { q: "Will there be accommodation or food provided?", a: "This is a placeholder answer for 'Will there be accommodation or food provided?'." },
-            { q: "Will participants receive certificates?", a: "This is a placeholder answer for 'Will participants receive certificates?'." }
-        ]
-    },
-    {
-        category: "Contact & Support",
-        questions: [
-            { q: "Who do I contact if I face issues with registration or payment?", a: "This is a placeholder answer for 'Who do I contact if I face issues with registration or payment?'." },
-            { q: "Is there a helpline number or email for support?", a: "This is a placeholder answer for 'Is there a helpline number or email for support?'." }
+            { q: "What documents should I bring?", a: "Participants must carry their valid College ID and a Government-issued ID at all times for verification." },
+            { q: "Is accommodation and food provided?", a: "Accommodation is available at ₹200/day in campus hostels. Food arrangements are finalized for both days of the event." },
+            { q: "Will I get certificates?", a: "Yes, all active participants will receive certificates recognizing their participation in Sigmoid 2K26." }
         ]
     }
 ]

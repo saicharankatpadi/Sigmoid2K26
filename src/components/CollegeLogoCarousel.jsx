@@ -144,19 +144,28 @@ function AnimatedBadge({ text }) {
           padding: 6px 20px;
           display: inline-flex;
           align-items: center;
+          text-align: center;
         }
         .badge-text {
-          font-size: 12px;
+          font-size: 11px;
           font-weight: 900;
-          letter-spacing: 1.8px;
+          letter-spacing: 1.5px;
           text-transform: uppercase;
           color: #fb923c;
           font-family: 'Segoe UI', sans-serif;
-          white-space: nowrap;
+          white-space: normal;
           text-shadow: 0 0 10px #f9731644;
+          line-height: 1.4;
+        }
+        @media (min-width: 640px) {
+            .badge-text {
+                font-size: 12px;
+                letter-spacing: 1.8px;
+                white-space: nowrap;
+            }
         }
       `}</style>
-            <div className="badge-wrap">
+            <div className="badge-wrap mx-auto sm:mx-0">
                 <div className="badge-inner">
                     <span className="badge-text">{text}</span>
                 </div>

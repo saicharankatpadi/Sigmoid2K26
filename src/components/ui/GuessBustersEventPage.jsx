@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
 
@@ -74,19 +75,19 @@ const eventData = {
     ]
   },
   mentors: [
-    { 
-      id: "m1", 
-      name: "Event Coordinator 1", 
-      role: "Game Master", 
+    {
+      id: "m1",
+      name: "Event Coordinator 1",
+      role: "Game Master",
       image: "/mentor1-guessbusters.jpeg",
       phone: "",
       instagram: "",
       linkedin: ""
     },
-    { 
-      id: "m2", 
-      name: "Event Coordinator 2", 
-      role: "Game Master", 
+    {
+      id: "m2",
+      name: "Event Coordinator 2",
+      role: "Game Master",
       image: "/mentor2-guessbusters.jpeg",
       phone: "",
       instagram: "",
@@ -119,7 +120,7 @@ const IconBadge = ({ iconType }) => {
     case 'cube': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>;
     case 'briefcase': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
     case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>; // Using spark/lightning for bonus as fallback
-    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>;
+    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor" /></svg>;
     case 'document': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>;
     case 'globe': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>;
     case 'shield': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>;
@@ -160,6 +161,14 @@ export const GuessBustersEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
+      {/* Back Button */}
+      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
+        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
+        </Link>
+      </div>
+  
+
       {/* Keyframes */}
       <style>{`
         @keyframes playPulse {
@@ -181,61 +190,61 @@ export const GuessBustersEventPage = () => {
 
           {/* Title Row */}
           <div className="flex items-center justify-center gap-3 mb-3">
-              <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
-              <div className="flex items-center">
-                <BlurIn 
-                  word={data.event_info.title}
-                  className="text-4xl md:text-5xl font-black text-white tracking-tight"
-                />
-                {data.event_info.emoji === 'rocket' ? (
-                  <img src="/rocket-icon.png" alt="rocket" className="ml-5 w-auto h-12 md:h-14 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.5)]" />
-                ) : (
-                  <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
-                )}
-              </div>
+            <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
+            <div className="flex items-center">
+              <BlurIn
+                word={data.event_info.title}
+                className="text-4xl md:text-5xl font-black text-white tracking-tight"
+              />
+              {data.event_info.emoji === 'rocket' ? (
+                <img src="/rocket-icon.png" alt="rocket" className="ml-5 w-auto h-12 md:h-14 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.5)]" />
+              ) : (
+                <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
+              )}
             </div>
+          </div>
 
-            {/* Subtitle */}
-            <p className="text-white/50 text-lg font-medium mb-12">
-              {data.event_info.subtitle}
-            </p>
+          {/* Subtitle */}
+          <p className="text-white/50 text-lg font-medium mb-12">
+            {data.event_info.subtitle}
+          </p>
 
-            {/* ── Feature Cards — Grid ── */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-[1200px]">
-              {data.event_info.features.map(feature => (
-                <div
-                  key={feature.id}
-                  className="flex items-center gap-0 bg-[#111111] border-2 border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#3a3a3a] transition-all duration-300 group cursor-default"
-                >
-                  {/* Number */}
-                  <div className="shrink-0 w-12 flex items-center justify-center py-3 px-2">
-                    <span className="text-[#f89b29] font-black text-[15px] tracking-wider">{feature.id}</span>
-                  </div>
-                  {/* Vertical Line Separator — half height, centered */}
-                  <div className="flex items-center self-stretch">
-                    <div className="w-[2px] h-[50%] bg-[#2a2a2a] group-hover:bg-[#3a3a3a] transition-colors rounded-full"></div>
-                  </div>
-                  {/* Text */}
-                  <div className="flex-1 py-3 px-3">
-                    <span className="text-white/90 text-[13px] leading-snug font-semibold">{feature.content}</span>
-                  </div>
+          {/* ── Feature Cards — Grid ── */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-[1200px]">
+            {data.event_info.features.map(feature => (
+              <div
+                key={feature.id}
+                className="flex items-center gap-0 bg-[#111111] border-2 border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#3a3a3a] transition-all duration-300 group cursor-default"
+              >
+                {/* Number */}
+                <div className="shrink-0 w-12 flex items-center justify-center py-3 px-2">
+                  <span className="text-[#f89b29] font-black text-[15px] tracking-wider">{feature.id}</span>
                 </div>
-              ))}
-            </div>
+                {/* Vertical Line Separator — half height, centered */}
+                <div className="flex items-center self-stretch">
+                  <div className="w-[2px] h-[50%] bg-[#2a2a2a] group-hover:bg-[#3a3a3a] transition-colors rounded-full"></div>
+                </div>
+                {/* Text */}
+                <div className="flex-1 py-3 px-3">
+                  <span className="text-white/90 text-[13px] leading-snug font-semibold">{feature.content}</span>
+                </div>
+              </div>
+            ))}
+          </div>
 
-            {/* Download Brochure — Neon Button */}
-            <div className="mt-16 mb-4">
-              <a href={data.event_info.brochure_url} download className="inline-block">
-                <Button
-                  variant="default"
-                  size="lg"
-                  neon={true}
-                  className="bg-black text-white border-white/20 hover:bg-white/5 hover:border-white/40 px-10 py-3 text-[16px] font-bold flex items-center gap-3 cursor-pointer"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                  Download Brochure
-                </Button>
-              </a>
+          {/* Download Brochure — Neon Button */}
+          <div className="mt-16 mb-4">
+            <a href={data.event_info.brochure_url} download className="inline-block">
+              <Button
+                variant="default"
+                size="lg"
+                neon={true}
+                className="bg-black text-white border-white/20 hover:bg-white/5 hover:border-white/40 px-10 py-3 text-[16px] font-bold flex items-center gap-3 cursor-pointer"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                Download Brochure
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -362,7 +371,7 @@ export const GuessBustersEventPage = () => {
           {data.perks.items.map((perk, i) => (
             <div key={i} className="flex items-center gap-4 bg-[#0a0a0a] border border-[#222] rounded-xl px-4 py-3.5 hover:border-[#333] transition-colors relative group">
               {/* Highlight container for icon */}
-              <div 
+              <div
                 className="w-10 h-10 rounded-[10px] flex items-center justify-center shrink-0"
                 style={{ background: `${perk.color}15`, color: perk.color }}
               >
@@ -389,7 +398,7 @@ export const GuessBustersEventPage = () => {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Mentors</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Lead</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
@@ -398,34 +407,16 @@ export const GuessBustersEventPage = () => {
           {data.mentors.map((mentor) => (
             <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 flex flex-col items-center hover:border-[#333] transition-colors relative group">
               {/* Avatar */}
-              <img 
-                src={mentor.image} 
-                alt={mentor.name} 
-                className="w-24 h-24 rounded-full object-cover mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
+              <img
+                src={mentor.image}
+                alt={mentor.name}
+                className="w-24 h-24 rounded-full object-cover mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]"
               />
-              
+
               {/* Name & Role */}
-              <h3 className="text-xl font-bold text-white mb-1">{mentor.name}</h3>
-              <p className="text-[13px] text-white/50 mb-6 text-center">{mentor.role}</p>
-              
-              {/* Social Buttons (Square) */}
-              <div className="flex items-center gap-4">
-                {mentor.phone && (
-                  <a href={`tel:${mentor.phone}`} className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-blue-500 hover:bg-blue-500/10 transition-all" title="Call">
-                    <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                  </a>
-                )}
-                {mentor.instagram && (
-                  <a href={mentor.instagram} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-red-500 hover:bg-red-500/10 transition-all" title="Instagram">
-                    <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="6" ry="6" strokeWidth="2" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" strokeWidth="2" /></svg>
-                  </a>
-                )}
-                {mentor.linkedin && (
-                  <a href={mentor.linkedin} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#111] border border-[#222] text-blue-600 hover:bg-blue-600/10 transition-all" title="LinkedIn">
-                    <svg className="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>
-                  </a>
-                )}
-              </div>
+              <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider">{mentor.name}</h3>
+
+              {/* Social Buttons REMOVED */}
             </div>
           ))}
         </div>
@@ -447,25 +438,18 @@ export const GuessBustersEventPage = () => {
         <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden">
           {/* Subtle gradient background glow from left */}
           <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
-          
+
           {/* Text Content */}
           <div className="flex-1 w-full relative z-10 lg:pl-4">
-            {/* Ribbon Badge (Replaces Logo) */}
-            <div className="mb-6">
-              <img 
-                src="/certificate-ribbon-new.png" 
-                alt="Ribbon" 
-                className="w-16 md:w-20 h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]" 
-              />
-            </div>
             
-            <div className="relative mb-8">
+
+            <div className="relative mb-8 text-left">
               <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
-                Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate 
+                Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
                 <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
               </h3>
             </div>
-            
+
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-white/70">
                 <IconBadge iconType="academic" />
@@ -481,23 +465,15 @@ export const GuessBustersEventPage = () => {
           {/* Image */}
           <div className="w-full md:w-[60%] lg:w-[55%] relative z-10 flex justify-end">
             <div className="relative w-full">
-              <img 
-                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773297935/Blue_Modern_Achievement_Certificate_A4_Landscape.jpg_1_ud186o.jpg" 
-                alt="Course Certificate" 
-                className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]" 
-              />
-              {/* Ribbon Badge */}
-              <img 
-                src="/certificate-ribbon.png" 
-                alt="Ribbon" 
-                className="absolute -top-6 -left-6 w-32 md:w-36 h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] z-20 pointer-events-none" 
+              <img
+                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773297935/Blue_Modern_Achievement_Certificate_A4_Landscape.jpg_1_ud186o.jpg"
+                alt="Course Certificate"
+                className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]"
               />
             </div>
           </div>
         </div>
       </section>
-
-
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 8 — FAQs

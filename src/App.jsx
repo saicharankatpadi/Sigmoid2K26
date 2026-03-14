@@ -29,6 +29,7 @@ import { Accommodation } from './components/ui/accommodation.jsx'
 import { HostelDetails } from './components/ui/hostel-details.jsx'
 import { PromoSection } from './components/PromoSection'
 import { CommunityRegistration } from './components/CommunityRegistration'
+import EventCountdown from './components/ui/EventCountdown'
 
 import { GalleryPage } from './components/ui/gallery-page.jsx'
 import { StatsPage } from './components/StatsPage'
@@ -39,6 +40,8 @@ import { PassportPage } from './components/ui/PassportPage.jsx'
 import { InsightsFAB } from './components/ui/InsightsFAB.jsx'
 import { InsightsPage } from './components/ui/InsightsPage.jsx'
 import { RegisterPage } from './components/ui/Registraion.jsx'
+import { MagazinePage } from './components/ui/MagazinePage.jsx'
+import ScrollToTop from './components/ScrollToTop'
 
 
 /* ── Coach Image Assets ── */
@@ -64,12 +67,25 @@ function Badge({ children, className = "", delay = 0 }) {
     )
 }
 
-function Home() {
+function Home({ showLoader }) {
     return (
         <>
 
             {/* ═══════════════ HERO — Horizon 3D Section ═══════════════ */}
-            <HorizonHero />
+            <HorizonHero startTimer={!showLoader} />
+
+            {/* ═══════════════ COUNTDOWN — Sigmoid 2K26 ═══════════════ */}
+            <div className="relative py-20 overflow-hidden bg-[#0A0A0A]">
+                {/* Background decorative elements */}
+                <div className="absolute inset-0 z-0">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0052cc]/10 rounded-full blur-[120px]" />
+                    <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-[#ff6b00]/5 rounded-full blur-[100px]" />
+                </div>
+                
+                <div className="relative z-10 flex justify-center">
+                    <EventCountdown />
+                </div>
+            </div>
 
             {/* ═══════════════ PROMO — Feature Highlights ═══════════════ */}
             <PromoSection />
@@ -247,6 +263,7 @@ function App() {
 
     return (
         <div className="bg-[#0A0A0A] w-full min-h-screen flex flex-col">
+            <ScrollToTop />
             <AnimatePresence>
                 {showLoader && (
                     <Preloader onComplete={handlePreloaderComplete} />
@@ -257,7 +274,7 @@ function App() {
 
             <div className="flex-1">
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Home showLoader={showLoader} />} />
                     <Route path="/about" element={<AboutSection />} />
                     <Route path="/events" element={<EventsPage />} />
                     <Route path="/event-wireframe" element={<DynamicEventPage />} />
@@ -280,6 +297,7 @@ function App() {
                     <Route path="/gallery" element={<GalleryPage />} />
                     <Route path="/passport" element={<PassportPage />} />
                     <Route path="/insights" element={<InsightsPage />} />
+                    <Route path="/magazines" element={<MagazinePage />} />
                     <Route path="/register" element={<RegisterPage />} />
                 </Routes>
             </div>

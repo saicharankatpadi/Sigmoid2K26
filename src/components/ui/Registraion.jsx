@@ -44,6 +44,17 @@ const ultimatePass = {
     paymentLink: 'https://rzp.io/rzp/d4CmxVw',
 };
 
+const ultimateProPass = {
+    name: 'Ultimate Pro Pass',
+    originalPrice: 1500,
+    price: 1350,
+    description: 'Embark on an unparalleled adventure with the Ultimate Pro Pass. Your ticket to all the tech and non-tech events with an exclusive Rs150 discount.',
+    highlights: ['All the Tech and Non-Tech Events'],
+    accent: 'from-[#ff8a1f] to-[#ff5a00]',
+    glow: 'rgba(255,138,31,0.22)',
+    paymentLink: 'https://docs.google.com/forms/d/e/1FAIpQLScoBNWZe-KzXjuiGkkdGsXaT_0K0NoDbnneEFhNEsdEg27s2w/viewform?usp=publish-editor',
+};
+
 const guidelines = [
     {
         title: 'Pass Validity',
@@ -70,6 +81,58 @@ const guidelines = [
         text: 'Participants must maintain professional behavior throughout the event. Any misconduct will result in immediate disqualification and removal from the event.',
     },
 ];
+
+function PeopleIcon() {
+    return (
+        <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            className="h-5 w-5 shrink-0 text-[#ffd166]"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        >
+            <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
+            <circle cx="9.5" cy="7" r="3" />
+            <path d="M21 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 4.13a4 4 0 0 1 0 7.75" />
+        </svg>
+    );
+}
+
+function NotificationIcon() {
+    return (
+        <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            className="h-5 w-5 shrink-0 text-[#ffd166]"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        >
+            <path d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 0 0-4-5.65V4a2 2 0 1 0-4 0v1.35A6 6 0 0 0 6 11v3.2a2 2 0 0 1-.6 1.4L4 17h5" />
+            <path d="M9.5 17a2.5 2.5 0 0 0 5 0" />
+        </svg>
+    );
+}
+
+function OfferMarquee() {
+    const message = 'Get an offer of 150rs on buying Ultimate Pro Pass for a quantity of three people';
+
+    return (
+        <div className="mx-auto mb-12 max-w-5xl overflow-hidden rounded-full border border-[#ff8a1f]/25 bg-[linear-gradient(90deg,rgba(255,138,31,0.14),rgba(255,90,0,0.08),rgba(255,138,31,0.14))] shadow-[0_12px_40px_rgba(255,106,43,0.12)]">
+            <div className="flex items-center justify-center gap-3 px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.22em] text-[#fff1d6] sm:text-base">
+                <NotificationIcon />
+                <span>{message}</span>
+                <PeopleIcon />
+            </div>
+        </div>
+    );
+}
 
 function PassCard({ pass }) {
     return (
@@ -137,6 +200,7 @@ export function RegisterPage() {
 
             <section className="relative mx-auto max-w-7xl px-6 pb-24 sm:px-10">
                 <header className="mx-auto max-w-4xl text-center">
+                    <OfferMarquee />
                     <div className="inline-flex rounded-full border border-[#ff8a1f]/20 bg-[#ff8a1f]/8 px-4 py-1 text-[11px] font-bold uppercase tracking-[0.26em] text-[#ffb347]">
                         Neon Nostaliga
                     </div>
@@ -151,7 +215,7 @@ export function RegisterPage() {
                 <div className="mx-auto mt-28 max-w-6xl text-center text-lg leading-10 text-white">
                     <p>Events in the free tech trio bundle are: Circuitrix, QuizMania, Codex</p>
                     <p className="mt-3 text-white/88">
-                        Workshops will be available for all passes You have to choose wisely because,  
+                        Workshops will be available for all passes You have to choose wisely because,
                         Workshops will run parallelly. To choose workshops, google form will be provided for registered participants on 1st April.
                     </p>
                 </div>
@@ -161,6 +225,11 @@ export function RegisterPage() {
                     <PassCard pass={supremePass} />
                     <PassCard pass={primePass} />
                     <PassCard pass={ultimatePass} />
+                    <div className="lg:col-span-2 flex justify-center">
+                        <div className="w-full lg:max-w-[calc(50%-0.75rem)]">
+                            <PassCard pass={ultimateProPass} />
+                        </div>
+                    </div>
                 </div>
 
                 <section className="mt-24">

@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
+import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 
 // ==========================================
 // DYNAMIC EVENT DATA (JSON FORMAT)
@@ -10,7 +12,7 @@ const eventData = {
     title: "Dumbcharades & Pictionary",
     emoji: "🎭",
     subtitle: "Guess the move, sketch the vibe!",
-    brochure_url: "C:/Users/Acer/Downloads/DUMBCHARADES_AND_PICTIONARY.pdf",
+    brochure_url: "/DUMBCHARADES_BROCHURE.pdf",
     features: [
       { id: "01", content: "2 Levels of Thrill" },
       { id: "02", content: "Acting & Drawing Skills" },
@@ -21,7 +23,7 @@ const eventData = {
     ]
   },
   video_preview: {
-    video_src: "", // To be uploaded later
+    video_src: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773379445/WhatsApp_Video_2026-03-12_at_22.14.00_rw3vjk.mp4",
     badges: [
       { position: "top-left", icon: "user", text: "Team Acting" },
       { position: "top-right", icon: "diamond", text: "Creative Sketching" },
@@ -82,11 +84,11 @@ const eventData = {
       { text: "Real-time Feedback", icon: "terminal", color: "#2dd4bf" }
     ]
   },
-  mentors: [
-    { 
-      id: "m1", 
-      name: "Event Lead", 
-      role: "Coordinator", 
+  EventLead: [
+    {
+      id: "m1",
+      name: "B.Vinusha",
+
       image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773324210/WhatsApp_Image_2026-03-11_at_23.56.38_ol3dgv.jpg",
       phone: "",
       instagram: "",
@@ -94,10 +96,10 @@ const eventData = {
     }
   ],
   testimonials: [
-    { 
-      id: "t1", 
-      name: "Past Participant", 
-      quote: "The energy in Dumbcharades was electric! It forced us to really sync up as a team.", 
+    {
+      id: "t1",
+      name: "Past Participant",
+      quote: "The energy in Dumbcharades was electric! It forced us to really sync up as a team.",
       image: "https://randomuser.me/api/portraits/men/32.jpg",
       college_logo: ""
     }
@@ -107,6 +109,16 @@ const eventData = {
     { id: "q2", question: "How are teams formed?", answer: "It is advised to form your own team, but organizers can also arrange it at the event if needed." },
     { id: "q3", question: "What is the priority for winning?", answer: "The time taken to solve/guess is the primary factor for promotion and winning." },
     { id: "q4", question: "Are materials provided?", answer: "Yes, all necessary items for Pictionary and other rounds will be provided at the event." }
+  ],
+  gallery: [
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773418109/IMG_8255_fwqbbm.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773418109/IMG_8259_febynb.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773418133/IMG_9639_ccnw4f.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773418169/IMG_9642_mi1gdr.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773418175/IMG_9650_ptqaap.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773418176/IMG_9655_m3ix6t.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773418218/IMG_9661_mpubow.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773418184/IMG_9660_edmj4e.jpg"
   ]
 };
 
@@ -126,8 +138,8 @@ const IconBadge = ({ iconType }) => {
     case 'users': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>;
     case 'cube': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>;
     case 'briefcase': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
-    case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>; 
-    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>;
+    case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>;
+    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor" /></svg>;
     case 'document': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>;
     case 'globe': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>;
     case 'shield': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>;
@@ -167,6 +179,7 @@ const FaqItem = ({ q, a }) => {
 
 export const DumbcharadesEventPage = () => {
   const data = eventData;
+  const [isAutoRotating, setIsAutoRotating] = useState(true);
   const videoRef = useRef(null);
   const progressRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -249,6 +262,14 @@ export const DumbcharadesEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
+      {/* Back Button */}
+      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
+        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
+        </Link>
+      </div>
+  
+
       {/* Keyframes */}
       <style>{`
         @keyframes floatBadge1 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
@@ -276,12 +297,12 @@ export const DumbcharadesEventPage = () => {
           <div className="flex-1 min-w-0 lg:max-w-[50%]">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
-              <div className="flex items-center">
-                <BlurIn 
+              <div className="flex flex-row flex-wrap items-center">
+                <BlurIn
                   word={data.event_info.title}
                   className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
                 />
-                <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
+                <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] shrink-0 min-w-max whitespace-nowrap">{data.event_info.emoji}</span>
               </div>
             </div>
 
@@ -298,8 +319,8 @@ export const DumbcharadesEventPage = () => {
                   <div className="flex items-center self-stretch">
                     <div className="w-[2px] h-[50%] bg-[#2a2a2a] group-hover:bg-[#3a3a3a] transition-colors rounded-full"></div>
                   </div>
-                  <div className="flex-1 py-3 px-3">
-                    <span className="text-white/90 text-[13px] leading-snug font-semibold">{feature.content}</span>
+                  <div className="flex-1 py-2 lg:py-2.5 px-3">
+                    <span className="text-white/90 text-[13px] leading-tight font-semibold line-clamp-2 md:line-clamp-none overflow-hidden">{feature.content}</span>
                   </div>
                 </div>
               ))}
@@ -315,9 +336,21 @@ export const DumbcharadesEventPage = () => {
 
                 {/* Screen Content — Video */}
                 <div
-                  className="relative w-full aspect-video bg-black rounded overflow-hidden border border-[#222] cursor-pointer"
-                  onMouseEnter={() => isPlaying && setShowControls(true)}
-                  onMouseLeave={() => setShowControls(false)}
+                  className="relative w-full aspect-video bg-black rounded overflow-hidden border border-[#222] cursor-pointer group/video"
+                  onMouseEnter={() => {
+                    if (videoRef.current) {
+                      videoRef.current.play();
+                      setIsPlaying(true);
+                      setShowControls(true);
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    if (videoRef.current) {
+                      videoRef.current.pause();
+                      setIsPlaying(false);
+                      setShowControls(false);
+                    }
+                  }}
                 >
                   {data.video_preview.video_src ? (
                     <video
@@ -465,7 +498,7 @@ export const DumbcharadesEventPage = () => {
               <div className="w-5 h-5 rounded-[6px] bg-[#f89b29] flex items-center justify-center shrink-0">
                 <svg className="w-3.5 h-3.5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
               </div>
-              <span className="text-white/80 text-[14px] font-medium">{item}</span>
+              <span className="text-white/80 text-[13px] sm:text-[14px] font-medium truncate">{item}</span>
             </div>
           ))}
         </div>
@@ -489,21 +522,17 @@ export const DumbcharadesEventPage = () => {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Event Coordinator</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Lead</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
         <div className="flex flex-col items-start mt-6">
-          {data.mentors.map((mentor) => (
-            <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 flex flex-row items-center gap-8 hover:border-[#333] transition-colors relative group max-w-lg w-full">
+          {data.EventLead.map((mentor) => (
+            <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 flex flex-col sm:flex-row items-center gap-8 hover:border-[#333] transition-colors relative group max-w-lg w-full">
               <img src={mentor.image} alt={mentor.name} className="w-32 h-32 rounded-full object-cover border-2 border-[#333] shadow-2xl" />
               <div className="text-left">
-                <h3 className="text-2xl font-bold text-white mb-1">{mentor.name}</h3>
-                <p className="text-[15px] text-white/50 mb-6 uppercase tracking-widest">{mentor.role}</p>
-                <div className="flex gap-4">
-                  {/* Optional social links could go here */}
-                </div>
+                <h3 className="text-2xl font-bold text-white mb-6 uppercase tracking-wider">{mentor.name}</h3>
               </div>
             </div>
           ))}
@@ -511,7 +540,79 @@ export const DumbcharadesEventPage = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 5 — FAQs
+          SECTION 5 — Event Gallery
+       ═══════════════════════════════════════════════════════════ */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-2">
+        <div className="mb-1 text-left">
+          <div className="inline-flex items-center gap-3 mb-3 bg-[#f89b29]/5 px-6 py-2 rounded-full border border-[#f89b29]/20">
+            <div className="w-1 h-6 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Event Gallery</h2>
+          </div>
+          <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
+            Visual highlights from the Dumbcharades & Pictionary competition.
+          </p>
+        </div>
+
+        <div className="w-full">
+          <div className="relative group">
+            <ThreeDPhotoCarousel images={data.gallery} autoRotate={isAutoRotating} />
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 6 — Certificate
+       ═══════════════════════════════════════════════════════════ */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+        {/* Section Title with accent bar */}
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Certificate</h2>
+          </div>
+          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
+        </div>
+
+        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden text-left">
+          {/* Subtle gradient background glow from left */}
+          <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
+
+          {/* Text Content */}
+          <div className="flex-1 w-full relative z-10 lg:pl-4">
+            <div className="relative mb-8">
+              <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
+                Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
+                <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
+              </h3>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-white/70">
+                <IconBadge iconType="academic" />
+                <span className="text-[14px]">Add this certificate to your Resume!</span>
+              </div>
+              <div className="flex items-center gap-3 text-white/70">
+                <IconBadge iconType="linkedin" />
+                <span className="text-[14px]">Share it with your LinkedIn network 🚀</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="w-full md:w-[60%] lg:w-[55%] relative z-10 flex justify-end">
+            <div className="relative w-full">
+              <img
+                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773297935/Blue_Modern_Achievement_Certificate_A4_Landscape.jpg_1_ud186o.jpg"
+                alt="Course Certificate"
+                className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 6 — FAQs
        ═══════════════════════════════════════════════════════════ */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 mb-20">
         <div className="mb-10 text-left">

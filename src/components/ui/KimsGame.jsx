@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
+import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 
 // ==========================================
 // DYNAMIC EVENT DATA (JSON FORMAT)
@@ -10,7 +12,7 @@ const eventData = {
     title: "Kim's Game",
     emoji: "🧩",
     subtitle: "Quick eyes, sharp mind!",
-    brochure_url: "C:/Users/Acer/Pictures/KIM.pdf",
+    brochure_url: "/KIM_BROCHURE.pdf",
     features: [
       { id: "01", content: "3 Levels of Challenge" },
       { id: "02", content: "Object Recognition" },
@@ -94,10 +96,10 @@ const eventData = {
   mentors: [
     { 
       id: "m1", 
-      name: "Event Lead", 
+      name: "N. Devi", 
       role: "Coordinator", 
-      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773330939/WhatsApp_Image_2026-03-11_at_23.52.50_i7gokv.jpg",
-      phone: "",
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773373634/WhatsApp_Image_2026-03-12_at_19.29.20__2_-removebg-preview_no93kf.png",
+      phone: "7569106208",
       instagram: "",
       linkedin: ""
     }
@@ -107,6 +109,15 @@ const eventData = {
     { id: "q2", question: "How many rounds are there?", answer: "There are 3 levels: Object Recognition, Think and Spell, and the final Treasure Hunt." },
     { id: "q3", question: "Are materials provided?", answer: "Yes, trays, objects, and treasure hunt clues will be provided by the organizers." },
     { id: "q4", question: "Is there an entry fee?", answer: "Please check the main registration desk or brochure for any event-specific fees." }
+  ],
+  gallery: [
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419899/IMG_1662_mebbam.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419910/IMG_9604_zfnr0b.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419875/IMG_1462_ii2f9g.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419876/IMG_1434_kvln2p.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419887/IMG_1657_zexvyn.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419920/IMG_9605_zxib06.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419954/IMG_1453_i9d3ak.jpg"
   ]
 };
 
@@ -175,6 +186,7 @@ export const KimsGameEventPage = () => {
   const [duration, setDuration] = useState('0:00');
   const [showControls, setShowControls] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [isAutoRotating, setIsAutoRotating] = useState(true);
 
   const formatTime = (s) => {
     if (!s || isNaN(s)) return '0:00';
@@ -248,6 +260,14 @@ export const KimsGameEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
+      {/* Back Button */}
+      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
+        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
+        </Link>
+      </div>
+  
+
       {/* Keyframes */}
       <style>{`
         @keyframes floatBadge1 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
@@ -275,12 +295,12 @@ export const KimsGameEventPage = () => {
           <div className="flex-1 min-w-0 lg:max-w-[50%]">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
-              <div className="flex items-center">
+              <div className="flex flex-wrap items-center gap-3">
                 <BlurIn 
                   word={data.event_info.title}
                   className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
                 />
-                <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
+                <span className="text-3xl lg:text-4xl drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
               </div>
             </div>
 
@@ -314,9 +334,21 @@ export const KimsGameEventPage = () => {
 
                 {/* Screen Content — Video */}
                 <div
-                  className="relative w-full aspect-video bg-black rounded overflow-hidden border border-[#222] cursor-pointer"
-                  onMouseEnter={() => isPlaying && setShowControls(true)}
-                  onMouseLeave={() => setShowControls(false)}
+                  className="relative w-full aspect-video bg-black rounded overflow-hidden border border-[#222] cursor-pointer group/video"
+                  onMouseEnter={() => {
+                    if (videoRef.current) {
+                      videoRef.current.play();
+                      setIsPlaying(true);
+                      setShowControls(true);
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    if (videoRef.current) {
+                      videoRef.current.pause();
+                      setIsPlaying(false);
+                      setShowControls(false);
+                    }
+                  }}
                 >
                   {data.video_preview.video_src ? (
                     <video
@@ -488,21 +520,17 @@ export const KimsGameEventPage = () => {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white">Event Coordinator</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Lead</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
         <div className="flex flex-col items-start mt-6">
           {data.mentors.map((mentor) => (
-            <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 flex flex-row items-center gap-8 hover:border-[#333] transition-colors relative group max-w-lg w-full">
-              <img src={mentor.image} alt={mentor.name} className="w-32 h-32 rounded-full object-cover border-2 border-[#333] shadow-2xl" />
-              <div className="text-left">
-                <h3 className="text-2xl font-bold text-white mb-1">{mentor.name}</h3>
-                <p className="text-[15px] text-white/50 mb-0 uppercase tracking-widest leading-relaxed">{mentor.role}</p>
-                <div className="flex gap-4 mt-4">
-                  {/* Optional social links */}
-                </div>
+            <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-8 hover:border-[#333] transition-colors relative group max-w-lg w-full">
+              <img src={mentor.image} alt={mentor.name} className="w-32 h-32 rounded-full object-cover border-2 border-[#333] shadow-2xl shrink-0" style={{ filter: 'brightness(0) invert(1)' }} />
+              <div className="text-center sm:text-left flex-1 min-w-0">
+                <h3 className="text-2xl font-bold text-white uppercase tracking-wider truncate">{mentor.name}</h3>
               </div>
             </div>
           ))}
@@ -510,7 +538,79 @@ export const KimsGameEventPage = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 5 — FAQs
+          SECTION 5 — Past Memories (Gallery)
+       ═══════════════════════════════════════════════════════════ */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+        {/* Section Title with accent bar */}
+        <div className="mb-10 text-left">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Gallery</h2>
+          </div>
+          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
+        </div>
+
+        {/* 3D Photo Carousel */}
+        <div className="w-full">
+          <ThreeDPhotoCarousel images={data.gallery} autoRotate={isAutoRotating} />
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 6 — Certificate
+       ═══════════════════════════════════════════════════════════ */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-14">
+        {/* Section Title with accent bar */}
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-2xl md:text-3xl font-black text-white">Event Certificate</h2>
+          </div>
+          <div className="w-full h-[2px] bg-[#222] ml-4"></div>
+        </div>
+
+        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden text-left">
+          {/* Subtle gradient background glow from left */}
+          <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
+
+          {/* Text Content */}
+          <div className="flex-1 w-full relative z-10 lg:pl-4">
+            <div className="relative mb-8">
+              <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
+                Official  <span className="text-[#f89b29] font-bold">Participation</span> Certificate
+                <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
+              </h3>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-white/70">
+                <IconBadge iconType="academic" />
+                <span className="text-[14px]">Add this certificate to your Resume!</span>
+              </div>
+              <div className="flex items-center gap-3 text-white/70">
+                <IconBadge iconType="linkedin" />
+                <span className="text-[14px]">Share it with your LinkedIn network 🚀</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="w-full md:w-[60%] lg:w-[55%] relative z-10 flex justify-end">
+            <div className="relative w-full">
+              <img
+                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773297935/Blue_Modern_Achievement_Certificate_A4_Landscape.jpg_1_ud186o.jpg"
+                alt="Course Certificate"
+                className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]"
+              />
+              {/* Ribbon Badge */}
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 6 — FAQs
        ═══════════════════════════════════════════════════════════ */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 mb-20 text-left">
         <div className="mb-10">
