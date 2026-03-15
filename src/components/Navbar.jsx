@@ -161,7 +161,7 @@ export default function Navbar() {
                             : '1px solid transparent',
                         borderBottom: scrolled
                             ? '1px solid rgba(255,255,255,0.08)'
-                            : '1px solid rgba(255,255,255,0.06)',
+                            : '1px solid transparent',
                         boxShadow: scrolled
                             ? '0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03) inset'
                             : 'none',

@@ -9,23 +9,24 @@ const INSIGHTS_DATA = {
     'technovate': "Technovate is our Paper Presentation event. Objective: Design a captivating MS-PPT to communicate research. Topics: 5G, E-Waste, IoT, VLSI, AI/ML, Robotics, etc. Rounds: 1. Online Submission, 2. PPT Presentation (8+2 mins), 3. Viva Voce. IEEE format mandatory. AI tools like ChatGPT prohibited. Coordinators: Dhanunjaya (+91 9392583330).",
     'techfusion': "Technovate (formerly Techfusion in some drafts) is the official Paper Presentation event of SIGMOID 2K26. It focuses on research communication using MS-PPT.",
     'posterize': "Posterize: Showcase your research visually. Domains: AI, ML, IoT, VLSI, Embedded, Cyber, Robotics, Cloud. Submit abstract by April 2nd. 7-8 min presentation on event day. Carry physical poster.",
-    'innovista': "Innovista (Avishkar): Project Expo & DIY. Showcase Electronics, Sensors, and Software models. Physically exhibit working model + abstract. Coordinators: Luqman (+91 89781 03095), Ganesh (+91 79811 14228), Vishnu (+91 80744 87843).",
+
     'avishkar': "Avishkar is now Innovista! redifine innovation with Project Expo and DIY awards.",
     'circuitrix': "Circuitrix: Round 1 (Day 1) is a 25-question QR quiz (Analog/Digital, Network Theory, Devices). Round 2 (Day 2) is circuit building & viva in teams of 3. Coordinators: T. Karthik Veera (+91 90636 02411), Hari Prasad (+91 93812 43316), Naveen (+91 63052 31235).",
     'codex': "Codex: Round 1 (Logic Wars) - 20 timed MCQs (C, Python, Java) at MB107. Round 2 (WebThon) - 75 mins Fullstack app development in teams. Top 30 qualify. Coordinators: Mani Prabhas (#9490210698), Subramanyam (#9391361665), S. Karthikeya (#91772 26748).",
     'quizmania': "QuizMania: Tech-Q event. 3 rounds: Qualifier (paper quiz), Collaborative (teams of 4), and Championship (bit-scoring). Coordinators: Bmd. Nisar (+91 76708 35228), B. Harish (+91 91602 50442).",
-    
+
     // Non-Technical Events
     'click fest': "Click Fest: Smartphone Photography only. No AI. Finalists featured in online gallery. Coordinators: N. Vineeth (#9491040770), KS. Sohail (#9398767095).",
     'dumbcharades': "Dumbcharades & Pictionary: Round 1 - Acting. Round 2 - Drawing. Top 5 teams advance. Coordinators: Samad (+91 96526 10402), Dinesh (+91 91820 58605), Gowtham Kumar (+91 72078 79396), Abuzar, Mahendra.",
-    'guessbusters': "GuessBusters: The ultimate Tech Quiz. Test your knowledge across core ECE subjects and general tech. Coordinators: B. Chandhu (#7386041695).",
+    'iconema': "Test your vocabulary and lateral thinking in the 'Think and Spell' segments",
+    'kimsgame': "Sharpen your short-term memory through rapid object recognition challenges",
     'dynamic': "Dynamic is a part of our Techfusion masterclass series, focusing on rapid problem-solving and algorithmic thinking.",
 
     // General
     'department': "The ECE Department at SVUCE is led by kllamaya (HOD). It is known for its academic excellence, research in signal processing/VLSI, and hosting SIGMOID annually.",
     'principal': "G.sREENIVASULU is the current Principal of SVU College of Engineering (SVUCE).",
-    'hod': "kllamaya is the Head of the Department (HOD) of Electronics and Communication Engineering at SVUCE.",
-    'passes': "Sigmoid 2K26 Pass Tiers:\n- Elite (₹350): Non-Tech events.\n- Supreme (₹400): 1 Paid Tech + Free Trio + Non-Tech.\n- Prime (₹450): 2 Paid Tech + Free Trio + Non-Tech.\n- Ultimate (₹500): All events access.",
+    'hod': "kullamaya is the Head of the Department (HOD) of Electronics and Communication Engineering at SVUCE.",
+    'passes': "Sigmoid 2K26 Pass Tiers:\n- Elite Pass (₹350): Access to all Non-Tech events.\n- Supreme Pass (₹400): 1 Paid Tech (Technovate, Posterize, or Avishkar) + Free Tech Trio Bundle + All Non-Tech events.\n- Prime Pass (₹450): 2 Paid Tech (Technovate, Posterize, or Avishkar) + Free Tech Trio Bundle + All Non-Tech events.\n- Ultimate Pass (₹500): Access to all Tech and Non-Tech events.\n- Ultimate Pro Pass (₹1350): Discounted access to all events for a group with exclusive discount.\n\nFree Tech Trio Bundle includes: Circuitrix, QuizMania, and Codex.",
     'about': "SIGMOID 2K26: Annual Technical extravaganza by SVUCE ECE Department. A legacy event since 2003, redefine Innovation on April 3-4, 2026. Featured events include Technovate (Paper Presentation), Innovista (Project Expo), Circuitrix (Circuit building), Codex (Coding), QuizMania (General tech quiz), and various non-tech events like Click Fest and Dumbcharades.",
     'coordinators': "Major Coordinators:\n- Technovate: Dhanunjaya (+91 9392583330)\n- Innovista: Luqman (+91 89781 03095)\n- Circuitrix: Karthik Veera (+91 90636 02411)\n- QuizMania: Nisar (+91 76708 35228)\n- Codex: Mani Prabhas (+91 9490210698)\n- Click Fest: Vineeth (+91 9491040770)\n- Dumbcharades: Samad (+91 96526 10402)",
     'accommodation': "Accommodation costs ₹200 per day. Hostels for both boys and girls are available. Check-in starts on April 3rd morning at the registration desk. Logistics team including Samad can help.",
@@ -38,7 +39,7 @@ const INSIGHTS_DATA = {
 const RELATED_QUESTIONS_MAP = {
     'technovate': ["Technovate rules?", "Technovate coordinators?"],
     'department': ["Who is the HOD?", "Principal of SVUCE?"],
-    'innovista': ["Rules for Innovista?", "Innovista coordinators?"],
+    'Avishkar': ["Rules for Avishkar?", "Avishkar coordinators?"],
     'codex': ["Codex Round 1 info?", "Codex coordinators?"],
     'circuitrix': ["Circuitrix rounds?", "Circuitrix coordinators?"],
     'quizmania': ["QuizMania rounds?", "QuizMania coordinators?"],

@@ -54,7 +54,7 @@ export function Preloader({ onComplete }) {
         const t1 = setTimeout(() => {
             onComplete();
             document.body.style.overflow = 'auto'; 
-        }, 4000);
+        }, 8000);
 
         return () => {
             clearTimeout(t1);
@@ -93,7 +93,7 @@ export function Preloader({ onComplete }) {
                     tag={Tag.H1}
                 />
                 {/* Audio Element */}
-                <audio ref={audioRef} src={preloaderAudio} preload="auto" />
+                <audio ref={audioRef} src={preloaderAudio} preload="auto" loop />
             </div>
         </motion.div>
     );

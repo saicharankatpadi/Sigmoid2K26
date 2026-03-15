@@ -521,7 +521,7 @@ export const KimsGameEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="flex flex-col items-center justify-center mt-6">
+        <div className="flex flex-col items-start justify-start mt-6">
           {data.mentors.map((mentor) => (
             <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 flex flex-col items-center hover:border-[#333] transition-colors relative group max-w-sm w-full">
               <img src={mentor.image} alt={mentor.name} className="w-32 h-32 rounded-full object-cover object-top mb-4 shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-[#333]" />
