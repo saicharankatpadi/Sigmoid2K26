@@ -628,7 +628,7 @@ export const CodexEventPage = () => {
               <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773514921/certificate-ribbon__2_-removebg-preview_hnasix.png" alt="Ribbon" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.4)]" />
               <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
                 Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
-                <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
+                <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773553850/__Rocket_Emoji__2_-removebg-preview_w56x6a.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
               </h3>
             </div>
 

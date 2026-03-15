@@ -144,7 +144,7 @@ const BOTTOM_ROW = [
     },
     {
         type: 'video',
-        name: 'K .Mahalakshmi B.Tech 1st Year,(Vemu,Tirupati)',
+        name: 'K .Mahalakshmi B.Tech 3rd Year CSE,(Vemu,Tirupati)',
         hook: 'Core Engineering Pulse',
         description: 'Where theoretical concepts meet real-world applications.',
         videoGradient: VIDEO_GRADIENTS[2],

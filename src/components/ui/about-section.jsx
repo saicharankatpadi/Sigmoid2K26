@@ -21,13 +21,13 @@ const TEAM_MEMBERS = [
 ];
 
 const ALUMNI = [
-    { name: 'SK Arshad Ahmad', badge: 'Student Coordinator', img: '/assets/images/team/img6.jpeg' },
+    { name: 'SK. Arshad Ahmad', badge: 'Student Coordinator', img: '/assets/images/team/img6.jpeg' },
     { name: 'E. Tejaswi', badge: 'Student Coordinator', img: '/assets/images/team/img7.jpeg' },
 ];
 
 const CORE_TEAM = [
     { name: 'B.Tharun', badge: 'Core Team', img: '/assets/images/team/img10.jpeg' },
-    { name: 'K. Sudharshan', badge: 'Core Team', img: '/assets/images/team/img11.jpeg' },
+    { name: 'K. Sudharshan Reddy', badge: 'Core Team', img: '/assets/images/team/img11.jpeg' },
     { name: 'G.Praveen', badge: 'Core Team', img: praveen },
 ];
 
@@ -41,7 +41,7 @@ const MARKETING_TEAM = [
 ];
 
 const HELP_DESK = [
-    { name: 'K. Sudharshan', badge: 'Help Desk Head', img: '/assets/images/team/img11.jpeg' },
+    { name: 'K. Sudharshan Reddy', badge: 'Help Desk Head', img: '/assets/images/team/img11.jpeg' },
     { name: 'S. Sadvika', badge: 'Help Desk Head', img: sadvika },
     { name: 'K.Harika', badge: 'Help Desk Head', img: harika },
 

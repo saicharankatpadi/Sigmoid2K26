@@ -18,14 +18,24 @@ export function Preloader({ onComplete }) {
         }
 
         const updateFontSize = () => {
-            const isMobile = window.innerWidth < 768;
-            // Cap the scale factor and max size for mobile to ensure it fits on one line
-            const scaleFactor = isMobile ? 0.04 : 0.045;
-            const minSize = isMobile ? 16 : 30;
-            const maxSize = isMobile ? 24 : 90;
+            const containerWidth = window.innerWidth;
+            const isMobile = containerWidth < 768;
             
-            const calculatedSize = Math.min(window.innerWidth * scaleFactor, maxSize);
-            setFontSize(`${Math.max(calculatedSize, minSize)}px`);
+            // Exact sizing calculation to fit "WELCOME TO SIGMOID 2K26" which has 23 characters
+            const text = "WELCOME TO SIGMOID 2K26";
+            const margin = isMobile ? 48 : 80; // Total conservative margin (px-6 each side on mobile = 48)
+            const availableWidth = containerWidth - margin;
+            
+            // letter width weight for uppercase heavy font relative to size
+            const charWidthWeight = 0.53; 
+            let calculatedSize = Math.floor(availableWidth / (text.length * charWidthWeight));
+
+            // Cap to safe limits
+            const minSize = isMobile ? 18 : 30;
+            const maxSize = isMobile ? 32 : 80;
+            
+            calculatedSize = Math.min(Math.max(calculatedSize, minSize), maxSize);
+            setFontSize(`${calculatedSize}px`);
         };
 
         updateFontSize();
