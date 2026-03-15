@@ -18,10 +18,14 @@ export function Preloader({ onComplete }) {
         }
 
         const updateFontSize = () => {
-            // Calculate size dynamically since the canvas script uses parseInt() on this prop
-            // Reduced size so it doesn't take up the full screen, keeping it centered
-            const calculatedSize = Math.min(window.innerWidth * 0.045, 90);
-            setFontSize(`${Math.max(calculatedSize, 30)}px`);
+            const isMobile = window.innerWidth < 768;
+            // Cap the scale factor and max size for mobile to ensure it fits on one line
+            const scaleFactor = isMobile ? 0.04 : 0.045;
+            const minSize = isMobile ? 16 : 30;
+            const maxSize = isMobile ? 24 : 90;
+            
+            const calculatedSize = Math.min(window.innerWidth * scaleFactor, maxSize);
+            setFontSize(`${Math.max(calculatedSize, minSize)}px`);
         };
 
         updateFontSize();
@@ -48,7 +52,7 @@ export function Preloader({ onComplete }) {
             transition={{ duration: 0.8, ease: "easeInOut" }}
             className="fixed inset-0 z-[99999] bg-[#050505]"
         >
-            <div className="w-screen h-screen flex justify-center items-center">
+            <div className="w-screen h-screen flex justify-center items-center px-6">
                 <VaporizeTextCycle
                     texts={["WELCOME TO SIGMOID 2K26"]}
                     font={{

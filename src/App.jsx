@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react' // Trigger HMR
 import CoachSection from './components/CoachSection'
 import Footer from './components/Footer'
 import TestimonialsSection from './components/TestimonialsSection'

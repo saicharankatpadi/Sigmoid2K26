@@ -147,21 +147,33 @@ export function Accommodation() {
                             <p className="text-lg md:text-xl text-zinc-300 mb-6 font-medium">
                                 For any Queries regarding Accommodation
                             </p>
-                            <div className="flex flex-col gap-6 w-full max-w-xs">
+                            <div className="flex flex-col gap-4 w-full max-w-xs">
                                 <button 
                                     onClick={() => window.open('tel:+916305665343')}
                                     className="relative group w-full"
                                 >
                                     <div className="flex items-center justify-center gap-4 bg-[#111] border border-white/10 px-6 py-4 rounded-2xl hover:bg-[#1a1a1a] transition-colors shadow-lg">
-                                        <div className="flex items-center justify-center w-10 h-10 bg-white rounded-full shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.4)]">
-                                            <img src={phoneIcon} alt="Phone" className="w-5 h-5 object-contain" />
+                                        <div className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white rounded-full shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+                                            <img src={phoneIcon} alt="Phone" className="w-4 h-4 md:w-5 md:h-5 object-contain" />
                                         </div>
-                                        <span className="text-white font-bold text-xl tracking-wide uppercase">Contact Us</span>
+                                        <span className="text-white font-bold text-lg md:text-xl tracking-wide uppercase">Contact Us</span>
+                                    </div>
+                                </button>
+
+                                <button 
+                                    onClick={() => window.open('tel:+916304700356')}
+                                    className="relative group w-full"
+                                >
+                                    <div className="flex items-center justify-center gap-4 bg-[#111] border border-white/10 px-6 py-4 rounded-2xl hover:bg-[#1a1a1a] transition-colors shadow-lg">
+                                        <div className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white rounded-full shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+                                            <img src={phoneIcon} alt="Phone" className="w-4 h-4 md:w-5 md:h-5 object-contain" />
+                                        </div>
+                                        <span className="text-white font-bold text-lg md:text-xl tracking-wide uppercase">Support</span>
                                     </div>
                                 </button>
                                 
                                 <div className="text-center sm:text-left">
-                                    <p className="text-zinc-500 text-sm mt-1">Accommodation Leader, Name</p>
+                                    <p className="text-zinc-500 text-sm mt-1">Accommodation Leaders & Helpdesk</p>
                                 </div>
                             </div>
                         </div>

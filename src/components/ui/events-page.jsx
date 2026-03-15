@@ -2,22 +2,26 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { MatrixText } from './matrix-text';
 
+const thumbPosterize = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773545845/Your_paragraph_text_24_vzownp.png';
+const thumbClickfest = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773545892/Your_paragraph_text_25_qzvubf.png';
+const thumbFreefire = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773546026/Im%C3%A1genes_Free_fire_kervmf.jpg';
+
 const CATEGORIES = ['Technical', 'Non-Technical', 'Workshops', 'E-sports'];
 
 const EVENTS_DATA = [
     {
         id: 1,
-        title: 'Techovate',
+        title: 'Technovate',
         category: 'Technical',
         image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773297645/Your_paragraph_text_8_ouoziw.png',
         description: 'Design a captivating and informative paper presentation that effectively communicates your research to a broad audience of researchers at a conference or seminar.',
-        route: '/techovate'
+        route: '/technovate'
     },
     {
         id: 4,
         title: 'Posterize',
         category: 'Technical',
-        image: '/thumbnail-posterize.png',
+        image: thumbPosterize,
         description: 'Design a captivating and informative poster that effectively communicates your research to a broad audience. Present your findings to professors and win exciting prizes in this unique poster presentation event.',
         route: '/posterize'
     },
@@ -57,7 +61,7 @@ const EVENTS_DATA = [
         id: 2,
         title: 'Free Fire',
         category: 'E-sports',
-        image: '/thumbnail-freefire-new.jpeg',
+        image: thumbFreefire,
         video: 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773312818/Free_Fire_Battle_-_College_Fest_Tournament_720p_caption_glufro.mp4',
         description: 'Drop into the ultimate battle royale experience. Survive the shrinking play zone, outlast your opponents, and secure the Booyah in this intense fast-paced survival shooter.',
     },
@@ -73,7 +77,7 @@ const EVENTS_DATA = [
         id: 9,
         title: 'Click Fest',
         category: 'Non-Technical',
-        image: '/thumbnail-clickfest.png',
+        image: thumbClickfest,
         description: 'Capture stunning, creative images showcasing technical skills and unique perspectives. Only smartphones allowed. Frame your best shot and compete for the gallery spotlight.',
         route: '/click-fest'
     },
@@ -159,9 +163,9 @@ const VideoPreview = ({ src }) => {
             // Try to play unmuted first
             videoRef.current.muted = false;
             videoRef.current.volume = 1.0;
-            
+
             const playPromise = videoRef.current.play();
-            
+
             if (playPromise !== undefined) {
                 playPromise.catch(() => {
                     // If blocked, fallback to muted
@@ -180,6 +184,7 @@ const VideoPreview = ({ src }) => {
             src={src}
             loop
             playsInline
+            preload="none"
             className="w-full h-full object-cover"
         />
     );
@@ -231,7 +236,6 @@ export const EventsPage = () => {
                     ))}
                 </div>
 
-                {/* Events Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredEvents.map(event => (
                         <div
@@ -240,20 +244,23 @@ export const EventsPage = () => {
                             onMouseLeave={() => setHoveredEventId(null)}
                             className="group flex flex-col bg-[#18181B] rounded-xl overflow-hidden shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-all duration-300 ease-in-out transform hover:-translate-y-1 border border-white/5 hover:border-white group-hover:brightness-110"
                         >
-                            <div className="relative w-full h-40 md:h-48 overflow-hidden bg-black">
-                                {event.video && hoveredEventId === event.id ? (
-                                    <VideoPreview src={event.video} />
-                                ) : (
-                                    <img
-                                        src={event.image}
-                                        alt={event.title}
-                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                    />
+                            <div className="relative w-full h-40 md:h-48 overflow-hidden bg-[#0A0A0A] flex items-center justify-center">
+                                {/* Always render Image but hide it visually if hovering to stop flickering */}
+                                <img
+                                    src={event.image}
+                                    alt={event.title}
+                                    loading="lazy"
+                                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 group-hover:scale-105 ${event.video && hoveredEventId === event.id ? 'opacity-0' : 'opacity-100'}`}
+                                />
+                                {event.video && hoveredEventId === event.id && (
+                                    <div className="absolute inset-0 z-10 w-full h-full">
+                                        <VideoPreview src={event.video} />
+                                    </div>
                                 )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/80 to-transparent pointer-events-none"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#18181B] via-transparent to-transparent pointer-events-none z-20"></div>
                             </div>
 
-                            <div className="flex flex-col px-5 py-5 flex-1">
+                            <div className="flex flex-col px-5 py-5 flex-1 relative z-30 bg-[#18181B]">
                                 <h3 className="text-[20px] md:text-[22px] leading-snug font-bold text-[#FDBA74] mb-3 group-hover:text-white transition-colors line-clamp-1">
                                     {event.title}
                                 </h3>
@@ -265,9 +272,16 @@ export const EventsPage = () => {
                                         </span>
                                     </div>
                                 ) : (
-                                    <p className="text-[#D1D5DB] text-[14px] md:text-[15px] leading-relaxed mb-6 pr-1 line-clamp-3">
-                                        {event.description}
-                                    </p>
+                                    <div className="flex flex-col mb-6">
+                                        <p className="text-[#D1D5DB] text-[14px] md:text-[15px] leading-relaxed pr-1 line-clamp-3">
+                                            {event.description}
+                                        </p>
+                                        {event.category === 'E-sports' && (
+                                            <p className="text-[#F97316]/80 text-[12px] italic mt-2 text-center">
+                                                Hold or Click on card to See..
+                                            </p>
+                                        )}
+                                    </div>
                                 )}
 
                                 <div className="flex justify-end mt-auto">

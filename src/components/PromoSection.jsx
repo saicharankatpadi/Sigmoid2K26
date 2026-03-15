@@ -6,7 +6,16 @@ import { AnimatedCardStack } from './ui/animate-card-animation';
 export function PromoSection() {
     const navigate = useNavigate();
     return (
-        <section className="relative w-full bg-[#0A0A0A] text-white py-16 lg:py-24 overflow-hidden border-t-0">
+        <section className="relative w-full text-white py-16 lg:py-24 overflow-hidden border-t-0">
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 z-0">
+                <img
+                    src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773543976/download_36_qwb6ca.jpg"
+                    alt="Promo Background"
+                    className="w-full h-full object-cover opacity-30"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/80 to-[#0A0A0A]" />
+            </div>
             <div className="max-w-[1300px] mx-auto px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-2 lg:gap-12">
 
                 {/* Left Side Content */}

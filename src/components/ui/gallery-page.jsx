@@ -175,7 +175,7 @@ function GalleryHero({ cards }) {
             {/* Background Image / Overlay */}
             <div className="absolute inset-0 z-0 bg-[#0A0A0A]">
                 <img
-                    src="/hero-bg.jpeg"
+                    src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773543976/download_36_qwb6ca.jpg"
                     alt="Hero Background"
                     className="w-full h-full object-cover object-top opacity-50 md:opacity-80 rounded-2xl md:rounded-3xl"
                 />
@@ -184,7 +184,7 @@ function GalleryHero({ cards }) {
             </div>
 
             {/* Main Content Area */}
-            <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 pt-8 lg:pt-10 flex flex-col items-center">
+            <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 pt-4 lg:pt-6 flex flex-col items-center">
 
                 {/* Titles - Centered entirely (SIGMOID 2K26 above NEON NOSTALGIA) */}
                 <div className="max-w-4xl flex flex-col items-center text-center gap-4 sm:gap-6 relative z-30 mb-8 sm:mb-12 mt-2">
@@ -200,7 +200,7 @@ function GalleryHero({ cards }) {
                 </div>
 
                 {/* Video Cards Row */}
-                <div className="w-full grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-4 z-30 relative translate-y-8 sm:translate-y-12">
+                <div className="w-full grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-4 z-30 relative translate-y-16 sm:translate-y-12">
                     {cards.map((card, index) => (
                         <div key={card.id} className={index >= 2 ? "hidden lg:block" : ""}>
                             <CardItem card={card} isLeftmost={index === 0} />
