@@ -27,6 +27,7 @@ export default function VaporizeTextCycle({
   direction = "left-to-right",
   alignment = "center",
   tag = Tag.P,
+  loop = true, // Add loop parameter
 }) {
   const canvasRef = useRef(null);
   const wrapperRef = useRef(null);
@@ -164,9 +165,13 @@ export default function VaporizeTextCycle({
 
           // Check if vaporization is complete
           if (vaporizeProgressRef.current >= 100 && allVaporized) {
-            setCurrentTextIndex(prevIndex => (prevIndex + 1) % texts.length);
-            setAnimationState("fadingIn");
-            fadeOpacityRef.current = 0;
+            if (!loop && currentTextIndex === texts.length - 1) {
+              setAnimationState("vaporized"); // Or stay quiet
+            } else {
+              setCurrentTextIndex(prevIndex => (prevIndex + 1) % texts.length);
+              setAnimationState("fadingIn");
+              fadeOpacityRef.current = 0;
+            }
           }
           break;
         }

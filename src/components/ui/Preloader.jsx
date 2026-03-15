@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import VaporizeTextCycle, { Tag } from './vapour-text-effect';
-const preloaderAudio = 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773218169/preloader_audio_uxcfmm.mp3';
+import preloaderAudio from '../../assets/preloader_audio.mp3';
 
 export function Preloader({ onComplete }) {
     const [fontSize, setFontSize] = React.useState("80px");
@@ -54,7 +54,7 @@ export function Preloader({ onComplete }) {
         const t1 = setTimeout(() => {
             onComplete();
             document.body.style.overflow = 'auto'; 
-        }, 8000);
+        }, 6000);
 
         return () => {
             clearTimeout(t1);
@@ -62,6 +62,12 @@ export function Preloader({ onComplete }) {
             window.removeEventListener('mousedown', playAudio);
             window.removeEventListener('keydown', playAudio);
             document.body.style.overflow = 'auto';
+            
+            // Cleanup audio to prevent sound overlaps
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0;
+            }
         };
     }, [onComplete]);
 
@@ -84,13 +90,14 @@ export function Preloader({ onComplete }) {
                     spread={8}
                     density={6}
                     animation={{
-                        vaporizeDuration: 3.5,
-                        fadeInDuration: 0.1,
-                        waitDuration: 0.1
+                        vaporizeDuration: 2.0, // Quick vaporize at the end
+                        fadeInDuration: 0.5,
+                        waitDuration: 3.5     // total 6.0s matching timeout
                     }}
                     direction="left-to-right"
                     alignment="center"
                     tag={Tag.H1}
+                    loop={false} // Prevent indefinite cycling
                 />
                 {/* Audio Element */}
                 <audio ref={audioRef} src={preloaderAudio} preload="auto" loop />
