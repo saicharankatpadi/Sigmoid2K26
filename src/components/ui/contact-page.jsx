@@ -60,8 +60,8 @@ export function ContactPage() {
             <div className="pointer-events-none absolute left-10 top-24 h-40 w-40 rounded-full bg-[#FF6B2B]/14 blur-3xl" />
             <div className="pointer-events-none absolute bottom-16 right-16 h-56 w-56 rounded-full bg-[#f97316]/18 blur-3xl" />
 
-            <div className="relative mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[40px] border border-white/[0.08] bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl md:p-10 lg:grid-cols-[1.05fr_0.95fr] lg:p-14">
-                <div className="space-y-10">
+            <div className="relative mx-auto grid max-w-7xl items-center gap-6 sm:gap-10 overflow-hidden rounded-[40px] border border-white/[0.08] bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl md:p-10 lg:grid-cols-[1.05fr_0.95fr] lg:p-14">
+                <div className="space-y-8 sm:space-y-10">
                     <div className="space-y-5">
                         <span className="inline-flex rounded-full border border-[#FF6B2B]/20 bg-[#FF6B2B]/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-[#FF8A57]">
                             Contact
@@ -77,7 +77,7 @@ export function ContactPage() {
                         </div>
                     </div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-5 sm:space-y-6">
                         {contactItems.map((item) => (
                             <ContactRow key={item.label} {...item} />
                         ))}
@@ -90,11 +90,11 @@ export function ContactPage() {
                     <div className="absolute left-0 top-0 h-32 w-32 rounded-full bg-[#FFB088]/45 blur-2xl" />
                     <div className="absolute bottom-4 right-4 h-24 w-24 rounded-full bg-[#FF6B2B]/45 blur-2xl" />
 
-                    <div className="relative flex min-h-[380px] items-end justify-center px-6 pt-8 sm:min-h-[470px] sm:px-10">
+                    <div className="relative flex min-h-[260px] items-center justify-center px-6 pt-8 sm:min-h-[470px] sm:px-10">
                         <img
                             src={supportIllustration}
                             alt="Customer support representative"
-                            className="relative z-10 max-h-[520px] w-full object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.25)]"
+                            className="relative z-10 max-h-[220px] sm:max-h-[520px] w-full object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.25)]"
                         />
                     </div>
                 </div>
