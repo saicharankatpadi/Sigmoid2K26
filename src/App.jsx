@@ -44,6 +44,7 @@ import { RegisterPage } from './components/ui/Registraion.jsx'
 import { MagazinePage } from './components/ui/MagazinePage.jsx'
 import ScrollToTop from './components/ScrollToTop'
 import { ContactPage } from './components/ui/contact-page.jsx'
+import { useEffect } from 'react'
 
 
 
