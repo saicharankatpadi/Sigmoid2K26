@@ -413,13 +413,13 @@ export const HorizonHero = ({ startTimer }) => {
         };
         progressRAF = requestAnimationFrame(updateProgress);
 
-        // Advance to next section every 10s
+        // Advance to next section every 5s
         const interval = setInterval(() => {
             startTime = Date.now();
             setCurrentSection(prev => {
                 const next = (prev + 1) % TOTAL_SECTIONS;
                 goToSection(next);
-                return prev; // goToSection handles the state update
+                return next; // Fixed from 'return prev'
             });
         }, SLIDE_DURATION);
 
@@ -542,6 +542,7 @@ export const HorizonHero = ({ startTimer }) => {
                     }}>
                         AUTOPLAY
                     </span>
+                    {/* Progress Bar line disabled 
                     <div style={{
                         width: 120,
                         height: 1,
@@ -560,6 +561,7 @@ export const HorizonHero = ({ startTimer }) => {
                             borderRadius: 2,
                         }} />
                     </div>
+                    */}
                     <span style={{
                         fontSize: 10,
                         letterSpacing: '0.3em',

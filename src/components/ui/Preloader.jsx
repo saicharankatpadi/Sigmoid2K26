@@ -51,7 +51,14 @@ export function Preloader({ onComplete }) {
         window.addEventListener('keydown', playAudio);
         window.addEventListener('touchstart', playAudio); // Add touchstart for mobile
 
+        // Absolute timeout cap fallback to guarantee unmount on slow renders
+        const t1 = setTimeout(() => {
+            onComplete();
+            document.body.style.overflow = 'auto'; 
+        }, 6000);
+
         return () => {
+            clearTimeout(t1);
             window.removeEventListener('resize', updateFontSize);
             window.removeEventListener('mousedown', playAudio);
             window.removeEventListener('keydown', playAudio);
