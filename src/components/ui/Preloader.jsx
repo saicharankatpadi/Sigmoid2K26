@@ -33,10 +33,22 @@ export function Preloader({ onComplete }) {
         window.addEventListener('resize', updateFontSize);
 
         // Play audio on mount
-        if (audioRef.current) {
-            audioRef.current.volume = 0.6;
-            audioRef.current.play().catch(e => console.log("Audio autoplay prevented", e));
-        }
+        const playAudio = () => {
+            if (audioRef.current) {
+                audioRef.current.volume = 0.6;
+                audioRef.current.play()
+                    .then(() => {
+                        // Success - remove listeners
+                        window.removeEventListener('mousedown', playAudio);
+                        window.removeEventListener('keydown', playAudio);
+                    })
+                    .catch(e => console.log("Audio autoplay prevented", e));
+            }
+        };
+
+        playAudio();
+        window.addEventListener('mousedown', playAudio);
+        window.addEventListener('keydown', playAudio);
 
         // Timer orchestrator
         const t1 = setTimeout(() => {
@@ -47,6 +59,8 @@ export function Preloader({ onComplete }) {
         return () => {
             clearTimeout(t1);
             window.removeEventListener('resize', updateFontSize);
+            window.removeEventListener('mousedown', playAudio);
+            window.removeEventListener('keydown', playAudio);
             document.body.style.overflow = 'auto';
         };
     }, [onComplete]);

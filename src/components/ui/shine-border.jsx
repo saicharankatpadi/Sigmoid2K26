@@ -13,7 +13,7 @@ export function ShineBorder({
       style={{
         "--border-radius": `${borderRadius}px`,
       }}
-      className={`relative grid place-items-center rounded-[--border-radius] bg-white p-3 text-black dark:bg-black dark:text-white ${className}`}
+      className={`relative grid place-items-center rounded-[--border-radius] bg-transparent text-white ${className}`}
     >
       <div
         style={{

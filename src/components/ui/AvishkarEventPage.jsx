@@ -387,7 +387,23 @@ export const AvishkarEventPage = () => {
               <div key={m.id} className="bg-[#0a0a0a] border-2 border-[#222] rounded-2xl p-6 transition-colors hover:border-[#333]">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-[#f89b29]/10 border-2 border-[#f89b29]/40">
-                    {isFoundation ? <svg className="w-5 h-5" fill="none" stroke="#f89b29" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" strokeWidth="2" /><circle cx="12" cy="12" r="6" strokeWidth="2" /><circle cx="12" cy="12" r="2" strokeWidth="2" /></svg> : <svg className="w-5 h-5" fill="none" stroke="#2dd4bf" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>}
+                    {m.icon === 'target' ? (
+                      <svg className="w-5 h-5" fill="none" stroke="#f89b29" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" strokeWidth="2" />
+                        <circle cx="12" cy="12" r="6" strokeWidth="2" />
+                        <circle cx="12" cy="12" r="2" strokeWidth="2" />
+                      </svg>
+                    ) : m.icon === 'rocket' ? (
+                      <svg className="w-5 h-5" fill="none" stroke="#2dd4bf" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                        <path d="M9 12H4s.5-1 1-4c1.5 0 3 .5 3 .5L12 3c.5 3 1.5 5.5 3 5.5 0 2-1 3.5-3 4" />
+                      </svg>
+                    ) : (
+                      <svg className="w-5 h-5" fill="none" stroke="#2dd4bf" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    )}
                   </div>
                   <h3 className="text-[14px] font-bold tracking-[0.15em] uppercase" style={{ color: themeColor }}>{m.title}</h3>
                 </div>

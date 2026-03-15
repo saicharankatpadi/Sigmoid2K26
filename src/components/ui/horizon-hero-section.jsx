@@ -544,15 +544,19 @@ export const HorizonHero = ({ startTimer }) => {
                     <div style={{
                         width: 120,
                         height: 1,
-                        background: 'rgba(255,255,255,0.15)',
+                        background: 'rgba(255,255,255,0.1)',
                         borderRadius: 2,
-                        overflow: 'hidden',
+                        position: 'relative',
                     }}>
                         <div style={{
+                            position: 'absolute',
+                            left: 0,
+                            top: 0,
                             height: '100%',
                             width: `${slideProgress * 100}%`,
-                            background: 'rgba(255,255,255,0.7)',
+                            background: 'rgba(255,255,255,0.6)',
                             transition: 'width 0.05s linear',
+                            borderRadius: 2,
                         }} />
                     </div>
                     <span style={{
