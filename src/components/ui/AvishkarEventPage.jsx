@@ -91,6 +91,14 @@ const eventData = {
       phone: "",
       instagram: "",
       linkedin: ""
+    }, {
+      id: "m1",
+      name: "J. ANUSHA ",
+      role: "Event Lead",
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773548926/WhatsApp_Image_2026-03-12_at_02.32.00_1_ws5e4w.jpg",
+      phone: "",
+      instagram: "",
+      linkedin: ""
     }
   ],
 
@@ -367,7 +375,7 @@ export const AvishkarEventPage = () => {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white uppercase">Our Mission</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white ">Our Mission</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
@@ -403,7 +411,7 @@ export const AvishkarEventPage = () => {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white uppercase">{data.learnings.title}</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white ">{data.learnings.title}</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
@@ -434,7 +442,7 @@ export const AvishkarEventPage = () => {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white uppercase">Perks & Benefits</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white ">Perks & Benefits</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
@@ -455,7 +463,7 @@ export const AvishkarEventPage = () => {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-wider">Event Lead</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white  tracking-wider">Event Lead</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
@@ -565,7 +573,7 @@ export const AvishkarEventPage = () => {
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-1 h-9 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-2xl md:text-3xl font-black text-white uppercase">Frequently Asked Questions</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-white ">Frequently Asked Questions</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>

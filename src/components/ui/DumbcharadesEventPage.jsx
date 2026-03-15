@@ -88,22 +88,14 @@ const eventData = {
   EventLead: [
     {
       id: "m1",
-      name: "SAMAD",
+      name: "B. VINUSHA",
       role: "Event Lead",
-      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773531393/WhatsApp_Image_2026-03-15_at_05.00.41_1_vuxzjv.jpg",
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773549464/WhatsApp_Image_2026-03-11_at_23.56.38_1_ongvm0.jpg",
       phone: "+91 96526 10402",
       instagram: "",
       linkedin: ""
-    },
-    {
-      id: "m2",
-      name: "DINESH",
-      role: "Event Lead",
-      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773531392/WhatsApp_Image_2026-03-15_at_05.00.41_e8ivt4.jpg",
-      phone: "+91 91820 58605",
-      instagram: "",
-      linkedin: ""
     }
+
   ],
   testimonials: [
     {
@@ -584,7 +576,7 @@ export const DumbcharadesEventPage = () => {
 
           {/* Text Content */}
           <div className="flex-1 w-full relative z-10 lg:pl-4">
-            <div className="relative mb-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+            <div className="relative mb-8 text-left">
               <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773514921/certificate-ribbon__2_-removebg-preview_hnasix.png" alt="Ribbon" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.4)]" />
               <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
                 Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate

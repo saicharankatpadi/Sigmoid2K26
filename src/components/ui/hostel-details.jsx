@@ -333,8 +333,8 @@ export function HostelDetails({ type }) {
                                             <>
                                                 <div className="flex-1 min-w-[150px]">
                                                     <VacancyChart
-                                                        title="Viswa Block"
-                                                        groundValue={25}
+                                                        title="Viswakarma Block"
+                                                        groundValue={35}
                                                         topValue={20}
                                                     />
                                                     <h5 className="text-center text-white mt-4 font-bold tracking-wide">Viswa Block</h5>

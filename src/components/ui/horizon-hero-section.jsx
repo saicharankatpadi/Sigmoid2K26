@@ -566,16 +566,7 @@ export const HorizonHero = ({ startTimer }) => {
                 </div>
 
                 {/* Section dots */}
-                <div style={{
-                    position: 'absolute',
-                    right: 40,
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 12,
-                    zIndex: 10,
-                }}>
+                <div className="hidden md:flex absolute right-[40px] top-1/2 -translate-y-1/2 flex-col gap-3 z-10">
                     {SECTIONS.map((_, i) => (
                         <div
                             key={i}

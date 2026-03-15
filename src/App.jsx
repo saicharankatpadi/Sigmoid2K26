@@ -78,17 +78,7 @@ function Home({ showLoader }) {
             <HorizonHero startTimer={!showLoader} />
 
             {/* ═══════════════ COUNTDOWN — Sigmoid 2K26 ═══════════════ */}
-            <div className="relative py-20 overflow-hidden bg-[#0A0A0A]">
-                {/* Background decorative elements */}
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0052cc]/10 rounded-full blur-[120px]" />
-                    <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-[#ff6b00]/5 rounded-full blur-[100px]" />
-                </div>
-
-                <div className="relative z-10 flex justify-center">
-                    <EventCountdown />
-                </div>
-            </div>
+            <EventCountdown />
 
             {/* ═══════════════ PROMO — Feature Highlights ═══════════════ */}
             <PromoSection />

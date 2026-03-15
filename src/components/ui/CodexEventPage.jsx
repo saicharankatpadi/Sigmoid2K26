@@ -294,6 +294,7 @@ export const CodexEventPage = () => {
           {/* LEFT COLUMN */}
           <div className="flex-1 min-w-0 lg:max-w-[50%]">
             <div className="flex flex-wrap items-center gap-3">
+              <div className="w-1 h-10 md:h-12 bg-[#f89b29] rounded-full"></div>
               <BlurIn
                 word={data.event_info.title}
                 className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
@@ -593,7 +594,7 @@ export const CodexEventPage = () => {
             },
           ].map((mentor) => (
             <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#333] transition-colors relative group w-full max-w-xs text-center">
-              <img src={mentor.image} alt={mentor.name} className="w-28 h-28 rounded-full object-cover object-[50%_10%] shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" />
+              <img src={mentor.image} alt={mentor.name} className="w-28 h-28 rounded-full object-cover shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" />
               <h3 className="text-xl font-bold text-white uppercase tracking-wider">{mentor.name}</h3>
             </div>
           ))}

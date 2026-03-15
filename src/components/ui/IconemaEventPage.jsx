@@ -8,7 +8,7 @@ import { Button } from './neon-button.jsx';
 
 const eventData = {
   "event_info": {
-    "title": "ICONEMA",
+    "title": "Iconema",
     "emoji": "🎬",
     "subtitle": "Observation, Knowledge & Teamwork",
     "brochure_url": "/ICONEMA_BROCHURE.pdf",
@@ -96,7 +96,17 @@ const eventData = {
     "The time taken is the priority.",
     "All materials will be provided within the event itself."
   ],
-  "mentors": [],
+  "mentors": [
+    {
+      "id": "m1",
+      "name": "V . KAVYA",
+
+      "image": "https://res.cloudinary.com/djiivo0r7/image/upload/v1773521280/WhatsApp_Image_2026-03-11_at_23.52.50_1_dsoax4.jpg",
+      "phone": "+91 96526 10402",
+      "instagram": "",
+      "linkedin": ""
+    }
+  ],
   "faqs": [
     {
       "id": "q1",

@@ -593,7 +593,7 @@ export const QuizmaniaEventPage = () => {
         <div className="mb-1 text-left">
           <div className="inline-flex items-center gap-3 mb-3 bg-[#f89b29]/5 px-6 py-2 rounded-full border border-[#f89b29]/20">
             <div className="w-1 h-6 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Quizmania Gallery</h2>
+            <h2 className="text-xl md:text-2xl font-black text-white  tracking-wider">Quizmania Gallery</h2>
           </div>
           <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
             Snapshots from the battle of wits at Quizmania 2K25 — where knowledge champions were crowned in an epic multi-round trivia showdown.

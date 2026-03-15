@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Calendar, Rocket } from 'lucide-react';
 
 const EventCountdown = () => {
+  const [isExpired, setIsExpired] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -17,9 +18,9 @@ const EventCountdown = () => {
       const now = new Date().getTime();
       const distance = targetDate - now;
 
-      if (distance < 0) {
+      if (distance <= 0) {
         clearInterval(timer);
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setIsExpired(true);
       } else {
         setTimeLeft({
           days: Math.floor(distance / (1000 * 60 * 60 * 24)),
@@ -33,12 +34,24 @@ const EventCountdown = () => {
     return () => clearInterval(timer);
   }, [targetDate]);
 
+  if (isExpired) {
+    return null;
+  }
+
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.5 }}
-    >
+    <div className="relative py-20 overflow-hidden bg-[#0A0A0A]">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0052cc]/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-[#ff6b00]/5 rounded-full blur-[100px]" />
+      </div>
+
+      <div className="relative z-10 flex justify-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
       <div className="bg-[#1a1c23]/60 backdrop-blur-xl rounded-[40px] px-4 py-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-full max-w-[90vw] sm:max-w-[400px] text-center border border-white/10 mx-auto">
         <h3 className="text-white/60 text-[12px] sm:text-[14px] font-black tracking-[0.2em] uppercase mb-6 sm:mb-8">
           Countdown
@@ -66,9 +79,11 @@ const EventCountdown = () => {
             Experience the synergy of engineering and creativity at the most awaited tech-fest.
           </p>
         </div>
-      </div>
-    </motion.div>
-  );
+        </div>
+      </motion.div>
+    </div>
+  </div>
+);
 };
 
 const TimeUnit = ({ value, label }) => (
