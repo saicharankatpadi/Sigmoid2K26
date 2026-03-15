@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import VaporizeTextCycle, { Tag } from './vapour-text-effect';
-import preloaderAudio from '../../assets/preloader_audio.mp3';
+import preloaderAudio from '@/assets/preloader_audio.mp3';
 
 export function Preloader({ onComplete }) {
     const [fontSize, setFontSize] = React.useState("80px");
