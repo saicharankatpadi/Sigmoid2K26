@@ -33,7 +33,7 @@ import EventCountdown from './components/ui/EventCountdown'
 
 import { GalleryPage } from './components/ui/gallery-page.jsx'
 import { StatsPage } from './components/StatsPage'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Preloader } from './components/ui/Preloader.jsx'
 import { PassportPage } from './components/ui/PassportPage.jsx'
@@ -282,6 +282,7 @@ function App() {
                     <Route path="/dumbcharades" element={<DumbcharadesEventPage />} />
                     <Route path="/kims-game" element={<KimsGameEventPage />} />
                     <Route path="/iconema" element={<IconemaEventPage />} />
+                    <Route path="/success" element={<Navigate to="/accommodation" replace />} />
                     <Route path="/accommodation" element={<Accommodation />} />
                     <Route path="/accommodation/boys" element={<HostelDetails type="boys" />} />
                     <Route path="/accommodation/girls" element={<HostelDetails type="girls" />} />

@@ -49,18 +49,13 @@ export function Preloader({ onComplete }) {
         playAudio();
         window.addEventListener('mousedown', playAudio);
         window.addEventListener('keydown', playAudio);
-
-        // Timer orchestrator
-        const t1 = setTimeout(() => {
-            onComplete();
-            document.body.style.overflow = 'auto'; 
-        }, 6000);
+        window.addEventListener('touchstart', playAudio); // Add touchstart for mobile
 
         return () => {
-            clearTimeout(t1);
             window.removeEventListener('resize', updateFontSize);
             window.removeEventListener('mousedown', playAudio);
             window.removeEventListener('keydown', playAudio);
+            window.removeEventListener('touchstart', playAudio); // Cleanup touchstart
             document.body.style.overflow = 'auto';
             
             // Cleanup audio to prevent sound overlaps
@@ -98,6 +93,7 @@ export function Preloader({ onComplete }) {
                     alignment="center"
                     tag={Tag.H1}
                     loop={false} // Prevent indefinite cycling
+                    onAnimationComplete={onComplete} // Trigger unmount on end
                 />
                 {/* Audio Element */}
                 <audio ref={audioRef} src={preloaderAudio} preload="auto" loop />

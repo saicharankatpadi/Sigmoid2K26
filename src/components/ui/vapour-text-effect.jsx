@@ -28,6 +28,7 @@ export default function VaporizeTextCycle({
   alignment = "center",
   tag = Tag.P,
   loop = true, // Add loop parameter
+  onAnimationComplete, // Callback for exact end
 }) {
   const canvasRef = useRef(null);
   const wrapperRef = useRef(null);
@@ -166,7 +167,8 @@ export default function VaporizeTextCycle({
           // Check if vaporization is complete
           if (vaporizeProgressRef.current >= 100 && allVaporized) {
             if (!loop && currentTextIndex === texts.length - 1) {
-              setAnimationState("vaporized"); // Or stay quiet
+              setAnimationState("vaporized");
+              onAnimationComplete?.(); // Trigger completion callback
             } else {
               setCurrentTextIndex(prevIndex => (prevIndex + 1) % texts.length);
               setAnimationState("fadingIn");
