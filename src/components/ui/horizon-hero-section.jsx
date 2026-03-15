@@ -427,7 +427,7 @@ export const HorizonHero = ({ startTimer }) => {
             clearInterval(interval);
             cancelAnimationFrame(progressRAF);
         };
-    }, [isReady, goToSection]);
+    }, [isReady, goToSection, startTimer]);
 
     // ─── RENDER ────────────────────────────────────────────────────────────────
     return (
@@ -440,6 +440,7 @@ export const HorizonHero = ({ startTimer }) => {
                     height: '100vh',
                     pointerEvents: 'none',
                     overflow: 'hidden',
+                    background: '#000000',
                 }}
             >
                 {/* Three.js canvas */}
