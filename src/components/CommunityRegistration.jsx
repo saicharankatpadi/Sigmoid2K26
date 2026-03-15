@@ -5,10 +5,23 @@ const rightLogo = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773266990
 import { SparklesText } from './ui/sparkles-text';
 import { animate } from 'framer-motion';
 
+function useIsDesktop() {
+    const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 768);
+    useEffect(() => {
+        const mq = window.matchMedia('(min-width: 768px)');
+        const handler = (e) => setIsDesktop(e.matches);
+        mq.addEventListener('change', handler);
+        return () => mq.removeEventListener('change', handler);
+    }, []);
+    return isDesktop;
+}
+
 function AnimatedNumber() {
+    const isDesktop = useIsDesktop();
     const [count, setCount] = useState(0);
 
     useEffect(() => {
+        if (!isDesktop) return;
         const controls = animate(0, 1800, {
             duration: 2.5,
             ease: "easeOut",
@@ -17,9 +30,10 @@ function AnimatedNumber() {
             }
         });
         return controls.stop;
-    }, []);
+    }, [isDesktop]);
 
-    const formatted = count.toLocaleString('en-IN');
+    const displayCount = isDesktop ? count : 1800;
+    const formatted = displayCount.toLocaleString('en-IN');
 
     return (
         <SparklesText
@@ -28,6 +42,26 @@ function AnimatedNumber() {
             className="text-[clamp(48px,8vw,80px)] font-black tracking-[-0.03em] leading-tight text-[#ff7a00] mb-4 drop-shadow-[0_0_15px_rgba(255,122,0,0.6)]"
         />
     );
+}
+
+function AnimatedCountDown({ target, from }) {
+    const isDesktop = useIsDesktop();
+    const [count, setCount] = useState(from);
+
+    useEffect(() => {
+        if (!isDesktop) return;
+        const controls = animate(from, target, {
+            duration: 2.5,
+            ease: "easeOut",
+            onUpdate(val) {
+                setCount(Math.round(val));
+            }
+        });
+        return controls.stop;
+    }, [isDesktop, from, target]);
+
+    if (!isDesktop) return <span>{target}+</span>;
+    return <span>{count}+</span>;
 }
 
 export function CommunityRegistration() {
@@ -78,7 +112,7 @@ export function CommunityRegistration() {
                         </div>
                         <div className="flex flex-col">
                             <span className="text-white font-extrabold text-xl tracking-tight drop-shadow-md">
-                                800+ Registrations
+                                <AnimatedCountDown target={800} from={1200} /> Registrations
                             </span>
                             <span className="text-white/70 font-bold text-sm">
                                 Sigmoid 2k24
@@ -96,7 +130,7 @@ export function CommunityRegistration() {
                         </div>
                         <div className="flex flex-col">
                             <span className="text-white font-extrabold text-xl tracking-tight drop-shadow-md">
-                                1000+ Registrations
+                                <AnimatedCountDown target={1000} from={1500} /> Registrations
                             </span>
                             <span className="text-white/70 font-bold text-sm">
                                 Sigmoid 2k25
