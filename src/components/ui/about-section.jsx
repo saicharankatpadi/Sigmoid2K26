@@ -43,7 +43,7 @@ const MARKETING_TEAM = [
 const HELP_DESK = [
     { name: 'K. Sudharshan Reddy', badge: 'Help Desk Head', img: '/assets/images/team/img11.jpeg' },
     { name: 'S. Sadvika', badge: 'Help Desk Head', img: sadvika },
-    { name: 'K.Harika', badge: 'Help Desk Head', img: harika },
+    { name: 'P.Harika', badge: 'Help Desk Head', img: harika },
 
     { name: 'C.Meghana', badge: 'Help Desk Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298750/IMG_04656.JPG_vkpkwn.jpg' }
 ];
