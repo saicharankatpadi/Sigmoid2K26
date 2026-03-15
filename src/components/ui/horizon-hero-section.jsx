@@ -400,7 +400,7 @@ export const HorizonHero = ({ startTimer }) => {
     useEffect(() => {
         if (!isReady || !startTimer) return;
 
-        const SLIDE_DURATION = 2000; // 2 seconds per slide
+        const SLIDE_DURATION = 5000; // 5 seconds per slide
         let startTime = Date.now();
         let progressRAF;
 
