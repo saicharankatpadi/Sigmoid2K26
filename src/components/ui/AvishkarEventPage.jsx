@@ -299,7 +299,7 @@ export const AvishkarEventPage = () => {
                   word={data.event_info.title}
                   className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
                 />
-                <img src="/rocket-icon.png" alt="rocket" className="ml-5 w-auto h-12 md:h-14 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.5)]" />
+                <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773553850/__Rocket_Emoji__2_-removebg-preview_w56x6a.png" alt="rocket" className="ml-5 w-auto h-12 md:h-14 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.5)]" />
               </div>
             </div>
             <p className="text-white/50 text-lg font-medium mb-8 pl-4">{data.event_info.subtitle}</p>
