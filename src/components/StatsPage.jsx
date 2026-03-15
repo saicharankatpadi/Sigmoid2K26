@@ -517,7 +517,6 @@ function EventDetailsCards({ eventName, data, year }) {
                             </span>
                             <div className="w-[2px] h-8 bg-white/20 shrink-0"></div>
                             {winner.eventName !== 'TechFusion' && 
-                             winner.eventName !== 'Technovate' && 
                              !winner.hideCollegeInfo && (
                                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-[12px] shrink-0 bg-white text-[#15133C]">
                                     {winner.logoFallback}
@@ -528,7 +527,6 @@ function EventDetailsCards({ eventName, data, year }) {
                         <div className="flex flex-col gap-1">
                             {winner.eventName !== 'kims game' && 
                              winner.eventName !== 'TechFusion' && 
-                             winner.eventName !== 'Technovate' && 
                              !winner.hideCollegeInfo && (
                                 <span className="font-bold text-white text-[14px] sm:text-[16px] leading-tight break-words">
                                     {winner.collegeName}

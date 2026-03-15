@@ -582,7 +582,7 @@ export const CodexEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="flex justify-center mt-6">
+        <div className="flex flex-col flex-wrap sm:flex-row items-start mt-6 gap-6">
           {[
             {
               id: "m1",
@@ -593,9 +593,11 @@ export const CodexEventPage = () => {
               icon: "girl"
             },
           ].map((mentor) => (
-            <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#333] transition-colors relative group w-full max-w-xs text-center">
-              <img src={mentor.image} alt={mentor.name} className="w-28 h-28 rounded-full object-cover shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" />
-              <h3 className="text-xl font-bold text-white uppercase tracking-wider">{mentor.name}</h3>
+            <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 flex flex-col sm:flex-row items-center gap-8 hover:border-[#333] transition-colors relative group max-w-lg w-full">
+              <img src={mentor.image} alt={mentor.name} className="w-32 h-32 rounded-full object-cover border-2 border-[#333] shadow-2xl" />
+              <div className="text-left">
+                <h3 className="text-2xl font-bold text-white mb-6 uppercase tracking-wider">{mentor.name}</h3>
+              </div>
             </div>
           ))}
         </div>
