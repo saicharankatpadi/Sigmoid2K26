@@ -264,8 +264,9 @@ export default function VaporizeTextCycle({
         color,
         alignment,
       },
+      animationState, // Pass animationState
     });
-  }, [texts, font, color, alignment, wrapperSize, currentTextIndex, globalDpr, transformedDensity]);
+  }, [texts, font, color, alignment, wrapperSize, currentTextIndex, globalDpr, transformedDensity, animationState]);
 
   // Handle resize
   useEffect(() => {
@@ -351,7 +352,10 @@ const handleFontChange = ({
   currentTextIndex,
   transformedDensity,
   framerProps,
+  animationState, // Add animationState
 }) => {
+  if (animationState !== "static") return undefined; // Abort if already started
+  
   if (currentFont !== lastFontRef.current) {
     lastFontRef.current = currentFont;
     

@@ -522,12 +522,12 @@ export const HorizonHero = ({ startTimer }) => {
                 <div
                     ref={progressRef}
                     style={{
+                        display: 'none', // Hide entire centering container layout fully
                         visibility: 'hidden',
                         position: 'absolute',
                         bottom: 40,
                         left: '50%',
                         transform: 'translateX(-50%)',
-                        display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
                         gap: 10,
