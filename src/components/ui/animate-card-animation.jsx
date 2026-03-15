@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useNavigate } from "react-router-dom"
-import technicalThumb from "../../assets/technical-thumb.png"
-
+const technicalThumb = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773552661/Your_paragraph_text_26_a3wu2m.png"
+const nontech = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773552807/Your_paragraph_text_27_tkulow.png"
+const workshops = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773552871/Your_paragraph_text_28_exdjwz.png"
 const cardData = {
   1: {
     title: "Technical",
@@ -12,12 +13,12 @@ const cardData = {
   2: {
     title: "Non Technical",
     description: "Excel in management and soft skills",
-    image: "/assets/images/promo-2.png",
+    image: nontech,
   },
   3: {
     title: "Workshops",
     description: "Learn from the best",
-    image: "/assets/images/promo-3.png",
+    image: workshops,
   },
 }
 
