@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
+import { EventParticipantsExperience } from './EventParticipantsExperience';
 import { Button } from './neon-button.jsx';
 import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 
@@ -268,13 +269,8 @@ export const ClickFestEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
-      {/* Back Button */}
-      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
-        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
-        </Link>
-      </div>
-  
+
+
 
       {/* Keyframes */}
       <style>{`
@@ -324,7 +320,7 @@ export const ClickFestEventPage = () => {
             </p>
 
             {/* ── Feature Cards — 2-column grid ── */}
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
               {data.event_info.features.map(feature => (
                 <div
                   key={feature.id}
@@ -645,15 +641,15 @@ export const ClickFestEventPage = () => {
           {data.mentors.map((mentor) => (
             <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 flex flex-col items-center hover:border-[#333] transition-colors relative group">
               {/* Avatar */}
-              <img 
-                src={mentor.image} 
-                alt={mentor.name} 
-                className="w-24 h-24 rounded-full object-cover object-top mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333] transition-all duration-300" 
+              <img
+                src={mentor.image}
+                alt={mentor.name}
+                className="w-24 h-24 rounded-full object-cover object-top mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333] transition-all duration-300"
               />
-              
+
               {/* Name & Role */}
               <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider">{mentor.name}</h3>
-              
+
               {/* Social Buttons REMOVED */}
             </div>
           ))}
@@ -681,7 +677,8 @@ export const ClickFestEventPage = () => {
 
           {/* Text Content */}
           <div className="flex-1 w-full relative z-10 lg:pl-4">
-            <div className="relative mb-8">
+            <div className="relative mb-8 text-left">
+              <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773514921/certificate-ribbon__2_-removebg-preview_hnasix.png" alt="Ribbon" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.4)]" />
               <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
                 Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
                 <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
@@ -742,6 +739,47 @@ export const ClickFestEventPage = () => {
       </section>
 
 
+
+      <EventParticipantsExperience
+        testimonials={[
+          {
+            name: 'Rahul',
+            year: 'B.Tech 3rd Year',
+            branch: 'CSE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773396178/WhatsApp_Image_2026-03-12_at_19.29.21__2_-removebg-preview_zc1wux.png',
+            content: 'Click Fest was an amazing platform to showcase my photography skills. Capturing the vibrant energy of Sigmoid 2K26 was a delight. Great learning experience!',
+            college: 'MVGR College of Engineering',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269957/mvgr-removebg-preview_f31sky.png'
+          },
+          {
+            name: 'Priya',
+            year: 'B.Tech 2nd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773395957/WhatsApp_Image_2026-03-12_at_19.29.20__1_-removebg-preview_bbnehw.png',
+            content: 'I loved the themes provided for the photography contest. It really pushed my creativity and made me look at things from unique angles. Loved every moment!',
+            college: 'CBIT, Hyderabad',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269948/cbit3-removebg-preview_lvnhsg.png'
+          },
+          {
+            name: 'Arjun',
+            year: 'B.Tech 4th Year',
+            branch: 'CSE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373463/WhatsApp_Image_2026-03-12_at_19.29.19-removebg-preview_k4snap.png',
+            content: 'The workshop session before Click Fest was very informative. It helped me refine my techniques for outdoor lighting and composition. Outstanding event!',
+            college: 'Sri Padmavati Mahila Visvavidyalayam',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269958/padmavathi-removebg-preview_xttmyj.png'
+          },
+          {
+            name: 'Meena',
+            year: 'B.Tech 3rd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373452/WhatsApp_Image_2026-03-12_at_19.29.18-removebg-preview_izu7m6.png',
+            content: 'Capturing candid moments and the spirit of competition was so rewarding. Click Fest is a must-attend for every aspiring photographer. Had a blast!',
+            college: 'Ashoka Women\'s Engineering College',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269942/ashoka-women-s-engineering-college-kurnool-logo-removebg-preview_slaptc.png'
+          }
+        ]}
+      />
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 8 — FAQs

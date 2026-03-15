@@ -7,7 +7,7 @@ export function PromoSection() {
     const navigate = useNavigate();
     return (
         <section className="relative w-full bg-[#0A0A0A] text-white py-16 lg:py-24 overflow-hidden border-t-0">
-            <div className="max-w-[1300px] mx-auto px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-24">
+            <div className="max-w-[1300px] mx-auto px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-2 lg:gap-12">
 
                 {/* Left Side Content */}
                 <div className="flex-1 space-y-8 flex flex-col items-start text-left max-w-xl">
@@ -55,7 +55,7 @@ export function PromoSection() {
                 </div>
 
                 {/* Right Side - Animated Cards Component */}
-                <div className="flex-1 flex justify-center lg:justify-end w-full pt-6 lg:pt-0">
+                <div className="flex-1 flex justify-center lg:justify-end w-full pt-2 lg:pt-0">
                     <AnimatedCardStack />
                 </div>
 

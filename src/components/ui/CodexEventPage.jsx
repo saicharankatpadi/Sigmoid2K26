@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
 import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
+import { EventParticipantsExperience } from './EventParticipantsExperience.jsx';
 
 // ==========================================
 // DYNAMIC EVENT DATA (JSON FORMAT)
@@ -81,19 +82,19 @@ const eventData = {
     ]
   },
   mentors: [
-    { 
-      id: "m1", 
-      name: "Event Mentor", 
-      role: "Lead Evaluator", 
+    {
+      id: "m1",
+      name: "Event Mentor",
+      role: "Lead Evaluator",
       image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773373634/WhatsApp_Image_2026-03-12_at_19.29.20__2_-removebg-preview_no93kf.png",
       phone: "",
       instagram: "",
       linkedin: ""
     },
-    { 
-      id: "m2", 
-      name: "Event Mentor", 
-      role: "Technical Lead", 
+    {
+      id: "m2",
+      name: "Event Mentor",
+      role: "Technical Lead",
       image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773373634/WhatsApp_Image_2026-03-12_at_19.29.20__2_-removebg-preview_no93kf.png",
       phone: "",
       instagram: "",
@@ -144,7 +145,7 @@ const IconBadge = ({ iconType }) => {
     case 'cube': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>;
     case 'briefcase': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
     case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>;
-    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>;
+    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor" /></svg>;
     case 'document': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>;
     case 'globe': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>;
     case 'shield': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>;
@@ -266,13 +267,8 @@ export const CodexEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
-      {/* Back Button */}
-      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
-        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
-        </Link>
-      </div>
-  
+
+
 
       {/* Keyframes */}
       <style>{`
@@ -297,19 +293,19 @@ export const CodexEventPage = () => {
 
           {/* LEFT COLUMN */}
           <div className="flex-1 min-w-0 lg:max-w-[50%]">
-              <div className="flex flex-wrap items-center gap-3">
-                <BlurIn 
-                  word={data.event_info.title}
-                  className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
-                />
-                <span className="text-3xl lg:text-4xl drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
-              </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <BlurIn
+                word={data.event_info.title}
+                className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
+              />
+              <span className="text-3xl lg:text-4xl drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
+            </div>
 
             <p className="text-white/50 text-lg font-medium mb-8 pl-4">
               {data.event_info.subtitle}
             </p>
 
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
               {data.event_info.features.slice(0, 8).map(feature => (
                 <div
                   key={feature.id}
@@ -585,27 +581,26 @@ export const CodexEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        <div className="flex justify-center mt-6">
           {[
             {
               id: "m1",
-              name: "C. Saira Bhanu",
+              name: "C. SAIRA BHANU",
               role: "Event Lead",
-              image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773373634/WhatsApp_Image_2026-03-12_at_19.29.20__2_-removebg-preview_no93kf.png",
+              image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773513841/WhatsApp_Image_2026-03-14_at_07.42.23_ankgla.jpg",
               phone: "9182343841",
               icon: "girl"
             },
           ].map((mentor) => (
-            <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 hover:border-[#333] transition-colors relative group w-full">
-              <img src={mentor.image} alt={mentor.name} className="w-24 h-24 rounded-full object-cover object-top shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333] shrink-0" />
-              <div className="text-center sm:text-left flex-1 min-w-0">
-                <h3 className="text-xl font-bold text-white mb-2 truncate">{mentor.name}</h3>
-              </div>
+            <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#333] transition-colors relative group w-full max-w-xs text-center">
+              <img src={mentor.image} alt={mentor.name} className="w-28 h-28 rounded-full object-cover object-[50%_10%] shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" />
+              <h3 className="text-xl font-bold text-white uppercase tracking-wider">{mentor.name}</h3>
             </div>
           ))}
-
         </div>
+
       </section>
+
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION — Certificate
@@ -620,13 +615,14 @@ export const CodexEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden">
+        <div className="bg-[#12100e] border border-[#2a2218] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center justify-between shadow-2xl relative overflow-hidden text-left">
           {/* Subtle gradient background glow from left */}
           <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-r from-[#2a1a08] to-transparent opacity-40 pointer-events-none"></div>
 
           {/* Text Content */}
           <div className="flex-1 w-full relative z-10 lg:pl-4">
-            <div className="relative mb-8">
+            <div className="relative mb-8 text-left">
+              <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773514921/certificate-ribbon__2_-removebg-preview_hnasix.png" alt="Ribbon" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.4)]" />
               <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
                 Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
                 <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
@@ -655,68 +651,6 @@ export const CodexEventPage = () => {
               />
             </div>
           </div>
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
- Broadway
         </div>
       </section>
 
@@ -725,7 +659,7 @@ export const CodexEventPage = () => {
         <div className="mb-1 text-left">
           <div className="inline-flex items-center gap-3 mb-3 bg-[#f89b29]/5 px-6 py-2 rounded-full border border-[#f89b29]/20">
             <div className="w-1 h-6 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Event Gallery</h2>
+            <h2 className="text-xl md:text-2xl font-black text-white  tracking-wider">Event Gallery</h2>
           </div>
           <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
             Visual highlights from the Codex competition.
@@ -736,6 +670,47 @@ export const CodexEventPage = () => {
           <ThreeDPhotoCarousel images={data.gallery} autoRotate={isAutoRotating} />
         </div>
       </section>
+
+      <EventParticipantsExperience
+        testimonials={[
+          {
+            name: 'Saicharan',
+            year: 'B.Tech 3rd Year',
+            branch: 'CSE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773370286/WhatsApp_Image_2026-03-12_at_19.29.17-removebg-preview_cyef1g.png',
+            content: 'Codex was the ultimate test of my programming logic. The algorithmic challenges were intense, but solving them was incredibly satisfying. Great platform for coders!',
+            college: 'VEMU Institute of Technology',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269966/vemu-removebg-preview_evx8zg.png'
+          },
+          {
+            name: 'Ramya',
+            year: 'B.Tech 2nd Year',
+            branch: 'CSE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773370227/WhatsApp_Image_2026-03-12_at_19.29.17__1_-removebg-preview_tehpxm.png',
+            content: 'I loved the competitive environment at Codex. It forced me to think differently about problem-solving and efficiency. Definitely participating next year too!',
+            college: 'Audisankar College of Engineering',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269943/audi_sankar-removebg-preview_ycenyb.png'
+          },
+          {
+            name: 'Bharath',
+            year: 'B.Tech 4th Year',
+            branch: 'CSE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773370133/WhatsApp_Image_2026-03-12_at_19.29.16-removebg-preview_taq8oh.png',
+            content: 'The technical depth of the coding rounds at Codex was impressive. It\'s not just about syntax; it\'s about logic and optimization under pressure.',
+            college: 'MVGR College of Engineering',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269957/mvgr-removebg-preview_f31sky.png'
+          },
+          {
+            name: 'Keerthana',
+            year: 'B.Tech 3rd Year',
+            branch: 'CSE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373452/WhatsApp_Image_2026-03-12_at_19.29.18-removebg-preview_izu7m6.png',
+            content: 'Codex pushed me to improve my debugging skills and handle complex data structures more effectively. A very well-organized event for tech enthusiasts.',
+            college: 'CBIT, Hyderabad',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269948/cbit3-removebg-preview_lvnhsg.png'
+          }
+        ]}
+      />
 
       {/* FAQs Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-10 mb-10">

@@ -216,7 +216,7 @@ export default function CollegeLogoSection() {
                         margin: "0 0 18px",
                         lineHeight: 1.1,
                         letterSpacing: "-1.2px",
-                        whiteSpace: "nowrap",
+                        whiteSpace: "normal",
                         fontFamily: "'Segoe UI', sans-serif",
                     }}
                 >

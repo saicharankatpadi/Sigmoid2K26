@@ -5,6 +5,10 @@ const figmaDev = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773279097/
 const teamLeader = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/team-leader_zriohu.jpg';
 const newTeamMemberImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773291270/WhatsApp_Image_2026-03-11_at_10.55.17_1_tzggkr.jpg';
 const uma = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773497453/WhatsApp_Image_2026-03-14_at_07.02.08_zoj4jz.jpg"
+const praveen = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773512636/WhatsApp_Image_2026-03-14_at_10.42.20_ohapjp.jpg"
+const harika = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773303686/WhatsApp_Image_2026-03-11_at_23.53.41_cy7bfa.jpg"
+
+const sadvika = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773299498/WhatsApp_Image_2026-03-11_at_23.49.15_agi7zm.jpg"
 const TEAM_MEMBERS = [
     { name: 'N.Nikshep', img: figmaDev },
     { name: 'K.Sai Charan', img: frontendDev },
@@ -17,18 +21,19 @@ const TEAM_MEMBERS = [
 ];
 
 const ALUMNI = [
-    { name: 'S.K Arshad Ahmed', badge: 'Student Coordinator', img: '/assets/images/team/img6.jpeg' },
+    { name: 'SK Arshad Ahmad', badge: 'Student Coordinator', img: '/assets/images/team/img6.jpeg' },
     { name: 'E. Tejaswi', badge: 'Student Coordinator', img: '/assets/images/team/img7.jpeg' },
 ];
 
 const CORE_TEAM = [
     { name: 'B.Tharun', badge: 'Core Team', img: '/assets/images/team/img10.jpeg' },
     { name: 'K. Sudharshan', badge: 'Core Team', img: '/assets/images/team/img11.jpeg' },
+    { name: 'G.Praveen', badge: 'Core Team', img: praveen },
 ];
 
 const MARKETING_TEAM = [
     { name: 'P. Harshavardhan', badge: 'Marketing Head', img: '/assets/images/team/img12.jpeg' },
-    { name: 'S.K.Luqman', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298518/WhatsApp_Image_2026-03-11_at_23.54.52_rkog46.jpg' },
+    { name: 'SK.Luqman', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298518/WhatsApp_Image_2026-03-11_at_23.54.52_rkog46.jpg' },
     { name: 'C.Pavan', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773470171/WhatsApp_Image_2026-03-13_at_23.03.23_1_stkvz9.jpg' },
     { name: 'N.Sravani', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298749/IMG_04657.JPG_mu1v4c.jpg' },
     { name: 'M.Pavithra', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298748/IMG_00645.JPG_1_zs5gmk.jpg' },
@@ -37,6 +42,9 @@ const MARKETING_TEAM = [
 
 const HELP_DESK = [
     { name: 'K. Sudharshan', badge: 'Help Desk Head', img: '/assets/images/team/img11.jpeg' },
+    { name: 'S. Sadvika', badge: 'Help Desk Head', img: sadvika },
+    { name: 'K.Harika', badge: 'Help Desk Head', img: harika },
+
     { name: 'C.Meghana', badge: 'Help Desk Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298750/IMG_04656.JPG_vkpkwn.jpg' }
 ];
 
@@ -98,13 +106,13 @@ export const AboutSection = () => {
 
             {/* BRIDGE TO TOMORROW */}
             <div className="flex flex-col items-center text-center my-16 px-4">
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 text-center">
                     The "Bridge to Tomorrow"
                 </h2>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#ff4d00] mb-6 tracking-wide">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#ff4d00] mb-6 tracking-wide text-center">
                     Empowering the Next Generation
                 </h3>
-                <p className="text-[15px] sm:text-[16px] font-semibold text-[#e2e2e2] leading-[1.8] max-w-[960px]">
+                <p className="text-[15px] sm:text-[16px] font-semibold text-[#e2e2e2] leading-[1.8] max-w-[1000px] text-center">
                     Sigmoid is more than a date on the calendar; it is a catalyst for professional transformation. Hosted annually by the Department of ECE, SVUCE, this symposium is designed to pull students out of their textbooks and thrust them into the heart of modern engineering challenges. By fostering a culture of high-stakes competition and intellectual exchange, Sigmoid prepares the engineers of today to become the innovators, entrepreneurs, and leaders of a tech-driven global future.
                 </p>
             </div>

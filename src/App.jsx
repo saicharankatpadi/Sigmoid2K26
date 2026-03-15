@@ -133,15 +133,15 @@ function Home({ showLoader }) {
                 }
                 imageClassName="object-cover object-[50%_0%] w-full h-full"
                 badges={<>
-                    <Badge className="top-[8%] left-[8%]" delay={0}>
+                    <Badge className="-top-[4%] left-1/2 -translate-x-1/2" delay={0}>
                         <University className="w-4 h-4 text-white" />
                         <span className="text-white/95 text-[13px] font-semibold font-sans tracking-[-0.01em]">Principal, SVUCE</span>
                     </Badge>
-                    <Badge className="bottom-[15%] -left-[2%]" delay={0.8}>
+                    <Badge className="bottom-[10%] left-[4%]" delay={0.8}>
                         <BookOpen className="w-4 h-4 text-white" />
                         <span className="text-white/95 text-[13px] font-semibold font-sans tracking-[-0.01em]">29 Years Teaching Experience</span>
                     </Badge>
-                    <Badge className="top-[45%] -right-[4%]" delay={1.6}>
+                    <Badge className="top-[35%] left-[4%] md:left-auto md:-right-[4%]" delay={1.6}>
                         <Award className="w-4 h-4 text-white" />
                         <span className="text-white/95 text-[13px] font-semibold font-sans tracking-[-0.01em]">Life Member, ISTE</span>
                     </Badge>
@@ -280,8 +280,8 @@ function App() {
                     <Route path="/" element={<Home showLoader={showLoader} />} />
                     <Route path="/about" element={<AboutSection />} />
                     <Route path="/events" element={<EventsPage />} />
-                    <Route path="/event-wireframe" element={<DynamicEventPage />} />
-                    <Route path="/techovate" element={<TechovateEventPage />} />
+                    <Route path="/event-details" element={<DynamicEventPage />} />
+                    <Route path="/technovate" element={<TechovateEventPage />} />
                     <Route path="/posterize" element={<PosterizeEventPage />} />
                     <Route path="/avishkar" element={<AvishkarEventPage />} />
                     <Route path="/circuitrix" element={<CircuitrixEventPage />} />

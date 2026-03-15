@@ -51,26 +51,28 @@ export function CommunityRegistration() {
             </div>
 
             {/* Foreground Centered Content */}
-            <div className="relative z-10 w-full max-w-[900px] mx-auto px-6 text-center flex flex-col items-center">
+            <div className="relative z-10 w-full max-w-[1000px] mx-auto px-6 text-center flex flex-col items-center md:flex-row md:justify-between md:gap-10">
 
-                {/* Main Heading Stat */}
-                <AnimatedNumber />
+                <div className="flex flex-col items-center md:items-start text-center md:text-left flex-1">
+                    {/* Main Heading Stat */}
+                    <AnimatedNumber />
 
-                {/* Subheading */}
-                <h2 className="text-3xl md:text-5xl font-extrabold tracking-[-0.02em] text-white mb-6 drop-shadow-md">
-                    Registrations in Sigmoid
-                </h2>
+                    {/* Subheading */}
+                    <h2 className="text-3xl md:text-5xl font-extrabold tracking-[-0.02em] text-white mb-4 md:mb-6 drop-shadow-md">
+                        Registrations
+                    </h2>
 
-                {/* Paragraph */}
-                <p className="text-white/80 text-lg md:text-xl max-w-[700px] leading-relaxed mb-16 font-semibold drop-shadow-sm">
-                    From all over the nation, talent arrives to shine together
-                </p>
+                    {/* Paragraph */}
+                    <p className="text-white/80 text-lg md:text-xl max-w-[500px] leading-relaxed mb-8 md:mb-0 font-semibold drop-shadow-sm">
+                        From all over the nation, talent arrives to shine together at Sigmoid.
+                    </p>
+                </div>
 
                 {/* Platform Metric Badges / Cards */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-16 w-full relative">
+                <div className="flex flex-row items-center justify-center gap-4 sm:gap-12 relative flex-1 mt-4 md:mt-0">
 
                     {/* Left Custom Logo Card */}
-                    <div className="flex flex-col items-center gap-4 text-center group">
+                    <div className="flex flex-col items-center gap-2 text-center group scale-90 sm:scale-100">
                         <div className="w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110">
                             <img src={leftLogo} alt="Logo Left" className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
                         </div>
@@ -84,13 +86,13 @@ export function CommunityRegistration() {
                         </div>
                     </div>
 
-                    {/* Divider for Desktop */}
-                    <div className="hidden sm:block w-px h-12 bg-white/20 shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                    {/* Divider for Mobile (Thick) and Desktop */}
+                    <div className="w-[2px] h-12 bg-white/20 shadow-[0_0_8px_rgba(255,255,255,0.3)] md:w-px" />
 
                     {/* Right Custom Logo Card */}
-                    <div className="flex flex-col items-center gap-4 text-center group">
+                    <div className="flex flex-col items-center gap-2 text-center group scale-90 sm:scale-100">
                         <div className="w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110">
-                            <img src={rightLogo} alt="Logo Right" className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] scale-[1.5]" />
+                            <img src={rightLogo} alt="Logo Right" className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] scale-[1.2]" />
                         </div>
                         <div className="flex flex-col">
                             <span className="text-white font-extrabold text-xl tracking-tight drop-shadow-md">
@@ -101,7 +103,6 @@ export function CommunityRegistration() {
                             </span>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>

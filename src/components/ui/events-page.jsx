@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { MatrixText } from './matrix-text';
 
@@ -49,7 +49,7 @@ const EVENTS_DATA = [
         id: 12,
         title: 'Quizmania',
         category: 'Technical',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773311114/Your_paragraph_text_12_mlbpof.png',
+        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773512240/Your_paragraph_text_23_ogbrbi.png',
         description: 'A high-energy technical quiz that tests your speed, accuracy, and depth of knowledge. Compete against the best minds in a battle of intellect and wit!',
         route: '/quizmania'
     },
@@ -151,6 +151,40 @@ const EVENTS_DATA = [
     }
 ];
 
+const VideoPreview = ({ src }) => {
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+        if (videoRef.current) {
+            // Try to play unmuted first
+            videoRef.current.muted = false;
+            videoRef.current.volume = 1.0;
+            
+            const playPromise = videoRef.current.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // If blocked, fallback to muted
+                    if (videoRef.current) {
+                        videoRef.current.muted = true;
+                        videoRef.current.play();
+                    }
+                });
+            }
+        }
+    }, [src]);
+
+    return (
+        <video
+            ref={videoRef}
+            src={src}
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+        />
+    );
+};
+
 export const EventsPage = () => {
     const { state } = useLocation();
     const [activeCategory, setActiveCategory] = useState(
@@ -208,14 +242,7 @@ export const EventsPage = () => {
                         >
                             <div className="relative w-full h-40 md:h-48 overflow-hidden bg-black">
                                 {event.video && hoveredEventId === event.id ? (
-                                    <video
-                                        src={event.video}
-                                        autoPlay
-                                        loop
-                                        muted
-                                        playsInline
-                                        className="w-full h-full object-cover"
-                                    />
+                                    <VideoPreview src={event.video} />
                                 ) : (
                                     <img
                                         src={event.image}

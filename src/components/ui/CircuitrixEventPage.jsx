@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
+import { EventParticipantsExperience } from './EventParticipantsExperience';
 import { Button } from './neon-button.jsx';
 import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 
@@ -81,10 +82,10 @@ const eventData = {
     ]
   },
   mentors: [
-    { 
-      id: "m1", 
-      name: "V. Rajeswari", 
-      role: "Circuit Expert", 
+    {
+      id: "m1",
+      name: "V. RAJESWARI",
+      role: "Circuit Expert",
       image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773481680/WhatsApp_Image_2026-03-12_at_03.00.56_l3duhn.jpg",
       phone: "",
       instagram: "",
@@ -142,7 +143,7 @@ const IconBadge = ({ iconType }) => {
     case 'cube': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>;
     case 'briefcase': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
     case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>;
-    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>;
+    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor" /></svg>;
     case 'document': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>;
     case 'globe': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>;
     case 'shield': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>;
@@ -263,13 +264,8 @@ export const CircuitrixEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
-      {/* Back Button */}
-      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
-        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
-        </Link>
-      </div>
-  
+
+
 
       {/* Keyframes */}
       <style>{`
@@ -297,7 +293,7 @@ export const CircuitrixEventPage = () => {
             <div className="flex items-center gap-3 mb-3">
               <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
               <div className="flex items-center">
-                <BlurIn 
+                <BlurIn
                   word={data.event_info.title}
                   className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
                 />
@@ -313,7 +309,7 @@ export const CircuitrixEventPage = () => {
               {data.event_info.subtitle}
             </p>
 
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
               {data.event_info.features.map(feature => (
                 <div
                   key={feature.id}
@@ -565,7 +561,7 @@ export const CircuitrixEventPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {data.perks.items.map((perk, i) => (
             <div key={i} className="flex items-center gap-4 bg-[#0a0a0a] border border-[#222] rounded-xl px-4 py-3.5 hover:border-[#333] transition-colors relative group">
-              <div 
+              <div
                 className="w-10 h-10 rounded-[10px] flex items-center justify-center shrink-0"
                 style={{ background: `${perk.color}15`, color: perk.color }}
               >
@@ -596,9 +592,10 @@ export const CircuitrixEventPage = () => {
 
           {/* Text Content */}
           <div className="flex-1 w-full relative z-10 lg:pl-4">
-            
+
 
             <div className="relative mb-8 text-left">
+              <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773514921/certificate-ribbon__2_-removebg-preview_hnasix.png" alt="Ribbon" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.4)]" />
               <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
                 Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
                 <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
@@ -642,10 +639,10 @@ export const CircuitrixEventPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
           {data.mentors.map((mentor) => (
             <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 flex flex-col items-center hover:border-[#333] transition-colors relative group">
-              <img 
-                src={mentor.image} 
-                alt={mentor.name} 
-                className="w-24 h-24 rounded-full object-cover mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
+              <img
+                src={mentor.image}
+                alt={mentor.name}
+                className="w-24 h-24 rounded-full object-cover mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]"
                 style={{ objectPosition: 'center 20%' }}
               />
               <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider">{mentor.name}</h3>
@@ -659,7 +656,7 @@ export const CircuitrixEventPage = () => {
         <div className="mb-1 text-left">
           <div className="inline-flex items-center gap-3 mb-3 bg-[#f89b29]/5 px-6 py-2 rounded-full border border-[#f89b29]/20">
             <div className="w-1 h-6 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Event Gallery</h2>
+            <h2 className="text-xl md:text-2xl font-black text-white tracking-wider">Event Gallery</h2>
           </div>
           <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
             Experience the thrill of circuit building and hardware innovation.
@@ -668,9 +665,50 @@ export const CircuitrixEventPage = () => {
 
         <div className="relative group">
           <ThreeDPhotoCarousel images={data.gallery} autoRotate={isAutoRotating} />
-          
+
         </div>
       </section>
+
+      <EventParticipantsExperience
+        testimonials={[
+          {
+            name: 'Arjun',
+            year: 'B.Tech 3rd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373510/WhatsApp_Image_2026-03-12_at_19.29.19__2_-removebg-preview_fhfa1n.png',
+            content: 'Circuitrix was a thrilling experience! Solving complex circuit problems under pressure really tested my fundamentals. A must-attend for every ECE student.',
+            college: 'SITAMS, Chittoor',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269960/SITAMS-removebg-preview_uy6z3f.png'
+          },
+          {
+            name: 'Sneha',
+            year: 'B.Tech 2nd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373633/WhatsApp_Image_2026-03-12_at_19.29.20-removebg-preview_w6wp72.png',
+            content: 'The hardware round was the best part. Getting to work with real components and seeing the circuit function as expected was so satisfying. Learned a lot today!',
+            college: 'SVCE, Tirupati',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269966/svce-removebg-preview_uh1mhu.png'
+          },
+          {
+            name: 'Rahul',
+            year: 'B.Tech 4th Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373818/WhatsApp_Image_2026-03-12_at_19.29.22-removebg-preview_lplmzj.png',
+            content: 'The troubleshooting round really challenged my logical thinking. It\'s one thing to design a circuit, but fixing a broken one is where the real skill lies. Great event!',
+            college: 'VEMU Institute of Technology',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269966/vemu-removebg-preview_evx8zg.png'
+          },
+          {
+            name: 'Priya',
+            year: 'B.Tech 3rd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373552/WhatsApp_Image_2026-03-12_at_19.29.19__3_-removebg-preview_ixbr3b.png',
+            content: 'Outstanding coordination and high-quality equipment. Circuitrix is definitely one of the highlights of Sigmoid 2K26. Can\'t wait for next year!',
+            college: 'AITS Rajampet',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269936/Annamacharya-Institute-of-Technology-Sciences-Rajampet-removebg-preview_mr4ii0.png'
+          }
+        ]}
+      />
 
       {/* FAQs Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-10 mb-10">

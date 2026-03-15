@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
+import { EventParticipantsExperience } from './EventParticipantsExperience';
 import { Button } from './neon-button.jsx';
 import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 
@@ -87,10 +88,19 @@ const eventData = {
   EventLead: [
     {
       id: "m1",
-      name: "B.Vinusha",
-
-      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773324210/WhatsApp_Image_2026-03-11_at_23.56.38_ol3dgv.jpg",
-      phone: "",
+      name: "SAMAD",
+      role: "Event Lead",
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773531393/WhatsApp_Image_2026-03-15_at_05.00.41_1_vuxzjv.jpg",
+      phone: "+91 96526 10402",
+      instagram: "",
+      linkedin: ""
+    },
+    {
+      id: "m2",
+      name: "DINESH",
+      role: "Event Lead",
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773531392/WhatsApp_Image_2026-03-15_at_05.00.41_e8ivt4.jpg",
+      phone: "+91 91820 58605",
       instagram: "",
       linkedin: ""
     }
@@ -262,13 +272,8 @@ export const DumbcharadesEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
-      {/* Back Button */}
-      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
-        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
-        </Link>
-      </div>
-  
+
+
 
       {/* Keyframes */}
       <style>{`
@@ -310,7 +315,7 @@ export const DumbcharadesEventPage = () => {
               {data.event_info.subtitle}
             </p>
 
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
               {data.event_info.features.map(feature => (
                 <div key={feature.id} className="flex items-center gap-0 bg-[#111111] border-2 border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#3a3a3a] transition-all duration-300 group cursor-default">
                   <div className="shrink-0 w-12 flex items-center justify-center py-3 px-2">
@@ -546,7 +551,7 @@ export const DumbcharadesEventPage = () => {
         <div className="mb-1 text-left">
           <div className="inline-flex items-center gap-3 mb-3 bg-[#f89b29]/5 px-6 py-2 rounded-full border border-[#f89b29]/20">
             <div className="w-1 h-6 bg-[#f89b29] rounded-full"></div>
-            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Event Gallery</h2>
+            <h2 className="text-xl md:text-2xl font-black text-white  tracking-wider">Event Gallery</h2>
           </div>
           <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
             Visual highlights from the Dumbcharades & Pictionary competition.
@@ -579,7 +584,8 @@ export const DumbcharadesEventPage = () => {
 
           {/* Text Content */}
           <div className="flex-1 w-full relative z-10 lg:pl-4">
-            <div className="relative mb-8">
+            <div className="relative mb-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+              <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773514921/certificate-ribbon__2_-removebg-preview_hnasix.png" alt="Ribbon" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.4)]" />
               <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
                 Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
                 <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
@@ -610,6 +616,46 @@ export const DumbcharadesEventPage = () => {
           </div>
         </div>
       </section>
+
+      <EventParticipantsExperience
+        testimonials={[
+          {
+            name: 'Vikram',
+            year: 'B.Tech 3rd Year',
+            branch: 'CSE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373463/WhatsApp_Image_2026-03-12_at_19.29.19-removebg-preview_k4snap.png',
+            content: 'Dumbcharades was pure entertainment! The movie rounds were challenging, and my team had a blast acting out the titles. One of the best non-technical events!',
+            college: 'Audisankar College of Engineering',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269943/audi_sankar-removebg-preview_ycenyb.png'
+          },
+          {
+            name: 'Anjali',
+            year: 'B.Tech 2nd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773370492/WhatsApp_Image_2026-03-12_at_19.29.18__2_-removebg-preview_foxqeq.png',
+            content: 'The coordination needed for Pictionary was so intense. It was amazing how well we could communicate with just sketches and gestures. Highly recommend!',
+            college: 'Aditya Engineering College',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269936/aditya_coolege-removebg-preview_wgijux.png'
+          },
+          {
+            name: 'Santosh',
+            year: 'B.Tech 4th Year',
+            branch: 'CSE',
+            content: 'I\'ve participated in many fests, but the energy at Sigmoid\'s Dumbcharades was on another level. The judges were fair and the organizers were very helpful.',
+            college: 'ANITS, Visakhapatnam',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269937/anits-removebg-preview_wmgmat.png'
+          },
+          {
+            name: 'Lakshmi',
+            year: 'B.Tech 3rd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773370227/WhatsApp_Image_2026-03-12_at_19.29.17__1_-removebg-preview_tehpxm.png',
+            content: 'The buzzer round in the final stage was so nerve-wracking! It was a great test of both movie knowledge and quick reflexes. Loved every minute of it.',
+            college: 'JNN Institute of Engineering',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269949/JNN_Ins_Red_Seal-removebg-preview_zacyqh.png'
+          }
+        ]}
+      />
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 6 — FAQs

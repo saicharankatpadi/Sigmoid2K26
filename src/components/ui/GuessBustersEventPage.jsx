@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
+import { EventParticipantsExperience } from './EventParticipantsExperience';
 import { Button } from './neon-button.jsx';
+import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 
 // ==========================================
 // DYNAMIC EVENT DATA (JSON FORMAT)
@@ -100,6 +102,14 @@ const eventData = {
     { id: "q2", question: "Can I use my phone?", answer: "No, you should not use any external help like smart devices or Bluetooth." },
     { id: "q3", question: "What is Round 1 about?", answer: "It is 'Frame the Phrase', an individual visual clue guessing game lasting 1 hour." },
     { id: "q4", question: "What is Round 2 about?", answer: "It is 'CineClues', a 30-minute team-based movie trivia guessing game." }
+  ],
+  gallery: [
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419899/IMG_1662_mebbam.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419910/IMG_9604_zfnr0b.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419875/IMG_1462_ii2f9g.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419876/IMG_1434_kvln2p.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419887/IMG_1657_zexvyn.jpg",
+    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419920/IMG_9605_zxib06.jpg"
   ]
 };
 
@@ -158,15 +168,11 @@ const FaqItem = ({ q, a }) => {
 
 export const GuessBustersEventPage = () => {
   const data = eventData;
+  const [isAutoRotating, setIsAutoRotating] = useState(true);
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
-      {/* Back Button */}
-      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
-        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
-        </Link>
-      </div>
+
   
 
       {/* Keyframes */}
@@ -185,66 +191,65 @@ export const GuessBustersEventPage = () => {
       {/* ═══════════════════════════════════════════
           SECTION 1 — HERO: Two-column split
        ═══════════════════════════════════════════ */}
+      {/* Hero Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-28 pb-10">
-        <div className="flex flex-col items-center justify-center text-center">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
+          {/* Left Column */}
+          <div className="flex-1 min-w-0 lg:max-w-[50%]">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
+              <div className="flex items-center">
+                <BlurIn 
+                  word={data.event_info.title}
+                  className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
+                />
+                {data.event_info.emoji === 'rocket' ? (
+                  <img src="/rocket-icon.png" alt="rocket" className="ml-5 w-auto h-12 md:h-14 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.5)]" />
+                ) : (
+                  <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
+                )}
+              </div>
+            </div>
 
-          {/* Title Row */}
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
-            <div className="flex items-center">
-              <BlurIn
-                word={data.event_info.title}
-                className="text-4xl md:text-5xl font-black text-white tracking-tight"
-              />
-              {data.event_info.emoji === 'rocket' ? (
-                <img src="/rocket-icon.png" alt="rocket" className="ml-5 w-auto h-12 md:h-14 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.5)]" />
-              ) : (
-                <span className="text-3xl lg:text-4xl ml-3 lg:ml-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{data.event_info.emoji}</span>
-              )}
+            <p className="text-white/50 text-lg font-medium mb-8 pl-4">
+              {data.event_info.subtitle}
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+              {data.event_info.features.map(feature => (
+                <div
+                  key={feature.id}
+                  className="flex items-center gap-0 bg-[#111111] border-2 border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#3a3a3a] transition-all duration-300 group cursor-default"
+                >
+                  <div className="shrink-0 w-12 flex items-center justify-center py-3 px-2">
+                    <span className="text-[#f89b29] font-black text-[15px] tracking-wider">{feature.id}</span>
+                  </div>
+                  <div className="flex items-center self-stretch">
+                    <div className="w-[2px] h-[50%] bg-[#2a2a2a] group-hover:bg-[#3a3a3a] transition-colors rounded-full"></div>
+                  </div>
+                  <div className="flex-1 py-3 px-3">
+                    <span className="text-white/90 text-[13px] leading-snug font-semibold">{feature.content}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Subtitle */}
-          <p className="text-white/50 text-lg font-medium mb-12">
-            {data.event_info.subtitle}
-          </p>
-
-          {/* ── Feature Cards — Grid ── */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-[1200px]">
-            {data.event_info.features.map(feature => (
-              <div
-                key={feature.id}
-                className="flex items-center gap-0 bg-[#111111] border-2 border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#3a3a3a] transition-all duration-300 group cursor-default"
-              >
-                {/* Number */}
-                <div className="shrink-0 w-12 flex items-center justify-center py-3 px-2">
-                  <span className="text-[#f89b29] font-black text-[15px] tracking-wider">{feature.id}</span>
+          {/* Right Column - Download/Action Box */}
+          <div className="flex-1 min-w-0 lg:max-w-[50%] flex flex-col items-center justify-center lg:pl-6">
+             <div className="w-full max-w-[560px] bg-[#0c0c0c] border border-[#222] rounded-3xl p-10 flex flex-col items-center justify-center shadow-2xl relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#f89b29]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="w-20 h-20 rounded-full bg-[#f89b29]/10 flex items-center justify-center mb-6 border border-[#f89b29]/20">
+                  <svg className="w-10 h-10 text-[#f89b29]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                 </div>
-                {/* Vertical Line Separator — half height, centered */}
-                <div className="flex items-center self-stretch">
-                  <div className="w-[2px] h-[50%] bg-[#2a2a2a] group-hover:bg-[#3a3a3a] transition-colors rounded-full"></div>
-                </div>
-                {/* Text */}
-                <div className="flex-1 py-3 px-3">
-                  <span className="text-white/90 text-[13px] leading-snug font-semibold">{feature.content}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Download Brochure — Neon Button */}
-          <div className="mt-16 mb-4">
-            <a href={data.event_info.brochure_url} download className="inline-block">
-              <Button
-                variant="default"
-                size="lg"
-                neon={true}
-                className="bg-black text-white border-white/20 hover:bg-white/5 hover:border-white/40 px-10 py-3 text-[16px] font-bold flex items-center gap-3 cursor-pointer"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                Download Brochure
-              </Button>
-            </a>
+                <h3 className="text-xl font-bold text-white mb-2">Want to know more?</h3>
+                <p className="text-white/50 text-center mb-8 text-sm">Download our detailed brochure for rules and regulations.</p>
+                <a href={data.event_info.brochure_url} download className="relative z-10 w-full">
+                  <Button variant="default" size="lg" neon={true} className="w-full bg-black text-white border-white/20 hover:bg-white/5 hover:border-white/40 py-3 text-[16px] font-bold">
+                    Download Brochure
+                  </Button>
+                </a>
+             </div>
           </div>
         </div>
       </section>
@@ -422,6 +427,22 @@ export const GuessBustersEventPage = () => {
         </div>
       </section>
 
+      {/* Event Gallery */}
+      <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-2">
+        <div className="mb-10 text-left">
+          <div className="inline-flex items-center gap-3 mb-3 bg-[#f89b29]/5 px-6 py-2 rounded-full border border-[#f89b29]/20">
+            <div className="w-1 h-6 bg-[#f89b29] rounded-full"></div>
+            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Event Gallery</h2>
+          </div>
+          <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
+            Moments of fun, laughter, and friendly competition from Guess Busters 2K25 — where every clue was a new adventure.
+          </p>
+        </div>
+        <div className="relative group">
+          <ThreeDPhotoCarousel images={data.gallery} autoRotate={isAutoRotating} />
+        </div>
+      </section>
+
       {/* ═══════════════════════════════════════════════════════════
           SECTION 6 — Certificate
        ═══════════════════════════════════════════════════════════ */}
@@ -444,6 +465,7 @@ export const GuessBustersEventPage = () => {
             
 
             <div className="relative mb-8 text-left">
+              <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773514921/certificate-ribbon__2_-removebg-preview_hnasix.png" alt="Ribbon" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.4)]" />
               <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
                 Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
                 <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
@@ -474,6 +496,43 @@ export const GuessBustersEventPage = () => {
           </div>
         </div>
       </section>
+
+      <EventParticipantsExperience
+        testimonials={[
+          {
+            name: 'Harish',
+            year: 'B.Tech 3rd Year',
+            branch: 'CSE',
+            content: 'Guess Busters was a mind-bending experience! The riddles were clever, and solving them with my team was so rewarding. A perfect blend of logic and fun.',
+            college: 'Parvathareddy Babulreddy Visvodaya Institute of Technology',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269959/parvarthan_clg-removebg-preview_peni5d.png'
+          },
+          {
+            name: 'Sravani',
+            year: 'B.Tech 2nd Year',
+            branch: 'ECE',
+            content: 'The mystery box round was my favorite. It really tested our observation skills and quick thinking. Guess Busters is definitely the most unique event here!',
+            college: 'Srinagaram Engineering College',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269965/srinagaram-removebg-preview_piuydf.png'
+          },
+          {
+            name: 'Nikhil',
+            year: 'B.Tech 4th Year',
+            branch: 'CSE',
+            content: 'Sigmoid 2K26 has some great events, but Guess Busters stands out for its creativity. The atmosphere was electric, and the puzzles were top-notch.',
+            college: 'Mohan Babu University',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269951/mohn_babu-removebg-preview_rzn8tu.png'
+          },
+          {
+            name: 'Prasanthi',
+            year: 'B.Tech 3rd Year',
+            branch: 'ECE',
+            content: 'I loved how inclusive the event was. Even if you aren\'t a "techie", you can excel here with just sharp logic and good observation. Had an amazing time!',
+            college: 'Bharath Institute of Technology',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269944/bharath_college-removebg-preview_kixrek.png'
+          }
+        ]}
+      />
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 8 — FAQs

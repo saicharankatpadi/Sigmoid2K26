@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
+import { EventParticipantsExperience } from './EventParticipantsExperience';
 import { Button } from './neon-button.jsx';
 import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 
@@ -77,10 +78,10 @@ const eventData = {
     ]
   },
   mentors: [
-    { 
-      id: "m1", 
-      name: "M. Supriya", 
-      role: "Event Lead", 
+    {
+      id: "m1",
+      name: "M. Supriya",
+      role: "Event Lead",
       image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773482161/WhatsApp_Image_2026-03-11_at_23.52.26_1_u0c7j5.jpg",
       phone: "",
       instagram: "",
@@ -132,7 +133,7 @@ const IconBadge = ({ iconType }) => {
     case 'cube': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>;
     case 'briefcase': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
     case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>;
-    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>;
+    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor" /></svg>;
     case 'document': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>;
     case 'globe': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>;
     case 'shield': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>;
@@ -253,13 +254,8 @@ export const QuizmaniaEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
-      {/* Back Button */}
-      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
-        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
-        </Link>
-      </div>
-  
+
+
 
       {/* Keyframes */}
       <style>{`
@@ -286,7 +282,7 @@ export const QuizmaniaEventPage = () => {
             <div className="flex items-center gap-3 mb-3">
               <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
               <div className="flex items-center">
-                <BlurIn 
+                <BlurIn
                   word={data.event_info.title}
                   className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
                 />
@@ -298,7 +294,7 @@ export const QuizmaniaEventPage = () => {
               {data.event_info.subtitle}
             </p>
 
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
               {data.event_info.features.map(feature => (
                 <div
                   key={feature.id}
@@ -525,10 +521,10 @@ export const QuizmaniaEventPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
           {data.mentors.map((mentor) => (
             <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 flex flex-col items-center hover:border-[#333] transition-colors relative group">
-              <img 
-                src={mentor.image} 
-                alt={mentor.name} 
-                className="w-24 h-24 rounded-full object-cover mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]" 
+              <img
+                src={mentor.image}
+                alt={mentor.name}
+                className="w-24 h-24 rounded-full object-cover mb-4 shadow-[0_0_15px_rgba(0,0,0,0.5)] border-2 border-[#333]"
               />
               <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider">{mentor.name}</h3>
             </div>
@@ -555,9 +551,10 @@ export const QuizmaniaEventPage = () => {
 
           {/* Text Content */}
           <div className="flex-1 w-full relative z-10 lg:pl-4">
-            
+
 
             <div className="relative mb-8 text-left">
+              <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773514921/certificate-ribbon__2_-removebg-preview_hnasix.png" alt="Ribbon" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.4)]" />
               <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
                 Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
                 <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
@@ -599,7 +596,7 @@ export const QuizmaniaEventPage = () => {
             <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Quizmania Gallery</h2>
           </div>
           <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
-            Capturing the intensity and excitement of Quizmania.
+            Snapshots from the battle of wits at Quizmania 2K25 — where knowledge champions were crowned in an epic multi-round trivia showdown.
           </p>
         </div>
 
@@ -609,6 +606,47 @@ export const QuizmaniaEventPage = () => {
           </div>
         </div>
       </section>
+
+      <EventParticipantsExperience
+        testimonials={[
+          {
+            name: 'Surya',
+            year: 'B.Tech 3rd Year',
+            branch: 'CSE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373463/WhatsApp_Image_2026-03-12_at_19.29.19-removebg-preview_k4snap.png',
+            content: 'Quizmania was a fast-paced battle of wits! The questions were diverse, covering everything from tech to current affairs. Truly tested my general knowledge.',
+            college: 'ANITS, Visakhapatnam',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269937/anits-removebg-preview_wmgmat.png'
+          },
+          {
+            name: 'Akshaya',
+            year: 'B.Tech 2nd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773395957/WhatsApp_Image_2026-03-12_at_19.29.20-removebg-preview_1_iyqsak.png',
+            content: 'The buzzer round was so intense! It\'s not just about knowing the answer, but being quick enough to hit it first. Loved the competitive spirit of Quizmania.',
+            college: 'JNN Institute of Engineering',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269949/JNN_Ins_Red_Seal-removebg-preview_zacyqh.png'
+          },
+          {
+            name: 'Karthik',
+            year: 'B.Tech 4th Year',
+            branch: 'CSE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773396178/WhatsApp_Image_2026-03-12_at_19.29.21__2_-removebg-preview_zc1wux.png',
+            content: 'I\'ve participated in many quizzes, but Quizmania at Sigmoid 2K26 was exceptionally well-organized. The topics were interesting and the platform was seamless.',
+            college: 'Parvathareddy Babulreddy Visvodaya Institute of Technology',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269959/parvarthan_clg-removebg-preview_peni5d.png'
+          },
+          {
+            name: 'Harika',
+            year: 'B.Tech 3rd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773395958/WhatsApp_Image_2026-03-12_at_19.29.18__1_-removebg-preview_d55ant.png',
+            content: 'The audio-visual round was the highlight for me. It added an extra layer of difficulty and fun to the quiz. Great learning experience!',
+            college: 'Srinagaram Engineering College',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269965/srinagaram-removebg-preview_piuydf.png'
+          }
+        ]}
+      />
 
       {/* FAQs Section */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 mb-20">

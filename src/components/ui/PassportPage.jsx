@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShineBorder } from './shine-border';
-const passportImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218152/passport_fnjrnz.png';
+const passportImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773510245/Happy_Birthday_Best_Friend_Instagram_Post_2_whr2wo.png';
 const roadmapImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218177/roadmap_ciw7sz.png';
 const passportIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218151/passport-icon_wlvayt.png';
 

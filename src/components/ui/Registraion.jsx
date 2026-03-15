@@ -187,27 +187,17 @@ function PassCard({ pass }) {
 
 export function RegisterPage() {
     return (
-        <div className="relative min-h-screen overflow-hidden bg-[#050505] pt-28 text-white">
-            <div className="pointer-events-none absolute inset-0">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,138,31,0.16),transparent_22%),radial-gradient(circle_at_top_right,rgba(255,107,43,0.12),transparent_18%),linear-gradient(180deg,#050505_0%,#0a0a0a_45%,#050505_100%)]" />
-                <div className="absolute inset-0 opacity-[0.045]" style={{
-                    backgroundImage: 'linear-gradient(rgba(255,255,255,0.14) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px)',
-                    backgroundSize: '72px 72px'
-                }} />
-                <div className="absolute left-[10%] top-28 h-52 w-52 rounded-full bg-[#ff8a1f]/10 blur-[120px]" />
-                <div className="absolute bottom-20 right-[12%] h-64 w-64 rounded-full bg-[#ff5a00]/10 blur-[150px]" />
-            </div>
-
+        <div className="relative min-h-screen overflow-hidden bg-[#0A0A0A] pt-28 text-white">
             <section className="relative mx-auto max-w-7xl px-6 pb-24 sm:px-10">
                 <header className="mx-auto max-w-4xl text-center">
                     <OfferMarquee />
-                    <div className="inline-flex rounded-full border border-[#ff8a1f]/20 bg-[#ff8a1f]/8 px-4 py-1 text-[11px] font-bold uppercase tracking-[0.26em] text-[#ffb347]">
-                        Neon Nostaliga
-                    </div>
-                    <h1 className="mt-8 text-5xl font-light tracking-[-0.05em] text-[#ff8a1f] sm:text-6xl md:text-7xl">
-                        Choose Your Pass
+
+
+                    <h1 className="text-4xl md:text-6xl font-extrabold tracking-[-0.03em] leading-tight text-white mb-6 drop-shadow-md">
+                        Choose Your <span className="text-[#ff7a00] drop-shadow-[0_0_15px_rgba(255,122,0,0.6)]">Pass</span>
                     </h1>
-                    <p className="mt-10 text-2xl font-light text-white/55 sm:text-3xl">
+
+                    <p className="text-white/80 text-lg md:text-xl max-w-[700px] mx-auto leading-relaxed mb-10 font-semibold drop-shadow-sm">
                         Experience Sigmoid 2K26 your way
                     </p>
                 </header>

@@ -6,31 +6,33 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Comprehensive Sigmoid 2K26 Knowledge Base
 const INSIGHTS_DATA = {
     // Technical Events
-    'technovate': "Technovate is our Paper Presentation event. Objective: Design a captivating MS-PPT to communicate research. Topics: 5G, E-Waste, IoT, VLSI, AI/ML, Robotics, etc. Rounds: 1. Online Submission, 2. PPT Presentation (8+2 mins), 3. Viva Voce. IEEE format mandatory. AI tools like ChatGPT prohibited. Coordinators: Sadvika (+91 9182995727), Dhanunjaya (+91 9392583330).",
+    'technovate': "Technovate is our Paper Presentation event. Objective: Design a captivating MS-PPT to communicate research. Topics: 5G, E-Waste, IoT, VLSI, AI/ML, Robotics, etc. Rounds: 1. Online Submission, 2. PPT Presentation (8+2 mins), 3. Viva Voce. IEEE format mandatory. AI tools like ChatGPT prohibited. Coordinators: Dhanunjaya (+91 9392583330).",
     'techfusion': "Technovate (formerly Techfusion in some drafts) is the official Paper Presentation event of SIGMOID 2K26. It focuses on research communication using MS-PPT.",
     'posterize': "Posterize: Showcase your research visually. Domains: AI, ML, IoT, VLSI, Embedded, Cyber, Robotics, Cloud. Submit abstract by April 2nd. 7-8 min presentation on event day. Carry physical poster.",
-    'innovista': "Innovista (Avishkar): Project Expo & DIY. Showcase Electronics, Sensors, and Software models. Physically exhibit working model + abstract. Coordinators: Luqman (+91 89781 03095), Ganesh (+91 79811 14228), Vishnu (+91 80744 87843), Anusha, Meena, Siri Sree, Vajaswani.",
+    'innovista': "Innovista (Avishkar): Project Expo & DIY. Showcase Electronics, Sensors, and Software models. Physically exhibit working model + abstract. Coordinators: Luqman (+91 89781 03095), Ganesh (+91 79811 14228), Vishnu (+91 80744 87843).",
     'avishkar': "Avishkar is now Innovista! redifine innovation with Project Expo and DIY awards.",
-    'circuitrix': "Circuitrix: Round 1 (Day 1) is a 25-question QR quiz (Analog/Digital, Network Theory, Devices). Round 2 (Day 2) is circuit building & viva in teams of 3. Coordinators: V. Rajeswari (+91 86391 55953), T. Karthik Veera (+91 90636 02411), Hensi (+91 99088 80334), Navya Sri (+91 96425 92212), Hari Prasad (+91 93812 43316), Naveen (+91 63052 31235), Hansika (+91 91829 19932).",
-    'codex': "Codex: Round 1 (Logic Wars) - 20 timed MCQs (C, Python, Java) at MB107. Round 2 (WebThon) - 75 mins Fullstack app development in teams. Top 30 qualify. Coordinators: C. Sairabhanu (#9398073899), Mani Prabhas (#9490210698), Subramanyam (#9391361665), Lavanya (#7013640048), Meena (#7780762115), S. Karthikeya (#91772 26748), V. Vasavi (#8074270643).",
-    'quizmania': "QuizMania: Tech-Q event. 3 rounds: Qualifier (paper quiz), Collaborative (teams of 4), and Championship (bit-scoring). Coordinators: M. Supriya (+91 63045 03230), Bmd. Nisar (+91 76708 35228), B. Harish (+91 91602 50442), N. Plavyasri (+91 83282 42635), G. Rajitha (+91 76708 94344).",
+    'circuitrix': "Circuitrix: Round 1 (Day 1) is a 25-question QR quiz (Analog/Digital, Network Theory, Devices). Round 2 (Day 2) is circuit building & viva in teams of 3. Coordinators: T. Karthik Veera (+91 90636 02411), Hari Prasad (+91 93812 43316), Naveen (+91 63052 31235).",
+    'codex': "Codex: Round 1 (Logic Wars) - 20 timed MCQs (C, Python, Java) at MB107. Round 2 (WebThon) - 75 mins Fullstack app development in teams. Top 30 qualify. Coordinators: Mani Prabhas (#9490210698), Subramanyam (#9391361665), S. Karthikeya (#91772 26748).",
+    'quizmania': "QuizMania: Tech-Q event. 3 rounds: Qualifier (paper quiz), Collaborative (teams of 4), and Championship (bit-scoring). Coordinators: Bmd. Nisar (+91 76708 35228), B. Harish (+91 91602 50442).",
     
     // Non-Technical Events
-    'click fest': "Click Fest: Smartphone Photography only. No AI. Finalists featured in online gallery. Coordinators: N. Vineeth (#9491040770), N. Sravani (#95026 11644), KS. Sohail (#9398767095), S. Mehak (#8885290919).",
-    'dumbcharades': "Dumbcharades & Pictionary: Round 1 - Acting. Round 2 - Drawing. Top 5 teams advance. Coordinators: Vinusha (+91 90633 11805), Samad (+91 96526 10402), Dinesh (+91 91820 58605), Gowtham Kumar (+91 72078 79396), Prameela, NagaLakshmi, Nandini, Thanmai, Abuzar, Mahendra.",
-    'guessbusters': "GuessBusters: The ultimate Tech Quiz. Test your knowledge across core ECE subjects and general tech. Coordinators: S. Sreeja (#8309121655), B. Chandhu (#7386041695).",
+    'click fest': "Click Fest: Smartphone Photography only. No AI. Finalists featured in online gallery. Coordinators: N. Vineeth (#9491040770), KS. Sohail (#9398767095).",
+    'dumbcharades': "Dumbcharades & Pictionary: Round 1 - Acting. Round 2 - Drawing. Top 5 teams advance. Coordinators: Samad (+91 96526 10402), Dinesh (+91 91820 58605), Gowtham Kumar (+91 72078 79396), Abuzar, Mahendra.",
+    'guessbusters': "GuessBusters: The ultimate Tech Quiz. Test your knowledge across core ECE subjects and general tech. Coordinators: B. Chandhu (#7386041695).",
     'dynamic': "Dynamic is a part of our Techfusion masterclass series, focusing on rapid problem-solving and algorithmic thinking.",
 
     // General
-    'department': "The ECE Department at SVUCE is led by Dr. T. Ramashri (HOD). It is known for its academic excellence, research in signal processing/VLSI, and hosting SIGMOID annually.",
-    'principal': "Dr. G. Srinivasulu is the current Principal of SVU College of Engineering (SVUCE).",
-    'hod': "Dr. T. Ramashri is the Head of the Department (HOD) of Electronics and Communication Engineering at SVUCE.",
+    'department': "The ECE Department at SVUCE is led by kllamaya (HOD). It is known for its academic excellence, research in signal processing/VLSI, and hosting SIGMOID annually.",
+    'principal': "G.sREENIVASULU is the current Principal of SVU College of Engineering (SVUCE).",
+    'hod': "kllamaya is the Head of the Department (HOD) of Electronics and Communication Engineering at SVUCE.",
     'passes': "Sigmoid 2K26 Pass Tiers:\n- Elite (₹350): Non-Tech events.\n- Supreme (₹400): 1 Paid Tech + Free Trio + Non-Tech.\n- Prime (₹450): 2 Paid Tech + Free Trio + Non-Tech.\n- Ultimate (₹500): All events access.",
-    'about': "SIGMOID 2K26: Annual Technical extravaganza by SVUCE ECE Department. A legacy event since 2003, redefine Innovation on April 3-4, 2026.",
-    'coordinators': "Major Coordinators:\n- Technovate: Sadvika (+91 9182995727)\n- Innovista: Luqman (+91 89781 03095)\n- Circuitrix: Rajeswari (+91 86391 55953)\n- QuizMania: Supriya (+91 63045 03230)\n- Click Fest: Vineeth (#9491040770)",
-    'accommodation': "Accommodation costs ₹200/day. Hostels for boys/girls available. Verify with logistics at the registration desk.",
-    'venue': "Held at SVU College of Engineering (SVUCE), Tirupati. Events mainly in ECE blocks MB107, Seminar Hall, etc.",
-    'default': "Ask me about any event (Technovate, Codex, GuessBusters), pass prices (Prime, Ultimate), or SVUCE leadership info."
+    'about': "SIGMOID 2K26: Annual Technical extravaganza by SVUCE ECE Department. A legacy event since 2003, redefine Innovation on April 3-4, 2026. Featured events include Technovate (Paper Presentation), Innovista (Project Expo), Circuitrix (Circuit building), Codex (Coding), QuizMania (General tech quiz), and various non-tech events like Click Fest and Dumbcharades.",
+    'coordinators': "Major Coordinators:\n- Technovate: Dhanunjaya (+91 9392583330)\n- Innovista: Luqman (+91 89781 03095)\n- Circuitrix: Karthik Veera (+91 90636 02411)\n- QuizMania: Nisar (+91 76708 35228)\n- Codex: Mani Prabhas (+91 9490210698)\n- Click Fest: Vineeth (+91 9491040770)\n- Dumbcharades: Samad (+91 96526 10402)",
+    'accommodation': "Accommodation costs ₹200 per day. Hostels for both boys and girls are available. Check-in starts on April 3rd morning at the registration desk. Logistics team including Samad can help.",
+    'venue': "Held at SVU College of Engineering (SVUCE), Tirupati. Events mainly in ECE blocks MB107, Seminar Hall, and auditorium.",
+    'hi': "Hello! I'm the SIGMOID Insights Bot. How can I help you today? You can ask about events, pass pricing, or coordinators.",
+    'hello': "Hi there! Welcome to SIGMOID 2K26. What would you like to know about our technical or non-technical events?",
+    'default': "Ask any other question I did not have any related information about it"
 };
 
 const RELATED_QUESTIONS_MAP = {
@@ -44,7 +46,9 @@ const RELATED_QUESTIONS_MAP = {
     'dumbcharades': ["Dumbcharades rounds?", "Dumbcharades coordinators?"],
     'passes': ["What is Ultimate Pass?", "Elite vs Supreme pass?"],
     'about': ["What events are there?", "Show me passes pricing"],
-    'coordinators': ["Coordinators for Codex", "Coordinators for Innovista"]
+    'coordinators': ["Coordinators for Codex", "Coordinators for Innovista"],
+    'hi': ["What events are there?", "Show me passes pricing"],
+    'hello': ["Tell me about Sigmoid", "How to register?"]
 };
 
 const PREDEFINED_QUESTIONS = [
@@ -99,8 +103,13 @@ export const InsightsPage = () => {
 
             // Contextual additions
             if (lowerQuery.includes('esports') || lowerQuery.includes('e-sports') || lowerQuery.includes('bgmi') || lowerQuery.includes('free fire')) {
-                responseText = "E-sports like BGMI and Free Fire have specific team entry fees (₹300). Check the E-sports category on the events page for rules on emulators and team sizes.";
-                relatedQuestions = ["BGMI rules?", "Free Fire rounds?"];
+                responseText = "E-sports competitions include BGMI and Free Fire with a team entry fee of ₹300. Participants must use their own devices. Emulators are strictly prohibited. Check the E-sports section on our events page for detailed rules.";
+                relatedQuestions = ["BGMI rules?", "Free Fire entry fee?"];
+            }
+
+            if (lowerQuery.includes('registration') || lowerQuery.includes('register') || lowerQuery.includes('how to join')) {
+                responseText = "To register for Sigmoid 2K26, visit the registration page or find the registration desk at SVUCE campus on event days. You can choose between Elite, Supreme, Prime, and Ultimate passes.";
+                relatedQuestions = ["Sigmoid pass prices?", "Elite pass benefits?"];
             }
 
             setMessages(prev => [...prev, { id: Date.now() + 1, type: 'bot', text: responseText, related: relatedQuestions }]);

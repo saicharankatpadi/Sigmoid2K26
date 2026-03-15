@@ -15,8 +15,8 @@ const cardData = {
     image: "/assets/images/promo-2.png",
   },
   3: {
-    title: "Esports",
-    description: "Compete and win in gaming tournaments",
+    title: "Workshops",
+    description: "Learn from the best",
     image: "/assets/images/promo-3.png",
   },
 }
@@ -62,7 +62,7 @@ function CardContent({ contentType }) {
           <span className="truncate font-semibold text-white text-lg">{data.title}</span>
           <span className="text-white/60 text-sm">{data.description}</span>
         </div>
-        <button 
+        <button
           onClick={() => {
             const categoryMap = {
               'Technical': 'Technical',
@@ -139,16 +139,16 @@ export function AnimatedCardStack() {
         return [...prevCards.slice(1), { id: nextId, contentType: nextContentType }]
       })
       setNextId((prev) => prev + 1)
-      
+
       setTimeout(() => {
         setIsAnimating(false)
       }, 1000)
     }
 
     const intervalId = setInterval(() => {
-        handleAnimate()
+      handleAnimate()
     }, 3000)
-    
+
     return () => clearInterval(intervalId)
   }, [nextId])
 

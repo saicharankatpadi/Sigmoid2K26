@@ -59,9 +59,9 @@ export function HostelDetails({ type }) {
 
     // Food Match Card Style
     const FoodMatchCard = ({ day, meal, time, location, imgUrl, addBorderBottom }) => (
-        <div className="bg-white p-4 flex items-center justify-between shadow-none relative">
-            <div className="flex items-center gap-5">
-                <div className="w-16 h-16 rounded-xl border border-gray-200 overflow-hidden shrink-0 flex items-center justify-center p-1">
+        <div className="bg-white p-3 md:p-4 flex items-center justify-between shadow-none relative">
+            <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-xl border border-gray-200 overflow-hidden shrink-0 flex items-center justify-center p-1">
                     <img src={imgUrl} alt="Food" className="w-full h-full object-contain" />
                 </div>
                 <div>
@@ -87,22 +87,22 @@ export function HostelDetails({ type }) {
         const [hoveredBar, setHoveredBar] = useState(null);
 
         return (
-            <div className={cn("px-4 py-5 w-full relative", innerGlassyContainer)}>
+            <div className={cn("px-3 py-4 w-full relative", innerGlassyContainer)}>
                 {/* Full grid lines EXACTLY MATCHING IMAGE: 4 horizontal, 3 vertical */}
-                <div className="absolute left-6 right-6 top-8 bottom-12 flex flex-col justify-between pointer-events-none z-0">
+                <div className="absolute left-6 right-6 top-6 bottom-10 flex flex-col justify-between pointer-events-none z-0">
                     <div className="h-px w-full bg-white/10" />
                     <div className="h-px w-full bg-white/10" />
                     <div className="h-px w-full bg-white/10" />
                     <div className="h-px w-full bg-white/10" />
                 </div>
-                <div className="absolute left-6 right-6 top-8 bottom-12 flex justify-between pointer-events-none z-0">
+                <div className="absolute left-6 right-6 top-6 bottom-10 flex justify-between pointer-events-none z-0">
                     <div className="w-px h-full bg-white/10" />
                     <div className="w-px h-full bg-white/10" />
                     <div className="w-px h-full bg-white/10" />
                     <div className="w-px h-full bg-white/10" />
                 </div>
 
-                <div className="flex items-end justify-center gap-8 h-40 relative z-10 px-2 mt-2 pt-6 border-b border-white/5 mx-6">
+                <div className="flex items-end justify-center gap-6 h-28 relative z-10 px-2 mt-1 pt-4 border-b border-white/5 mx-6">
                     {/* Ground floor bar starting exactly at bottom */}
                     <div
                         className="flex flex-col items-center w-16 h-full justify-end relative group"
@@ -190,8 +190,8 @@ export function HostelDetails({ type }) {
     }
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6 relative bg-[#070514] overflow-hidden">
-            <div className="max-w-[1200px] mx-auto space-y-12 relative z-10 flex flex-col items-center">
+        <div className="min-h-screen pt-24 md:pt-32 pb-16 px-4 sm:px-6 relative bg-[#070514] overflow-hidden">
+            <div className="max-w-[1200px] mx-auto space-y-8 relative z-10 flex flex-col items-center">
 
                 {/* Header Sub Nav */}
                 <button
@@ -217,12 +217,12 @@ export function HostelDetails({ type }) {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 
                         {/* LEFT COLUMN: FOOD + ROADMAP */}
-                        <div className="lg:col-span-6 space-y-12">
+                        <div className="lg:col-span-6 space-y-8">
                             {/* FOOD */}
                             <section>
                                 <Title>FOOD</Title>
 
-                                <div className="space-y-8 pl-4 sm:pl-8"> {/* Moved to the right */}
+                                <div className="space-y-6 md:space-y-8 pl-4 sm:pl-8"> {/* Moved to the right */}
                                     {/* Day 1 Container */}
                                     <BlurIn
                                         word={
@@ -233,7 +233,7 @@ export function HostelDetails({ type }) {
                                                         day="Day 1"
                                                         time="Evening"
                                                         meal="Dinner Menu"
-                                                        location="Viswakarma Block / G Block"
+                                                        location={isBoys ? "Viswakarma Block / G Block" : "Padmavathi / Premises"}
                                                         imgUrl={food2Img}
                                                         addBorderBottom={false}
                                                     />
@@ -254,7 +254,7 @@ export function HostelDetails({ type }) {
                                                         day="Day 2"
                                                         time="Morning"
                                                         meal="Breakfast Menu"
-                                                        location="Viswakarma Block / G Block"
+                                                        location={isBoys ? "Viswakarma Block / G Block" : "Padmavathi / Premises"}
                                                         imgUrl={food1Img}
                                                         addBorderBottom={false}
                                                     />
@@ -302,13 +302,13 @@ export function HostelDetails({ type }) {
                         </div>
 
                         {/* RIGHT COLUMN: ROOMS (VACANCIES) & TEAM & BUTTON */}
-                        <div className="lg:col-span-6 space-y-12">
+                        <div className="lg:col-span-6 space-y-8">
 
                             {/* ROOOMS / VACANCIES */}
                             <section>
                                 <Title>VACANCIES</Title>
-                                <div className={cn("p-4 sm:p-6 w-full max-w-[420px] lg:max-w-md mx-auto lg:mx-0 transition-all duration-300", glassyContainer)}>
-                                    <div className={cn("flex items-center justify-between transition-all", vacanciesOpen ? "mb-6 pb-2" : "")}>
+                                <div className={cn("p-4 md:p-6 w-full max-w-[420px] lg:max-w-md mx-auto lg:mx-0 transition-all duration-300", glassyContainer)}>
+                                    <div className={cn("flex items-center justify-between transition-all", vacanciesOpen ? "mb-4 pb-1" : "")}>
                                         <h4 className="text-white text-xl font-bold flex items-center gap-3">
                                             <img src={homeIcon} className="w-5 h-5 invert" alt="Rooms" />
                                             Rooms
@@ -375,8 +375,8 @@ export function HostelDetails({ type }) {
                             {/* TEAM */}
                             <section>
                                 <Title>ACCOMMODATION TEAM</Title>
-                                <div className={cn("p-4 sm:p-6 w-full max-w-[420px] lg:max-w-md mx-auto lg:mx-0 transition-all duration-300", glassyContainer)}>
-                                    <div className={cn("flex items-center justify-between transition-all", teamOpen ? "mb-6 pb-2" : "")}>
+                                <div className={cn("p-4 md:p-6 w-full max-w-[420px] lg:max-w-md mx-auto lg:mx-0 transition-all duration-300", glassyContainer)}>
+                                    <div className={cn("flex items-center justify-between transition-all", teamOpen ? "mb-4 pb-1" : "")}>
                                         <h4 className="text-white text-xl font-bold flex items-center gap-3">
                                             <img src={groupIcon} alt="Team" className="w-6 h-6 invert" />
                                             Accommodation Team
@@ -423,7 +423,7 @@ export function HostelDetails({ type }) {
                                                     }
                                                 ]
                                         ).map((member, i) => (
-                                            <div key={i} className="flex items-center gap-5 py-4 border-b border-white/10 last:border-0 relative">
+                                            <div key={i} className="flex items-center gap-5 py-3 border-b border-white/10 last:border-0 relative">
                                                 <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0 overflow-hidden border border-white/20">
                                                     {member.img ? (
                                                         <img src={member.img} alt="Accommodation Team" className="w-full h-full object-cover" />

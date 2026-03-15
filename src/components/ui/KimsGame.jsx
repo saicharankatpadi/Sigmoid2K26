@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
 import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
+import { EventParticipantsExperience } from './EventParticipantsExperience.jsx';
 
 // ==========================================
 // DYNAMIC EVENT DATA (JSON FORMAT)
@@ -94,11 +95,11 @@ const eventData = {
     ]
   },
   mentors: [
-    { 
-      id: "m1", 
-      name: "N. Devi", 
-      role: "Coordinator", 
-      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773373634/WhatsApp_Image_2026-03-12_at_19.29.20__2_-removebg-preview_no93kf.png",
+    {
+      id: "m1",
+      name: "N. DEVI",
+
+      image: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773513841/WhatsApp_Image_2026-03-14_at_07.51.55_fcwukf.jpg",
       phone: "7569106208",
       instagram: "",
       linkedin: ""
@@ -137,8 +138,8 @@ const IconBadge = ({ iconType }) => {
     case 'users': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>;
     case 'cube': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>;
     case 'briefcase': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
-    case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>; 
-    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"/></svg>;
+    case 'diamond': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>;
+    case 'linkedin': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor" /></svg>;
     case 'document': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>;
     case 'globe': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>;
     case 'terminal': return <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>;
@@ -260,13 +261,8 @@ export const KimsGameEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
-      {/* Back Button */}
-      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
-        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
-        </Link>
-      </div>
-  
+
+
 
       {/* Keyframes */}
       <style>{`
@@ -296,7 +292,7 @@ export const KimsGameEventPage = () => {
             <div className="flex items-center gap-3 mb-3">
               <div className="w-1 h-12 bg-[#f89b29] rounded-full"></div>
               <div className="flex flex-wrap items-center gap-3">
-                <BlurIn 
+                <BlurIn
                   word={data.event_info.title}
                   className="text-4xl md:text-5xl font-black text-white tracking-tight text-left"
                 />
@@ -308,7 +304,7 @@ export const KimsGameEventPage = () => {
               {data.event_info.subtitle}
             </p>
 
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
               {data.event_info.features.map(feature => (
                 <div key={feature.id} className="flex items-center gap-0 bg-[#111111] border-2 border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#3a3a3a] transition-all duration-300 group cursor-default">
                   <div className="shrink-0 w-12 flex items-center justify-center py-3 px-2">
@@ -525,13 +521,12 @@ export const KimsGameEventPage = () => {
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
         </div>
 
-        <div className="flex flex-col items-start mt-6">
+        <div className="flex flex-col items-center justify-center mt-6">
           {data.mentors.map((mentor) => (
-            <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-8 hover:border-[#333] transition-colors relative group max-w-lg w-full">
-              <img src={mentor.image} alt={mentor.name} className="w-32 h-32 rounded-full object-cover border-2 border-[#333] shadow-2xl shrink-0" style={{ filter: 'brightness(0) invert(1)' }} />
-              <div className="text-center sm:text-left flex-1 min-w-0">
-                <h3 className="text-2xl font-bold text-white uppercase tracking-wider truncate">{mentor.name}</h3>
-              </div>
+            <div key={mentor.id} className="bg-[#0a0a0a] border border-[#222] rounded-3xl p-8 flex flex-col items-center hover:border-[#333] transition-colors relative group max-w-sm w-full">
+              <img src={mentor.image} alt={mentor.name} className="w-32 h-32 rounded-full object-cover object-top mb-4 shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-[#333]" />
+              <h3 className="text-xl font-bold text-white mb-2 tracking-wider uppercase">{mentor.name}</h3>
+              <p className="text-[#f89b29] font-bold text-sm uppercase tracking-widest">{mentor.role}</p>
             </div>
           ))}
         </div>
@@ -548,6 +543,9 @@ export const KimsGameEventPage = () => {
             <h2 className="text-2xl md:text-3xl font-black text-white">Event Gallery</h2>
           </div>
           <div className="w-full h-[2px] bg-[#222] ml-4"></div>
+          <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
+            A glimpse into the excitement and team spirit of Kim's Game 2K25 — memories of quick thinking, campus hunts, and friendly competition.
+          </p>
         </div>
 
         {/* 3D Photo Carousel */}
@@ -555,6 +553,7 @@ export const KimsGameEventPage = () => {
           <ThreeDPhotoCarousel images={data.gallery} autoRotate={isAutoRotating} />
         </div>
       </section>
+
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 6 — Certificate
@@ -575,7 +574,8 @@ export const KimsGameEventPage = () => {
 
           {/* Text Content */}
           <div className="flex-1 w-full relative z-10 lg:pl-4">
-            <div className="relative mb-8">
+            <div className="relative mb-8 text-left">
+              <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773514921/certificate-ribbon__2_-removebg-preview_hnasix.png" alt="Ribbon" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.4)]" />
               <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
                 Official  <span className="text-[#f89b29] font-bold">Participation</span> Certificate
                 <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
@@ -603,14 +603,55 @@ export const KimsGameEventPage = () => {
                 className="w-full h-auto object-cover rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-[4px] border-[#1a1a1a]"
               />
               {/* Ribbon Badge */}
-              
+
             </div>
           </div>
         </div>
       </section>
 
+      <EventParticipantsExperience
+        testimonials={[
+          {
+            name: 'Yogendra',
+            year: 'B.Tech 3rd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373818/WhatsApp_Image_2026-03-12_at_19.29.22-removebg-preview_lplmzj.png',
+            content: "Kim's Game was a literal blast! The object recognition round was so fast-paced, but our team coordination in the Treasure Hunt really sealed the deal.",
+            college: 'Parvathareddy Babulreddy Visvodaya Institute of Technology',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269959/parvarthan_clg-removebg-preview_peni5d.png'
+          },
+          {
+            name: 'Pavithra',
+            year: 'B.Tech 2nd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373634/WhatsApp_Image_2026-03-12_at_19.29.20__2_-removebg-preview_no93kf.png',
+            content: 'I loved the "Think and Spell" round. It was a great mix of visual clues and vocabulary. The campus treasure hunt was the most fun I\'ve had at any fest!',
+            college: 'Srinagaram Engineering College',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269965/srinagaram-removebg-preview_piuydf.png'
+          },
+          {
+            name: 'Lasya Mahitha',
+            year: 'B.Tech 4th Year',
+            branch: 'CSE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773395958/WhatsApp_Image_2026-03-12_at_19.29.18__1_-removebg-preview_d55ant.png',
+            content: 'Participating in Kim\'s Game with my friends was an amazing experience. It really tested our memory and teamwork. The gifts for winners were a nice touch too!',
+            college: 'Mohan Babu University',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773522396/mohn_babu-removebg-preview_krehur.png'
+          },
+          {
+            name: 'Mounika',
+            year: 'B.Tech 3rd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373852/WhatsApp_Image_2026-03-12_at_19.29.21__1_-removebg-preview_l2ce7d.png',
+            content: 'The variety of rounds kept us on our toes from start to finish. Kim\'s Game is perfectly designed for anyone who loves quick thinking and discovery!',
+            college: 'SVCE, Tirupati',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269966/svce-removebg-preview_uh1mhu.png'
+          }
+        ]}
+      />
+
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 6 — FAQs
+          SECTION 7 — FAQs
        ═══════════════════════════════════════════════════════════ */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 mb-20 text-left">
         <div className="mb-10">

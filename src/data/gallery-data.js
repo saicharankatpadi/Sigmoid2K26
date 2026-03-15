@@ -3,7 +3,7 @@
 export const galleryHeroCards = [
     {
         id: "hero-card-1",
-        title: "After winning hearts, New Zealand...",
+        title: "Announcement Video",
         subtitle: "SIGMOID 2K26",
         thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773282535/Screenshot_2026-03-11_192801_cfpcmp.png",
         videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773281659/WhatsApp_Video_2026-03-11_at_19.11.27_atxa9z.mp4",
@@ -12,7 +12,7 @@ export const galleryHeroCards = [
     },
     {
         id: "hero-card-2",
-        title: "India captain banks on big-match...",
+        title: "It's Happenning ...",
         subtitle: "SIGMOID 2K26",
         thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773283220/Screenshot_2026-03-11_193902_rmnzal.png",
         videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773283192/WhatsApp_Video_2026-03-11_at_11.25.14_s6btsj.mp4",
@@ -21,7 +21,7 @@ export const galleryHeroCards = [
     },
     {
         id: "hero-card-3",
-        title: "Skipper Mitchell Santner reflects on New Zealand's run...",
+        title: "Wait for the Blast 🔥",
         subtitle: "SIGMOID 2K26",
         thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773284152/Screenshot_2026-03-11_195525_xjdoob.png",
         videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773283952/WhatsApp_Video_2026-03-11_at_19.50.46_onxzqn.mp4",
@@ -30,7 +30,7 @@ export const galleryHeroCards = [
     },
     {
         id: "hero-card-4",
-        title: "Suryakumar Yadav speaks on...",
+        title: "Make Way For the Tech Bonanza 🚀",
         subtitle: "SIGMOID 2K26",
         thumbnailUrl: "https://res.cloudinary.com/djiivo0r7/image/upload/v1773285248/Screenshot_2026-03-11_201329_wyjk9m.png",
         videoUrl: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773285003/lv_0_20260311140957_1_bhpwtn.mp4",
@@ -45,21 +45,21 @@ const localVideos = [
     { title: "Technical Excellence", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295320/WhatsApp_Video_2026-03-11_at_22.54.10_eychwy.mp4", desc: "SIGMOID 2K25: Where brilliant minds converge to solve the challenges of tomorrow." },
     { title: "Symposium Highlights", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295444/WhatsApp_Video_2026-03-11_at_23.02.39_kfrikp.mp4", desc: "SIGMOID 2K25: A spectacular showcase of engineering prowess." },
     { title: "Event Glimpse", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295499/WhatsApp_Video_2026-03-11_at_23.01.19_qly1j3.mp4", desc: "SIGMOID 2K25: Diverse events bringing out the best in every participant." },
-    { title: "Innovation Hub", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295551/WhatsApp_Video_2026-03-11_at_23.01.15_f9u2rn.mp4", desc: "SIGMOID 2K25: Witnessing the future of technology unfold." },
-    { title: "Creative Minds", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295597/WhatsApp_Video_2026-03-11_at_23.01.08_khm2vh.mp4", desc: "SIGMOID 2K25: Fostering creativity and outside-the-box thinking." },
-    { title: "Collaborative Spirit", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295761/WhatsApp_Video_2026-03-11_at_23.01.12_aseh0w.mp4", desc: "SIGMOID 2K25: Strengthening the bonds of the engineering community." },
-    { title: "Success Stories", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295884/WhatsApp_Video_2026-03-11_at_23.08.23_hxssol.mp4", desc: "SIGMOID 2K25: Celebrating the achievements and hard work of our participants." },
-    { title: "Future Leaders", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295966/WhatsApp_Video_2026-03-11_at_23.08.46_dfz9gq.mp4", desc: "SIGMOID 2K25: Empowering the next generation of industry pioneers." },
-    { title: "Grand Finale", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773296071/WhatsApp_Video_2026-03-11_at_23.05.55_oaordn.mp4", desc: "SIGMOID 2K25: A memorable conclusion to an extraordinary symposium." },
-    { title: "Hackathon Finals", path: "/sigmoid2k25/VID_20260105203607.mp4", desc: "SIGMOID 2K25: The thrilling final hours of the overnight coding sprint." },
-    { title: "Campus Tour", path: "/sigmoid2k25/VID20250105183456.mp4", desc: "SIGMOID 2K25: Exploring the beautifully decorated campus grounds." },
-    { title: "Cultural Night", path: "/sigmoid2k25/VID_20260105203003.mp4", desc: "SIGMOID 2K25: Stunning dance and musical performances." },
-    { title: "Prize Distribution", path: "/sigmoid2k25/VID_20260105203123.mp4", desc: "SIGMOID 2K25: Celebrating the winners of the top competitions." },
-    { title: "Closing Ceremony", path: "/sigmoid2k25/VID_20260105203154.mp4", desc: "SIGMOID 2K25: Saying goodbye to an unforgettable weekend." },
+    { title: "Date reveal", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295551/WhatsApp_Video_2026-03-11_at_23.01.15_f9u2rn.mp4", desc: "SIGMOID 2K25: Witnessing the future of technology unfold." },
+    { title: "Teaser", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295597/WhatsApp_Video_2026-03-11_at_23.01.08_khm2vh.mp4", desc: "SIGMOID 2K25: Fostering creativity and outside-the-box thinking." },
+    { title: "Are U Ready...", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295761/WhatsApp_Video_2026-03-11_at_23.01.12_aseh0w.mp4", desc: "SIGMOID 2K25: Strengthening the bonds of the engineering community." },
+    { title: "Sigmoid is not just name its a brand", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295884/WhatsApp_Video_2026-03-11_at_23.08.23_hxssol.mp4", desc: "SIGMOID 2K25: Celebrating the achievements and hard work of our participants." },
+    { title: "Make a Way", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773295966/WhatsApp_Video_2026-03-11_at_23.08.46_dfz9gq.mp4", desc: "SIGMOID 2K25: Empowering the next generation of industry pioneers." },
+    { title: "Moments of Joy", path: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773296071/WhatsApp_Video_2026-03-11_at_23.05.55_oaordn.mp4", desc: "SIGMOID 2K25: A memorable conclusion to an extraordinary symposium." },
+    { title: "More Vibrant ", path: "/sigmoid2k25/VID_20260105203607.mp4", desc: "SIGMOID 2K25: The thrilling final hours of the overnight coding sprint." },
+    { title: "Make Way for Sigmoid", path: "/sigmoid2k25/VID20250105183456.mp4", desc: "SIGMOID 2K25: Exploring the beautifully decorated campus grounds." },
+    { title: "Be Part of Sigmoid ", path: "/sigmoid2k25/VID_20260105203003.mp4", desc: "SIGMOID 2K25: Stunning dance and musical performances." },
+    { title: "Sigmoid Can never be faded ...", path: "/sigmoid2k25/VID_20260105203123.mp4", desc: "SIGMOID 2K25: Celebrating the winners of the top competitions." },
+    { title: "Registration closes soon ...", path: "/sigmoid2k25/VID_20260105203154.mp4", desc: "SIGMOID 2K25: Saying goodbye to an unforgettable weekend." },
     { title: "Announcement Promo", path: "/sigmoid2k25/008.mp4", desc: "SIGMOID 2K25: The original teaser leading up to the entire tech fest." },
-    { title: "Sponsor Highlights", path: "/sigmoid2k25/VID_20260105203513.mp4", desc: "SIGMOID 2K25: Huge thanks to the partners who made this possible." },
-    { title: "Interactive Workshop", path: "/sigmoid2k25/002.mp4", desc: "SIGMOID 2K25: Hands-on learning experiences from industry experts." },
-    { title: "Team Afterparty", path: "/sigmoid2k25/WhatsApp Video 2026-01-06 at 13.10.03.mp4", desc: "SIGMOID 2K25: The organizers celebrating another massive success." }
+    { title: " Highlights", path: "/sigmoid2k25/VID_20260105203513.mp4", desc: "SIGMOID 2K25: Huge thanks to the partners who made this possible." },
+    { title: "Be part of Sigmoid", path: "/sigmoid2k25/002.mp4", desc: "SIGMOID 2K25: Hands-on learning experiences from industry experts." },
+    { title: "Come and Join....", path: "/sigmoid2k25/WhatsApp Video 2026-01-06 at 13.10.03.mp4", desc: "SIGMOID 2K25: The organizers celebrating another massive success." }
 ];
 
 export const gallery2026Images = [
@@ -247,4 +247,4 @@ export const galleryStories = [
 ];
 
 // Ensure thumbnails point to video if image missing
-galleryStories.forEach(s => { if(!s.thumbnailUrl) s.thumbnailUrl = s.videoUrl; });
+galleryStories.forEach(s => { if (!s.thumbnailUrl) s.thumbnailUrl = s.videoUrl; });

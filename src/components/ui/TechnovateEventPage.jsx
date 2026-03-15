@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BlurIn } from './blur-in.jsx';
 import { Button } from './neon-button.jsx';
 import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
+import { EventParticipantsExperience } from './EventParticipantsExperience.jsx';
 
 // ==========================================
 // DYNAMIC EVENT DATA (JSON FORMAT)
@@ -10,7 +11,7 @@ import { ThreeDPhotoCarousel } from './3d-carousel.jsx';
 // ==========================================
 const eventData = {
   "event_info": {
-    "title": "TECHOVATE",
+    "title": "TECHNOVATE",
     "emoji": "📄",
     "subtitle": "Paper Presentation",
     "brochure_url": "/TECHNOVATE_BROCHURE.pdf",
@@ -145,10 +146,10 @@ const eventData = {
   "mentors": [
     {
       "id": "m1",
-      "name": "S.Sathvika",
+      "name": "S. SADVIKA",
       "role": "Event Lead",
       "image": "https://res.cloudinary.com/djiivo0r7/image/upload/v1773299498/WhatsApp_Image_2026-03-11_at_23.49.15_agi7zm.jpg",
-      "phone": "",
+      "phone": "+91 93925 83330",
       "instagram": "",
       "linkedin": ""
     }
@@ -334,13 +335,8 @@ export const TechnovateEventPage = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-sans overflow-x-hidden selection:bg-[#f89b29] selection:text-black">
 
-      {/* Back Button */}
-      <div className="absolute top-[100px] left-6 lg:left-10 z-[100]">
-        <Link to="/events" className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#f89b29]/20 hover:border-[#f89b29]/50 transition-all backdrop-blur-md group shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-          <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
-        </Link>
-      </div>
-  
+
+
 
       {/* Keyframes */}
       <style>{`
@@ -390,7 +386,7 @@ export const TechnovateEventPage = () => {
             </p>
 
             {/* ── Feature Cards — 2-column grid ── */}
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
               {data.event_info.features.map(feature => (
                 <div
                   key={feature.id}
@@ -745,9 +741,10 @@ export const TechnovateEventPage = () => {
 
           {/* Text Content */}
           <div className="flex-1 w-full relative z-10 lg:pl-4">
-            
+
 
             <div className="relative mb-8 text-left">
+              <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773514921/certificate-ribbon__2_-removebg-preview_hnasix.png" alt="Ribbon" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(248,155,41,0.4)]" />
               <h3 className="text-[28px] md:text-[34px] leading-[1.2] font-semibold text-white/90 tracking-[-0.01em] relative z-10">
                 Official <span className="text-[#f89b29] font-bold">Participation</span> Certificate
                 <img src="/rocket-icon.png" alt="Rocket" className="inline-block w-8 h-8 ml-3 -mt-2 align-middle object-contain" />
@@ -779,6 +776,7 @@ export const TechnovateEventPage = () => {
         </div>
       </section>
 
+
       {/* ═══════════════════════════════════════════════════════════
           SECTION 7 — Event Gallery
        ═══════════════════════════════════════════════════════════ */}
@@ -790,7 +788,7 @@ export const TechnovateEventPage = () => {
             <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">Event Gallery</h2>
           </div>
           <p className="text-white/40 text-sm mt-4 max-w-2xl italic">
-            Capturing moments of innovation, research, and technical excellence from Techovate.
+            Capturing moments of innovation, research, and technical excellence from Technovate.
           </p>
         </div>
 
@@ -801,7 +799,48 @@ export const TechnovateEventPage = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
+      <EventParticipantsExperience
+        testimonials={[
+          {
+            name: 'Kiran',
+            year: 'B.Tech 3rd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773370133/WhatsApp_Image_2026-03-12_at_19.29.16-removebg-preview_taq8oh.png',
+            content: 'Technovate was a brilliant opportunity to present my research on satellite technology. The feedback from the professors was extremely constructive and insightful.',
+            college: 'Sri Padmavati Mahila Visvavidyalayam',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269958/padmavathi-removebg-preview_xttmyj.png'
+          },
+          {
+            name: 'Sushmitha',
+            year: 'B.Tech 2nd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373552/WhatsApp_Image_2026-03-12_at_19.29.19__3_-removebg-preview_ixbr3b.png',
+            content: 'Preparing for Technovate helped me dive deep into specialized topics like Nano Electronics. Presenting in front of a professional jury was a huge confidence builder.',
+            college: 'Aditya Engineering College',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269936/aditya_coolege-removebg-preview_wgijux.png'
+          },
+          {
+            name: 'Harish',
+            year: 'B.Tech 4th Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373818/WhatsApp_Image_2026-03-12_at_19.29.22-removebg-preview_lplmzj.png',
+            content: 'The standard of papers at Technovate was impressive. It was great to see so much innovation in fields like Robotics and AI from my fellow participants.',
+            college: 'ANITS, Visakhapatnam',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269937/anits-removebg-preview_wmgmat.png'
+          },
+          {
+            name: 'Anjali',
+            year: 'B.Tech 3rd Year',
+            branch: 'ECE',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373634/WhatsApp_Image_2026-03-12_at_19.29.20__2_-removebg-preview_no93kf.png',
+            content: 'Technovate blended research rigor with effective communication. Winning a prize for my paper was the highlight of the fest for me. Highly recommend it!',
+            college: 'JNN Institute of Engineering',
+            logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269949/JNN_Ins_Red_Seal-removebg-preview_zacyqh.png'
+          }
+        ]}
+      />
+
+      {/* ═══════════════════════════════════════════
           SECTION 8 — FAQs
        ═══════════════════════════════════════════════════════════ */}
       <section className="max-w-[1400px] mx-auto px-8 lg:px-12 pt-0 pb-10 mb-10">
