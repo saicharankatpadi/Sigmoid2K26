@@ -805,9 +805,9 @@ export const TechnovateEventPage = () => {
             name: 'Kiran',
             year: 'B.Tech 3rd Year',
             branch: 'ECE',
-            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773370133/WhatsApp_Image_2026-03-12_at_19.29.16-removebg-preview_taq8oh.png',
+            image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773373452/WhatsApp_Image_2026-03-12_at_19.29.18-removebg-preview_izu7m6.png',
             content: 'Technovate was a brilliant opportunity to present my research on satellite technology. The feedback from the professors was extremely constructive and insightful.',
-            college: 'Sri Padmavati Mahila Visvavidyalayam',
+            college: 'Sr Padmavati Mahila Visvavidyalayam',
             logo: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773269958/padmavathi-removebg-preview_xttmyj.png'
           },
           {

@@ -30,13 +30,11 @@ export const HorizonHero = ({ startTimer }) => {
     const canvasRef = useRef(null);
     const titleRef = useRef(null);
     const subtitleRef = useRef(null);
-    const progressRef = useRef(null);
     const menuRef = useRef(null);
     const overlayRef = useRef(null);
 
     const smoothCameraPos = useRef({ x: 0, y: 30, z: 100 });
 
-    const [slideProgress, setSlideProgress] = useState(0);
     const [currentSection, setCurrentSection] = useState(0);
     const [sectionData, setSectionData] = useState(SECTIONS[0]);
     const [isReady, setIsReady] = useState(false);
@@ -329,7 +327,7 @@ export const HorizonHero = ({ startTimer }) => {
     useEffect(() => {
         if (!isReady) return;
 
-        gsap.set([menuRef.current, titleRef.current, subtitleRef.current, progressRef.current], {
+        gsap.set([menuRef.current, titleRef.current, subtitleRef.current], {
             visibility: 'visible',
         });
 
@@ -346,7 +344,7 @@ export const HorizonHero = ({ startTimer }) => {
                 y: 50, opacity: 0, duration: 1, stagger: 0.2, ease: 'power3.out',
             }, '-=0.8');
         }
-        tl.from(progressRef.current, { opacity: 0, y: 50, duration: 1, ease: 'power2.out' }, '-=0.5');
+
 
         return () => { tl.kill(); };
     }, [isReady]);
@@ -404,14 +402,7 @@ export const HorizonHero = ({ startTimer }) => {
         let startTime = Date.now();
         let progressRAF;
 
-        // Animate the progress bar smoothly
-        const updateProgress = () => {
-            const elapsed = Date.now() - startTime;
-            const t = Math.min(elapsed / SLIDE_DURATION, 1);
-            setSlideProgress(t);
-            progressRAF = requestAnimationFrame(updateProgress);
-        };
-        progressRAF = requestAnimationFrame(updateProgress);
+
 
         // Advance to next section every 5s
         const interval = setInterval(() => {
@@ -518,59 +509,7 @@ export const HorizonHero = ({ startTimer }) => {
                     </div>
                 </div>
 
-                {/* Scroll progress bar */}
-                <div
-                    ref={progressRef}
-                    style={{
-                        display: 'none', // Hide entire centering container layout fully
-                        visibility: 'hidden',
-                        position: 'absolute',
-                        bottom: 40,
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        gap: 10,
-                        zIndex: 10,
-                    }}
-                >
-                    <span style={{
-                        fontSize: 10,
-                        letterSpacing: '0.4em',
-                        color: 'rgba(255,255,255,0.4)',
-                        fontFamily: 'monospace',
-                    }}>
-                        AUTOPLAY
-                    </span>
-                    {/* Progress Bar line disabled 
-                    <div style={{
-                        width: 120,
-                        height: 1,
-                        background: 'rgba(255,255,255,0.1)',
-                        borderRadius: 2,
-                        position: 'relative',
-                    }}>
-                        <div style={{
-                            position: 'absolute',
-                            left: 0,
-                            top: 0,
-                            height: '100%',
-                            width: `${slideProgress * 100}%`,
-                            background: 'rgba(255,255,255,0.6)',
-                            transition: 'width 0.05s linear',
-                            borderRadius: 2,
-                        }} />
-                    </div>
-                    */}
-                    <span style={{
-                        fontSize: 10,
-                        letterSpacing: '0.3em',
-                        color: 'rgba(255,255,255,0.35)',
-                        fontFamily: 'monospace',
-                    }}>
-                        {String(currentSection + 1).padStart(2, '0')} / {String(TOTAL_SECTIONS).padStart(2, '0')}
-                    </span>
-                </div>
+
 
                 {/* Section dots */}
                 <div className="hidden md:flex absolute right-[40px] top-1/2 -translate-y-1/2 flex-col gap-3 z-10">

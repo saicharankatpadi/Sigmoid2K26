@@ -9,30 +9,31 @@ const praveen = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773512636/W
 const harika = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773303686/WhatsApp_Image_2026-03-11_at_23.53.41_cy7bfa.jpg"
 
 const sadvika = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773299498/WhatsApp_Image_2026-03-11_at_23.49.15_agi7zm.jpg"
+const tejaswi = "https://res.cloudinary.com/djiivo0r7/image/upload/v1773342985/WhatsApp_Image_2026-03-12_at_12.15.25_cvzwzh.jpg"
 const TEAM_MEMBERS = [
     { name: 'N.Nikshep', img: figmaDev },
     { name: 'K.Sai Charan', img: frontendDev },
     { name: 'M.Balakrishna', img: teamLeader },
-    { name: 'K.Yashwanth', img: '/assets/images/team/img1.jpeg' },
-    { name: 'K.Charan Sai', img: '/assets/images/team/img8.jpeg' },
+    { name: 'K.Yashwanth', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773614156/WhatsApp_Image_2026-03-15_at_15.32.40_1_yxkrkw.jpg' },
+    { name: 'K.Charan Sai', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773613705/IMG_20251106_144857.jpg_2_p9d2dg.jpg' },
     { name: 'P.G. Bhanu Vamsidhar', img: newTeamMemberImg },
     { name: 'K. Uma Shankar', img: uma },
-    { name: 'K . Pavan', img: '/assets/images/team/img9.jpeg' },
+    { name: 'K . Pavan', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773614094/WhatsApp_Image_2026-03-15_at_15.32.40_vn0gsp.jpg' },
 ];
 
 const ALUMNI = [
-    { name: 'SK. Arshad Ahmad', badge: 'Student Coordinator', img: '/assets/images/team/img6.jpeg' },
-    { name: 'E. Tejaswi', badge: 'Student Coordinator', img: '/assets/images/team/img7.jpeg' },
+    { name: 'SK. Arshad Ahmad', badge: 'Student Coordinator', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773613508/WhatsApp_Image_2026-03-11_at_23.54.08_ijynkj.jpg' },
+    { name: 'E. Tejaswi', badge: 'Student Coordinator', img: tejaswi },
 ];
 
 const CORE_TEAM = [
-    { name: 'B.Tharun', badge: 'Core Team', img: '/assets/images/team/img10.jpeg' },
-    { name: 'K. Sudharshan Reddy', badge: 'Core Team', img: '/assets/images/team/img11.jpeg' },
+    { name: 'B.Tharun', badge: 'Core Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773613842/IMG_6227.jpg_hzmbyp.jpg' },
+    { name: 'K. Sudharshan Reddy', badge: 'Core Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773613507/WhatsApp_Image_2026-03-11_at_23.55.13_yfoiki.jpg' },
     { name: 'G.Praveen', badge: 'Core Team', img: praveen },
 ];
 
 const MARKETING_TEAM = [
-    { name: 'P. Harshavardhan', badge: 'Marketing Head', img: '/assets/images/team/img12.jpeg' },
+    { name: 'P. Harshavardhan', badge: 'Marketing Head', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773303805/WhatsApp_Image_2026-03-11_at_11.58.06_ctfutj.jpg' },
     { name: 'SK.Luqman', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298518/WhatsApp_Image_2026-03-11_at_23.54.52_rkog46.jpg' },
     { name: 'C.Pavan', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773470171/WhatsApp_Image_2026-03-13_at_23.03.23_1_stkvz9.jpg' },
     { name: 'N.Sravani', badge: 'Marketing Team', img: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773298749/IMG_04657.JPG_mu1v4c.jpg' },
