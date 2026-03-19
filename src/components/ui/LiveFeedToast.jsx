@@ -46,11 +46,19 @@ export function LiveFeedToast() {
       if (!Array.isArray(data)) return;
 
       const newItems = data.filter(item => {
+        // Skip error rows or rows with invalid passType
+        if (!item.passType || item.passType === 'ERROR') return false;
+        if (!['Elite', 'Supreme', 'Prime', 'Ultimate'].includes(item.passType)) return false;
+
         const id = `${item.name}-${item.timestamp}`;
         if (seenIdsRef.current.has(id)) return false;
         seenIdsRef.current.add(id);
         return true;
-      });
+      }).map(item => ({
+        ...item,
+        // If name is empty or generic, replace with a friendlier label
+        name: (!item.name || item.name === 'Participant') ? 'A new member' : item.name,
+      }));
 
       if (newItems.length > 0) {
         setQueue(prev => [...prev, ...newItems]);
