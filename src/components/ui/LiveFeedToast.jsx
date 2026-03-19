@@ -49,22 +49,34 @@ export function LiveFeedToast() {
       const firstLoad = isFirstFetch.current;
       if (firstLoad) isFirstFetch.current = false;
 
-      const newItems = data.filter(item => {
-        // Skip error rows or rows with invalid passType
+      // Filter valid entries only
+      const valid = data.filter(item => {
         if (!item.passType || item.passType === 'ERROR') return false;
-        if (!['Elite', 'Supreme', 'Prime', 'Ultimate'].includes(item.passType)) return false;
-
-        const id = `${item.name}-${item.timestamp}`;
-        if (seenIdsRef.current.has(id)) return false;
-        seenIdsRef.current.add(id);
-        return true;
+        return ['Elite', 'Supreme', 'Prime', 'Ultimate'].includes(item.passType);
       }).map(item => ({
         ...item,
         name: (!item.name || item.name === 'Participant') ? 'A new member' : item.name,
       }));
 
-      // On first load: just mark everything as seen — don't show old entries as toasts
-      if (firstLoad) return;
+      if (firstLoad) {
+        // Mark ALL entries as seen (no toasts for old ones)
+        valid.forEach(item => {
+          seenIdsRef.current.add(`${item.name}-${item.timestamp}`);
+        });
+        // Show ONLY the single most recent purchase as a toast
+        if (valid.length > 0) {
+          setQueue([valid[0]]);
+        }
+        return;
+      }
+
+      // Subsequent polls — only show genuinely new entries
+      const newItems = valid.filter(item => {
+        const id = `${item.name}-${item.timestamp}`;
+        if (seenIdsRef.current.has(id)) return false;
+        seenIdsRef.current.add(id);
+        return true;
+      });
 
       if (newItems.length > 0) {
         setQueue(prev => [...prev, ...newItems]);
