@@ -39,6 +39,7 @@ import { Preloader } from './components/ui/Preloader.jsx'
 import { PassportPage } from './components/ui/PassportPage.jsx'
 import { InsightsFAB } from './components/ui/InsightsFAB.jsx'
 import { InsightsPage } from './components/ui/InsightsPage.jsx'
+import { LiveFeedToast } from './components/ui/LiveFeedToast.jsx'
 import { RegisterPage } from './components/ui/Registraion.jsx'
 
 import { MagazinePage } from './components/ui/MagazinePage.jsx'
@@ -302,6 +303,9 @@ function App() {
 
             {/* Floating Action Button for Insights Chatbot */}
             <InsightsFAB />
+
+            {/* Live Purchase Feed Toast — bottom-right, all pages */}
+            <LiveFeedToast />
         </div>
     )
 }
