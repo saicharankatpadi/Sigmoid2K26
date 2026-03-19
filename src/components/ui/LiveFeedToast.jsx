@@ -31,8 +31,9 @@ export function LiveFeedToast() {
   const [current, setCurrent] = useState(null); // visible toast
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
-  const seenIdsRef = useRef(new Set());
-  const queueRef = useRef([]);
+  const seenIdsRef   = useRef(new Set());
+  const queueRef     = useRef([]);
+  const isFirstFetch = useRef(true); // first load: mark seen silently, no toasts
 
   // Keep ref in sync
   useEffect(() => { queueRef.current = queue; }, [queue]);
@@ -45,6 +46,9 @@ export function LiveFeedToast() {
       const data = await res.json();
       if (!Array.isArray(data)) return;
 
+      const firstLoad = isFirstFetch.current;
+      if (firstLoad) isFirstFetch.current = false;
+
       const newItems = data.filter(item => {
         // Skip error rows or rows with invalid passType
         if (!item.passType || item.passType === 'ERROR') return false;
@@ -56,9 +60,11 @@ export function LiveFeedToast() {
         return true;
       }).map(item => ({
         ...item,
-        // If name is empty or generic, replace with a friendlier label
         name: (!item.name || item.name === 'Participant') ? 'A new member' : item.name,
       }));
+
+      // On first load: just mark everything as seen — don't show old entries as toasts
+      if (firstLoad) return;
 
       if (newItems.length > 0) {
         setQueue(prev => [...prev, ...newItems]);
