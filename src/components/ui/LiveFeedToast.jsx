@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
 // Replace this with your deployed Apps Script Web App URL after redeployment
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx-uyN4zAK748b0otUd3CbreX7SQqGu_blZ_-2k2Qm1H3RtQIkFrPLc_aqmMpUNvqmo/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwkQj2HvBklI_FO2R9qqLVKpSYo67lDWkT9DCWHr9mKFdUY2ZFy8K4zK8XzsJ78l2g/exec';
 
 const POLL_INTERVAL_MS = 60_000;   // Poll every 60 seconds
 const TOAST_VISIBLE_MS = 5_000;    // Each toast shows for 5 seconds
@@ -31,8 +31,8 @@ export function LiveFeedToast() {
   const [current, setCurrent] = useState(null); // visible toast
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
-  const seenIdsRef   = useRef(new Set());
-  const queueRef     = useRef([]);
+  const seenIdsRef = useRef(new Set());
+  const queueRef = useRef([]);
   const isFirstFetch = useRef(true); // first load: mark seen silently, no toasts
 
   // Keep ref in sync
@@ -56,12 +56,14 @@ export function LiveFeedToast() {
       }).map(item => ({
         ...item,
         name: (!item.name || item.name === 'Participant') ? 'A new member' : item.name,
+        // Normalize timestamp to a reliable string for dedup + display
+        timestamp: item.timestamp ? new Date(item.timestamp.toString()).toISOString() : new Date().toISOString(),
       }));
 
       if (firstLoad) {
         // Mark ALL entries as seen (no toasts for old ones)
         valid.forEach(item => {
-          seenIdsRef.current.add(`${item.name}-${item.timestamp}`);
+          seenIdsRef.current.add(`${item.passType}-${item.timestamp}`);
         });
         // Show ONLY the single most recent purchase as a toast
         if (valid.length > 0) {
@@ -72,7 +74,7 @@ export function LiveFeedToast() {
 
       // Subsequent polls — only show genuinely new entries
       const newItems = valid.filter(item => {
-        const id = `${item.name}-${item.timestamp}`;
+        const id = `${item.passType}-${item.timestamp}`;
         if (seenIdsRef.current.has(id)) return false;
         seenIdsRef.current.add(id);
         return true;
