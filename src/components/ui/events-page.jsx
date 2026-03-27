@@ -107,27 +107,30 @@ const EVENTS_DATA = [
     },
     {
         id: 101,
-        title: '',
+        title: 'Solar Workshop',
         category: 'Workshops',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773369508/Your_paragraph_text_19_ayxkkj.png',
-        description: '',
-        route: '/workshop-web'
+        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1774585021/WhatsApp_Image_2026-03-26_at_21.04.04_1_pt0kt7.jpg',
+        description: 'Power from the sun — To power everyone. Conducted by K Chandra Sekhar from Pragathi Power Solutions. Fri, 3rd & 4th April.',
+        route: '/workshop-solar',
+        confirmed: true,
     },
     {
         id: 102,
-        title: '',
+        title: 'AI & Machine Learning Workshop',
         category: 'Workshops',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773369508/Your_paragraph_text_19_ayxkkj.png',
-        description: '',
-        route: '/workshop-ai'
+        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1774585021/WhatsApp_Image_2026-03-26_at_21.04.03_qlx53d.jpg',
+        description: 'Explore the power of Artificial Intelligence and Machine Learning. Conducted by Varun V V Iellapalli, Senior Software Engineer @ Fanatics, Alumni SVUCE CSE. Fri, 3rd April at 3 pm.',
+        route: '/workshop-ai',
+        confirmed: true,
     },
     {
         id: 103,
-        title: '',
+        title: 'VLSI Workshop',
         category: 'Workshops',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773369508/Your_paragraph_text_19_ayxkkj.png',
-        description: '',
-        route: '/workshop-cyber'
+        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1774585021/WhatsApp_Image_2026-03-26_at_21.04.04_jhq8kp.jpg',
+        description: 'Dive deep into VLSI design concepts. Conducted by S Pavan, ECE Alumni. Fri & Sat, 3rd & 4th April.',
+        route: '/workshop-vlsi',
+        confirmed: true,
     },
     {
         id: 104,
@@ -265,7 +268,7 @@ export const EventsPage = () => {
                                     {event.title}
                                 </h3>
 
-                                {event.category === 'Workshops' ? (
+                                {event.category === 'Workshops' && !event.confirmed ? (
                                     <div className="flex-1 flex items-center justify-center mb-6">
                                         <span className="text-[#F97316] text-[18px] md:text-[20px] font-black tracking-[0.15em] uppercase">
                                             Coming Soon
@@ -285,7 +288,7 @@ export const EventsPage = () => {
                                 )}
 
                                 <div className="flex justify-end mt-auto">
-                                    {event.category !== 'E-sports' && (
+                                    {event.category !== 'E-sports' && event.category !== 'Workshops' && (
                                         <button
                                             onClick={() => navigate(event.route || '/event-wireframe')}
                                             className="bg-[#EAB308] hover:bg-[#D97706] text-white font-bold py-[6px] px-5 rounded-full transition-all duration-200 text-[12px] shadow-[0_3px_10px_rgba(234,179,8,0.2)] hover:shadow-[0_5px_15px_rgba(234,179,8,0.35)] hover:-translate-y-0.5 active:translate-y-0"

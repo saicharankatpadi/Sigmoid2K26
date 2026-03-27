@@ -460,11 +460,11 @@ export function HostelDetails({ type }) {
                                     )}
                                     onClick={() => {
                                         if (isBoys) {
-                                            window.open(boysAccommodationPaymentLink, '_blank', 'noopener,noreferrer');
+                                            window.location.href = boysAccommodationPaymentLink;
                                             return;
                                         }
 
-                                        window.open(girlsAccommodationPaymentLink, '_blank', 'noopener,noreferrer');
+                                        window.location.href = girlsAccommodationPaymentLink;
                                     }}
                                 >
                                     Book Now

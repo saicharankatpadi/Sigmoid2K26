@@ -173,7 +173,7 @@ function PassCard({ pass }) {
                 <div className="mt-10 flex justify-center">
                     <a
                         href={pass.paymentLink}
-                        target="_blank"
+                        target="_self"
                         rel="noreferrer"
                         className={`rounded-full border border-white/70 bg-gradient-to-r ${pass.accent} px-8 py-3 text-lg font-medium text-white shadow-[0_8px_30px_rgba(255,106,43,0.28)] transition hover:scale-[1.03]`}
                     >
