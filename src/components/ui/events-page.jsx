@@ -136,25 +136,28 @@ const EVENTS_DATA = [
         id: 104,
         title: '',
         category: 'Workshops',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773369508/Your_paragraph_text_19_ayxkkj.png',
+        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1774603488/WhatsApp_Image_2026-03-27_at_02.11.40_hjrqlg.jpg',
         description: '',
-        route: '/workshop-cloud'
+        route: '/workshop-cloud',
+        confirmed: true,
     },
     {
         id: 105,
         title: '',
         category: 'Workshops',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773369508/Your_paragraph_text_19_ayxkkj.png',
+        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1774603487/WhatsApp_Image_2026-03-27_at_02.11.40_1_fbswl8.jpg',
         description: '',
-        route: '/workshop-ui-ux'
+        route: '/workshop-ui-ux',
+        confirmed: true,
     },
     {
         id: 106,
         title: '',
         category: 'Workshops',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773369508/Your_paragraph_text_19_ayxkkj.png',
+        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1774603488/WhatsApp_Image_2026-03-27_at_02.11.41_y9jj9t.jpg',
         description: '',
-        route: '/workshop-iot'
+        route: '/workshop-iot',
+        confirmed: true,
     }
 ];
 
