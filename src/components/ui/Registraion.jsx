@@ -19,7 +19,7 @@ const elitePass = {
     highlights: ['All Non-Tech Events'],
     accent: 'from-[#ff8a1f] to-[#ff5a00]',
     glow: 'rgba(255,138,31,0.22)',
-    paymentLink: 'https://rzp.io/rzp/F3gNhm1',
+    paymentLink: 'https://rzp.io/rzp/3PGscNv',
 };
 
 const supremePass = {
