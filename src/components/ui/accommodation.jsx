@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { Button as MovingBorderButton } from './moving-border'
 import { BlurIn } from './blur-in'
 // import { Button } from './neon-button'
-const girlsHostelImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218160/girls_hostel_zl81gi.png'
-const boysHostelImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773223585/boys_hostel_regszz.png'
-const customerSupportImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218149/customer_support_kkemrr.png'
-const phoneIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218152/phone_icon_hwhv1z.png'
+const girlsHostelImg = '/assets/images/hostel/hostel.png'; // Using the provided hostel image
+const boysHostelImg = '/assets/images/hostel/hostel.png'; // Using the provided hostel image
+const customerSupportImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218149/customer_support_kkemrr.png';
+const phoneIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218152/phone_icon_hwhv1z.png';
 
 export function Accommodation() {
     const navigate = useNavigate();

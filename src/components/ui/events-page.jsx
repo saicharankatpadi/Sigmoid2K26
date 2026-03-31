@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { MatrixText } from './matrix-text';
 
-const thumbPosterize = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773545845/Your_paragraph_text_24_vzownp.png';
+const thumbPosterize = '/assets/images/tech-thumbnails/posterize.png';
 const thumbClickfest = '/assets/images/nontech-thumbnails/click-fest.png';
 const thumbFreefire = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773546026/Im%C3%A1genes_Free_fire_kervmf.jpg';
 
@@ -13,7 +13,7 @@ const EVENTS_DATA = [
         id: 1,
         title: 'Technovate',
         category: 'Technical',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773297645/Your_paragraph_text_8_ouoziw.png',
+        image: '/assets/images/tech-thumbnails/tech-45.png',
         description: 'Design a captivating and informative paper presentation that effectively communicates your research to a broad audience of researchers at a conference or seminar.',
         route: '/technovate'
     },
@@ -29,7 +29,7 @@ const EVENTS_DATA = [
         id: 10,
         title: 'Circuitrix',
         category: 'Technical',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773309745/Your_paragraph_text_10_mjd0ay.png',
+        image: '/assets/images/tech-thumbnails/tech-46.png',
         description: 'Master the art of circuit design and wiring. Test your theoretical knowledge and practical precision across two intense rounds of electronic challenges.',
         route: '/circuitrix'
     },
@@ -37,7 +37,7 @@ const EVENTS_DATA = [
         id: 5,
         title: 'Avishkar',
         category: 'Technical',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773309325/Your_paragraph_text_9_xzvar1.png',
+        image: '/assets/images/tech-thumbnails/tech-47.png',
         description: 'Avishkar is a dynamic event designed to celebrate creativity and hands-on learning. Present working models emphasizing Electronics, Sensors, and Software implementation.',
         route: '/avishkar'
     },
@@ -45,7 +45,7 @@ const EVENTS_DATA = [
         id: 11,
         title: 'Codex',
         category: 'Technical',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773310435/Your_paragraph_text_11_n3zpi7.png',
+        image: '/assets/images/tech-thumbnails/tech-48.png',
         description: 'The ultimate coding showdown. Solve complex algorithmic challenges and demonstrate your programming prowess in this intense competitive coding event.',
         route: '/codex'
     },

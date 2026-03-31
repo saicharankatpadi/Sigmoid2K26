@@ -173,7 +173,7 @@ export default function Navbar() {
                         <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 no-underline group shrink-0">
                             {/* New Sigmoid 2k26 Logo */}
                             <img 
-                                src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" 
+                                src="/assets/images/hostel/logo.png" 
                                 alt="Sigmoid Logo" 
                                 className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_2px_8px_rgba(255,255,255,0.1)]"
                             />
