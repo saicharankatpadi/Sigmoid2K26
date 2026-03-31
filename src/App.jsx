@@ -159,9 +159,9 @@ function ReleaseBanner({ onHide }) {
 
 
 /* ── Coach Image Assets ── */
-const coach1 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773267324/WhatsApp_Image_2026-03-11_at_15.15.00_gxucuo.jpg'
-const coach3 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773267186/WhatsApp_Image_2026-03-11_at_14.47.44_sdgm1x.jpg'
-const coach2 = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773267884/I-Kullayamma_qxqkzn.png'
+const coach1 = '/assets/images/coaches/coach1.jpg'
+const coach3 = '/assets/images/coaches/coach3.jpg'
+const coach2 = '/assets/images/coaches/kullayam.jpg'
 
 /* ── Badge Component ── */
 function Badge({ children, className = "", delay = 0 }) {

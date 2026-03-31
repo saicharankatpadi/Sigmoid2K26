@@ -104,15 +104,16 @@ const eventData = {
     { id: "q4", question: "What should I bring?", answer: "Just your intellectual wit! Any required writing materials or digital pads will be provided." }
   ],
   gallery: [
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419112/567A9463_h0wawb.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419112/567A9465_wyfldt.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419111/567A0456_joxuc1.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419277/IMG_7998_qsqr6g.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419271/IMG_6681_jltqax.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419269/IMG_7512_bvrbxe.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419268/IMG_7505_shkatr.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419954/IMG_1360_epknqv.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773419940/IMG_1357_ffzld1.jpg"
+    "/assets/images/quizmania-carousel/567A0421.jpg",
+    "/assets/images/quizmania-carousel/567A0456.jpg",
+    "/assets/images/quizmania-carousel/567A9463.jpg",
+    "/assets/images/quizmania-carousel/567A9465.jpg",
+    "/assets/images/quizmania-carousel/IMG_1369.jpg",
+    "/assets/images/quizmania-carousel/IMG_1465.jpg",
+    "/assets/images/quizmania-carousel/IMG_6681.jpg",
+    "/assets/images/quizmania-carousel/IMG_7505.jpg",
+    "/assets/images/quizmania-carousel/IMG_7512.jpg",
+    "/assets/images/quizmania-carousel/IMG_7998.jpg"
   ]
 };
 

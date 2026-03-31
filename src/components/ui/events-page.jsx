@@ -21,7 +21,7 @@ const EVENTS_DATA = [
         id: 4,
         title: 'Posterize',
         category: 'Technical',
-        image: thumbPosterize,
+        image: '/assets/images/thumbnails/posterize.png',
         description: 'Design a captivating and informative poster that effectively communicates your research to a broad audience. Present your findings to professors and win exciting prizes in this unique poster presentation event.',
         route: '/posterize'
     },
@@ -29,7 +29,7 @@ const EVENTS_DATA = [
         id: 10,
         title: 'Circuitrix',
         category: 'Technical',
-        image: '/assets/images/tech-thumbnails/circutirix.png',
+        image: '/assets/images/thumbnails/circuitrix.png',
         description: 'Master the art of circuit design and wiring. Test your theoretical knowledge and practical precision across two intense rounds of electronic challenges.',
         route: '/circuitrix'
     },
@@ -37,7 +37,7 @@ const EVENTS_DATA = [
         id: 5,
         title: 'Avishkar',
         category: 'Technical',
-        image: '/assets/images/tech-thumbnails/avishkar.png',
+        image: '/assets/images/thumbnails/avishkar.png',
         description: 'Avishkar is a dynamic event designed to celebrate creativity and hands-on learning. Present working models emphasizing Electronics, Sensors, and Software implementation.',
         route: '/avishkar'
     },
@@ -45,7 +45,7 @@ const EVENTS_DATA = [
         id: 11,
         title: 'Codex',
         category: 'Technical',
-        image: '/assets/images/tech-thumbnails/codex.png',
+        image: '/assets/images/thumbnails/codex.png',
         description: 'The ultimate coding showdown. Solve complex algorithmic challenges and demonstrate your programming prowess in this intense competitive coding event.',
         route: '/codex'
     },
@@ -53,7 +53,7 @@ const EVENTS_DATA = [
         id: 12,
         title: 'Quizmania',
         category: 'Technical',
-        image: "/assets/images/tech-thumbnails/quiz.png",
+        image: "/assets/images/thumbnails/quizmania.png",
         description: 'A high-energy technical quiz that tests your speed, accuracy, and depth of knowledge. Compete against the best minds in a battle of intellect and wit!',
         route: '/quizmania'
     },
@@ -77,7 +77,7 @@ const EVENTS_DATA = [
         id: 9,
         title: 'Click Fest',
         category: 'Non-Technical',
-        image: '/assets/images/nontech-thumbnails/clickfest.png',
+        image: '/assets/images/thumbnails/click-fest.png',
 
         description: 'Capture stunning, creative images showcasing technical skills and unique perspectives. Only smartphones allowed. Frame your best shot and compete for the gallery spotlight.',
         route: '/click-fest'
@@ -86,7 +86,7 @@ const EVENTS_DATA = [
         id: 13,
         title: 'Dumbcharades & Pictionary',
         category: 'Non-Technical',
-        image: '/assets/images/nontech-thumbnails/dumbcharades.png',
+        image: '/assets/images/thumbnails/dumbcharades.png',
         description: 'Guess the move, sketch the vibe! A thrilling two-round competition featuring acting in Dumbcharades and drawing in Pictionary. Showcase your observation and teamwork skills.',
         route: '/dumbcharades'
     },
@@ -94,7 +94,7 @@ const EVENTS_DATA = [
         id: 14,
         title: "Kim's Game",
         category: 'Non-Technical',
-        image: '/assets/images/nontech-thumbnails/kims.png',
+        image: '/assets/images/thumbnails/kims-game.png',
         description: 'A fun-filled multi-round competition that combines puzzles, movie and app identification, treasure hunts, and team coordination challenges.',
         route: '/kims-game'
     },
@@ -102,7 +102,7 @@ const EVENTS_DATA = [
         id: 15,
         title: 'Iconema',
         category: 'Non-Technical',
-        image: '/assets/images/nontech-thumbnails/iconema.png',
+        image: '/assets/images/thumbnails/iconema.png',
         description: 'A thrilling multi-round competition featuring movie logic, app identification, and a treasure hunt. Test your observation and teamwork skills.',
         route: '/iconema'
     },

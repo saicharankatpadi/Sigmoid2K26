@@ -2,9 +2,8 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShineBorder } from './shine-border';
-const passportImg = '/assets/images/hostel/passport.png';
-const roadmapImg = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218177/roadmap_ciw7sz.png';
-const passportIcon = '/assets/images/hostel/passport.png';
+const passportImg = '/assets/images/passport/2.png';
+const roadmapImg = '/assets/images/passport/roadmap.png';
 
 export function PassportPage() {
     const [viewFull, setViewFull] = useState(false);
@@ -23,9 +22,7 @@ export function PassportPage() {
                 <div className="flex flex-col items-start gap-4 w-full max-w-[420px]">
                     <div className="flex items-center gap-4 px-2 w-full justify-center mb-2">
                         <h2 className="text-white m-0 text-[22px] md:text-[28px] font-extrabold tracking-wide text-center" style={{ textShadow: '-2px 0px 0px #0ff, 2px 0px 0px #f00' }}>SIGMOID 2K26 PASSPORT</h2>
-                        <div className="border-2 border-white/40 rounded-lg p-1.5 flex items-center justify-center bg-white/5 backdrop-blur-sm">
-                            <img src={passportIcon} alt="Passport Icon" className="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] brightness-0 invert" />
-                        </div>
+
                     </div>
                     
                     <ShineBorder 
@@ -50,8 +47,8 @@ export function PassportPage() {
                                 </button>
 
                                 <a
-                                    href="/Sigmoid_2K26_Passport.pdf"
-                                    download="Sigmoid_2K26_Passport.pdf"
+                                    href="/assets/documents/sigmoid_2k26_passport.pdf"
+                                    download="sigmoid_2k26_passport.pdf"
                                     className="w-full text-center relative group overflow-hidden rounded-xl bg-transparent border border-white/20 p-4 transition-all hover:bg-yellow-500 hover:text-black hover:border-yellow-500 active:bg-yellow-600 active:scale-[0.98] block no-underline cursor-pointer"
                                 >
                                     <span className="text-[16px] font-bold group-hover:text-black text-white transition-colors">

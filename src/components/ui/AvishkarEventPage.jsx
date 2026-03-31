@@ -109,15 +109,19 @@ const eventData = {
     { id: "q4", question: "Is the project abstract mandatory?", answer: "Yes, you must submit your project abstract through the Google form before the specified deadline of 02-04-2026." }
   ],
   gallery: [
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350157/567A8795_zz67aa.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350177/IMG_1188_dbihrp.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350157/567A8798_ho0gki.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350189/IMG_1183_vxgyhf.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350200/IMG-20240328-WA0045_jzygqf.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350202/IMG-20240328-WA0050_ekcwmn.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350217/IMG_0568_k7mfoc.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350217/IMG_1194_nkfifp.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773350215/IMG_0574_ldo9dk.jpg"
+    "/assets/images/avishkar-carousel/567A8795.jpg",
+    "/assets/images/avishkar-carousel/567A8798.jpg",
+    "/assets/images/avishkar-carousel/IMG-20240328-WA0044.jpg",
+    "/assets/images/avishkar-carousel/IMG-20240328-WA0045.jpg",
+    "/assets/images/avishkar-carousel/IMG-20240328-WA0050.jpg",
+    "/assets/images/avishkar-carousel/IMG_0566.jpg",
+    "/assets/images/avishkar-carousel/IMG_0568.jpg",
+    "/assets/images/avishkar-carousel/IMG_0574.jpg",
+    "/assets/images/avishkar-carousel/IMG_1183.jpg",
+    "/assets/images/avishkar-carousel/IMG_1188.jpg",
+    "/assets/images/avishkar-carousel/IMG_1194.jpg",
+    "/assets/images/avishkar-carousel/IMG_1340.jpg",
+    "/assets/images/avishkar-carousel/IMG_1345.jpg"
   ],
   video_preview: {
     video_src: "https://res.cloudinary.com/djiivo0r7/video/upload/v1773348542/AVISHKAR_2026_Promo_720p_caption_c99gn2.mp4",

@@ -118,13 +118,20 @@ const eventData = {
     ]
   },
   gallery: [
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773377744/567A8819_cdnjd7.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773377753/567A8820_fuhm2r.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773377755/567A8827_viwjmo.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773377815/IMG_0466_kowknq.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773377934/IMG_0467_bm1hve.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773378067/IMG_0838_pcozmi.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773378091/IMG_0473_ad8jfz.jpg"
+    "/assets/images/codex-carousel/567A8819.jpg",
+    "/assets/images/codex-carousel/567A8820.jpg",
+    "/assets/images/codex-carousel/567A8827.jpg",
+    "/assets/images/codex-carousel/IMG_0449.jpg",
+    "/assets/images/codex-carousel/IMG_0466.jpg",
+    "/assets/images/codex-carousel/IMG_0467.jpg",
+    "/assets/images/codex-carousel/IMG_0472.jpg",
+    "/assets/images/codex-carousel/IMG_0473.jpg",
+    "/assets/images/codex-carousel/IMG_0838.jpg",
+    "/assets/images/codex-carousel/IMG_0864.jpg",
+    "/assets/images/codex-carousel/IMG_0937.jpg",
+    "/assets/images/codex-carousel/IMG_0941.jpg",
+    "/assets/images/codex-carousel/IMG_0943.jpg",
+    "/assets/images/codex-carousel/IMG_1853.jpg"
   ]
 };
 

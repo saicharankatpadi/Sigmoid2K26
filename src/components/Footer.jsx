@@ -9,7 +9,7 @@ export default function Footer() {
                     {/* Logo + Name */}
                     <div className="flex items-center gap-2.5 shrink-0">
                         <img 
-                            src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" 
+                            src="/assets/images/hostel/logo.png" 
                             alt="Sigmoid Logo" 
                             className="w-8 h-8 object-contain"
                         />
