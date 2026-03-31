@@ -1,5 +1,16 @@
 import React from 'react';
 
+const ePass = {
+    name: 'ePass',
+    priceLabel: 'Online Access',
+    description: 'Join Sigmoid workshops online and attend the sessions virtually from anywhere.',
+    highlights: ['Online Workshops'],
+    accent: 'from-[#ffb347] to-[#ff6b2b]',
+    glow: 'rgba(255,107,43,0.2)',
+    paymentLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdkLtn7kaSiHQ6IeMqKptxj05vgeafeJRsxuzCASYoNY0p9cg/viewform?usp=dialog',
+    buttonLabel: 'Register Now',
+};
+
 const elitePass = {
     name: 'Elite Pass',
     originalPrice: 400,
@@ -154,10 +165,16 @@ function PassCard({ pass }) {
                 <h3 className="text-center text-[2rem] font-light tracking-[-0.04em] text-[#ffd7a3]">{pass.name}</h3>
 
                 <div className="mt-8 text-center">
-                    <div className="text-2xl font-light text-[#d7ba4c] sm:text-[2.6rem]">
-                        <span className="mr-2 text-white/35 line-through">Rs{pass.originalPrice}</span>
-                        <span className="font-medium text-[#ffd166]">Rs{pass.price}</span>
-                    </div>
+                    {pass.priceLabel ? (
+                        <div className="text-2xl font-medium text-[#ffd166] sm:text-[2.6rem]">
+                            {pass.priceLabel}
+                        </div>
+                    ) : (
+                        <div className="text-2xl font-light text-[#d7ba4c] sm:text-[2.6rem]">
+                            <span className="mr-2 text-white/35 line-through">Rs{pass.originalPrice}</span>
+                            <span className="font-medium text-[#ffd166]">Rs{pass.price}</span>
+                        </div>
+                    )}
                 </div>
 
                 <p className="mx-auto mt-8 max-w-xl text-center text-[1rem] leading-8 text-white/58">
@@ -171,14 +188,22 @@ function PassCard({ pass }) {
                 </p>
 
                 <div className="mt-10 flex justify-center">
-                    <a
-                        href={pass.paymentLink}
-                        target="_self"
-                        rel="noreferrer"
-                        className={`rounded-full border border-white/70 bg-gradient-to-r ${pass.accent} px-8 py-3 text-lg font-medium text-white shadow-[0_8px_30px_rgba(255,106,43,0.28)] transition hover:scale-[1.03]`}
-                    >
-                        Register Now
-                    </a>
+                    {pass.disabled ? (
+                        <span
+                            className={`cursor-not-allowed rounded-full border border-white/40 bg-gradient-to-r ${pass.accent} px-8 py-3 text-lg font-medium text-white/80 shadow-[0_8px_30px_rgba(255,106,43,0.28)]`}
+                        >
+                            {pass.buttonLabel || 'Register Now'}
+                        </span>
+                    ) : (
+                        <a
+                            href={pass.paymentLink}
+                            target="_self"
+                            rel="noreferrer"
+                            className={`rounded-full border border-white/70 bg-gradient-to-r ${pass.accent} px-8 py-3 text-lg font-medium text-white shadow-[0_8px_30px_rgba(255,106,43,0.28)] transition hover:scale-[1.03]`}
+                        >
+                            {pass.buttonLabel || 'Register Now'}
+                        </a>
+                    )}
                 </div>
             </div>
         </div>
@@ -211,15 +236,12 @@ export function RegisterPage() {
                 </div>
 
                 <div className="mt-16 grid gap-6 lg:grid-cols-2">
+                    <PassCard pass={ePass} />
                     <PassCard pass={elitePass} />
                     <PassCard pass={supremePass} />
                     <PassCard pass={primePass} />
                     <PassCard pass={ultimatePass} />
-                    <div className="lg:col-span-2 flex justify-center">
-                        <div className="w-full lg:max-w-[calc(50%-0.75rem)]">
-                            <PassCard pass={ultimateProPass} />
-                        </div>
-                    </div>
+                    <PassCard pass={ultimateProPass} />
                 </div>
 
                 <section className="mt-24">

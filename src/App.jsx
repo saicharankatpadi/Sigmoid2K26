@@ -33,7 +33,7 @@ import EventCountdown from './components/ui/EventCountdown'
 
 import { GalleryPage } from './components/ui/gallery-page.jsx'
 import { StatsPage } from './components/StatsPage'
-import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
+import { Routes, Route, useLocation, Navigate, Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Preloader } from './components/ui/Preloader.jsx'
 import { PassportPage } from './components/ui/PassportPage.jsx'
@@ -46,6 +46,115 @@ import { MagazinePage } from './components/ui/MagazinePage.jsx'
 import ScrollToTop from './components/ScrollToTop'
 import { ContactPage } from './components/ui/contact-page.jsx'
 import { useEffect } from 'react'
+
+const EPASS_RELEASE_TARGET = new Date('2026-04-01T00:00:00+05:30')
+
+function getTimeLeft() {
+    const diff = EPASS_RELEASE_TARGET.getTime() - Date.now()
+    const total = Math.max(diff, 0)
+
+    return {
+        total,
+        days: Math.floor(total / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((total / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((total / (1000 * 60)) % 60),
+        seconds: Math.floor((total / 1000) % 60),
+    }
+}
+
+function CountdownItem({ label, value, compact = false }) {
+    return (
+        <div className={compact ? 'min-w-[34px]' : 'min-w-[52px]'}>
+            <div className={`${compact ? 'text-sm' : 'text-2xl'} font-black leading-none`}>
+                {String(value).padStart(2, '0')}
+            </div>
+            <div className={`${compact ? 'text-[9px]' : 'text-[10px]'} mt-1 uppercase tracking-[0.16em]`}>
+                {label}
+            </div>
+        </div>
+    )
+}
+
+function ReleaseBanner({ onHide }) {
+    const [timeLeft, setTimeLeft] = useState(() => getTimeLeft())
+
+    useEffect(() => {
+        const timer = window.setInterval(() => {
+            const next = getTimeLeft()
+            setTimeLeft(next)
+
+            if (next.total <= 0) {
+                onHide()
+            }
+        }, 1000)
+
+        return () => window.clearInterval(timer)
+    }, [onHide])
+
+    const handleClose = () => {
+        sessionStorage.setItem('hideEPassReleaseBanner', 'true')
+        onHide()
+    }
+
+    if (timeLeft.total <= 0) {
+        return null
+    }
+
+    return (
+        <div className="fixed left-0 right-0 top-0 z-[60] border-b border-[#f7c24a]/35 bg-[linear-gradient(90deg,#f7c24a_0%,#f5b53a_35%,#f0a423_100%)] px-3 py-2 text-[#17120a] shadow-[0_10px_30px_rgba(245,181,58,0.18)] sm:px-6">
+            <div className="mx-auto flex max-w-7xl items-center justify-between gap-3">
+                <div className="min-w-0">
+                    <p className="text-sm font-extrabold uppercase tracking-[0.16em] sm:text-base">
+                        EPass Released
+                    </p>
+                    <p className="text-xs font-semibold sm:text-sm">
+                        Online workshop access is live now.
+                    </p>
+                </div>
+
+                <div className="hidden items-center gap-2 text-center sm:flex">
+                    <CountdownItem label="Days" value={timeLeft.days} />
+                    <span className="text-lg font-black">:</span>
+                    <CountdownItem label="Hours" value={timeLeft.hours} />
+                    <span className="text-lg font-black">:</span>
+                    <CountdownItem label="Mins" value={timeLeft.minutes} />
+                    <span className="text-lg font-black">:</span>
+                    <CountdownItem label="Secs" value={timeLeft.seconds} />
+                </div>
+
+                <div className="flex items-center gap-2 sm:gap-3">
+                    <Link
+                        to="/register"
+                        className="rounded-full bg-[#17120a] px-4 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-white no-underline transition hover:scale-[1.02] sm:px-6 sm:text-sm"
+                    >
+                        Grab Now
+                    </Link>
+                    <button
+                        type="button"
+                        onClick={handleClose}
+                        className="flex h-10 w-10 items-center justify-center rounded-full border border-[#17120a]/15 bg-white/25 text-[#17120a] transition hover:bg-white/40"
+                        aria-label="Close release banner"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div className="mt-2 flex items-center justify-center gap-2 text-center text-[11px] font-bold uppercase tracking-[0.16em] text-[#17120a] sm:hidden">
+                <CountdownItem label="D" value={timeLeft.days} compact />
+                <span>:</span>
+                <CountdownItem label="H" value={timeLeft.hours} compact />
+                <span>:</span>
+                <CountdownItem label="M" value={timeLeft.minutes} compact />
+                <span>:</span>
+                <CountdownItem label="S" value={timeLeft.seconds} compact />
+            </div>
+        </div>
+    )
+}
 
 
 
@@ -239,6 +348,12 @@ function Home({ showLoader }) {
 function App() {
     const location = useLocation();
     const isAboutPage = location.pathname === '/about';
+    const [showReleaseBanner, setShowReleaseBanner] = useState(() => {
+        if (sessionStorage.getItem('hideEPassReleaseBanner') === 'true') {
+            return false;
+        }
+        return Date.now() < EPASS_RELEASE_TARGET.getTime();
+    });
 
     // Only show loader if we land directly on the home page initially and haven't seen it yet this session
     const [showLoader, setShowLoader] = useState(() => {
@@ -265,7 +380,8 @@ function App() {
                 )}
             </AnimatePresence>
 
-            <Navbar />
+            {showReleaseBanner && <ReleaseBanner onHide={() => setShowReleaseBanner(false)} />}
+            <Navbar topOffset={showReleaseBanner ? 74 : 0} />
 
             <div className="flex-1">
                 <Routes>
