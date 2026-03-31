@@ -66,7 +66,7 @@ export const AboutSection = () => {
                 <div className="about-logo-wrap">
                     <div className="about-logo-placeholder w-16 h-16" title="Sigmoid logo">
                         <img
-                            src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png"
+                            src="/assets/images/hostel/logo.png"
                             alt="Sigmoid Logo"
                             className="w-full h-full object-contain drop-shadow-[0_2px_8px_rgba(255,255,255,0.1)]"
                         />

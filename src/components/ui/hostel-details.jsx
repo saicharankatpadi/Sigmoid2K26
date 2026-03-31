@@ -6,8 +6,8 @@ import { LocationMap } from './expand-map'
 import { BlurIn } from './blur-in'
 import { Button } from './neon-button'
 import { cn } from '../../lib/utils'
-const food1Img = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218168/food1_bkpkra.png'
-const food2Img = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218154/food2_cyzxhy.png'
+const food1Img = '/assets/images/hostel/hostel.png';
+const food2Img = '/assets/images/hostel/hostel.png';
 const groupIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/group-icon_vmt5xe.png'
 const homeIcon = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773218173/home-icon_kwn11t.png'
 

@@ -7,7 +7,7 @@ const ePass = {
     highlights: ['Online Workshops'],
     accent: 'from-[#ffb347] to-[#ff6b2b]',
     glow: 'rgba(255,107,43,0.2)',
-    paymentLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdkLtn7kaSiHQ6IeMqKptxj05vgeafeJRsxuzCASYoNY0p9cg/viewform?usp=dialog',
+    paymentLink: 'https://docs.google.com/forms/d/e/1FAIpQLSff-OTrMDOE50y8OEH95BIjEMCipfRphfAQSuNnmmUwtp7Iqw/viewform?usp=publish-editor',
     buttonLabel: 'Register Now',
 };
 

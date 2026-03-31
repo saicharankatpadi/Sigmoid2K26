@@ -189,12 +189,18 @@ const eventData = {
     ]
   },
   "gallery": [
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773338006/IMG_7778_chhxhg.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773338019/IMG_9371_xssejp.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773338003/IMG_6170_swafj8.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773338000/567A0506_noju1a.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773338000/567A0521_kh2hcl.jpg",
-    "https://res.cloudinary.com/djiivo0r7/image/upload/v1773337999/567A0498_julsc0.jpg"
+    "/assets/images/technovate-carousel/567A0428.jpg",
+    "/assets/images/technovate-carousel/567A0436.jpg",
+    "/assets/images/technovate-carousel/567A0445.jpg",
+    "/assets/images/technovate-carousel/567A0446.jpg",
+    "/assets/images/technovate-carousel/567A0459.jpg",
+    "/assets/images/technovate-carousel/567A0498.jpg",
+    "/assets/images/technovate-carousel/567A0502.jpg",
+    "/assets/images/technovate-carousel/567A0506.jpg",
+    "/assets/images/technovate-carousel/567A0521.jpg",
+    "/assets/images/technovate-carousel/IMG_6170.jpg",
+    "/assets/images/technovate-carousel/IMG_7778.jpg",
+    "/assets/images/technovate-carousel/IMG_9371.jpg"
   ]
 };
 

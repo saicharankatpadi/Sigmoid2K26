@@ -135,7 +135,7 @@ export const InsightsPage = () => {
             <div className="fixed inset-0 bg-[#1A1A1A] z-[100] flex flex-col font-sans h-[100dvh] w-screen overflow-hidden">
                 {/* Background Watermark Logo - Reversed */}
                 <div className="absolute inset-0 pointer-events-none flex items-center justify-center -z-10">
-                    <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" alt="" className="h-[60vh] max-h-[600px] w-auto object-contain opacity-20" />
+                    <img src="/assets/images/hostel/logo.png" alt="" className="h-[60vh] max-h-[600px] w-auto object-contain opacity-20" />
                 </div>
 
                 {/* Chat Header - Only visible when messages exist */}
@@ -143,7 +143,7 @@ export const InsightsPage = () => {
                     <div className="flex items-center justify-between p-6 border-b border-white/5 relative z-10 bg-[#1A1A1A]">
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 rounded-full bg-[#3A3A3A] p-1.5 flex items-center justify-center shrink-0">
-                                <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" alt="Logo" className="w-full h-full object-contain" />
+                                <img src="/assets/images/hostel/logo.png" alt="Logo" className="w-full h-full object-contain" />
                             </div>
                             <div className="flex items-center gap-3">
                                 <h1 className="text-[22px] font-bold text-white tracking-tight">
@@ -186,7 +186,7 @@ export const InsightsPage = () => {
                         <div className="flex flex-col mb-auto">
                             <div className="flex items-center gap-4 mb-4">
                                 <div className="w-16 h-16 rounded-full bg-[#3A3A3A] p-2 flex items-center justify-center shrink-0">
-                                    <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" alt="Logo" className="w-full h-full object-contain" />
+                                    <img src="/assets/images/hostel/logo.png" alt="Logo" className="w-full h-full object-contain" />
                                 </div>
                                 <div className="flex flex-col justify-center">
                                     <div className="flex items-end gap-3">
@@ -240,7 +240,7 @@ export const InsightsPage = () => {
                                         <div className="flex flex-col gap-4">
                                             <div className="flex items-start gap-3 md:gap-4 w-full max-w-[95%]">
                                                 <div className="w-8 h-8 flex items-center justify-center shrink-0 mt-0.5">
-                                                    <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" alt="Logo" className="w-full h-full object-contain" />
+                                                    <img src="/assets/images/hostel/logo.png" alt="Logo" className="w-full h-full object-contain" />
                                                 </div>
                                                 <div className="text-white/90 text-[15.5px] leading-relaxed flex-1 pt-0.5">
                                                     {msg.text.split('\n').map((line, i) => (
@@ -276,7 +276,7 @@ export const InsightsPage = () => {
                                     className="flex items-start gap-3 md:gap-4 self-start w-full"
                                 >
                                     <div className="w-8 h-8 flex items-center justify-center shrink-0 mt-0.5 opacity-60">
-                                        <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" alt="Logo" className="w-full h-full object-contain animate-pulse" />
+                                        <img src="/assets/images/hostel/logo.png" alt="Logo" className="w-full h-full object-contain animate-pulse" />
                                     </div>
                                     <div className="text-white/50 text-sm font-medium pt-1.5 animate-pulse">
                                         Thinking...

@@ -42,7 +42,7 @@ export const InsightsFAB = () => {
                         layout="position"
                         className="flex items-center justify-center shrink-0 w-10 h-10 rounded-full bg-[#3A3A3A] p-1.5 border border-white/5"
                     >
-                         <img src="https://res.cloudinary.com/djiivo0r7/image/upload/v1773280067/WhatsApp_Image_2026-03-11_at_18.46.50-removebg-preview_yfupc0.png" alt="Sigmoid Logo" className="w-full h-full object-contain" />
+                         <img src="/assets/images/hostel/logo.png" alt="Sigmoid Logo" className="w-full h-full object-contain" />
                     </motion.div>
 
                     {/* Expanded Text State */}
