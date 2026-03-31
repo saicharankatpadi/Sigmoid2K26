@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { MatrixText } from './matrix-text';
 
 const thumbPosterize = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773545845/Your_paragraph_text_24_vzownp.png';
-const thumbClickfest = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773545892/Your_paragraph_text_25_qzvubf.png';
+const thumbClickfest = '/assets/images/nontech-thumbnails/click-fest.png';
 const thumbFreefire = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773546026/Im%C3%A1genes_Free_fire_kervmf.jpg';
 
 const CATEGORIES = ['Technical', 'Non-Technical', 'Workshops', 'E-sports'];
@@ -85,7 +85,7 @@ const EVENTS_DATA = [
         id: 13,
         title: 'Dumbcharades & Pictionary',
         category: 'Non-Technical',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773324699/Your_paragraph_text_13_nfgymi.png',
+        image: '/assets/images/nontech-thumbnails/dumbcharades.png',
         description: 'Guess the move, sketch the vibe! A thrilling two-round competition featuring acting in Dumbcharades and drawing in Pictionary. Showcase your observation and teamwork skills.',
         route: '/dumbcharades'
     },
@@ -93,7 +93,7 @@ const EVENTS_DATA = [
         id: 14,
         title: "Kim's Game",
         category: 'Non-Technical',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773329743/Your_paragraph_text_15_ooikpw.png',
+        image: '/assets/images/nontech-thumbnails/kims-game.png',
         description: 'A fun-filled multi-round competition that combines puzzles, movie and app identification, treasure hunts, and team coordination challenges.',
         route: '/kims-game'
     },
@@ -101,7 +101,7 @@ const EVENTS_DATA = [
         id: 15,
         title: 'Iconema',
         category: 'Non-Technical',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773337470/Your_paragraph_text_16_imbuxm.png',
+        image: '/assets/images/nontech-thumbnails/iconema.png',
         description: 'A thrilling multi-round competition featuring movie logic, app identification, and a treasure hunt. Test your observation and teamwork skills.',
         route: '/iconema'
     },
