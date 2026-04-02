@@ -47,61 +47,14 @@ import ScrollToTop from './components/ScrollToTop'
 import { ContactPage } from './components/ui/contact-page.jsx'
 import { useEffect } from 'react'
 
-const EPASS_RELEASE_TARGET = new Date('2026-04-03T09:00:00+05:30') // End of Promo Target
-
-function getTimeLeft() {
-    const diff = EPASS_RELEASE_TARGET.getTime() - Date.now()
-    const total = Math.max(diff, 0)
-
-    return {
-        total,
-        days: Math.floor(total / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((total / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((total / (1000 * 60)) % 60),
-        seconds: Math.floor((total / 1000) % 60),
-    }
-}
-
-function CountdownItem({ label, value, compact = false }) {
-    return (
-        <div className={compact ? 'min-w-[34px]' : 'min-w-[52px]'}>
-            <div className={`${compact ? 'text-sm' : 'text-2xl'} font-black leading-none`}>
-                {String(value).padStart(2, '0')}
-            </div>
-            <div className={`${compact ? 'text-[9px]' : 'text-[10px]'} mt-1 uppercase tracking-[0.16em]`}>
-                {label}
-            </div>
-        </div>
-    )
-}
-
 function PromoBanner({ onHide }) {
-    const [timeLeft, setTimeLeft] = useState(() => getTimeLeft())
-
-    useEffect(() => {
-        const timer = window.setInterval(() => {
-            const next = getTimeLeft()
-            setTimeLeft(next)
-
-            if (next.total <= 0) {
-                onHide()
-            }
-        }, 1000)
-
-        return () => window.clearInterval(timer)
-    }, [onHide])
-
     const handleClose = () => {
         sessionStorage.setItem('hidePromoBanner', 'true')
         onHide()
     }
 
-    if (timeLeft.total <= 0) {
-        return null
-    }
-
     return (
-        <div className="absolute left-0 right-0 top-0 z-[60] bg-[#f97316] px-3 py-2 text-[#17120a] shadow-[0_10px_30px_rgba(249,115,22,0.18)] sm:px-6">
+        <div className="absolute left-0 right-0 top-0 z-[60] bg-[#f97316] px-3 py-2 text-[#17120a] shadow-[0_10px_30px_rgba(249,115,22,0.18)] sm:px-6 border-b border-[#f97316]">
             <div className="mx-auto flex max-w-7xl items-center justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
                     <div className="hidden md:flex text-xl sm:text-2xl font-black italic transform -skew-x-12 bg-white text-[#f97316] px-3 py-1 rounded shadow-[2px_2px_0px_#17120a]">
@@ -115,16 +68,6 @@ function PromoBanner({ onHide }) {
                            🚀 Online Registrations for only ₹6!
                         </p>
                     </div>
-                </div>
-
-                <div className="hidden items-center gap-2 text-center md:flex text-[#17120a]">
-                    <CountdownItem label="Days" value={timeLeft.days} />
-                    <span className="text-lg font-black">:</span>
-                    <CountdownItem label="Hours" value={timeLeft.hours} />
-                    <span className="text-lg font-black">:</span>
-                    <CountdownItem label="Mins" value={timeLeft.minutes} />
-                    <span className="text-lg font-black">:</span>
-                    <CountdownItem label="Secs" value={timeLeft.seconds} />
                 </div>
 
                 <div className="flex items-center gap-2 sm:gap-4">
@@ -146,16 +89,6 @@ function PromoBanner({ onHide }) {
                         </svg>
                     </button>
                 </div>
-            </div>
-
-            <div className="mt-2 flex items-center justify-center gap-2 text-center text-[11px] font-bold uppercase tracking-[0.16em] text-[#17120a] md:hidden">
-                <CountdownItem label="D" value={timeLeft.days} compact />
-                <span>:</span>
-                <CountdownItem label="H" value={timeLeft.hours} compact />
-                <span>:</span>
-                <CountdownItem label="M" value={timeLeft.minutes} compact />
-                <span>:</span>
-                <CountdownItem label="S" value={timeLeft.seconds} compact />
             </div>
         </div>
     )
@@ -357,7 +290,7 @@ function App() {
         if (sessionStorage.getItem('hidePromoBanner') === 'true') {
             return false;
         }
-        return Date.now() < EPASS_RELEASE_TARGET.getTime();
+        return true;
     });
 
     // Only show loader if we land directly on the home page initially and haven't seen it yet this session
