@@ -30,7 +30,9 @@ const supremePass = {
     highlights: ['One Event', 'Technovate', 'Posterize', 'Avishkar', 'Free Tech Trio Bundle', 'All Non-Tech Events'],
     accent: 'from-[#ffb347] to-[#ff6b2b]',
     glow: 'rgba(255,107,43,0.2)',
-    paymentLink: 'https://rzp.io/rzp/HQc6zlQ',
+    paymentLink: null,
+    disabled: true,
+    buttonLabel: 'Sold Out',
 };
 
 const primePass = {
