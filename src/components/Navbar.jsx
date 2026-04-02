@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-export default function Navbar() {
+export default function Navbar({ topOffset = 0 }) {
     const [scrolled, setScrolled] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
 
@@ -140,8 +140,9 @@ export default function Navbar() {
             `}</style>
 
             <nav
-                className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out"
+                className="fixed left-0 right-0 z-50 transition-all duration-500 ease-out"
                 style={{
+                    top: scrolled ? '0px' : `${topOffset}px`,
                     padding: scrolled ? '10px 24px' : '0 0',
                 }}
             >
