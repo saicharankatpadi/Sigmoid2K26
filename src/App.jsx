@@ -47,52 +47,7 @@ import ScrollToTop from './components/ScrollToTop'
 import { ContactPage } from './components/ui/contact-page.jsx'
 import { useEffect } from 'react'
 
-function PromoBanner({ onHide }) {
-    const handleClose = () => {
-        sessionStorage.setItem('hidePromoBanner', 'true')
-        onHide()
-    }
 
-    return (
-        <div className="absolute left-0 right-0 top-0 z-[60] bg-[#f97316] px-3 py-2 text-[#17120a] shadow-[0_10px_30px_rgba(249,115,22,0.18)] sm:px-6 border-b border-[#f97316]">
-            <div className="mx-auto flex max-w-7xl items-center justify-between gap-3">
-                <div className="flex items-center gap-3 min-w-0">
-                    <div className="hidden md:flex text-xl sm:text-2xl font-black italic transform -skew-x-12 bg-white text-[#f97316] px-3 py-1 rounded shadow-[2px_2px_0px_#17120a]">
-                        BIG SALE
-                    </div>
-                    <div>
-                        <p className="text-sm font-extrabold sm:text-[15px] flex items-center gap-1.5 text-[#17120a]">
-                           🎟️ Big discount on all events!
-                        </p>
-                        <p className="text-xs font-bold sm:text-[13px] text-[#17120a] tracking-tight">
-                           🚀 Online Registrations for only ₹6!
-                        </p>
-                    </div>
-                </div>
-
-                <div className="flex items-center gap-2 sm:gap-4">
-                    <Link
-                        to="/register"
-                        className="rounded-full bg-[#3d2a23] px-4 py-2 text-[11px] font-black uppercase tracking-[0.05em] text-white no-underline transition hover:bg-[#2b1d18] sm:px-6 sm:text-[13px] shadow-[0_4px_10px_rgba(0,0,0,0.3)] whitespace-nowrap"
-                    >
-                        GRAB NOW
-                    </Link>
-                    <button
-                        type="button"
-                        onClick={handleClose}
-                        className="flex h-8 w-8 items-center justify-center text-[#17120a] transition hover:scale-110"
-                        aria-label="Close banner"
-                    >
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18" />
-                            <line x1="6" y1="6" x2="18" y2="18" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    )
-}
 
 
 
@@ -286,12 +241,6 @@ function Home({ showLoader }) {
 function App() {
     const location = useLocation();
     const isAboutPage = location.pathname === '/about';
-    const [showPromoBanner, setShowPromoBanner] = useState(() => {
-        if (sessionStorage.getItem('hidePromoBanner') === 'true') {
-            return false;
-        }
-        return true;
-    });
 
     // Only show loader if we land directly on the home page initially and haven't seen it yet this session
     const [showLoader, setShowLoader] = useState(() => {
@@ -318,8 +267,7 @@ function App() {
                 )}
             </AnimatePresence>
 
-            {location.pathname === '/' && showPromoBanner && <PromoBanner onHide={() => setShowPromoBanner(false)} />}
-            <Navbar topOffset={location.pathname === '/' && showPromoBanner ? 74 : 0} />
+            <Navbar topOffset={0} />
 
             <div className="flex-1">
                 <Routes>

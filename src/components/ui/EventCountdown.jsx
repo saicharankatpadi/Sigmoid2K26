@@ -72,12 +72,18 @@ const EventCountdown = () => {
         </div>
 
         <div className="space-y-4">
-          <p className="text-white text-[18px] sm:text-[20px] font-bold leading-tight px-2">
-            Get Ready for SIGMOID 2K26! Build your logic and ignite your innovation.
+          <p className="text-[#ff6b2b] text-[16px] sm:text-[18px] font-black leading-tight px-2 uppercase tracking-wide animate-pulse">
+            ⏳ Last few minutes left for registration!
           </p>
-          <p className="text-gray-400 text-[13px] font-medium leading-relaxed max-w-[280px] mx-auto">
-            Experience the synergy of engineering and creativity at the most awaited tech-fest.
+          <p className="text-white/80 text-[14px] font-semibold leading-relaxed max-w-[280px] mx-auto">
+            Hurry! Registrations for <span className="text-[#ffd166]">ePass</span> &amp; <span className="text-[#ffd166]">Elite Pass</span> closing very soon.
           </p>
+          <a
+            href="/register"
+            className="inline-block mt-2 px-8 py-3 rounded-full bg-gradient-to-r from-[#ff8a1f] to-[#ff6b2b] text-white font-black text-[14px] uppercase tracking-widest shadow-[0_8px_30px_rgba(255,106,43,0.35)] hover:scale-105 transition-transform no-underline"
+          >
+            Register Now
+          </a>
         </div>
         </div>
       </motion.div>
