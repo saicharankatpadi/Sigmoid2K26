@@ -4,7 +4,7 @@ import { MatrixText } from './matrix-text';
 
 const thumbPosterize = '/assets/images/tech-thumbnails/posterize.png';
 const thumbClickfest = '/assets/images/nontech-thumbnails/click-fest.png';
-const thumbFreefire = 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773546026/Im%C3%A1genes_Free_fire_kervmf.jpg';
+const thumbFreefire = '/assets/images/thumbnails/freefire-esports.jpeg';
 
 const CATEGORIES = ['Technical', 'Non-Technical', 'Workshops', 'E-sports'];
 
@@ -69,7 +69,7 @@ const EVENTS_DATA = [
         id: 8,
         title: 'BGMI',
         category: 'E-sports',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1773312506/bgmi_logo_a4zthq.jpg',
+        image: '/assets/images/thumbnails/bgmi-esports.jpeg',
         video: 'https://res.cloudinary.com/djiivo0r7/video/upload/v1773313214/College_Fest_PUBG_Mobile_Battle_720p_caption_qyt7zt.mp4',
         description: 'Squad up for the ultimate chicken dinner. Navigate varied terrains, master your loadouts, and showcase tactical brilliance in intense multiplayer battles.',
     },
@@ -110,7 +110,7 @@ const EVENTS_DATA = [
         id: 101,
         title: 'Solar Workshop',
         category: 'Workshops',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1774585021/WhatsApp_Image_2026-03-26_at_21.04.04_1_pt0kt7.jpg',
+        image: '/assets/images/thumbnails/solar-workshop.jpeg',
         description: 'Power from the sun — To power everyone. Conducted by K Chandra Sekhar from Pragathi Power Solutions. Fri, 3rd & 4th April.',
         route: '/workshop-solar',
         confirmed: true,
@@ -119,7 +119,7 @@ const EVENTS_DATA = [
         id: 102,
         title: 'AI & Machine Learning Workshop',
         category: 'Workshops',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1774585021/WhatsApp_Image_2026-03-26_at_21.04.03_qlx53d.jpg',
+        image: '/assets/images/thumbnails/ai-workshop.jpeg',
         description: 'Explore the power of Artificial Intelligence and Machine Learning. Conducted by Varun V V Iellapalli, Senior Software Engineer @ Fanatics, Alumni SVUCE CSE. Fri, 3rd April at 3 pm.',
         route: '/workshop-ai',
         confirmed: true,
@@ -128,7 +128,7 @@ const EVENTS_DATA = [
         id: 103,
         title: 'VLSI Workshop',
         category: 'Workshops',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1774585021/WhatsApp_Image_2026-03-26_at_21.04.04_jhq8kp.jpg',
+        image: '/assets/images/thumbnails/vlsi-workshop.jpeg',
         description: 'Dive deep into VLSI design concepts. Conducted by S Pavan, ECE Alumni. Fri & Sat, 3rd & 4th April.',
         route: '/workshop-vlsi',
         confirmed: true,
@@ -137,7 +137,7 @@ const EVENTS_DATA = [
         id: 104,
         title: 'Drone Workshop',
         category: 'Workshops',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1774603488/WhatsApp_Image_2026-03-27_at_02.11.40_hjrqlg.jpg',
+        image: '/assets/images/thumbnails/drone-workshop.jpeg',
         description: 'Conducted by K SaiLokesh Reddy & Repudi Kalyan (RPAS Engineer & Instructor). Fri & Sat, 3rd & 4th April.',
         route: '/workshop-drone',
         confirmed: true,
@@ -146,7 +146,7 @@ const EVENTS_DATA = [
         id: 105,
         title: 'Stock Market For Beginners',
         category: 'Workshops',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1774603487/WhatsApp_Image_2026-03-27_at_02.11.40_1_fbswl8.jpg',
+        image: '/assets/images/thumbnails/stock-workshop.jpeg',
         description: 'Learn the fundamentals of investing and trading in the stock market. Fri & Sat, 3rd & 4th April.',
         route: '/workshop-stock-market',
         confirmed: true,
@@ -155,7 +155,7 @@ const EVENTS_DATA = [
         id: 106,
         title: 'Business and Analytics Workshop',
         category: 'Workshops',
-        image: 'https://res.cloudinary.com/djiivo0r7/image/upload/v1774603488/WhatsApp_Image_2026-03-27_at_02.11.41_y9jj9t.jpg',
+        image: '/assets/images/thumbnails/business-workshop.jpeg',
         description: 'Conducted by Dr. Gopalkrishna MG. Fri & Sat, 3rd & 4th April.',
         route: '/workshop-business',
         confirmed: true,
