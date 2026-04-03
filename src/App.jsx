@@ -272,7 +272,7 @@ function App() {
                     Sigmoid 2K26 Event Schedule is now available!
                 </span>
                 <a 
-                    href="/PROGRAM_SCHEDULE.pdf" 
+                    href="/assets/documents/PROGRAM_SCHEDULE.pdf" 
                     download="Sigmoid_2K26_Schedule.pdf"
                     target="_blank"
                     rel="noreferrer"
