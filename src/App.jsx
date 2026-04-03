@@ -29,7 +29,6 @@ import { Accommodation } from './components/ui/accommodation.jsx'
 import { HostelDetails } from './components/ui/hostel-details.jsx'
 import { PromoSection } from './components/PromoSection'
 import { CommunityRegistration } from './components/CommunityRegistration'
-import EventCountdown from './components/ui/EventCountdown'
 
 import { GalleryPage } from './components/ui/gallery-page.jsx'
 import { StatsPage } from './components/StatsPage'
@@ -81,8 +80,7 @@ function Home({ showLoader }) {
             {/* ═══════════════ HERO — Horizon 3D Section ═══════════════ */}
             <HorizonHero startTimer={!showLoader} />
 
-            {/* ═══════════════ COUNTDOWN — Sigmoid 2K26 ═══════════════ */}
-            <EventCountdown />
+
 
             {/* ═══════════════ PROMO — Feature Highlights ═══════════════ */}
             <PromoSection />
@@ -267,7 +265,25 @@ function App() {
                 )}
             </AnimatePresence>
 
-            <Navbar topOffset={0} />
+            {/* ── Top Notification Bar ── */}
+            <div className="bg-gradient-to-r from-[#ff8a1f] to-[#ff6b2b] text-white py-2 px-4 sm:px-6 w-full flex items-center justify-center gap-3 sm:gap-6 z-[60] relative top-0 left-0 hover:bg-[#ff8a1f]/90 transition-colors shadow-md">
+                <span className="font-semibold text-xs sm:text-sm tracking-wide flex items-center gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Sigmoid 2K26 Event Schedule is now available!
+                </span>
+                <a 
+                    href="/assets/PROGRAM_SCHEDULE.pdf" 
+                    download="Sigmoid_2K26_Schedule.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-white/20 hover:bg-white/30 border border-white/30 text-white px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider backdrop-blur-sm transition-all shadow-[0_2px_10px_rgba(0,0,0,0.1)] flex items-center gap-2"
+                >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download PDF
+                </a>
+            </div>
+
+            <Navbar topOffset={44} />
 
             <div className="flex-1">
                 <Routes>
